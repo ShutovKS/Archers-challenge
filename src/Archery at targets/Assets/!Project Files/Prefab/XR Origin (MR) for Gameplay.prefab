@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5164170486548870665, guid: 4b4aeed0956c5bb4fb5c038ecbbe6359, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5164170486548870665, guid: 4b4aeed0956c5bb4fb5c038ecbbe6359, type: 3}
       propertyPath: m_LocalPosition.y
@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5164170486548870665, guid: 4b4aeed0956c5bb4fb5c038ecbbe6359, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5164170486548870665, guid: 4b4aeed0956c5bb4fb5c038ecbbe6359, type: 3}
       propertyPath: m_LocalRotation.w
@@ -147,7 +147,7 @@ PrefabInstance:
       addedObject: {fileID: 6007262711224057857}
     - targetCorrespondingSourceObject: {fileID: 5164170486548870666, guid: 4b4aeed0956c5bb4fb5c038ecbbe6359, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8556141797131244371}
+      addedObject: {fileID: 759320473684570381}
     - targetCorrespondingSourceObject: {fileID: 5799993244617109334, guid: 4b4aeed0956c5bb4fb5c038ecbbe6359, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1289550593618091855}
@@ -195,7 +195,7 @@ MonoBehaviour:
       m_Calls: []
   m_PlanePrefab: {fileID: 0}
   m_DetectionMode: -1
---- !u!114 &8556141797131244371
+--- !u!114 &759320473684570381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
