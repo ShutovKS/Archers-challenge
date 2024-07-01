@@ -8,18 +8,15 @@ public class Arrow : MonoBehaviour
     [SerializeField] private float speed = 10f; // Начальная скорость стрелы
     [SerializeField] private Transform tip; // Точка на кончике стрелы
     [SerializeField] private Rigidbody rigidbody; // Ссылка на Rigidbody компонента стрелы
+    [SerializeField] private GameObject tailVisualization; // Визуализация хвоста стрелы
 
     private bool _isInFlight; // Флаг, указывающий на то, что стрела находится в полете
 
     private void Awake()
     {
-        // Убедитесь, что Rigidbody изначально кинематичен
-        if (rigidbody == null)
-        {
-            rigidbody = GetComponent<Rigidbody>();
-        }
+        rigidbody.isKinematic = true; // Делаем Rigidbody кинематичным, чтобы стрела не двигалась
 
-        rigidbody.isKinematic = true;
+        tailVisualization.SetActive(false); // Отключаем визуализацию хвоста стрелы
     }
 
     /// <summary>
@@ -35,6 +32,8 @@ public class Arrow : MonoBehaviour
 
         // Применяем начальную силу к стрелке
         rigidbody.AddForce(tip.forward * speed * pullAmount, ForceMode.Impulse);
+
+        tailVisualization.SetActive(true); // Включаем визуализацию хвоста стрелы
     }
 
     private void FixedUpdate()
@@ -70,6 +69,8 @@ public class Arrow : MonoBehaviour
         _isInFlight = false; // Флаг, что стрела больше не в полете
 
         rigidbody.isKinematic = true; // Прекращаем движение стрелы
+
+        tailVisualization.SetActive(false); // Отключаем визуализацию хвоста стрелы
     }
 
     /// <summary>

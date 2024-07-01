@@ -10,9 +10,8 @@
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/Bow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefab/Bow.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/XR Origin (XR Rig) Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefab/XR Origin (XR Rig) Variant.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ArrowSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ArrowSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/PullInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/PullInteraction.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +103,7 @@
       <workItem from="1719736549675" duration="1718000" />
       <workItem from="1719771115218" duration="5686000" />
       <workItem from="1719778141425" duration="7357000" />
-      <workItem from="1719812513213" duration="5677000" />
+      <workItem from="1719812513213" duration="8375000" />
     </task>
     <servers />
   </component>

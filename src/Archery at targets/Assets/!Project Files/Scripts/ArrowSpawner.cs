@@ -10,6 +10,7 @@ public class ArrowSpawner : MonoBehaviour
     [SerializeField] private GameObject arrowPrefab; // Префаб для стрелы, которая будет спавниться
     [SerializeField] private Transform notchTransform; // Точка на луке, к которой крепится стрела
     [SerializeField] private XRGrabInteractable bow; // Ссылка на интерактивный объект лука
+    [SerializeField] private AudioSource audioSourceShot; // Ссылка на источник звука для звука выстрела
 
     private bool _arrowNotched; // Указывает, находится ли стрела в состоянии на лука
     private GameObject _currentArrow; // Ссылка на текущую спавненную стрелу
@@ -55,6 +56,9 @@ public class ArrowSpawner : MonoBehaviour
             // Запускает стрелу с рассчитанной величиной натяжения
             _currentArrow.transform.parent = null;
             _currentArrow.GetComponent<Arrow>().Fire(pullAmount);
+            
+            // Воспроизводит звук выстрела
+            audioSourceShot?.Play();
         }
 
         // Сбрасывает состояние зацепления после выпуска стрелы

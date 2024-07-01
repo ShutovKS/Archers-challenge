@@ -1,13 +1,15 @@
 using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 /// <summary>
 /// Управляет взаимодействием для тянущегося объекта в среде XR.
 /// Этот скрипт вычисляет величину натяжения на основе позиции интерактора
 /// и обновляет визуальное представление (линию и метку) натяжения.
 /// </summary>
-public class PullInteraction : UnityEngine.XR.Interaction.Toolkit.Interactables.XRBaseInteractable
+public class PullInteraction : XRBaseInteractable
 {
     /// <summary>
     /// Событие, которое срабатывает, когда действие натяжения завершено.
@@ -15,19 +17,15 @@ public class PullInteraction : UnityEngine.XR.Interaction.Toolkit.Interactables.
     /// </summary>
     public static event Action<float> PullActionReleased;
 
-    /// <summary>
-    /// Получает текущую величину натяжения, нормализованную в диапазоне от 0 до 1.
-    /// </summary>
-    public float PullAmount { get; private set; }
-
     // Поля для настройки точек взаимодействия и визуализации.
     [SerializeField] private Transform startTransform;
     [SerializeField] private Transform endTransform;
     [SerializeField] private Transform notchTransform;
     [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private AudioSource audioSourceString; // Ссылка на источник звука для звука натягивания тетивы
 
-    // Интерактор, который в данный момент взаимодействует с объектом.
-    private UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor _pullingInteractor;
+    private IXRSelectInteractor _pullingInteractor; // Интерактор, который в данный момент взаимодействует с объектом.
+    private float _pullAmount; // Величина натяжения, представляющая собой нормализованное значение от 0 до 1.
 
     /// <summary>
     /// Настраивает слушатели взаимодействия при создании объекта.
@@ -66,7 +64,7 @@ public class PullInteraction : UnityEngine.XR.Interaction.Toolkit.Interactables.
     private void OnSelectExit(SelectExitEventArgs args)
     {
         // Срабатывает событие завершения натяжения с текущей величиной натяжения.
-        PullActionReleased?.Invoke(PullAmount);
+        PullActionReleased?.Invoke(_pullAmount);
 
         // Сбрасывает состояние взаимодействия и визуализацию.
         _pullingInteractor = null;
@@ -84,7 +82,7 @@ public class PullInteraction : UnityEngine.XR.Interaction.Toolkit.Interactables.
         if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic && isSelected && _pullingInteractor != null)
         {
             // Вычисляет величину натяжения на основе текущей позиции интерактора.
-            PullAmount = CalculatePull(_pullingInteractor.transform.position);
+            _pullAmount = CalculatePull(_pullingInteractor.transform.position);
             UpdateString();
         }
     }
@@ -114,12 +112,14 @@ public class PullInteraction : UnityEngine.XR.Interaction.Toolkit.Interactables.
     {
         var startLocalPos = startTransform.localPosition;
         var endLocalPos = endTransform.localPosition;
-        var zPosition =
-            Mathf.Lerp(startLocalPos.z, endLocalPos.z, PullAmount); // Интерполяция между началом и концом.
+        var zPosition = Mathf.Lerp(startLocalPos.z, endLocalPos.z, _pullAmount); // Интерполяция между началом и концом.
 
         notchTransform.localPosition = new Vector3(notchTransform.localPosition.x, notchTransform.localPosition.y,
             zPosition + 0.1f);
         lineRenderer.SetPosition(1, new Vector3(startLocalPos.x, startLocalPos.y, zPosition));
+
+        // Воспроизводит звук натяжения тетивы на основе величины натяжения.
+        PlayStringSound(_pullAmount);
     }
 
     /// <summary>
@@ -127,8 +127,30 @@ public class PullInteraction : UnityEngine.XR.Interaction.Toolkit.Interactables.
     /// </summary>
     private void ResetPull()
     {
-        PullAmount = 0;
+        _pullAmount = 0;
         notchTransform.localPosition = new Vector3(notchTransform.localPosition.x, notchTransform.localPosition.y, 0);
         UpdateString();
+    }
+
+    /// <summary>
+    /// Воспроизводит звук натяжения тетивы.
+    /// </summary>
+    private void PlayStringSound(float amount)
+    {
+        if (audioSourceString != null)
+        {
+            audioSourceString.volume = amount;
+            if (_pullAmount > 0)
+            {
+                if (!audioSourceString.isPlaying)
+                {
+                    audioSourceString.Play();
+                }
+            }
+            else
+            {
+                audioSourceString.Stop();
+            }
+        }
     }
 }
