@@ -6,15 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/Arrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefab/Arrow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/Bow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefab/Bow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Arrow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Arrow.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ArrowSpawner.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ArrowSpawner.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/PullInteraction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/PullInteraction.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/XR Origin (XR Rig) Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/XR Origin (XR Rig) Variant.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +36,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;bow-and-arrows&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;core&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;
   },
@@ -106,7 +99,7 @@
       <workItem from="1719736549675" duration="1718000" />
       <workItem from="1719771115218" duration="5686000" />
       <workItem from="1719778141425" duration="7357000" />
-      <workItem from="1719812513213" duration="9543000" />
+      <workItem from="1719812513213" duration="10806000" />
     </task>
     <servers />
   </component>
