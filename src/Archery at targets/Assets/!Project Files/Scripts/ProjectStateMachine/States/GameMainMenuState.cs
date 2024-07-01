@@ -14,6 +14,8 @@ namespace ProjectStateMachine.States
             Initializer = initializer;
         }
 
+        private MainMenuUI _mainMenuUI;
+
         public void OnEnter()
         {
             var loadSceneAsync = SceneManager.LoadSceneAsync("MainMenu");
@@ -22,14 +24,17 @@ namespace ProjectStateMachine.States
 
         private void OnSceneLoaded(AsyncOperation asyncOperation)
         {
-            var mainMenuUI = Object.FindFirstObjectByType<MainMenuUI>();
-            mainMenuUI.OnVrGameButtonClicked += OnVrGameButtonClicked;
-            mainMenuUI.OnMrGameButtonClicked += OnMrGameButtonClicked;
-            mainMenuUI.OnExitButtonClicked += OnExitButtonClicked;
+            _mainMenuUI = Object.FindFirstObjectByType<MainMenuUI>();
+            _mainMenuUI.OnVrGameButtonClicked += OnVrGameButtonClicked;
+            _mainMenuUI.OnMrGameButtonClicked += OnMrGameButtonClicked;
+            _mainMenuUI.OnExitButtonClicked += OnExitButtonClicked;
         }
 
         public void OnExit()
         {
+            _mainMenuUI.OnVrGameButtonClicked -= OnVrGameButtonClicked;
+            _mainMenuUI.OnMrGameButtonClicked -= OnMrGameButtonClicked;
+            _mainMenuUI.OnExitButtonClicked -= OnExitButtonClicked;
         }
 
         private void OnVrGameButtonClicked()
@@ -39,7 +44,7 @@ namespace ProjectStateMachine.States
 
         private void OnMrGameButtonClicked()
         {
-            // Initializer.StateMachine.SwitchState<GameMrGameState>();
+            Initializer.StateMachine.SwitchState<GameMrGameState>();
         }
 
         private void OnExitButtonClicked()
