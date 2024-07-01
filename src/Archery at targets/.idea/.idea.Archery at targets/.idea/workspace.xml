@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/XR Origin (XR Rig) Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/XR Origin (XR Rig) Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Bootstrap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Bootstrap.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +99,7 @@
       <workItem from="1719736549675" duration="1718000" />
       <workItem from="1719771115218" duration="5686000" />
       <workItem from="1719778141425" duration="7357000" />
-      <workItem from="1719812513213" duration="10806000" />
+      <workItem from="1719812513213" duration="11695000" />
     </task>
     <servers />
   </component>
