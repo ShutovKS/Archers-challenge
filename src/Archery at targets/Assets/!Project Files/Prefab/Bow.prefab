@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 74269884}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Notch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264718726}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: AttachPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 344871545}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 649719643}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 1117594685}
   - component: {fileID: 1117594688}
   - component: {fileID: 1117594687}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 1144788573}
   - component: {fileID: 1144788576}
   - component: {fileID: 1144788575}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,8 @@ GameObject:
   - component: {fileID: 9008461865543561412}
   - component: {fileID: 746921915878800661}
   - component: {fileID: 7770601784902653499}
-  m_Layer: 9
+  - component: {fileID: 1406153084575979366}
+  m_Layer: 11
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +384,7 @@ MonoBehaviour:
     m_Bits: 1
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
-  m_FocusMode: 0
+  m_FocusMode: 1
   m_CustomReticle: {fileID: 0}
   m_AllowGazeInteraction: 0
   m_AllowGazeSelect: 0
@@ -487,6 +488,21 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
+--- !u!114 &1406153084575979366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3701202431252008202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31220a17331b4d43922e3419c7cffc2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 1769337597633466025, guid: 54ba44d4ecd83324991be29cf49b127d, type: 3}
+  notchTransform: {fileID: 74269884}
+  bow: {fileID: 7770601784902653499}
 --- !u!1 &4160312112915857041
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,7 +515,7 @@ GameObject:
   - component: {fileID: 3782039089030254251}
   - component: {fileID: 7385110620327358437}
   - component: {fileID: 9204031679964539974}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: String
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,6 +802,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f49798a7b92528f4ea16cc479bedd5dd, type: 3}
       propertyPath: m_Name
       value: PlankBow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f49798a7b92528f4ea16cc479bedd5dd, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
