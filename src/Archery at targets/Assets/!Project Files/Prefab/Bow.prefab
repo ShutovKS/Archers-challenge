@@ -844,6 +844,7 @@ MonoBehaviour:
   notchTransform: {fileID: 74269884}
   lineRenderer: {fileID: 3782039089030254251}
   audioSourceString: {fileID: 5032372516789969668}
+  forwardArrowOffset: 0.2
 --- !u!82 &5032372516789969668
 AudioSource:
   m_ObjectHideFlags: 0
