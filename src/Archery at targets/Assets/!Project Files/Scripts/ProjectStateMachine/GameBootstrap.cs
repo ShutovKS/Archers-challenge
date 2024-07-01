@@ -8,8 +8,10 @@ namespace ProjectStateMachine
     {
         private void Start()
         {
-            StateMachine = new StateMachine<GameBootstrap>(new BootstrapState(this),
-                new GameMainMenuState(this)
+            StateMachine = new StateMachine<GameBootstrap>(
+                new BootstrapState(this),
+                new GameMainMenuState(this),
+                new GameVrGameState(this)
             );
 
             StateMachine.SwitchState<BootstrapState>();

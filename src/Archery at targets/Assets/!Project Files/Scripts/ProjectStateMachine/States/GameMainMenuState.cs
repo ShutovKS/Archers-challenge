@@ -34,7 +34,7 @@ namespace ProjectStateMachine.States
 
         private void OnVrGameButtonClicked()
         {
-            // Initializer.StateMachine.SwitchState<GameVrGameState>();
+            Initializer.StateMachine.SwitchState<GameVrGameState>();
         }
 
         private void OnMrGameButtonClicked()
