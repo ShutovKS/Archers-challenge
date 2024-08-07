@@ -7,18 +7,13 @@ namespace ShootingGallery
         [SerializeField] private GameObject targetPrefab;
         [SerializeField] private Transform playerTransform;
 
-        private void Start()
-        {
-            SpawnTarget();
-        }
-
-        protected override void SpawnTarget()
+        public override void SpawnTarget()
         {
             var instantiate = Instantiate(targetPrefab, GetRandomPosition(), Quaternion.identity);
             instantiate.transform.LookAt(playerTransform.position + Vector3.up);
 
             var target = instantiate.GetComponent<Target>();
-            target.OnHit += base.OnTargetHit;
+            target.OnHit += OnTargetHit;
         }
 
         private Vector3 GetRandomPosition()

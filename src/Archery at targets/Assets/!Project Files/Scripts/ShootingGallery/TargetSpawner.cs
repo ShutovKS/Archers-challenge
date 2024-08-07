@@ -5,18 +5,12 @@ namespace ShootingGallery
 {
     public abstract class TargetSpawner : MonoBehaviour
     {
-        public event Action<int> OnTargetHitCountChanged;
-        public int TargetCount { get; protected set; }
+        public event Action TargetHit;
+        public abstract void SpawnTarget();
 
-        protected abstract void SpawnTarget();
-
-        protected virtual void OnTargetHit()
+        protected void OnTargetHit()
         {
-            TargetCount++;
-            OnTargetHitCountChanged?.Invoke(TargetCount);
-
-            Debug.Log("Target hit: " + TargetCount);
-            SpawnTarget();
+            TargetHit?.Invoke();
         }
     }
 }

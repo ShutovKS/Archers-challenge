@@ -8,17 +8,12 @@ namespace ShootingGallery
         [SerializeField] private Vector3 pointLimitationMax;
         [SerializeField] private GameObject targetPrefab;
 
-        private void Start()
-        {
-            SpawnTarget();
-        }
-
-        protected override void SpawnTarget()
+        public override void SpawnTarget()
         {
             var instantiate = Instantiate(targetPrefab, GetRandomPosition(), Quaternion.identity);
 
             var target = instantiate.GetComponent<Target>();
-            target.OnHit += base.OnTargetHit;
+            target.OnHit += OnTargetHit;
         }
 
         private Vector3 GetRandomPosition()
