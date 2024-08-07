@@ -7,18 +7,18 @@ namespace BowAndArrows
     /// </summary>
     public class Arrow : MonoBehaviour
     {
-        [SerializeField] private float speed = 10f; // Начальная скорость стрелы
-        [SerializeField] private Transform tip; // Точка на кончике стрелы
-        [SerializeField] private Rigidbody rigidbody; // Ссылка на Rigidbody компонента стрелы
-        [SerializeField] private GameObject tailVisualization; // Визуализация хвоста стрелы
+        [SerializeField] private float speed = 10f;
+        [SerializeField] private Transform tip;
+        [SerializeField] private new Rigidbody rigidbody;
+        [SerializeField] private GameObject tailVisualization;
 
-        private bool _isInFlight; // Флаг, указывающий на то, что стрела находится в полете
+        private bool _isInFlight;
 
         private void Awake()
         {
-            rigidbody.isKinematic = true; // Делаем Rigidbody кинематичным, чтобы стрела не двигалась
+            rigidbody.isKinematic = true;
 
-            tailVisualization.SetActive(false); // Отключаем визуализацию хвоста стрелы
+            tailVisualization.SetActive(false);
         }
 
         /// <summary>
@@ -27,23 +27,22 @@ namespace BowAndArrows
         /// <param name="pullAmount">Величина натяжения, нормализованная от 0 до 1.</param>
         public void Fire(float pullAmount)
         {
-            _isInFlight = true; // Устанавливаем флаг, что стрела в полете
+            transform.SetParent(null);
 
-            // Делаем Rigidbody не кинематичным, чтобы физика начала действовать
+            _isInFlight = true;
+
             rigidbody.isKinematic = false;
 
-            // Применяем начальную силу к стрелке
             rigidbody.AddForce(tip.forward * speed * pullAmount, ForceMode.Impulse);
 
-            tailVisualization.SetActive(true); // Включаем визуализацию хвоста стрелы
+            tailVisualization.SetActive(true);
         }
 
         private void FixedUpdate()
         {
             if (_isInFlight)
             {
-                // Поворачиваем стрелу в направлении ее движения, чтобы она выглядела реалистично
-                if (rigidbody.linearVelocity.sqrMagnitude > 0.1f) // Проверка на незначительную скорость
+                if (rigidbody.linearVelocity.sqrMagnitude > 0.1f)
                 {
                     transform.forward = rigidbody.linearVelocity.normalized;
                 }
@@ -52,35 +51,25 @@ namespace BowAndArrows
 
         private void OnTriggerEnter(Collider other)
         {
-            // Обработка столкновения стрелы с объектом
             if (_isInFlight)
             {
-                // Прекращаем движение стрелы
                 StopArrow();
 
-                // Отключаем физику и коллайдеры после столкновения
                 DisablePhysics();
             }
         }
 
-        /// <summary>
-        /// Останавливает движение стрелы и закрепляет ее на месте столкновения.
-        /// </summary>
         private void StopArrow()
         {
-            _isInFlight = false; // Флаг, что стрела больше не в полете
+            _isInFlight = false;
 
-            rigidbody.isKinematic = true; // Прекращаем движение стрелы
+            rigidbody.isKinematic = true;
 
-            tailVisualization.SetActive(false); // Отключаем визуализацию хвоста стрелы
+            tailVisualization.SetActive(false);
         }
 
-        /// <summary>
-        /// Отключает физику и коллайдеры для стрелы после столкновения.
-        /// </summary>
         private void DisablePhysics()
         {
-            // Удаляем Rigidbody и Collider, чтобы предотвратить дальнейшую физику
             if (rigidbody != null)
             {
                 Destroy(rigidbody);
@@ -91,7 +80,6 @@ namespace BowAndArrows
                 Destroy(arrowCollider);
             }
 
-            // Опционально, можно удалить сам компонент Arrow, если стрела больше не нужна
             Destroy(this);
         }
     }

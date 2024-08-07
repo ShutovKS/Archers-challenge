@@ -11,8 +11,12 @@ namespace ProjectStateMachine
             StateMachine = new StateMachine<GameBootstrap>(
                 new BootstrapState(this),
                 new GameMainMenuState(this),
-                new GameVrGameState(this),
-                new GameMrGameState(this)
+                new VRShootingPerNumberHitsState(this),
+                // new VRShootingForTimeState(this),
+                // new VRShootingInfiniteState(this),
+                new MRShootingPerNumberHitsState(this)
+                // new MRShootingForTimeState(this),
+                // new MRShootingInfiniteState(this)
             );
 
             StateMachine.SwitchState<BootstrapState>();

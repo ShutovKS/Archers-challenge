@@ -1,6 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace BowAndArrows
 {
@@ -9,87 +7,85 @@ namespace BowAndArrows
     /// </summary>
     public class ArrowSpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject arrowPrefab; // Префаб для стрелы, которая будет спавниться
-        [SerializeField] private Transform notchTransform; // Точка на луке, к которой крепится стрела
-        [SerializeField] private XRGrabInteractable bow; // Ссылка на интерактивный объект лука
-        [SerializeField] private AudioSource audioSourceShot; // Ссылка на источник звука для звука выстрела
+        [SerializeField] private Bow bow;
+        [SerializeField] private Bowstring bowstring;
 
-        private bool _arrowNotched; // Указывает, находится ли стрела в состоянии на лука
-        private GameObject _currentArrow; // Ссылка на текущую спавненную стрелу
+        [SerializeField] private GameObject arrowPrefab;
+        [SerializeField] private Transform notchTransform;
+        [SerializeField] private AudioSource audioSourceShot;
 
-        private void Awake()
+        private GameObject _currentArrow;
+
+        private void OnEnable()
         {
-            // Подписка на событие освобождения стрелы
-            PullInteraction.PullActionReleased += HandleArrowRelease;
+            bow.Selected += TakeBow;
+            bow.Selected += ReleaseBow;
+            bowstring.PullReleased += HandleArrowRelease;
+            bowstring.Selected += SelectedBowstring;
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
-            // Отписка от события освобождения стрелы
-            PullInteraction.PullActionReleased -= HandleArrowRelease;
+            bow.Selected -= TakeBow;
+            bow.Selected -= ReleaseBow;
+            bowstring.PullReleased -= HandleArrowRelease;
+            bowstring.Selected -= SelectedBowstring;
         }
 
-        private void Update()
+        private void TakeBow(bool isSelected)
         {
-            // Проверка, выбран ли лук и нет ли уже зацепленной стрелы
-            if (bow.isSelected && !_arrowNotched)
-            {
-                _arrowNotched = true;
-                StartCoroutine(DelayedSpawnArrow());
-            }
-
-            // Проверка, если лук не выбран и есть текущая стрела
-            if (!bow.isSelected && _currentArrow != null)
-            {
-                // Удаление текущей стрелы и сброс состояния зацепления
-                Destroy(_currentArrow);
-                ResetNotchState();
-            }
+            if (!isSelected) return;
+            
+            bowstring.UnlockSelect();
         }
 
-        /// <summary>
-        /// Обрабатывает выпуск стрелы.
-        /// </summary>
-        /// <param name="pullAmount">Величина натяжения, нормализованная в диапазоне от 0 до 1.</param>
+        private void ReleaseBow(bool isSelected)
+        {
+            if (isSelected) return;
+
+            TryDestroyArrow();
+            bowstring.LockSelect();
+            bowstring.ReleaseBow();
+        }
+
+        private void SelectedBowstring(bool isSelected)
+        {
+            if (!isSelected) return;
+
+            CreateArrow();
+        }
+
         private void HandleArrowRelease(float pullAmount)
         {
             if (pullAmount > 0 && _currentArrow != null)
             {
-                // Запускает стрелу с рассчитанной величиной натяжения
-                _currentArrow.transform.parent = null;
-                _currentArrow.GetComponent<Arrow>().Fire(pullAmount);
-            
-                // Воспроизводит звук выстрела
-                audioSourceShot?.Play();
+                LaunchArrow(pullAmount);
             }
 
-            // Сбрасывает состояние зацепления после выпуска стрелы
-            ResetNotchState();
-        }
-
-        /// <summary>
-        /// Спавнит новую стрелу с небольшой задержкой.
-        /// </summary>
-        private IEnumerator DelayedSpawnArrow()
-        {
-            yield return new WaitForSeconds(0.5f);
-
-            if (_arrowNotched)
-            {
-                // Создает экземпляр префаба стрелы и крепит его к точке зацепления
-                _currentArrow = Instantiate(arrowPrefab, notchTransform);
-                _currentArrow.transform.localPosition = Vector3.zero; // Сброс локальной позиции, чтобы она совпала с точкой зацепления
-                _currentArrow.transform.localRotation = Quaternion.identity; // Сброс локальной ориентации
-            }
-        }
-
-        /// <summary>
-        /// Сбрасывает состояние зацепления и очищает ссылку на текущую стрелу.
-        /// </summary>
-        private void ResetNotchState()
-        {
-            _arrowNotched = false;
             _currentArrow = null;
+        }
+
+        private void CreateArrow()
+        {
+            _currentArrow = Instantiate(arrowPrefab, notchTransform);
+            _currentArrow.transform.localPosition = Vector3.zero;
+            _currentArrow.transform.localRotation = Quaternion.identity;
+        }
+
+        private void TryDestroyArrow()
+        {
+            if (_currentArrow != null)
+            {
+                Destroy(_currentArrow);
+                _currentArrow = null;
+            }
+        }
+
+        private void LaunchArrow(float pullAmount)
+        {
+            _currentArrow.GetComponent<Arrow>().Fire(pullAmount);
+
+            audioSourceShot?.Play();
         }
     }
 }

@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 9008461865543561412}
   - component: {fileID: 746921915878800661}
   - component: {fileID: 7770601784902653499}
+  - component: {fileID: 1996543232296491574}
   - component: {fileID: 1406153084575979366}
   - component: {fileID: -1085418725121784537}
   m_Layer: 11
@@ -489,6 +490,19 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
+--- !u!114 &1996543232296491574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3701202431252008202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd183e8d1214eeab533198cd421dd93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: {fileID: 7770601784902653499}
 --- !u!114 &1406153084575979366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,9 +515,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31220a17331b4d43922e3419c7cffc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bow: {fileID: 1996543232296491574}
+  bowstring: {fileID: 9204031679964539974}
   arrowPrefab: {fileID: 1769337597633466025, guid: 54ba44d4ecd83324991be29cf49b127d, type: 3}
   notchTransform: {fileID: 74269884}
-  bow: {fileID: 7770601784902653499}
   audioSourceShot: {fileID: -1085418725121784537}
 --- !u!82 &-1085418725121784537
 AudioSource:
@@ -616,7 +631,7 @@ GameObject:
   - component: {fileID: 9204031679964539974}
   - component: {fileID: 5032372516789969668}
   m_Layer: 11
-  m_Name: String
+  m_Name: Bowstring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

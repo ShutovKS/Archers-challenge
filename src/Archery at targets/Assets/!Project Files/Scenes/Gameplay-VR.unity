@@ -2430,11 +2430,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1565784314003400054, guid: 9d96437b1954fd74c84a5e1999bb2cb1, type: 3}
   m_PrefabInstance: {fileID: 938718023}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &939965731 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 5799993244617109328, guid: 4b4aeed0956c5bb4fb5c038ecbbe6359, type: 3}
-  m_PrefabInstance: {fileID: 433450139}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &940876175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5499,7 +5494,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2871776017630818755, guid: afa83661044c245448e43e38ddc77486, type: 3}
       propertyPath: m_Name
-      value: Point Counter Screen
+      value: Information desk Screen
       objectReference: {fileID: 0}
     - target: {fileID: 3328675823977822705, guid: afa83661044c245448e43e38ddc77486, type: 3}
       propertyPath: m_Pivot.x
@@ -5581,10 +5576,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8016954335264753084, guid: afa83661044c245448e43e38ddc77486, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 939965731}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

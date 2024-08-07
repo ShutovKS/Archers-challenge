@@ -39,12 +39,12 @@ namespace ProjectStateMachine.States
 
         private void OnVrGameButtonClicked()
         {
-            Initializer.StateMachine.SwitchState<GameVrGameState>();
+            Initializer.StateMachine.SwitchState<VRShootingPerNumberHitsState>();
         }
 
         private void OnMrGameButtonClicked()
         {
-            Initializer.StateMachine.SwitchState<GameMrGameState>();
+            Initializer.StateMachine.SwitchState<MRShootingPerNumberHitsState>();
         }
 
         private void OnExitButtonClicked()
