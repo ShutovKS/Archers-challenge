@@ -27,12 +27,5 @@ namespace UI
             mrGameButton.onClick.RemoveAllListeners();
             exitButton.onClick.RemoveAllListeners();
         }
-
-        private void Awake()
-        {
-            OnVrGameButtonClicked += () => Debug.Log("VR Game Button Clicked");
-            OnMrGameButtonClicked += () => Debug.Log("MR Game Button Clicked");
-            OnExitButtonClicked += () => Debug.Log("Exit Button Clicked");
-        }
     }
 }
