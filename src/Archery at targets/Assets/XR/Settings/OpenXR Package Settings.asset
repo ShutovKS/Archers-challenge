@@ -41,6 +41,25 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &-7812888186525534571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a1f07dc5afe854f9f12a4194aca3fb, type: 3}
+  m_Name: tvOS
+  m_EditorClassIdentifier: 
+  features:
+  - {fileID: 6383483441249245659}
+  m_renderMode: 1
+  m_depthSubmissionMode: 0
+  m_optimizeBufferDiscards: 0
+  m_symmetricProjection: 0
+  m_foveatedRenderingApi: 0
 --- !u!114 &-7628213280643951826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +96,7 @@ MonoBehaviour:
   - {fileID: 5170777481026857561}
   - {fileID: -3978017548634175308}
   - {fileID: 8141709276835520020}
+  - {fileID: 9147044206855640946}
   - {fileID: 2720823495323121846}
   - {fileID: 6870592978761861223}
   - {fileID: 6531015334748979441}
@@ -90,10 +110,12 @@ MonoBehaviour:
   - {fileID: 1822829634196976279}
   - {fileID: -1608580762114579528}
   - {fileID: 7237360786623956497}
+  - {fileID: 2611444350100447067}
   m_renderMode: 1
   m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
+  m_foveatedRenderingApi: 0
 --- !u!114 &-7551053137686914033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +313,7 @@ MonoBehaviour:
   - {fileID: 7748985884912163020}
   - {fileID: -647281781231638326}
   - {fileID: 8131149403658908339}
+  - {fileID: -14071747056113996}
   - {fileID: -6801793937173454910}
   - {fileID: 7747564461781034912}
   - {fileID: 5007306794763821049}
@@ -302,10 +325,12 @@ MonoBehaviour:
   - {fileID: 4867307895347651814}
   - {fileID: 4262760101994889261}
   - {fileID: 4171877735625829711}
+  - {fileID: 2589864857953494819}
   m_renderMode: 1
   m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
+  m_foveatedRenderingApi: 0
 --- !u!114 &-4542967907040699571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,6 +426,27 @@ MonoBehaviour:
   company: Unity Technologies
   priority: 0
   required: 0
+--- !u!114 &-3535974548095779913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a75d1f5ff90154ea2a8e58222a1f59, type: 3}
+  m_Name: FoveatedRenderingFeature Metro
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Foveated Rendering
+  version: 1
+  featureIdInternal: com.unity.openxr.feature.foveatedrendering
+  openxrExtensionStrings: XR_UNITY_foveation XR_FB_foveation XR_FB_foveation_configuration
+    XR_FB_swapchain_update_state XR_FB_foveation_vulkan
+  company: Unity
+  priority: 0
+  required: 0
 --- !u!114 &-2461072175532123022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,8 +477,12 @@ MonoBehaviour:
   - visibleName: Quest Pro
     manifestName: cambria
     enabled: 1
+  - visibleName: Quest 3
+    manifestName: eureka
+    enabled: 1
   forceRemoveInternetPermission: 0
   symmetricProjection: 0
+  foveatedRenderingApi: 0
   systemSplashScreen: {fileID: 0}
   optimizeBufferDiscards: 1
   lateLatchingMode: 0
@@ -612,6 +662,27 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &-14071747056113996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a75d1f5ff90154ea2a8e58222a1f59, type: 3}
+  m_Name: FoveatedRenderingFeature Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Foveated Rendering
+  version: 1
+  featureIdInternal: com.unity.openxr.feature.foveatedrendering
+  openxrExtensionStrings: XR_UNITY_foveation XR_FB_foveation XR_FB_foveation_configuration
+    XR_FB_swapchain_update_state XR_FB_foveation_vulkan
+  company: Unity
+  priority: 0
+  required: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,11 +695,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0ebc320a151d3408ea1e9fce54d40e, type: 3}
   m_Name: OpenXR Package Settings
   m_EditorClassIdentifier: 
-  Keys: 01000000070000000e000000
+  Keys: 01000000070000000e0000000d00000019000000
   Values:
   - {fileID: -7613212022521123352}
   - {fileID: -4894644328362311071}
   - {fileID: 3776343249372607156}
+  - {fileID: 7014936611012458224}
+  - {fileID: -7812888186525534571}
 --- !u!114 &417768561905344443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,6 +740,26 @@ MonoBehaviour:
   version: 0.0.1
   featureIdInternal: com.unity.openxr.feature.input.oculustouch
   openxrExtensionStrings: 
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &1430073665162125927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b213d3e3c7f3109449eb46a4c8ee42f0, type: 3}
+  m_Name: XrPerformanceSettingsFeature WebGL
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: XR Performance Settings
+  version: 1.0.0
+  featureIdInternal: com.unity.openxr.feature.extension.performance_settings
+  openxrExtensionStrings: XR_EXT_performance_settings
   company: Unity
   priority: 0
   required: 0
@@ -712,6 +805,66 @@ MonoBehaviour:
   required: 0
   cacheSize: 1048576
   perThreadCacheSize: 51200
+--- !u!114 &2345219859488354538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b213d3e3c7f3109449eb46a4c8ee42f0, type: 3}
+  m_Name: XrPerformanceSettingsFeature Metro
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: XR Performance Settings
+  version: 1.0.0
+  featureIdInternal: com.unity.openxr.feature.extension.performance_settings
+  openxrExtensionStrings: XR_EXT_performance_settings
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &2589864857953494819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b213d3e3c7f3109449eb46a4c8ee42f0, type: 3}
+  m_Name: XrPerformanceSettingsFeature Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: XR Performance Settings
+  version: 1.0.0
+  featureIdInternal: com.unity.openxr.feature.extension.performance_settings
+  openxrExtensionStrings: XR_EXT_performance_settings
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &2611444350100447067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b213d3e3c7f3109449eb46a4c8ee42f0, type: 3}
+  m_Name: XrPerformanceSettingsFeature Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: XR Performance Settings
+  version: 1.0.0
+  featureIdInternal: com.unity.openxr.feature.extension.performance_settings
+  openxrExtensionStrings: XR_EXT_performance_settings
+  company: Unity
+  priority: 0
+  required: 0
 --- !u!114 &2720823495323121846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,6 +961,7 @@ MonoBehaviour:
   - {fileID: -1255476759594225084}
   - {fileID: -6256774615392692406}
   - {fileID: 4131990477364391092}
+  - {fileID: -3535974548095779913}
   - {fileID: -5746467399934470825}
   - {fileID: -7551053137686914033}
   - {fileID: 8183687246123385695}
@@ -820,10 +974,12 @@ MonoBehaviour:
   - {fileID: 5747294626343926641}
   - {fileID: 1862125793368239206}
   - {fileID: 5871995115909458698}
+  - {fileID: 2345219859488354538}
   m_renderMode: 1
   m_depthSubmissionMode: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
+  m_foveatedRenderingApi: 0
 --- !u!114 &4005521528727111276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,6 +1204,26 @@ MonoBehaviour:
   company: Unity Technologies
   priority: 0
   required: 0
+--- !u!114 &6383483441249245659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b213d3e3c7f3109449eb46a4c8ee42f0, type: 3}
+  m_Name: XrPerformanceSettingsFeature tvOS
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: XR Performance Settings
+  version: 1.0.0
+  featureIdInternal: com.unity.openxr.feature.extension.performance_settings
+  openxrExtensionStrings: XR_EXT_performance_settings
+  company: Unity
+  priority: 0
+  required: 0
 --- !u!114 &6531015334748979441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,6 +1264,25 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &7014936611012458224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a1f07dc5afe854f9f12a4194aca3fb, type: 3}
+  m_Name: WebGL
+  m_EditorClassIdentifier: 
+  features:
+  - {fileID: 1430073665162125927}
+  m_renderMode: 1
+  m_depthSubmissionMode: 0
+  m_optimizeBufferDiscards: 0
+  m_symmetricProjection: 0
+  m_foveatedRenderingApi: 0
 --- !u!114 &7151609828387476695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1246,6 +1441,27 @@ MonoBehaviour:
   version: 0.0.1
   featureIdInternal: com.unity.openxr.feature.input.hpreverb
   openxrExtensionStrings: XR_EXT_hp_mixed_reality_controller
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &9147044206855640946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a75d1f5ff90154ea2a8e58222a1f59, type: 3}
+  m_Name: FoveatedRenderingFeature Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Foveated Rendering
+  version: 1
+  featureIdInternal: com.unity.openxr.feature.foveatedrendering
+  openxrExtensionStrings: XR_UNITY_foveation XR_FB_foveation XR_FB_foveation_configuration
+    XR_FB_swapchain_update_state XR_FB_foveation_vulkan
   company: Unity
   priority: 0
   required: 0
