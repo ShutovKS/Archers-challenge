@@ -124,7 +124,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         [HideInInspector]
         [SerializeField]
-        XRPokeFilter m_PokeFilter = null;
+        XRPokeFilter m_PokeFilter;
         
         /// <summary>
         /// See <see cref="MonoBehaviour"/>.

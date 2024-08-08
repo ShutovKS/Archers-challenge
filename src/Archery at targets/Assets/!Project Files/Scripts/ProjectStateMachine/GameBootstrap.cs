@@ -12,7 +12,7 @@ namespace ProjectStateMachine
                 new BootstrapState(this),
                 new GameMainMenuState(this),
                 new VRShootingPerNumberHitsState(this),
-                // new VRShootingForTimeState(this),
+                new VRShootingForTimeState(this),
                 // new VRShootingInfiniteState(this),
                 new MRShootingPerNumberHitsState(this)
                 // new MRShootingForTimeState(this),

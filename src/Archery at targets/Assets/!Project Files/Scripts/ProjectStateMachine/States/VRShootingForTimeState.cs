@@ -10,9 +10,9 @@ using Object = UnityEngine.Object;
 
 namespace ProjectStateMachine.States
 {
-    public class VRShootingPerNumberHitsState : IState<GameBootstrap>, IEnterable, IExitable
+    public class VRShootingForTimeState : IState<GameBootstrap>, IEnterable, IExitable
     {
-        public VRShootingPerNumberHitsState(GameBootstrap initializer)
+        public VRShootingForTimeState(GameBootstrap initializer)
         {
             Initializer = initializer;
         }
@@ -22,9 +22,8 @@ namespace ProjectStateMachine.States
         private TargetSpawner _targetSpawner;
         private InformationDeskUI _informationDeskUI;
 
-        private int _targetHitCountMax = 5;
+        private int _timerSeconds = 60;
         private int _targetHitCount;
-        private int _timeSeconds;
 
         private CancellationTokenSource _cancellationTokenSource;
 
@@ -46,7 +45,7 @@ namespace ProjectStateMachine.States
             }
 
             UpdateTime();
-            StartTimeUpdate();
+            StartTimerUpdate();
 
             _targetSpawner = Object.FindAnyObjectByType<TargetSpawner>();
             if (_targetSpawner == null)
@@ -56,7 +55,6 @@ namespace ProjectStateMachine.States
             }
 
             _targetSpawner.TargetHit += IncreaseScore;
-            _targetSpawner.TargetHit += CheckScore;
             _targetSpawner.TargetHit += UpdateScore;
             _targetSpawner.TargetHit += _targetSpawner.SpawnTarget;
             _targetSpawner.SpawnTarget();
@@ -65,7 +63,7 @@ namespace ProjectStateMachine.States
 
         private void UpdateScore()
         {
-            _informationDeskUI?.SetInformationText("Score", $"{_targetHitCount}/{_targetHitCountMax} Очков");
+            _informationDeskUI?.SetInformationText("Score", $"{_targetHitCount} Очков");
         }
 
         private void IncreaseScore()
@@ -73,25 +71,19 @@ namespace ProjectStateMachine.States
             _targetHitCount++;
         }
 
-        private void CheckScore()
-        {
-            if (_targetHitCount >= 5)
-            {
-                Initializer.StateMachine.SwitchState<GameMainMenuState>();
-            }
-        }
-
-        private async void StartTimeUpdate()
+        private async void StartTimerUpdate()
         {
             var token = _cancellationTokenSource.Token;
             try
             {
-                while (!token.IsCancellationRequested)
+                while (!token.IsCancellationRequested && _timerSeconds > 0)
                 {
                     await Task.Delay(1000, token);
-                    _timeSeconds++;
+                    _timerSeconds--;
                     UpdateTime();
                 }
+
+                Initializer.StateMachine.SwitchState<GameMainMenuState>();
             }
             catch (Exception)
             {
@@ -102,7 +94,7 @@ namespace ProjectStateMachine.States
 
         private void UpdateTime()
         {
-            _informationDeskUI.SetInformationText("Time", $"Время: {_timeSeconds} сек.");
+            _informationDeskUI.SetInformationText("Time", $"Время: {_timerSeconds} секунд");
         }
 
         public void OnExit()
@@ -110,13 +102,12 @@ namespace ProjectStateMachine.States
             if (_targetSpawner != null)
             {
                 _targetSpawner.TargetHit -= IncreaseScore;
-                _targetSpawner.TargetHit -= CheckScore;
                 _targetSpawner.TargetHit -= UpdateScore;
                 _targetSpawner.TargetHit -= _targetSpawner.SpawnTarget;
             }
 
             _targetHitCount = 0;
-            _timeSeconds = 0;
+            _timerSeconds = 60;
             _targetSpawner = null;
             _informationDeskUI = null;
 
