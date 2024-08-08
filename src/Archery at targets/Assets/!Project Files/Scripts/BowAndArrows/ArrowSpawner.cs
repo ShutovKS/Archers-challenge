@@ -3,7 +3,7 @@ using UnityEngine;
 namespace BowAndArrows
 {
     /// <summary>
-    /// Спавнит стрелы на луке и управляет их состоянием.
+    /// Создаёт стрелы на луке и управляет их состоянием.
     /// </summary>
     public class ArrowSpawner : MonoBehaviour
     {
@@ -18,41 +18,36 @@ namespace BowAndArrows
 
         private void OnEnable()
         {
-            bow.Selected += TakeBow;
-            bow.Selected += ReleaseBow;
+            bow.Selected += HandleBowSelection;
             bowstring.PullReleased += HandleArrowRelease;
-            bowstring.Selected += SelectedBowstring;
+            bowstring.Selected += HandleBowstringSelection;
         }
 
         private void OnDisable()
         {
-            bow.Selected -= TakeBow;
-            bow.Selected -= ReleaseBow;
+            bow.Selected -= HandleBowSelection;
             bowstring.PullReleased -= HandleArrowRelease;
-            bowstring.Selected -= SelectedBowstring;
+            bowstring.Selected -= HandleBowstringSelection;
         }
 
-        private void TakeBow(bool isSelected)
+        private void HandleBowSelection(bool isSelected)
         {
-            if (!isSelected) return;
-            
-            bowstring.UnlockSelect();
+            if (isSelected)
+            {
+                bowstring.UnlockSelect();
+            }
+            else
+            {
+                ReleaseBow();
+            }
         }
 
-        private void ReleaseBow(bool isSelected)
+        private void HandleBowstringSelection(bool isSelected)
         {
-            if (isSelected) return;
-
-            TryDestroyArrow();
-            bowstring.LockSelect();
-            bowstring.ReleaseBow();
-        }
-
-        private void SelectedBowstring(bool isSelected)
-        {
-            if (!isSelected) return;
-
-            CreateArrow();
+            if (isSelected)
+            {
+                CreateArrow();
+            }
         }
 
         private void HandleArrowRelease(float pullAmount)
@@ -61,8 +56,6 @@ namespace BowAndArrows
             {
                 LaunchArrow(pullAmount);
             }
-
-            _currentArrow = null;
         }
 
         private void CreateArrow()
@@ -70,6 +63,13 @@ namespace BowAndArrows
             _currentArrow = Instantiate(arrowPrefab, notchTransform);
             _currentArrow.transform.localPosition = Vector3.zero;
             _currentArrow.transform.localRotation = Quaternion.identity;
+        }
+
+        private void ReleaseBow()
+        {
+            TryDestroyArrow();
+            bowstring.LockSelect();
+            bowstring.ReleaseBow();
         }
 
         private void TryDestroyArrow()
@@ -83,9 +83,16 @@ namespace BowAndArrows
 
         private void LaunchArrow(float pullAmount)
         {
-            _currentArrow.GetComponent<Arrow>().Fire(pullAmount);
+            if (_currentArrow == null) return;
+
+            var arrowScript = _currentArrow.GetComponent<Arrow>();
+            if (arrowScript != null)
+            {
+                arrowScript.Fire(pullAmount);
+            }
 
             audioSourceShot?.Play();
+            _currentArrow = null;
         }
     }
 }

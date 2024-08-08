@@ -1,41 +1,35 @@
 using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace BowAndArrows
 {
     /// <summary>
-    /// Управляет взаимодействием для тетивы лука в среде XR.
+    /// Manages the interaction logic for the bowstring in an XR environment.
     /// </summary>
-    public class Bowstring : XRBaseInteractable
+    public class Bowstring : UnityEngine.XR.Interaction.Toolkit.Interactables.XRBaseInteractable
     {
-        /// <summary>
-        /// Событие, которое срабатывает, когда действие натяжения завершено.
-        /// </summary>
-        /// <param name=""> Параметр float представляет конечную величину натяжения. </param>
         public event Action<float> PullReleased;
-
-        /// <summary>
-        /// Событие, которое срабатывает, когда объект выбран или отменен.
-        /// </summary>
-        /// <param name=""> Параметр bool представляет состояние выбора. </param>
         public event Action<bool> Selected;
 
-        [SerializeField] private Transform startTransform;
+        [Header("Transforms")] [SerializeField]
+        private Transform startTransform;
+
         [SerializeField] private Transform endTransform;
         [SerializeField] private Transform notchTransform;
-        [SerializeField] private LineRenderer lineRenderer;
-        [SerializeField] private AudioSource audioSourceString;
-        [SerializeField] private float forwardArrowOffset;
 
-        private IXRSelectInteractor _pullingInteractor;
+        [Header("Components")] [SerializeField]
+        private LineRenderer lineRenderer;
+
+        [SerializeField] private AudioSource audioSourceString;
+
+        [Header("Settings")] [SerializeField] private float forwardArrowOffset = 0.1f;
+
+        private UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor _pullingInteractor;
         private float _pullAmount;
         private bool _isLocked;
 
         public void LockSelect() => _isLocked = true;
-
         public void UnlockSelect() => _isLocked = false;
 
         protected override void Awake()
@@ -48,7 +42,6 @@ namespace BowAndArrows
         protected override void OnDestroy()
         {
             base.OnDestroy();
-
             selectEntered.RemoveListener(OnSelectEnter);
             selectExited.RemoveListener(OnSelectExit);
         }
@@ -58,7 +51,6 @@ namespace BowAndArrows
             if (_isLocked) return;
 
             _pullingInteractor = args.interactorObject;
-
             Selected?.Invoke(true);
         }
 
@@ -71,14 +63,11 @@ namespace BowAndArrows
 
         public void ReleaseBow()
         {
-            _pullingInteractor = null;
-
             PullReleased?.Invoke(_pullAmount);
             Selected?.Invoke(false);
 
             ResetPull();
         }
-
 
         public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
         {
@@ -87,34 +76,31 @@ namespace BowAndArrows
             if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic && isSelected && _pullingInteractor != null)
             {
                 _pullAmount = CalculatePull(_pullingInteractor.transform.position);
-
                 UpdateString();
             }
         }
 
         private float CalculatePull(Vector3 pullPosition)
         {
-            var pullDirection = pullPosition - startTransform.position;
-            var targetDirection = endTransform.position - startTransform.position;
-            var maxLength = targetDirection.magnitude;
+            Vector3 pullDirection = pullPosition - startTransform.position;
+            Vector3 targetDirection = endTransform.position - startTransform.position;
+            float maxLength = targetDirection.magnitude;
 
             targetDirection.Normalize();
-            var pullValue = Vector3.Dot(pullDirection, targetDirection) / maxLength;
+            float pullValue = Vector3.Dot(pullDirection, targetDirection) / maxLength;
 
             return Mathf.Clamp(pullValue, 0, 1);
         }
 
         private void UpdateString()
         {
-            var startLocalPos = startTransform.localPosition;
-            var endLocalPos = endTransform.localPosition;
-            var zPosition = Mathf.Lerp(startLocalPos.z, endLocalPos.z, _pullAmount);
-
-            var notchPosition = notchTransform.localPosition;
+            float zPosition = Mathf.Lerp(startTransform.localPosition.z, endTransform.localPosition.z, _pullAmount);
+            Vector3 notchPosition = notchTransform.localPosition;
             notchPosition.z = zPosition + forwardArrowOffset;
             notchTransform.localPosition = notchPosition;
 
-            lineRenderer.SetPosition(1, new Vector3(startLocalPos.x, startLocalPos.y, zPosition));
+            lineRenderer.SetPosition(1,
+                new Vector3(startTransform.localPosition.x, startTransform.localPosition.y, zPosition));
 
             PlayStringSound(_pullAmount);
         }
@@ -123,21 +109,18 @@ namespace BowAndArrows
         {
             _pullAmount = 0;
 
-            var notchPosition = notchTransform.localPosition;
-            notchPosition.z = 0;
-            notchTransform.localPosition = notchPosition;
+            notchTransform.localPosition =
+                new Vector3(notchTransform.localPosition.x, notchTransform.localPosition.y, 0);
 
             UpdateString();
         }
 
         private void PlayStringSound(float amount)
         {
-            if (audioSourceString == null)
-            {
-                return;
-            }
+            if (audioSourceString == null) return;
 
             audioSourceString.volume = amount;
+
             if (_pullAmount > 0)
             {
                 if (!audioSourceString.isPlaying)

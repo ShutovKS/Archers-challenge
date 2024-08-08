@@ -5,31 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/Bowstring.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/VRShootingPerNumberHitsState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/Bow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefab/Bow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/Point Counter Screen.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/Point Counter Screen.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Gameplay-VR.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Gameplay-VR.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/Arrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/Arrow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/ArrowSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/ArrowSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/PullInteraction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/PullInteraction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/Bowstring.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/GameBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/GameBootstrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/GameMainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/GameMainMenuState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/GameMrGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/MRShootingPerNumberHitsState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/GameMrGameState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/MRShootingPerNumberHitsState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/GameVrGameState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/GameVrGameState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/VRShootingPerNumberHitsState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ShootingGallery/TargetSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ShootingGallery/TargetSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ShootingGallery/TargetSpawnerMR.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ShootingGallery/TargetSpawnerMR.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ShootingGallery/TargetSpawnerVR.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ShootingGallery/TargetSpawnerVR.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/UI/MainMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/UI/MainMenuUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/UI/PointCounterUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/UI/InformationDeskUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/UI/PointCounterUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/UI/InformationDeskUI.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/Bow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/Bow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/Bowstring.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/Bowstring.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,11 +22,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3dc794ec2f4f4bffb3393937fe47a8572ac00/b1/c22a4da3/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/bb/3c001fa2/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fe22fa1c9ce44af491c6d67e6c35b4a41dbc00/c9/f4324d9b/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Project Files/Scripts/ShootingGallery/Target.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/TMP/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/XRBaseInteractable.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -57,21 +40,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "cn.yiiguxing.plugin.translate"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Admin\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Admin\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Admin\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Admin\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Admin\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Admin\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.13f1\Editor\Unity.exe" />
@@ -129,9 +112,18 @@
       <workItem from="1719861408373" duration="425000" />
       <workItem from="1720155624360" duration="10000" />
       <workItem from="1723050183334" duration="13012000" />
+      <workItem from="1723119236467" duration="277000" />
+      <workItem from="1723121789285" duration="432000" />
+      <workItem from="1723122268400" duration="204000" />
+      <workItem from="1723122485850" duration="207000" />
+      <workItem from="1723122792259" duration="794000" />
+      <workItem from="1723123613146" duration="138000" />
+      <workItem from="1723123773210" duration="99000" />
+      <workItem from="1723123883707" duration="1158000" />
     </task>
     <servers />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
@@ -139,7 +131,30 @@
     <option name="unityProjectFolder" value="true" />
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
+  <component name="WfRunsListSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;branch&quot;: &quot;dev&quot;,
+      &quot;currentBranchFilter&quot;: true
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;branch&quot;: &quot;dev&quot;,
+    &quot;currentBranchFilter&quot;: true
+  }
+}</component>
 </project>

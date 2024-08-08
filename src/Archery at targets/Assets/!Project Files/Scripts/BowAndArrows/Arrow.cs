@@ -3,7 +3,7 @@ using UnityEngine;
 namespace BowAndArrows
 {
     /// <summary>
-    /// Скрипт, управляющий стрелой, которая может быть запущена с лука.
+    /// Управляет логикой стрелок, включая поведение полета и столкновения.
     /// </summary>
     public class Arrow : MonoBehaviour
     {
@@ -17,22 +17,19 @@ namespace BowAndArrows
         private void Awake()
         {
             rigidbody.isKinematic = true;
-
             tailVisualization.SetActive(false);
         }
 
         /// <summary>
-        /// Запускает стрелу, используя заданное натяжение.
+        /// Выпускает стрелу с указанной силой притяжения.
         /// </summary>
-        /// <param name="pullAmount">Величина натяжения, нормализованная от 0 до 1.</param>
+        /// <param name="pullAmount">Нормализованная величина вытягивания, от 0 до 1.</param>
         public void Fire(float pullAmount)
         {
             transform.SetParent(null);
 
             _isInFlight = true;
-
             rigidbody.isKinematic = false;
-
             rigidbody.AddForce(tip.forward * speed * pullAmount, ForceMode.Impulse);
 
             tailVisualization.SetActive(true);
@@ -40,12 +37,9 @@ namespace BowAndArrows
 
         private void FixedUpdate()
         {
-            if (_isInFlight)
+            if (_isInFlight && rigidbody.linearVelocity.sqrMagnitude > 0.1f)
             {
-                if (rigidbody.linearVelocity.sqrMagnitude > 0.1f)
-                {
-                    transform.forward = rigidbody.linearVelocity.normalized;
-                }
+                transform.forward = rigidbody.linearVelocity.normalized;
             }
         }
 
@@ -54,7 +48,6 @@ namespace BowAndArrows
             if (_isInFlight)
             {
                 StopArrow();
-
                 DisablePhysics();
             }
         }
@@ -62,9 +55,7 @@ namespace BowAndArrows
         private void StopArrow()
         {
             _isInFlight = false;
-
             rigidbody.isKinematic = true;
-
             tailVisualization.SetActive(false);
         }
 
@@ -75,7 +66,8 @@ namespace BowAndArrows
                 Destroy(rigidbody);
             }
 
-            if (TryGetComponent<Collider>(out var arrowCollider))
+            var arrowCollider = GetComponent<Collider>();
+            if (arrowCollider != null)
             {
                 Destroy(arrowCollider);
             }

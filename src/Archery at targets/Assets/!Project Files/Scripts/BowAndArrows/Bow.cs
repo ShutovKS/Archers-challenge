@@ -5,8 +5,15 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace BowAndArrows
 {
+    /// <summary>
+    /// Управляет логикой взаимодействия лука в среде XR.
+    /// </summary>
     public class Bow : MonoBehaviour
     {
+        /// <summary>
+        /// Событие, вызываемое при выборе или отмене выбора лука.
+        /// </summary>
+        /// <param name="isSelected">Выбран ли лук.</param>
         public event Action<bool> Selected;
 
         [SerializeField] private XRBaseInteractable interactable;
@@ -23,12 +30,12 @@ namespace BowAndArrows
             interactable.selectExited.RemoveListener(OnBowDropped);
         }
 
-        private void OnBowTaken(SelectEnterEventArgs arg0)
+        private void OnBowTaken(SelectEnterEventArgs args)
         {
             Selected?.Invoke(true);
         }
 
-        private void OnBowDropped(SelectExitEventArgs arg0)
+        private void OnBowDropped(SelectExitEventArgs args)
         {
             Selected?.Invoke(false);
         }
