@@ -45,24 +45,18 @@ namespace ProjectStateMachine.States
         private void ShowVRGamesMenu()
         {
             _mainMenuUI.ClearButtons();
-            _mainMenuUI.AddButton("На количество поподаний", LoadVRShootingPerNumberHits);
-            _mainMenuUI.AddButton("На время", LoadVRShootingForTime);
-            _mainMenuUI.AddButton("Бесконечный режим", LoadVRShootingInfinite);
+            _mainMenuUI.AddButton("На количество поподаний", LoadGame<VRShootingPerNumberHitsState>);
+            _mainMenuUI.AddButton("На время", LoadGame<VRShootingForTimeState>);
+            _mainMenuUI.AddButton("Бесконечный режим", LoadGame<VRShootingInfiniteState>);
             _mainMenuUI.AddButton("Назад", ShowMainMenu);
         }
 
         private void ShowMrGamesMenu()
         {
             _mainMenuUI.ClearButtons();
-            _mainMenuUI.AddButton("На количество поподаний", LoadMrShootingPerNumberHits);
+            _mainMenuUI.AddButton("На количество поподаний", LoadGame<MRShootingPerNumberHitsState>);
             _mainMenuUI.AddButton("Назад", ShowMainMenu);
         }
-
-        private void LoadVRShootingPerNumberHits() => LoadGame<VRShootingPerNumberHitsState>();
-        private void LoadVRShootingForTime() => LoadGame<VRShootingForTimeState>();
-        private void LoadVRShootingInfinite() => LoadGame<VRShootingInfiniteState>();
-
-        private void LoadMrShootingPerNumberHits() => LoadGame<MRShootingPerNumberHitsState>();
 
         private void LoadGame<T>() where T : IState<GameBootstrap> => Initializer.StateMachine.SwitchState<T>();
 
