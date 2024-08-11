@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,26 +8,37 @@ namespace UI
 {
     public class MainMenuUI : MonoBehaviour
     {
-        [SerializeField] private Button vrGameButton;
-        [SerializeField] private Button mrGameButton;
-        [SerializeField] private Button exitButton;
+        [SerializeField] private Button buttonPrefab;
+        [SerializeField] private Transform contentTransform;
 
-        public event Action OnVrGameButtonClicked;
-        public event Action OnMrGameButtonClicked;
-        public event Action OnExitButtonClicked;
+        private readonly Dictionary<string, Button> _buttons = new();
 
-        private void OnEnable()
+        public void AddButton(string buttonName, Action onClick)
         {
-            vrGameButton.onClick.AddListener(() => OnVrGameButtonClicked?.Invoke());
-            mrGameButton.onClick.AddListener(() => OnMrGameButtonClicked?.Invoke());
-            exitButton.onClick.AddListener(() => OnExitButtonClicked?.Invoke());
+            var button = Instantiate(buttonPrefab, contentTransform);
+            button.GetComponentInChildren<TMP_Text>().text = buttonName;
+            button.onClick.AddListener(() => onClick());
+            button.gameObject.SetActive(true);
+
+            _buttons.Add(buttonName, button);
         }
 
-        private void OnDisable()
+        public void RemoveButton(string buttonName)
         {
-            vrGameButton.onClick.RemoveAllListeners();
-            mrGameButton.onClick.RemoveAllListeners();
-            exitButton.onClick.RemoveAllListeners();
+            if (_buttons.Remove(buttonName, out var button))
+            {
+                Destroy(button.gameObject);
+            }
+        }
+
+        public void ClearButtons()
+        {
+            foreach (var button in _buttons.Values)
+            {
+                Destroy(button.gameObject);
+            }
+
+            _buttons.Clear();
         }
     }
 }

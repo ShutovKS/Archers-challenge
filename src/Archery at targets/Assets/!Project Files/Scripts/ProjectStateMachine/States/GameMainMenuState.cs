@@ -25,27 +25,46 @@ namespace ProjectStateMachine.States
         private void OnSceneLoaded(AsyncOperation asyncOperation)
         {
             _mainMenuUI = Object.FindFirstObjectByType<MainMenuUI>();
-            _mainMenuUI.OnVrGameButtonClicked += OnVrGameButtonClicked;
-            _mainMenuUI.OnMrGameButtonClicked += OnMrGameButtonClicked;
-            _mainMenuUI.OnExitButtonClicked += OnExitButtonClicked;
+
+            ShowMainMenu();
         }
 
         public void OnExit()
         {
-            _mainMenuUI.OnVrGameButtonClicked -= OnVrGameButtonClicked;
-            _mainMenuUI.OnMrGameButtonClicked -= OnMrGameButtonClicked;
-            _mainMenuUI.OnExitButtonClicked -= OnExitButtonClicked;
+            _mainMenuUI.ClearButtons();
         }
 
-        private void OnVrGameButtonClicked()
+        private void ShowMainMenu()
         {
-            Initializer.StateMachine.SwitchState<VRShootingPerNumberHitsState>();
+            _mainMenuUI.ClearButtons();
+            _mainMenuUI.AddButton("VR режим", ShowVRGamesMenu);
+            _mainMenuUI.AddButton("MR режим", ShowMrGamesMenu);
+            _mainMenuUI.AddButton("Выход", OnExitButtonClicked);
         }
 
-        private void OnMrGameButtonClicked()
+        private void ShowVRGamesMenu()
         {
-            Initializer.StateMachine.SwitchState<MRShootingPerNumberHitsState>();
+            _mainMenuUI.ClearButtons();
+            _mainMenuUI.AddButton("На количество поподаний", LoadVRShootingPerNumberHits);
+            _mainMenuUI.AddButton("На время", LoadVRShootingForTime);
+            _mainMenuUI.AddButton("Бесконечный режим", LoadVRShootingInfinite);
+            _mainMenuUI.AddButton("Назад", ShowMainMenu);
         }
+
+        private void ShowMrGamesMenu()
+        {
+            _mainMenuUI.ClearButtons();
+            _mainMenuUI.AddButton("На количество поподаний", LoadMrShootingPerNumberHits);
+            _mainMenuUI.AddButton("Назад", ShowMainMenu);
+        }
+
+        private void LoadVRShootingPerNumberHits() => LoadGame<VRShootingPerNumberHitsState>();
+        private void LoadVRShootingForTime() => LoadGame<VRShootingForTimeState>();
+        private void LoadVRShootingInfinite() => LoadGame<VRShootingInfiniteState>();
+
+        private void LoadMrShootingPerNumberHits() => LoadGame<MRShootingPerNumberHitsState>();
+
+        private void LoadGame<T>() where T : IState<GameBootstrap> => Initializer.StateMachine.SwitchState<T>();
 
         private void OnExitButtonClicked()
         {
