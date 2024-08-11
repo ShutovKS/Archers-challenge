@@ -1,31 +1,32 @@
 using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace BowAndArrows
 {
     /// <summary>
     /// Manages the interaction logic for the bowstring in an XR environment.
     /// </summary>
-    public class Bowstring : UnityEngine.XR.Interaction.Toolkit.Interactables.XRBaseInteractable
+    public class Bowstring : XRBaseInteractable
     {
         public event Action<float> PullReleased;
         public event Action<bool> Selected;
 
-        [Header("Transforms")] [SerializeField]
-        private Transform startTransform;
-
+        [Header("Transforms")] 
+        [SerializeField] private Transform startTransform;
         [SerializeField] private Transform endTransform;
         [SerializeField] private Transform notchTransform;
 
-        [Header("Components")] [SerializeField]
-        private LineRenderer lineRenderer;
-
+        [Header("Components")] 
+        [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private AudioSource audioSourceString;
 
-        [Header("Settings")] [SerializeField] private float forwardArrowOffset = 0.1f;
+        [Header("Settings")] 
+        [SerializeField] private float forwardArrowOffset = 0.1f;
 
-        private UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor _pullingInteractor;
+        private IXRSelectInteractor _pullingInteractor;
         private float _pullAmount;
         private bool _isLocked;
 
@@ -71,9 +72,11 @@ namespace BowAndArrows
 
         public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
         {
+            if (_isLocked) return;
+         
             base.ProcessInteractable(updatePhase);
 
-            if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic && isSelected && _pullingInteractor != null)
+            if (isSelected && _pullingInteractor != null && updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
             {
                 _pullAmount = CalculatePull(_pullingInteractor.transform.position);
                 UpdateString();
@@ -82,20 +85,20 @@ namespace BowAndArrows
 
         private float CalculatePull(Vector3 pullPosition)
         {
-            Vector3 pullDirection = pullPosition - startTransform.position;
-            Vector3 targetDirection = endTransform.position - startTransform.position;
-            float maxLength = targetDirection.magnitude;
+            var pullDirection = pullPosition - startTransform.position;
+            var targetDirection = endTransform.position - startTransform.position;
+            var maxLength = targetDirection.magnitude;
 
             targetDirection.Normalize();
-            float pullValue = Vector3.Dot(pullDirection, targetDirection) / maxLength;
+            var pullValue = Vector3.Dot(pullDirection, targetDirection) / maxLength;
 
             return Mathf.Clamp(pullValue, 0, 1);
         }
 
         private void UpdateString()
         {
-            float zPosition = Mathf.Lerp(startTransform.localPosition.z, endTransform.localPosition.z, _pullAmount);
-            Vector3 notchPosition = notchTransform.localPosition;
+            var zPosition = Mathf.Lerp(startTransform.localPosition.z, endTransform.localPosition.z, _pullAmount);
+            var notchPosition = notchTransform.localPosition;
             notchPosition.z = zPosition + forwardArrowOffset;
             notchTransform.localPosition = notchPosition;
 

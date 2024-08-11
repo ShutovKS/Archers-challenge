@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Hand.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Hand/NoDrawingHandWhenSelect.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Hand/NoDrawingHandWhenSelect.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefab/XR Origin (VR) for Gameplay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefab/XR Origin (VR) for Gameplay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/ArrowSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/ArrowSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/Bowstring.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/BowAndArrows/Bowstring.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/GameMainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/ProjectStateMachine/States/GameMainMenuState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/AR Starter Assets/Scripts/ARFeatheredPlaneMeshVisualizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/AR Starter Assets/Scripts/ARFeatheredPlaneMeshVisualizer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/Starter Assets/Scripts/MaterialPipelineHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/Starter Assets/Scripts/MaterialPipelineHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/Starter Assets/Scripts/RotationAxisLockGrabTransformer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/Starter Assets/Scripts/RotationAxisLockGrabTransformer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/Starter Assets/Scripts/XRPokeFollowAffordance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/Starter Assets/Scripts/XRPokeFollowAffordance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/XR Device Simulator/Scripts/XRDeviceSimulatorHandsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/XR Device Simulator/Scripts/XRDeviceSimulatorHandsUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/XR Device Simulator/Scripts/XRDeviceSimulatorUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.4/XR Device Simulator/Scripts/XRDeviceSimulatorUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +128,7 @@
       <workItem from="1723123883707" duration="3058000" />
       <workItem from="1723380035593" duration="20000" />
       <workItem from="1723380233235" duration="3054000" />
-      <workItem from="1723384130061" duration="490000" />
+      <workItem from="1723384130061" duration="2746000" />
     </task>
     <servers />
   </component>

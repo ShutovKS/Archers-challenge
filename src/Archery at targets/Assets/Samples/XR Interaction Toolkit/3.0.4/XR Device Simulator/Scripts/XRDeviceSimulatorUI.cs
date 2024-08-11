@@ -720,7 +720,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.DeviceSimulator
         {
             HandsSetActive(true);
             hand.SetActive(true, m_Simulator);
-            XRDeviceSimulatorHandsUI otherHand = hand == m_LeftHand ? m_RightHand : m_LeftHand;
+            var otherHand = hand == m_LeftHand ? m_RightHand : m_LeftHand;
             otherHand.SetActive(false, m_Simulator);
 
             HeadDeviceSetActive(false);

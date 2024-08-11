@@ -231,8 +231,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 return false;
             }
             
-            Vector3 origin = transform.position;
-            Vector3 direction = ComputeRotatedDepthEvaluationAxis(m_PokeFilter.pokeConfiguration);
+            var origin = transform.position;
+            var direction = ComputeRotatedDepthEvaluationAxis(m_PokeFilter.pokeConfiguration);
             endPoint = origin + direction.normalized * m_MaxDistance;
             return true;
         }
@@ -242,7 +242,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             if (pokeThresholdData == null)
                 return Vector3.zero;
 
-            Vector3 rotatedDepthEvaluationAxis = Vector3.zero;
+            var rotatedDepthEvaluationAxis = Vector3.zero;
             switch (pokeThresholdData.pokeDirection)
             {
                 case PokeAxis.X:

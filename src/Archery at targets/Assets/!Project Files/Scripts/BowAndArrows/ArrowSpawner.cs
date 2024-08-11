@@ -68,8 +68,8 @@ namespace BowAndArrows
         private void ReleaseBow()
         {
             TryDestroyArrow();
-            bowstring.LockSelect();
             bowstring.ReleaseBow();
+            bowstring.LockSelect();
         }
 
         private void TryDestroyArrow()

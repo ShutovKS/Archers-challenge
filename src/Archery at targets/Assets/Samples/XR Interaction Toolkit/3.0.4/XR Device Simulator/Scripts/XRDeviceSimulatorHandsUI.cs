@@ -44,7 +44,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.DeviceSimulator
             {
                 UpdateButtonActive(active);
 
-                Color color = active ? uiManager.enabledColor : uiManager.disabledColor;
+                var color = active ? uiManager.enabledColor : uiManager.disabledColor;
                 m_BindText.color = color;
                 m_TitleText.color = color;
                 m_Icon.color = color;

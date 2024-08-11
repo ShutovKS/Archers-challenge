@@ -28,7 +28,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         /// <inheritdoc />
         public override void Process(XRGrabInteractable grabInteractable, XRInteractionUpdateOrder.UpdatePhase updatePhase, ref Pose targetPose, ref Vector3 localScale)
         {
-            Vector3 newRotationEuler = targetPose.rotation.eulerAngles;
+            var newRotationEuler = targetPose.rotation.eulerAngles;
 
             if ((m_PermittedRotationAxis & XRGeneralGrabTransformer.ManipulationAxes.X) == 0)
                 newRotationEuler.x = m_InitialEulerRotation.x;

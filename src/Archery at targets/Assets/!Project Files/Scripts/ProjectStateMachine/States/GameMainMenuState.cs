@@ -39,7 +39,7 @@ namespace ProjectStateMachine.States
             _mainMenuUI.ClearButtons();
             _mainMenuUI.AddButton("VR режим", ShowVRGamesMenu);
             _mainMenuUI.AddButton("MR режим", ShowMrGamesMenu);
-            _mainMenuUI.AddButton("Выход", OnExitButtonClicked);
+            _mainMenuUI.AddButton("Выход", ExitFromGame);
         }
 
         private void ShowVRGamesMenu()
@@ -60,7 +60,7 @@ namespace ProjectStateMachine.States
 
         private void LoadGame<T>() where T : IState<GameBootstrap> => Initializer.StateMachine.SwitchState<T>();
 
-        private void OnExitButtonClicked()
+        private void ExitFromGame()
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
