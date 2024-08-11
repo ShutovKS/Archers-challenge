@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
-namespace Hand
+namespace Player
 {
     [RequireComponent(typeof(XRBaseInteractor))]
     public class NoDrawingHandWhenSelect : MonoBehaviour
