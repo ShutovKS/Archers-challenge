@@ -6,7 +6,7 @@ namespace UI
 {
     public class InformationDeskUI : MonoBehaviour
     {
-        [SerializeField] private GameObject informationPrefab;
+        [SerializeField] private TMP_Text informationPrefab;
 
         private readonly Dictionary<string, TMP_Text> _informationTexts = new();
 
@@ -14,11 +14,11 @@ namespace UI
         {
             if (!_informationTexts.ContainsKey(key))
             {
-                Debug.Log($"Creating new information text: {key}");
                 var informationText = Instantiate(informationPrefab, transform);
-                informationText.SetActive(true);
-                informationText.name = value;
-                _informationTexts.Add(key, informationText.GetComponent<TMP_Text>());
+
+                informationText.gameObject.SetActive(true);
+
+                _informationTexts.Add(key, informationText);
             }
 
             _informationTexts[key].SetText(value);
@@ -29,8 +29,19 @@ namespace UI
             if (_informationTexts.ContainsKey(key))
             {
                 Destroy(_informationTexts[key].gameObject);
+
                 _informationTexts.Remove(key);
             }
+        }
+
+        public void ClearInformationTexts()
+        {
+            foreach (var informationText in _informationTexts)
+            {
+                Destroy(informationText.Value.gameObject);
+            }
+
+            _informationTexts.Clear();
         }
     }
 }

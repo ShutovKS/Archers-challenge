@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using ModestTree;
-
-namespace Zenject
+﻿namespace Zenject
 {
     [NoReflectionBaking]
     public class ConcreteAsyncBinderGeneric<TContract> : AsyncFromBinderGeneric<TContract, TContract>

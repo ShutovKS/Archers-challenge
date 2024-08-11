@@ -1,5 +1,4 @@
 using UnityEditor;
-using Zenject;
 
 namespace Zenject
 {

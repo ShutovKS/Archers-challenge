@@ -1,6 +1,3 @@
-using System;
-using ModestTree;
-
 namespace Zenject
 {
     public class BindSignalIdToBinder<TSignal> : BindSignalToBinder<TSignal>
