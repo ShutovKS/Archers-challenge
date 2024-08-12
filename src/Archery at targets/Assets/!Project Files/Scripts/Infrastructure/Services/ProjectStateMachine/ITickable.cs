@@ -1,4 +1,4 @@
-namespace Infrastructure.ProjectStateMachine.Base
+namespace Infrastructure.Services.ProjectStateMachine
 {
     public interface ITickable
     {

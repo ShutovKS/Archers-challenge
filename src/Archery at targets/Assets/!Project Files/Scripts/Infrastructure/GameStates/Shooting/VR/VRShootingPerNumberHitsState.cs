@@ -1,10 +1,15 @@
-namespace Infrastructure.ProjectStateMachine.States
+using Fitches.ShootingGallery;
+using Infrastructure.Services.ProjectStateMachine;
+using UI;
+
+namespace Infrastructure.GameStates.Shooting.VR
 {
     public class VRShootingPerNumberHitsState : VRShootingBaseState
     {
         private int _targetHitCountMax = 5;
 
-        public VRShootingPerNumberHitsState(GameBootstrap initializer) : base(initializer)
+        public VRShootingPerNumberHitsState(IProjectStateMachineService projectStateMachineService, TargetSpawner targetSpawner,
+            InformationDeskUI informationDeskUI) : base(projectStateMachineService, targetSpawner, informationDeskUI)
         {
         }
 
@@ -19,7 +24,7 @@ namespace Infrastructure.ProjectStateMachine.States
 
             if (TargetHitCount >= _targetHitCountMax)
             {
-                Initializer.StateMachine.SwitchState<GameMainMenuState>();
+                ProjectStateMachine.SwitchState<GameMainMenuState>();
             }
         }
     }

@@ -1,29 +1,24 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
+using Zenject;
 
-namespace Infrastructure.ProjectStateMachine.Base
+namespace Infrastructure.Services.ProjectStateMachine
 {
-    public class StateMachine<TInitializer>
+    [UsedImplicitly]
+    public class ProjectStateMachineService : IProjectStateMachineService
     {
-        public StateMachine(params IState<TInitializer>[] states)
-        {
-            _states = new Dictionary<Type, IState<TInitializer>>(states.Length);
-
-            foreach (var state in states)
-            {
-                _states.Add(state.GetType(), state);
-            }
-        }
-
-        private IState<TInitializer> _currentState;
-
-        private readonly Dictionary<Type, IState<TInitializer>> _states;
-
+        private IState _currentState;
+        private readonly DiContainer _container;
         private CancellationTokenSource _tickCancellationTokenSource;
 
-        public void SwitchState<TState>() where TState : IState<TInitializer>
+        public ProjectStateMachineService(DiContainer container)
+        {
+            _container = container;
+        }
+
+        public void SwitchState<TState>() where TState : IState
         {
             TryExitPreviousState();
 
@@ -34,15 +29,25 @@ namespace Infrastructure.ProjectStateMachine.Base
             TryTickNewState();
         }
 
-        public void SwitchState<TState, T0>(T0 arg) where TState : IState<TInitializer>
+        public void SwitchState<TState, T0>(T0 arg) where TState : IState
         {
             TryExitPreviousState();
 
             GetNewState<TState>();
 
-            TryEnterNewState<T0>(arg);
+            TryEnterNewState(arg);
 
             TryTickNewState();
+        }
+
+        public IState GetCurrentState()
+        {
+            return _currentState;
+        }
+
+        public Type GetCurrentStateType()
+        {
+            return _currentState?.GetType();
         }
 
         private void TryExitPreviousState()
@@ -71,10 +76,9 @@ namespace Infrastructure.ProjectStateMachine.Base
             }
         }
 
-        private void GetNewState<TState>() where TState : IState<TInitializer>
+        private void GetNewState<TState>() where TState : IState
         {
-            var newState = GetState<TState>();
-            _currentState = newState;
+            _currentState = _container.Instantiate<TState>();
         }
 
         private void TryTickNewState()
@@ -93,11 +97,6 @@ namespace Infrastructure.ProjectStateMachine.Base
                 tickable.Tick();
                 await Task.Yield();
             }
-        }
-
-        private TState GetState<TState>() where TState : IState<TInitializer>
-        {
-            return (TState)_states[typeof(TState)];
         }
     }
 }

@@ -2,29 +2,31 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Fitches.ShootingGallery;
-using Infrastructure.ProjectStateMachine.Base;
+using Infrastructure.Services.ProjectStateMachine;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Object = UnityEngine.Object;
+using AsyncOperation = UnityEngine.AsyncOperation;
 
-namespace Infrastructure.ProjectStateMachine.States
+namespace Infrastructure.GameStates.Shooting.VR
 {
-    public abstract class VRShootingBaseState : IState<GameBootstrap>, IEnterable, IExitable
+    public abstract class VRShootingBaseState : IState, IEnterable, IExitable
     {
-        protected VRShootingBaseState(GameBootstrap initializer)
-        {
-            Initializer = initializer;
-        }
-
-        public GameBootstrap Initializer { get; }
-
-        protected TargetSpawner TargetSpawner;
-        protected InformationDeskUI InformationDeskUI;
+        protected readonly IProjectStateMachineService ProjectStateMachine;
+        protected readonly TargetSpawner TargetSpawner;
+        protected readonly InformationDeskUI InformationDeskUI;
 
         protected int TargetHitCount;
         protected int TimeSeconds;
         protected CancellationTokenSource CancellationTokenSource;
+
+        protected VRShootingBaseState(IProjectStateMachineService projectStateMachine, TargetSpawner targetSpawner,
+            InformationDeskUI informationDeskUI)
+        {
+            ProjectStateMachine = projectStateMachine;
+            TargetSpawner = targetSpawner;
+            InformationDeskUI = informationDeskUI;
+        }
 
         public void OnEnter()
         {
@@ -35,14 +37,12 @@ namespace Infrastructure.ProjectStateMachine.States
 
         private void InitScene(AsyncOperation obj)
         {
-            InformationDeskUI = Object.FindAnyObjectByType<InformationDeskUI>();
             if (InformationDeskUI == null)
             {
                 Debug.LogError("InformationDeskUI not found");
                 return;
             }
 
-            TargetSpawner = Object.FindAnyObjectByType<TargetSpawner>();
             if (TargetSpawner == null)
             {
                 Debug.LogError("TargetSpawner not found");
@@ -105,8 +105,6 @@ namespace Infrastructure.ProjectStateMachine.States
 
             TargetHitCount = 0;
             TimeSeconds = 0;
-            TargetSpawner = null;
-            InformationDeskUI = null;
 
             CancellationTokenSource.Cancel();
             CancellationTokenSource.Dispose();

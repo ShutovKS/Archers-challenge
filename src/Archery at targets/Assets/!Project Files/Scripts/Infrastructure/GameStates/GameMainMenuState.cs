@@ -1,20 +1,22 @@
-﻿using Infrastructure.ProjectStateMachine.Base;
+﻿using Infrastructure.GameStates.Shooting.MR;
+using Infrastructure.GameStates.Shooting.VR;
+using Infrastructure.Services.ProjectStateMachine;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Infrastructure.ProjectStateMachine.States
+namespace Infrastructure.GameStates
 {
-    public class GameMainMenuState : IState<GameBootstrap>, IEnterable, IExitable
+    public class GameMainMenuState : IState, IEnterable, IExitable
     {
-        public GameBootstrap Initializer { get; }
-
-        public GameMainMenuState(GameBootstrap initializer)
-        {
-            Initializer = initializer;
-        }
+        private readonly IProjectStateMachineService _projectStateMachine;
 
         private MainMenuUI _mainMenuUI;
+
+        public GameMainMenuState(IProjectStateMachineService projectStateMachine)
+        {
+            _projectStateMachine = projectStateMachine;
+        }
 
         public void OnEnter()
         {
@@ -58,7 +60,8 @@ namespace Infrastructure.ProjectStateMachine.States
             _mainMenuUI.AddButton("Назад", ShowMainMenu);
         }
 
-        private void LoadGame<T>() where T : IState<GameBootstrap> => Initializer.StateMachine.SwitchState<T>();
+        private void LoadGame<T>() where T : IState =>
+            _projectStateMachine.SwitchState<LoadScenesState, string>(typeof(T).Name);
 
         private void ExitFromGame()
         {

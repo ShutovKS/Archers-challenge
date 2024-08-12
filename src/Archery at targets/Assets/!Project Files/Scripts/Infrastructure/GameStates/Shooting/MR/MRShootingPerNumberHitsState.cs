@@ -1,22 +1,25 @@
 using Fitches.ShootingGallery;
-using Infrastructure.ProjectStateMachine.Base;
+using Infrastructure.Services.ProjectStateMachine;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.ARFoundation;
 
-namespace Infrastructure.ProjectStateMachine.States
+namespace Infrastructure.GameStates.Shooting.MR
 {
-    public class MRShootingPerNumberHitsState : IState<GameBootstrap>, IEnterable, IExitable
+    public class MRShootingPerNumberHitsState : IState, IEnterable, IExitable
     {
-        public MRShootingPerNumberHitsState(GameBootstrap initializer)
-        {
-            Initializer = initializer;
-        }
+        private readonly IProjectStateMachineService _projectStateMachine;
+        private readonly TargetSpawner _targetSpawner;
+        private readonly InformationDeskUI _informationDeskUI;
 
-        public GameBootstrap Initializer { get; }
-        private TargetSpawner _targetSpawner;
-        private InformationDeskUI _informationDeskUI;
+        public MRShootingPerNumberHitsState(IProjectStateMachineService projectStateMachine, TargetSpawner targetSpawner,
+            InformationDeskUI informationDeskUI)
+        {
+            _projectStateMachine = projectStateMachine;
+            _targetSpawner = targetSpawner;
+            _informationDeskUI = informationDeskUI;
+        }
 
         public void OnEnter()
         {
@@ -26,10 +29,7 @@ namespace Infrastructure.ProjectStateMachine.States
 
         private void OnSceneLoaded(AsyncOperation obj)
         {
-            _targetSpawner = Object.FindAnyObjectByType<TargetSpawner>();
             _targetSpawner.TargetHit += OnTargetHit;
-
-            _informationDeskUI = Object.FindAnyObjectByType<InformationDeskUI>();
 
             OnTargetHit();
         }
@@ -41,7 +41,7 @@ namespace Infrastructure.ProjectStateMachine.States
 
             if (value >= 5)
             {
-                Initializer.StateMachine.SwitchState<GameMainMenuState>();
+                _projectStateMachine.SwitchState<GameMainMenuState>();
             }
         }
 

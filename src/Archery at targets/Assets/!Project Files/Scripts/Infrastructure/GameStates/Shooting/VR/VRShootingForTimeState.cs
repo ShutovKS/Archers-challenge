@@ -1,10 +1,17 @@
-namespace Infrastructure.ProjectStateMachine.States
+using Fitches.ShootingGallery;
+using Infrastructure.Services.ProjectStateMachine;
+using UI;
+using Zenject;
+
+namespace Infrastructure.GameStates.Shooting.VR
 {
     public class VRShootingForTimeState : VRShootingBaseState
     {
         private int _timerSeconds = 60;
 
-        public VRShootingForTimeState(GameBootstrap initializer) : base(initializer)
+        [Inject]
+        public VRShootingForTimeState(IProjectStateMachineService projectStateMachineService, TargetSpawner targetSpawner,
+            InformationDeskUI informationDeskUI) : base(projectStateMachineService, targetSpawner, informationDeskUI)
         {
         }
 
@@ -22,7 +29,7 @@ namespace Infrastructure.ProjectStateMachine.States
 
             if (_timerSeconds <= 0)
             {
-                Initializer.StateMachine.SwitchState<GameMainMenuState>();
+                ProjectStateMachine.SwitchState<GameMainMenuState>();
             }
         }
     }
