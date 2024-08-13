@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Fitches.BowAndArrows
+namespace Features.BowAndArrows
 {
     /// <summary>
     /// Создаёт стрелы на луке и управляет их состоянием.

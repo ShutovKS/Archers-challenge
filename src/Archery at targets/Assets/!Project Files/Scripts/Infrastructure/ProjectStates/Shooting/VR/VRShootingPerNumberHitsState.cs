@@ -1,8 +1,8 @@
-using Fitches.ShootingGallery;
+using Features.ShootingGallery;
 using Infrastructure.Services.ProjectStateMachine;
 using UI;
 
-namespace Infrastructure.GameStates.Shooting.VR
+namespace Infrastructure.ProjectStates.Shooting.VR
 {
     public class VRShootingPerNumberHitsState : VRShootingBaseState
     {

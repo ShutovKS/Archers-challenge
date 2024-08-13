@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Fitches.BowAndArrows
+namespace Features.BowAndArrows
 {
     /// <summary>
     /// Управляет логикой стрелок, включая поведение полета и столкновения.

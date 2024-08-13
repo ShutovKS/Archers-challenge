@@ -1,11 +1,11 @@
 using System;
-using Infrastructure.GameStates.Shooting.MR;
-using Infrastructure.GameStates.Shooting.VR;
+using Infrastructure.ProjectStates.Shooting.MR;
+using Infrastructure.ProjectStates.Shooting.VR;
 using Infrastructure.Services.ProjectStateMachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Infrastructure.GameStates
+namespace Infrastructure.ProjectStates
 {
     public class LoadScenesState : IState, IEnterableWithOneArg<string>
     {

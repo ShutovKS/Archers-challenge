@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Fitches.ShootingGallery
+namespace Features.ShootingGallery
 {
     public class Target : MonoBehaviour
     {

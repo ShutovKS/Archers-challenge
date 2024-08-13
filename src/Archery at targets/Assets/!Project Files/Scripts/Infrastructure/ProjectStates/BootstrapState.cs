@@ -1,6 +1,6 @@
 ﻿using Infrastructure.Services.ProjectStateMachine;
 
-namespace Infrastructure.GameStates
+namespace Infrastructure.ProjectStates
 {
     public class BootstrapState : IState, IEnterable
     {

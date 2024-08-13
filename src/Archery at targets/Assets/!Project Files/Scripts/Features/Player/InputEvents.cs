@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Fitches.Player
+namespace Features.Player
 {
     public class InputEvents : MonoBehaviour
     {

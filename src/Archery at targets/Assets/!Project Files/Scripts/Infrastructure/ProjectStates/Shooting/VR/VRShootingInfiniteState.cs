@@ -1,9 +1,9 @@
-using Fitches.ShootingGallery;
+using Features.ShootingGallery;
 using Infrastructure.Services.ProjectStateMachine;
 using UI;
 using Zenject;
 
-namespace Infrastructure.GameStates.Shooting.VR
+namespace Infrastructure.ProjectStates.Shooting.VR
 {
     public class VRShootingInfiniteState : VRShootingBaseState
     {

@@ -1,4 +1,4 @@
-using Fitches.ShootingGallery;
+using Features.ShootingGallery;
 using UI;
 using UnityEngine;
 using Zenject;

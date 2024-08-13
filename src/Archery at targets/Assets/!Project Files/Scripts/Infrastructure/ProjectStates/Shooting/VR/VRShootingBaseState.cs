@@ -1,14 +1,14 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Fitches.ShootingGallery;
+using Features.ShootingGallery;
 using Infrastructure.Services.ProjectStateMachine;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using AsyncOperation = UnityEngine.AsyncOperation;
 
-namespace Infrastructure.GameStates.Shooting.VR
+namespace Infrastructure.ProjectStates.Shooting.VR
 {
     public abstract class VRShootingBaseState : IState, IEnterable, IExitable
     {

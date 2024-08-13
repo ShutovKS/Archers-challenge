@@ -1,4 +1,4 @@
-using Infrastructure.GameStates;
+using Infrastructure.ProjectStates;
 using Infrastructure.Services.ProjectStateMachine;
 using Zenject;
 

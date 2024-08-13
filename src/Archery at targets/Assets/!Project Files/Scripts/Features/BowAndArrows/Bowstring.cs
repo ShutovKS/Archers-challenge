@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
-namespace Fitches.BowAndArrows
+namespace Features.BowAndArrows
 {
     /// <summary>
     /// Manages the interaction logic for the bowstring in an XR environment.

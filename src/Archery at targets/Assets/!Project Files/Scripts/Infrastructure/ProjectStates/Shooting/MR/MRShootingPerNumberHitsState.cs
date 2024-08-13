@@ -1,11 +1,11 @@
-using Fitches.ShootingGallery;
+using Features.ShootingGallery;
 using Infrastructure.Services.ProjectStateMachine;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.ARFoundation;
 
-namespace Infrastructure.GameStates.Shooting.MR
+namespace Infrastructure.ProjectStates.Shooting.MR
 {
     public class MRShootingPerNumberHitsState : IState, IEnterable, IExitable
     {

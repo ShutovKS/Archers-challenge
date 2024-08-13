@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-namespace Fitches.BowAndArrows
+namespace Features.BowAndArrows
 {
     /// <summary>
     /// Управляет логикой взаимодействия лука в среде XR.
