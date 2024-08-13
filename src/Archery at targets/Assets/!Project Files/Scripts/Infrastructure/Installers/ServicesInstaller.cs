@@ -1,4 +1,5 @@
 using Infrastructure.Services.ProjectStateMachine;
+using Infrastructure.Services.SceneDependency;
 using Zenject;
 
 namespace Infrastructure.Installers
@@ -8,6 +9,7 @@ namespace Infrastructure.Installers
         public override void InstallBindings()
         {
             Container.Bind<IProjectStateMachineService>().To<ProjectStateMachineService>().AsSingle();
+            Container.Bind<ISceneDependencyProvider>().To<SceneDependencyProvider>().AsSingle();
         }
     }
 }
