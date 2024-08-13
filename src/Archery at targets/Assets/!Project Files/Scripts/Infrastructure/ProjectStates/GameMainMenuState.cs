@@ -1,12 +1,12 @@
-﻿using Infrastructure.ProjectStates.Shooting.MR;
-using Infrastructure.ProjectStates.Shooting.VR;
-using Infrastructure.Services.ProjectStateMachine;
+﻿using Infrastructure.Services.ProjectStateMachine;
+using JetBrains.Annotations;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure.ProjectStates
 {
+    [UsedImplicitly]
     public class GameMainMenuState : IState, IEnterable, IExitable
     {
         private readonly IProjectStateMachineService _projectStateMachine;
@@ -47,21 +47,21 @@ namespace Infrastructure.ProjectStates
         private void ShowVRGamesMenu()
         {
             _mainMenuUI.ClearButtons();
-            _mainMenuUI.AddButton("На количество поподаний", LoadGame<VRShootingPerNumberHitsState>);
-            _mainMenuUI.AddButton("На время", LoadGame<VRShootingForTimeState>);
-            _mainMenuUI.AddButton("Бесконечный режим", LoadGame<VRShootingInfiniteState>);
+            // _mainMenuUI.AddButton("На количество попаданий", LoadGame<VRShootingPerNumberHitsState>);
+            // _mainMenuUI.AddButton("На время", LoadGame<VRShootingForTimeState>);
+            // _mainMenuUI.AddButton("Бесконечный режим", LoadGame<VRShootingInfiniteState>);
             _mainMenuUI.AddButton("Назад", ShowMainMenu);
         }
 
         private void ShowMrGamesMenu()
         {
             _mainMenuUI.ClearButtons();
-            _mainMenuUI.AddButton("На количество поподаний", LoadGame<MRShootingPerNumberHitsState>);
+            // _mainMenuUI.AddButton("На количество попаданий", LoadGame<MRShootingPerNumberHitsState>);
             _mainMenuUI.AddButton("Назад", ShowMainMenu);
         }
 
-        private void LoadGame<T>() where T : IState =>
-            _projectStateMachine.SwitchState<LoadScenesState, string>(typeof(T).Name);
+        // private void LoadGame<T>() where T : IState =>
+        // _projectStateMachine.SwitchState<LoadScenesState, string>(typeof(T).Name);
 
         private void ExitFromGame()
         {

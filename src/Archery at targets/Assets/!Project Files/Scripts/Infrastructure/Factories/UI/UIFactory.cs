@@ -25,21 +25,21 @@ namespace Infrastructure.Factories.UI
 
         public async Task<GameObject> CreateScreen(string assetAddress, WindowID windowId)
         {
-            var screenPrefab = await _assetsAddressablesProvider.GetAsset<GameObject>(assetAddress);
-            var screenObject = _container.InstantiatePrefab(screenPrefab);
+            var prefab = await _assetsAddressablesProvider.GetAsset<GameObject>(assetAddress);
+            var instance = _container.InstantiatePrefab(prefab);
 
-            if (_screenTypeToInstanceMap.TryAdd(windowId, screenObject))
+            if (_screenTypeToInstanceMap.TryAdd(windowId, instance))
             {
-                return screenObject;
+                return instance;
             }
 
             Debug.LogWarning($"A screen with WindowID {windowId} already exists. Replacing an existing display object.");
 
             Object.Destroy(_screenTypeToInstanceMap[windowId]);
 
-            _screenTypeToInstanceMap[windowId] = screenObject;
+            _screenTypeToInstanceMap[windowId] = instance;
 
-            return screenObject;
+            return instance;
         }
 
         public Task<T> GetScreenComponent<T>(WindowID windowId) where T : Component

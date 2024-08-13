@@ -6,6 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Features/ShootingGallery.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/UI/UIFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/UI/UIFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Installers/LocationInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Installers/LocationInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/BootstrapState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/GameMainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/GameMainMenuState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/LoadScenesState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/LoadScenesState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/MR.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/MR/MRShootingPerNumberHitsState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/MR/MRShootingPerNumberHitsState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/VR.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/VR/VRShootingBaseState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/VR/VRShootingBaseState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/VR/VRShootingForTimeState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/VR/VRShootingForTimeState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/VR/VRShootingInfiniteState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/VR/VRShootingInfiniteState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/VR/VRShootingPerNumberHitsState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Shooting/VR/VRShootingPerNumberHitsState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/AssetsAddressables/AssetsAddressableConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/AssetsAddressables/AssetsAddressableConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +49,9 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/XRBaseInteractable.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -128,7 +154,7 @@
       <workItem from="1723482866696" duration="5374000" />
       <workItem from="1723488346613" duration="15000" />
       <workItem from="1723488540812" duration="1546000" />
-      <workItem from="1723566224519" duration="1448000" />
+      <workItem from="1723566224519" duration="11926000" />
     </task>
     <servers />
   </component>
