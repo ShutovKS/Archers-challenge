@@ -1,12 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.AssetsAddressables
 {
+    [UsedImplicitly]
     public class AssetsAddressablesProvider : IAssetsAddressablesProvider
     {
         private readonly Dictionary<string, AsyncOperationHandle> _completedOperations = new();
@@ -36,6 +40,22 @@ namespace Infrastructure.Services.AssetsAddressables
             return (await Task.WhenAll(loadTasks)).ToList();
         }
 
+        public async Task<SceneInstance> LoadScene(string sceneAddress,
+            LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        {
+            if (_completedOperations.TryGetValue(sceneAddress, out var completed))
+            {
+                return (SceneInstance)completed.Result;
+            }
+
+            var handle = Addressables.LoadSceneAsync(sceneAddress, loadSceneMode);
+            handle.Completed += h => { _completedOperations[sceneAddress] = h; };
+
+            AddHandle(sceneAddress, handle);
+
+            return await handle.Task;
+        }
+
         public void CleanUp()
         {
             foreach (var handle in _handles.Values.SelectMany(resourceHandles => resourceHandles))
@@ -47,7 +67,7 @@ namespace Infrastructure.Services.AssetsAddressables
             _completedOperations.Clear();
         }
 
-        private void AddHandle<T>(string key, AsyncOperationHandle handle) where T : class
+        private void AddHandle(string key, AsyncOperationHandle handle)
         {
             if (!_handles.TryGetValue(key, out var resourceHandles))
             {
@@ -62,7 +82,7 @@ namespace Infrastructure.Services.AssetsAddressables
         {
             handle.Completed += h => { _completedOperations[cacheKey] = h; };
 
-            AddHandle<T>(cacheKey, handle);
+            AddHandle(cacheKey, handle);
 
             return await handle.Task;
         }
