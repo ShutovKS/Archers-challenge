@@ -1,4 +1,3 @@
-using Infrastructure.Services.AssetsAddressables;
 using UnityEngine;
 
 namespace Data.Level

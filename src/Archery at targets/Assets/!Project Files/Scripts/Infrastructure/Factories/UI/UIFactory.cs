@@ -1,32 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Infrastructure.Services.AssetsAddressables;
+using Infrastructure.Factories.GameObjects;
 using Infrastructure.Services.Window;
 using UnityEngine;
-using Zenject;
 using Object = UnityEngine.Object;
 
 namespace Infrastructure.Factories.UI
 {
     public class UIFactory : IUIFactory
     {
-        private readonly IAssetsAddressablesProvider _assetsAddressablesProvider;
-        private readonly DiContainer _container;
+        private readonly IGameObjectFactory _gameObjectFactory;
 
         private readonly Dictionary<WindowID, GameObject> _screenTypeToInstanceMap = new();
         private readonly Dictionary<Type, Component> _screenTypeToComponentMap = new();
 
-        public UIFactory(DiContainer container, IAssetsAddressablesProvider assetsAddressablesProvider)
+        public UIFactory(IGameObjectFactory gameObjectFactory)
         {
-            _container = container;
-            _assetsAddressablesProvider = assetsAddressablesProvider;
+            _gameObjectFactory = gameObjectFactory;
         }
 
         public async Task<GameObject> CreateScreen(string assetAddress, WindowID windowId)
         {
-            var prefab = await _assetsAddressablesProvider.GetAsset<GameObject>(assetAddress);
-            var instance = _container.InstantiatePrefab(prefab);
+            var instance = await _gameObjectFactory.CreateInstance(assetAddress);
 
             if (_screenTypeToInstanceMap.TryAdd(windowId, instance))
             {

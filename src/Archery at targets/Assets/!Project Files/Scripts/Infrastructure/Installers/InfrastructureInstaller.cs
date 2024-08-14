@@ -1,3 +1,4 @@
+using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
 using Infrastructure.Services.AssetsAddressables;
@@ -28,6 +29,7 @@ namespace Infrastructure.Installers
 
         private void BindFactories()
         {
+            Container.Bind<IGameObjectFactory>().To<GameObjectFactory>().AsSingle();
             Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
             Container.Bind<ITargetFactory>().To<TargetFactory>().AsSingle();
         }

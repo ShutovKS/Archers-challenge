@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Extension;
 using Features.BowAndArrows;
 using Features.ColliderTools;
+using Infrastructure.Factories.GameObjects;
 using Infrastructure.Services.AssetsAddressables;
 using Tools;
 using UnityEngine;
-using Zenject;
 using Object = UnityEngine.Object;
 
 namespace Infrastructure.Factories.Target
@@ -14,16 +15,14 @@ namespace Infrastructure.Factories.Target
     {
         public event Action<string> TargetHit;
 
-        private readonly DiContainer _container;
-        private readonly AssetsAddressablesProvider _assetsAddressablesProvider;
+        private readonly IGameObjectFactory _gameObjectFactory;
         private readonly Dictionary<string, GameObject> _idToTarget = new();
 
         private const string TARGET_PREFAB_PATH = AssetsAddressableConstants.TARGET_PREFAB;
 
-        public TargetFactory(DiContainer container, AssetsAddressablesProvider assetsAddressablesProvider)
+        public TargetFactory(IGameObjectFactory gameObjectFactory)
         {
-            _container = container;
-            _assetsAddressablesProvider = assetsAddressablesProvider;
+            _gameObjectFactory = gameObjectFactory;
         }
 
         public void SpawnTargets(int count, Vector3 pointLimitationMin, Vector3 pointLimitationMax,
@@ -49,14 +48,13 @@ namespace Infrastructure.Factories.Target
         {
             var isHit = false;
             var id = UniqueIDGenerator.Generate();
-            var prefab = await _assetsAddressablesProvider.GetAsset<GameObject>(TARGET_PREFAB_PATH);
+            var instance = await _gameObjectFactory.CreateInstance(TARGET_PREFAB_PATH);
+            instance.SetPositionAndRotation(position, rotation);
 
-            var instantiate = _container.InstantiatePrefab(prefab, position, rotation, null);
-
-            var colliderInteractionEnterTrigger = instantiate.AddComponent<ColliderInteractionEnterTrigger>();
+            var colliderInteractionEnterTrigger = instance.AddComponent<ColliderInteractionEnterTrigger>();
             colliderInteractionEnterTrigger.OnTriggered += OnHit;
 
-            _idToTarget.Add(id, instantiate);
+            _idToTarget.Add(id, instance);
 
             return;
 
