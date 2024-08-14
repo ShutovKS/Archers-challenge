@@ -15,8 +15,28 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 298a50b6db136a24e807b6d3a66e72fb
   m_SerializeEntries:
+  - m_GUID: 64bf3ad128950a942a6ecbf2a544ac92
+    m_Address: Prefabs/Main Menu Screen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd8676903f2a1d14cb5b73ccf12b3258
     m_Address: Prefabs/Target.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2dd2e8ae1f11b94cb0b5a3de1468f01
+    m_Address: Scenes/Gameplay-MR.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de677285918604d4787e3678b1460501
+    m_Address: Scenes/Gameplay-VR.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7278883dacbac84faadb47d62af202a
+    m_Address: Scenes/MainMenu.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

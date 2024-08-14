@@ -4,5 +4,7 @@ namespace Infrastructure.Services.Window
     {
         None = -1,
         Unknown = 0,
+
+        MainMenu = 11
     }
 }

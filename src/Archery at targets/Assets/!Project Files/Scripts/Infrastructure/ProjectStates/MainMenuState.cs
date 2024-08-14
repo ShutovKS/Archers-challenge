@@ -1,39 +1,51 @@
-﻿using Infrastructure.Services.ProjectStateMachine;
+﻿using System.Threading.Tasks;
+using Infrastructure.Services.AssetsAddressables;
+using Infrastructure.Services.ProjectStateMachine;
+using Infrastructure.Services.Window;
 using JetBrains.Annotations;
 using UI;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Infrastructure.ProjectStates
 {
     [UsedImplicitly]
-    public class GameMainMenuState : IState, IEnterable, IExitable
+    public class MainMenuState : IState, IEnterable, IExitable
     {
+        private readonly IAssetsAddressablesProvider _assetsAddressablesProvider;
         private readonly IProjectStateMachineService _projectStateMachine;
+        private readonly IWindowService _windowService;
 
         private MainMenuUI _mainMenuUI;
 
-        public GameMainMenuState(IProjectStateMachineService projectStateMachine)
+        public MainMenuState(
+            IAssetsAddressablesProvider assetsAddressablesProvider,
+            IProjectStateMachineService projectStateMachine,
+            IWindowService windowService)
         {
+            _assetsAddressablesProvider = assetsAddressablesProvider;
             _projectStateMachine = projectStateMachine;
+            _windowService = windowService;
         }
 
-        public void OnEnter()
+        public async void OnEnter()
         {
-            var loadSceneAsync = SceneManager.LoadSceneAsync("MainMenu");
-            loadSceneAsync!.completed += OnSceneLoaded;
-        }
-
-        private void OnSceneLoaded(AsyncOperation asyncOperation)
-        {
-            _mainMenuUI = Object.FindFirstObjectByType<MainMenuUI>();
-
+            await SceneLoad();
+            await InstanceMainMenuScreen();
             ShowMainMenu();
         }
 
         public void OnExit()
         {
-            _mainMenuUI.ClearButtons();
+            _windowService.Close(WindowID.MainMenu);
+        }
+
+        private async Task SceneLoad()
+        {
+            var scene = await _assetsAddressablesProvider.LoadScene(AssetsAddressableConstants.MAIN_MENU_SCENE);
+        }
+
+        private async Task InstanceMainMenuScreen()
+        {
+            _mainMenuUI = await _windowService.OpenAndGetComponent<MainMenuUI>(WindowID.MainMenu);
         }
 
         private void ShowMainMenu()
@@ -60,8 +72,7 @@ namespace Infrastructure.ProjectStates
             _mainMenuUI.AddButton("Назад", ShowMainMenu);
         }
 
-        // private void LoadGame<T>() where T : IState =>
-        // _projectStateMachine.SwitchState<LoadScenesState, string>(typeof(T).Name);
+        // private void LoadGame<T>() where T : IState => _projectStateMachine.SwitchState<LoadScenesState, string>(typeof(T).Name);
 
         private void ExitFromGame()
         {

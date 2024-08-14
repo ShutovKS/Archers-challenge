@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Infrastructure.Factories.UI;
+using Infrastructure.Services.AssetsAddressables;
 using UnityEngine;
 
 namespace Infrastructure.Services.Window
@@ -55,6 +56,7 @@ namespace Infrastructure.Services.Window
         {
             return windowID switch
             {
+                WindowID.MainMenu => AssetsAddressableConstants.MAIN_MENU_SCREEN_PREFAB,
                 _ => null
             };
         }

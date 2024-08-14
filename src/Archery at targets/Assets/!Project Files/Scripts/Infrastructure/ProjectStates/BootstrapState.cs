@@ -15,7 +15,7 @@ namespace Infrastructure.ProjectStates
 
         public void OnEnter()
         {
-            _projectStateMachine.SwitchState<GameMainMenuState>();
+            _projectStateMachine.SwitchState<MainMenuState>();
         }
     }
 }
