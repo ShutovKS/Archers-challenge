@@ -16,4 +16,4 @@ MonoBehaviour:
   Values:
   - featureSets:
     - com.unity.openxr.featureset.meta
-  m_vulkanAdditionalGraphicsQueue: 0
+  m_vulkanAdditionalGraphicsQueue: 1

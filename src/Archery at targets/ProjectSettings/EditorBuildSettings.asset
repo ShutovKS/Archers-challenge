@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/!Project Files/Scenes/Bootstrap.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Samples/XR Hands/1.5.0-pre.3/HandVisualizer/HandVisualizer.unity
+    guid: aa799213cd805fe47a7a9b408f63d0eb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5ea3b6c3a5be5f647b7a4fa11752514a, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: 9aab105f6cd6c6344bfbee9327a39138, type: 2}

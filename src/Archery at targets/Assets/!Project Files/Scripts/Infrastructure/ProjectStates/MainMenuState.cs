@@ -1,6 +1,9 @@
 ﻿using System.Threading.Tasks;
+using Data.Level;
+using Extension;
 using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.ProjectStateMachine;
+using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
 using JetBrains.Annotations;
 using UI;
@@ -12,22 +15,27 @@ namespace Infrastructure.ProjectStates
     {
         private readonly IAssetsAddressablesProvider _assetsAddressablesProvider;
         private readonly IProjectStateMachineService _projectStateMachine;
+        private readonly IStaticDataService _staticDataService;
         private readonly IWindowService _windowService;
-
+        private MainMenuLevelData _levelData;
         private MainMenuUI _mainMenuUI;
 
         public MainMenuState(
             IAssetsAddressablesProvider assetsAddressablesProvider,
             IProjectStateMachineService projectStateMachine,
+            IStaticDataService staticDataService,
             IWindowService windowService)
         {
             _assetsAddressablesProvider = assetsAddressablesProvider;
             _projectStateMachine = projectStateMachine;
+            _staticDataService = staticDataService;
             _windowService = windowService;
         }
 
         public async void OnEnter()
         {
+            _levelData = _staticDataService.GetLevelData<MainMenuLevelData>("MainMenuLevelData");
+
             await SceneLoad();
             await InstanceMainMenuScreen();
             ShowMainMenu();
@@ -46,6 +54,9 @@ namespace Infrastructure.ProjectStates
         private async Task InstanceMainMenuScreen()
         {
             _mainMenuUI = await _windowService.OpenAndGetComponent<MainMenuUI>(WindowID.MainMenu);
+            _mainMenuUI.gameObject.SetPositionAndRotation(
+                _levelData.ScreenSpawnPoint.Position,
+                _levelData.ScreenSpawnPoint.Rotation);
         }
 
         private void ShowMainMenu()

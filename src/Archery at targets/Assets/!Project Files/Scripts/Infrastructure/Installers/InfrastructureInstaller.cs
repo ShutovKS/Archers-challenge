@@ -3,6 +3,7 @@ using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
 using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.ProjectStateMachine;
+using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Timer;
 using Infrastructure.Services.Window;
@@ -25,6 +26,8 @@ namespace Infrastructure.Installers
             Container.Bind<IStopwatchService>().To<StopwatchService>().AsSingle();
             Container.Bind<ITimerService>().To<TimerService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
+            Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
+            Container.Bind<IInitializable>().To<IStaticDataService>().AsSingle();
         }
 
         private void BindFactories()
