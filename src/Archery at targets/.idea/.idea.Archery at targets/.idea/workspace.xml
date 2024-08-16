@@ -5,52 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Resources.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/MainMenuLevelData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Player.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Player/IPlayerFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Player/IPlayerFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/StaticData.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/StaticData/IStaticDataService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/StaticData/IStaticDataService.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/StaticData/StaticDataService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/StaticData/StaticDataService.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Samples/XR Hands/1.5.0-pre.3/HandVisualizer/HandVisualizer.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Data.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Resources/Data.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Data/Levels.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Resources/Data/Levels.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Data/Levels/MainMenuData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Resources/Data/Levels/MainMenuData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Data/Levels/MainMenuData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Resources/Data/Levels/MainMenuData.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR Origin (MR) for Gameplay.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR Origin (MR) for Gameplay.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Hands/1.5.0-pre.3.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR Origin (VR) for Gameplay.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR Origin (VR) for Gameplay.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Hands/1.5.0-pre.3/HandVisualizer.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR Origin (VR) for Main menu.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR Origin (VR) for Main menu.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Hands/1.5.0-pre.3/HandVisualizer/HandVisualizer.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Bootstrap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Bootstrap.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/BaseLevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/BaseLevelData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/CreatedObjectData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/SpawnPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/CreatedObjectData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/SpawnPoint.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/MainMenuBaseLevelData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/MainMenuBaseLevelData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/MainMenuLevelData.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/ShootingBaseLevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/ShootingBaseLevelData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Installers/InfrastructureInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Installers/InfrastructureInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Settings/Mobile_RPAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Settings/Mobile_RPAsset.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/Resources/XRSimulationRuntimeSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/Resources/XRSimulationRuntimeSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/Resources/XRSimulationPreferences.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/Resources/XRSimulationPreferences.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/XRGeneralSettingsPerBuildTarget.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/XRGeneralSettingsPerBuildTarget.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/IXRSetupService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/IXRSetupService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +51,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;
   }
 }</component>
   <component name="RiderTodoViewSettings" groupByProject="false" />
@@ -180,7 +135,9 @@
       <workItem from="1723790300016" duration="126000" />
       <workItem from="1723790455787" duration="126000" />
       <workItem from="1723790636289" duration="225000" />
-      <workItem from="1723793946636" duration="460000" />
+      <workItem from="1723793946636" duration="1463000" />
+      <workItem from="1723808925063" duration="1238000" />
+      <workItem from="1723821420706" duration="1452000" />
     </task>
     <servers />
   </component>
