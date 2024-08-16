@@ -1,4 +1,4 @@
-using Infrastructure.Services.XRSetup.Features.AR;
+using Infrastructure.Services.XRSetup.AR;
 
 namespace Infrastructure.Services.XRSetup
 {

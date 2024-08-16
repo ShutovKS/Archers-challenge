@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using Zenject;
 
-namespace Infrastructure.Services.XRSetup.Features.AR
+namespace Infrastructure.Services.XRSetup.AR.Features
 {
     public class ARCameraSetup : BaseARSetup<ARCameraManager>
     {

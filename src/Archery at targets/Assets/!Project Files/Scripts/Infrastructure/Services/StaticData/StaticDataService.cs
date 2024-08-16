@@ -4,11 +4,12 @@ using System.Linq;
 using Data.Level;
 using JetBrains.Annotations;
 using UnityEngine;
+using Zenject;
 
 namespace Infrastructure.Services.StaticData
 {
     [UsedImplicitly]
-    public class StaticDataService : IStaticDataService
+    public class StaticDataService : IStaticDataService, IInitializable
     {
         private const string LEVEL_STATIC_DATA_PATH = "Data/Levels/";
 
@@ -19,8 +20,6 @@ namespace Infrastructure.Services.StaticData
             _levels = Resources
                 .LoadAll<BaseLevelData>(LEVEL_STATIC_DATA_PATH)
                 .ToDictionary(x => x.Key, x => x);
-
-            Debug.Log(_levels.Count);
         }
 
         public TLevelData GetLevelData<TLevelData>(string key) where TLevelData : BaseLevelData

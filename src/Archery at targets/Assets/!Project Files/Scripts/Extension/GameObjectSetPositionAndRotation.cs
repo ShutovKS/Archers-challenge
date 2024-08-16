@@ -1,3 +1,4 @@
+using Data.Level;
 using UnityEngine;
 
 namespace Extension
@@ -12,6 +13,11 @@ namespace Extension
         public static void SetPositionAndRotation(this GameObject gameObject, Vector3 position, Vector3 rotation)
         {
             gameObject.transform.SetPositionAndRotation(position, rotation.ToQuaternion());
+        }
+        
+        public static void SetPositionAndRotation(this GameObject gameObject, SpawnPoint spawnPoint)
+        {
+            gameObject.transform.SetPositionAndRotation(spawnPoint.Position, spawnPoint.Rotation.ToQuaternion());
         }
     }
 }

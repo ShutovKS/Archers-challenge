@@ -1,11 +1,9 @@
 using Data.Level;
-using Zenject;
 
 namespace Infrastructure.Services.StaticData
 {
-    public interface IStaticDataService : IInitializable
+    public interface IStaticDataService
     {
-        new void Initialize();
         TLevelData GetLevelData<TLevelData>(string key) where TLevelData : BaseLevelData;
     }
 }

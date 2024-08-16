@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Infrastructure.Services.XRSetup.Features.AR;
+using Infrastructure.Services.XRSetup.AR;
 using Zenject;
 
 namespace Infrastructure.Services.XRSetup

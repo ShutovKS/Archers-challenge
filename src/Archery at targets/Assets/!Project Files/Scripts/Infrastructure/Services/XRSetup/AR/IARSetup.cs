@@ -1,4 +1,4 @@
-namespace Infrastructure.Services.XRSetup.Features.AR
+namespace Infrastructure.Services.XRSetup.AR
 {
     public interface IARSetup
     {

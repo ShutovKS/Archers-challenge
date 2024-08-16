@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69c9b360efcb9124c9a53a2995aedfea
+    m_Address: Prefabs/XR Origin (MR Rig).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: afa83661044c245448e43e38ddc77486
     m_Address: Prefabs/Information desk Screen.prefab
     m_ReadOnly: 0

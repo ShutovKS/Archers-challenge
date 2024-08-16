@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Infrastructure.Services.XRSetup.Features.AR
+namespace Infrastructure.Services.XRSetup.AR
 {
     public abstract class BaseARSetup<TManager> : IARSetup where TManager : Behaviour
     {
