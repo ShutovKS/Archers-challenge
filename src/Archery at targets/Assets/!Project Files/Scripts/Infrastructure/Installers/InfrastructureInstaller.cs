@@ -1,4 +1,5 @@
 using Infrastructure.Factories.GameObjects;
+using Infrastructure.Factories.Player;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
 using Infrastructure.Services.AssetsAddressables;
@@ -39,6 +40,7 @@ namespace Infrastructure.Installers
             Container.Bind<IGameObjectFactory>().To<GameObjectFactory>().AsSingle();
             Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
             Container.Bind<ITargetFactory>().To<TargetFactory>().AsSingle();
+            Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
         }
 
         private void BindProjectStateMachine()

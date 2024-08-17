@@ -68,7 +68,7 @@ namespace Infrastructure.ProjectStates
         private void ConfigurePlayer()
         {
             // _playerFactory.Player.SetPositionAndRotation(_levelData.PlayerSpawnPoint);
-            _xrSetupService.EnableFeature(ARFeature.Camera, false);
+            _xrSetupService.EnableFeature(ARFeature.Session, false);
         }
 
         private void ShowMainMenu()
