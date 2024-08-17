@@ -9,8 +9,6 @@ using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Timer;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
-using Infrastructure.Services.XRSetup.AR.Features;
-using UnityEngine.XR.ARFoundation;
 using Zenject;
 
 namespace Infrastructure.Installers
@@ -31,7 +29,9 @@ namespace Infrastructure.Installers
             Container.Bind<IStopwatchService>().To<StopwatchService>().AsSingle();
             Container.Bind<ITimerService>().To<TimerService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
-            Container.Bind(typeof(StaticDataService), typeof(IStaticDataService), typeof(IInitializable))
+            
+            Container
+                .Bind(typeof(StaticDataService), typeof(IStaticDataService), typeof(IInitializable))
                 .To<StaticDataService>().AsSingle();
         }
 
@@ -51,13 +51,6 @@ namespace Infrastructure.Installers
         private void BindXRSetup()
         {
             Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
-
-            Container.BindInterfacesTo<ARSessionSetup>().AsSingle();
-            Container.BindInterfacesTo<ARCameraSetup>().AsSingle();
-            Container.BindInterfacesTo<ARPlaneSetup>().AsSingle();
-            Container.BindInterfacesTo<ARBoundingBoxesSetup>().AsSingle();
-            Container.BindInterfacesTo<ARAnchorSetup>().AsSingle();
-            // Container.BindInterfacesTo<ARMeshSetup>().AsSingle();
         }
     }
 }

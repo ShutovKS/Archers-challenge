@@ -1,13 +1,9 @@
-﻿using System.Threading.Tasks;
-using Data.Level;
-using Extension;
+﻿using Data.Level;
 using Infrastructure.Factories.GameObjects;
-using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.ProjectStateMachine;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
-using Infrastructure.Services.XRSetup.AR;
 using JetBrains.Annotations;
 using UI;
 
@@ -16,7 +12,6 @@ namespace Infrastructure.ProjectStates
     [UsedImplicitly]
     public class MainMenuState : IState, IEnterable, IExitable
     {
-        private readonly IAssetsAddressablesProvider _assetsAddressablesProvider;
         private readonly IProjectStateMachineService _projectStateMachine;
         private readonly IGameObjectFactory _gameObjectFactory;
         private readonly IStaticDataService _staticDataService;
@@ -26,25 +21,21 @@ namespace Infrastructure.ProjectStates
         private MainMenuUI _mainMenuUI;
 
         public MainMenuState(
-            IAssetsAddressablesProvider assetsAddressablesProvider,
             IProjectStateMachineService projectStateMachine,
             IStaticDataService staticDataService,
             IWindowService windowService,
             IXRSetupService xrSetupService)
         {
-            _assetsAddressablesProvider = assetsAddressablesProvider;
             _projectStateMachine = projectStateMachine;
             _staticDataService = staticDataService;
             _windowService = windowService;
             _xrSetupService = xrSetupService;
         }
 
-        public async void OnEnter()
+        public void OnEnter()
         {
-            _levelData = _staticDataService.GetLevelData<MainMenuLevelData>("MainMenuLevelData");
+            _mainMenuUI = _windowService.Get<MainMenuUI>(WindowID.MainMenu);
 
-            await SceneLoad();
-            await InstanceMainMenuScreen();
             ConfigurePlayer();
             ShowMainMenu();
         }
@@ -54,21 +45,9 @@ namespace Infrastructure.ProjectStates
             _windowService.Close(WindowID.MainMenu);
         }
 
-        private async Task SceneLoad()
-        {
-            var scene = await _assetsAddressablesProvider.LoadScene(AssetsAddressableConstants.MAIN_MENU_SCENE);
-        }
-
-        private async Task InstanceMainMenuScreen()
-        {
-            _mainMenuUI = await _windowService.OpenAndGetComponent<MainMenuUI>(WindowID.MainMenu);
-            _mainMenuUI.gameObject.SetPositionAndRotation(_levelData.ScreenSpawnPoint);
-        }
-
         private void ConfigurePlayer()
         {
             // _playerFactory.Player.SetPositionAndRotation(_levelData.PlayerSpawnPoint);
-            _xrSetupService.EnableFeature(ARFeature.Session, false);
         }
 
         private void ShowMainMenu()

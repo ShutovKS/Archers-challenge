@@ -15,21 +15,25 @@ namespace Infrastructure.Services.Window
 
         private readonly IUIFactory _uiFactory;
 
-        public async Task Open(WindowID windowID)
+        public async Task Open(WindowID windowID, Vector3? position = null, Quaternion? rotation = null)
         {
-            await OpenWindow(windowID);
+            await OpenWindow(windowID, position, rotation);
         }
 
-        public async Task<T> OpenAndGetComponent<T>(WindowID windowID) where T : Component
+        public async Task<T> OpenAndGet<T>(WindowID windowID, Vector3? position = null, Quaternion? rotation = null)
+            where T : Component
         {
-            await OpenWindow(windowID);
+            await OpenWindow(windowID, position, rotation);
 
-            var component = await _uiFactory.GetScreenComponent<T>(windowID);
-
-            return component;
+            return await _uiFactory.GetScreenComponent<T>(windowID);
         }
 
-        private async Task OpenWindow(WindowID windowID)
+        public T Get<T>(WindowID windowID) where T : Component
+        {
+            return _uiFactory.GetScreenComponent<T>(windowID).Result;
+        }
+
+        private async Task OpenWindow(WindowID windowID, Vector3? position = null, Quaternion? rotation = null)
         {
             var windowsPath = GetWindowsPath(windowID);
 
@@ -38,7 +42,17 @@ namespace Infrastructure.Services.Window
                 throw new NullReferenceException($"No path for install windows: {windowID.ToString()}");
             }
 
-            await _uiFactory.CreateScreen(windowsPath, windowID);
+            var instance = await _uiFactory.CreateScreen(windowsPath, windowID);
+
+            if (position.HasValue)
+            {
+                instance.transform.position = position.Value;
+            }
+
+            if (rotation.HasValue)
+            {
+                instance.transform.rotation = rotation.Value;
+            }
         }
 
         public void Close(WindowID windowID)

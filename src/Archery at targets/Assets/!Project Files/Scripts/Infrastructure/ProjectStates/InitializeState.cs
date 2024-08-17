@@ -1,35 +1,26 @@
-using System.Threading.Tasks;
-using Infrastructure.Factories.Player;
 using Infrastructure.Services.ProjectStateMachine;
+using JetBrains.Annotations;
 
 namespace Infrastructure.ProjectStates
 {
+    [UsedImplicitly]
     public class InitializeState : IState, IEnterable
     {
         private readonly IProjectStateMachineService _projectStateMachineService;
-        private readonly IPlayerFactory _playerFactory;
 
-        public InitializeState(IProjectStateMachineService projectStateMachineService, IPlayerFactory playerFactory)
+        public InitializeState(IProjectStateMachineService projectStateMachineService)
         {
             _projectStateMachineService = projectStateMachineService;
-            _playerFactory = playerFactory;
         }
 
-        public async void OnEnter()
+        public void OnEnter()
         {
-            await CreatePlayer();
-
             MoveToMainMenu();
         }
-
-        private async Task CreatePlayer()
-        {
-            await _playerFactory.CreatePlayer();
-        }
-
+        
         private void MoveToMainMenu()
         {
-            _projectStateMachineService.SwitchState<MainMenuState>();
+            _projectStateMachineService.SwitchState<MainMenuLoadingState>();
         }
     }
 }
