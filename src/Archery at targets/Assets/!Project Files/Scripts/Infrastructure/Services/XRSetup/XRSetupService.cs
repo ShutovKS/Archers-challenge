@@ -28,10 +28,7 @@ namespace Infrastructure.Services.XRSetup
                 { typeof(NoneTrackingMode), new NoneTrackingModeHandler() },
                 { typeof(PlaneTrackingMode), new PlaneTrackingModeHandler(_arComponentsFactory) },
                 { typeof(BoundingBoxTrackingMode), new BoundingBoxTrackingModeHandler(_arComponentsFactory) },
-                {
-                    typeof(PlaneAndBoundingBoxTrackingMode),
-                    new PlaneAndBoundingBoxTrackingModeHandler(_arComponentsFactory)
-                },
+                { typeof(PlaneAndBoundingBoxTrackingMode), new PlaneAndBoundingBoxTrackingModeHandler(_arComponentsFactory) },
                 { typeof(MeshTrackingMode), new MeshTrackingModeHandler(_arComponentsFactory) },
             };
         }
@@ -42,9 +39,23 @@ namespace Infrastructure.Services.XRSetup
 
             _currentMode = mode;
 
-            SetComponentState<ARSession>(mode == XRMode.MR);
-            SetComponentState<ARInputManager>(mode == XRMode.MR);
-            SetComponentState<ARCameraManager>(mode == XRMode.MR);
+            switch (mode)
+            {
+                case XRMode.None:
+                case XRMode.VR:
+                    SetComponentState<ARSession>(false);
+                    SetComponentState<ARInputManager>(false);
+                    SetComponentState<ARCameraManager>(false);
+                    EnableTrackingMode(new NoneTrackingMode());
+                    SetAnchorManagerState(false);
+                    break;
+                case XRMode.MR:
+                    SetComponentState<ARSession>(true);
+                    SetComponentState<ARInputManager>(true);
+                    SetComponentState<ARCameraManager>(true);
+                    break;
+                default: throw new ArgumentOutOfRangeException();
+            }
         }
 
         public void SetXRTrackingMode(IXRTrackingMode xrTrackingMode)
@@ -97,13 +108,6 @@ namespace Infrastructure.Services.XRSetup
         private T GetOrCreateComponent<T>() where T : Behaviour
         {
             return _arComponentsFactory.Get<T>() ?? _arComponentsFactory.Create<T>();
-        }
-
-        public void Initialize()
-        {
-            _arComponentsFactory.Create<ARSession>().enabled = false;
-            _arComponentsFactory.Create<ARInputManager>().enabled = false;
-            _arComponentsFactory.Create<ARCameraManager>().enabled = false;
         }
     }
 }

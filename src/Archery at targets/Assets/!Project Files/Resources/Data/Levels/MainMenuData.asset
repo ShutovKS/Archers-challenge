@@ -13,21 +13,9 @@ MonoBehaviour:
   m_Name: MainMenuData
   m_EditorClassIdentifier: 
   <Key>k__BackingField: MainMenuLevelData
-  <PlayerCreatedObjectData>k__BackingField:
-    <AssetReference>k__BackingField:
-      m_AssetGUID: 8309038ef32fd3749bacdf0736e13170
-      m_SubObjectName: 
-      m_SubObjectGUID: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
+  <PlayerSpawnPoint>k__BackingField:
     <Position>k__BackingField: {x: 0, y: 0, z: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0}
-  <ScreenCreatedObjectData>k__BackingField:
-    <AssetReference>k__BackingField:
-      m_AssetGUID: afa83661044c245448e43e38ddc77486
-      m_SubObjectName: 
-      m_SubObjectGUID: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
-    <Position>k__BackingField: {x: 0, y: 1.25, z: 2.25}
+  <ScreenSpawnPoint>k__BackingField:
+    <Position>k__BackingField: {x: 0, y: 0, z: 2}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0}

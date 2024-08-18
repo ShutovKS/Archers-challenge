@@ -29,8 +29,8 @@ namespace Infrastructure.Installers
             Container.Bind<IStopwatchService>().To<StopwatchService>().AsSingle();
             Container.Bind<ITimerService>().To<TimerService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
-            Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
             Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
+            Container.Bind(typeof(IInitializable), typeof(IStaticDataService)).To<StaticDataService>().AsSingle();
         }
 
         private void BindFactories()

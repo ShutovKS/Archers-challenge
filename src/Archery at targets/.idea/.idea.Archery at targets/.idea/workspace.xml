@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Player/IPlayerFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Player/IPlayerFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Resources/Data/Levels/MainMenuData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Resources/Data/Levels/MainMenuData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Installers/InfrastructureInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Installers/InfrastructureInstaller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/InitializeState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/InitializeState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/StaticData/IStaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/StaticData/IStaticDataService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/StaticData/StaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/StaticData/StaticDataService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/IXRSetupService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/IXRSetupService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/XRSetupService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/XRSetupService.cs" afterDir="false" />
     </list>
@@ -151,7 +154,7 @@
       <workItem from="1723876067460" duration="9700000" />
       <workItem from="1723965550023" duration="3652000" />
       <workItem from="1723980849929" duration="4524000" />
-      <workItem from="1723992185466" duration="431000" />
+      <workItem from="1723992185466" duration="1740000" />
     </task>
     <servers />
   </component>
