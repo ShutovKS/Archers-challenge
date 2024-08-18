@@ -37,6 +37,7 @@ namespace Infrastructure.Factories.ARComponents
                     _playerFactory.Player.GetComponentInChildren<Camera>().gameObject,
                 _ when typeof(T) == typeof(ARPlaneManager) ||
                        typeof(T) == typeof(ARBoundingBoxManager) ||
+                       typeof(T) == typeof(ARMeshManager) ||
                        typeof(T) == typeof(ARAnchorManager) =>
                     _playerFactory.Player,
                 _ => throw new NotSupportedException($"AR component of type {typeof(T)} is not supported.")
