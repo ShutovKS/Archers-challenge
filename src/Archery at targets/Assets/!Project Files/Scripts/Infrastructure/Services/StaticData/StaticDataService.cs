@@ -9,7 +9,7 @@ using Zenject;
 namespace Infrastructure.Services.StaticData
 {
     [UsedImplicitly]
-    public class StaticDataService : IStaticDataService, IInitializable
+    public class StaticDataService : IStaticDataService
     {
         private const string LEVEL_STATIC_DATA_PATH = "Data/Levels/";
 

@@ -12,7 +12,7 @@ using Zenject;
 namespace Infrastructure.Services.XRSetup
 {
     [UsedImplicitly]
-    public class XRSetupService : IXRSetupService, IInitializable
+    public class XRSetupService : IXRSetupService
     {
         private readonly IARComponentsFactory _arComponentsFactory;
         private readonly Dictionary<Type, IXRTrackingModeHandler> _trackingModeHandlers;
@@ -43,6 +43,7 @@ namespace Infrastructure.Services.XRSetup
             _currentMode = mode;
 
             SetComponentState<ARSession>(mode == XRMode.MR);
+            SetComponentState<ARInputManager>(mode == XRMode.MR);
             SetComponentState<ARCameraManager>(mode == XRMode.MR);
         }
 
@@ -100,9 +101,9 @@ namespace Infrastructure.Services.XRSetup
 
         public void Initialize()
         {
-            _arComponentsFactory.Create<ARSession>();
-            _arComponentsFactory.Create<ARInputManager>();
-            _arComponentsFactory.Create<ARCameraManager>();
+            _arComponentsFactory.Create<ARSession>().enabled = false;
+            _arComponentsFactory.Create<ARInputManager>().enabled = false;
+            _arComponentsFactory.Create<ARCameraManager>().enabled = false;
         }
     }
 }

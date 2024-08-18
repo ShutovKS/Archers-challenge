@@ -3,6 +3,7 @@ using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Player;
 using Infrastructure.ProjectStateMachine;
+using Infrastructure.Services.StaticData;
 using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
 using UnityEngine.XR.ARFoundation;
@@ -13,25 +14,29 @@ namespace Infrastructure.ProjectStates
     public class InitializeState : IState, IEnterable
     {
         private readonly IPlayerFactory _playerFactory;
-        private readonly IGameObjectFactory _gameObjectFactory;
         private readonly IProjectStateMachine _projectStateMachine;
         private readonly IXRSetupService _xrSetupService;
+        private readonly IStaticDataService _staticDataService;
 
         public InitializeState(
             IPlayerFactory playerFactory,
-            IGameObjectFactory gameObjectFactory,
             IProjectStateMachine projectStateMachine,
-            IXRSetupService xrSetupService)
+            IXRSetupService xrSetupService,
+            IStaticDataService staticDataService)
         {
             _playerFactory = playerFactory;
-            _gameObjectFactory = gameObjectFactory;
             _projectStateMachine = projectStateMachine;
             _xrSetupService = xrSetupService;
+            _staticDataService = staticDataService;
         }
 
         public async void OnEnter()
         {
             await CreatePlayer();
+
+            InitializeXRAndSetVrMode();
+
+            InitializeStaticData();
 
             MoveToNextState();
         }
@@ -39,6 +44,17 @@ namespace Infrastructure.ProjectStates
         private async Task CreatePlayer()
         {
             await _playerFactory.CreatePlayer();
+        }
+
+        private void InitializeXRAndSetVrMode()
+        {
+            _xrSetupService.Initialize();
+            _xrSetupService.SetXRMode(XRMode.VR);
+        }
+
+        private void InitializeStaticData()
+        {
+            _staticDataService.Initialize();
         }
 
         private void MoveToNextState()

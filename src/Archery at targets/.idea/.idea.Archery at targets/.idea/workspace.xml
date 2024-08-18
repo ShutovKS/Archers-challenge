@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/ARComponents/ARComponentsFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/ARComponents/ARComponentsFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Player/IPlayerFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Player/IPlayerFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/InitializeState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/InitializeState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/IXRSetupService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/IXRSetupService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/XRSetupService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/XRSetupService.cs" afterDir="false" />
     </list>
@@ -30,6 +31,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/c4/fa95b0e8/HideInInspector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f5b293c74049457cabc28437c5a763925a00/e4/fd2aee9e/IInitializable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fe22fa1c9ce44af491c6d67e6c35b4a41dbc00/c9/f4324d9b/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/TMP/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation/Runtime/ARFoundation/AROcclusionManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation/Runtime/ARFoundation/CameraFacingDirection.cs" root0="SKIP_HIGHLIGHTING" />
@@ -148,6 +150,8 @@
       <workItem from="1723821420706" duration="1452000" />
       <workItem from="1723876067460" duration="9700000" />
       <workItem from="1723965550023" duration="3652000" />
+      <workItem from="1723980849929" duration="4524000" />
+      <workItem from="1723992185466" duration="431000" />
     </task>
     <servers />
   </component>
