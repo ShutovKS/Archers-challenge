@@ -30,11 +30,13 @@ namespace Infrastructure.Installers
             Container.Bind<ITimerService>().To<TimerService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
 
-            Container
-                .Bind(typeof(StaticDataService), typeof(IStaticDataService), typeof(IInitializable))
-                .To<StaticDataService>().AsSingle();
+            Container.Bind(typeof(StaticDataService), typeof(IStaticDataService), typeof(IInitializable))
+                .To<StaticDataService>()
+                .AsSingle();
 
-            Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
+            Container.Bind(typeof(XRSetupService), typeof(IXRSetupService), typeof(IInitializable))
+                .To<XRSetupService>()
+                .AsSingle();
         }
 
         private void BindFactories()

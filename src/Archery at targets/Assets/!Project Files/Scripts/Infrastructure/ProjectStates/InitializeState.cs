@@ -16,25 +16,21 @@ namespace Infrastructure.ProjectStates
         private readonly IGameObjectFactory _gameObjectFactory;
         private readonly IProjectStateMachine _projectStateMachine;
         private readonly IXRSetupService _xrSetupService;
-        private readonly IARComponentsFactory _arComponentsFactory;
 
         public InitializeState(
             IPlayerFactory playerFactory,
             IGameObjectFactory gameObjectFactory,
             IProjectStateMachine projectStateMachine,
-            IXRSetupService xrSetupService,
-            IARComponentsFactory arComponentsFactory)
+            IXRSetupService xrSetupService)
         {
             _playerFactory = playerFactory;
             _gameObjectFactory = gameObjectFactory;
             _projectStateMachine = projectStateMachine;
             _xrSetupService = xrSetupService;
-            _arComponentsFactory = arComponentsFactory;
         }
 
         public async void OnEnter()
         {
-            await CreateARSession();
             await CreatePlayer();
 
             MoveToNextState();
@@ -43,13 +39,6 @@ namespace Infrastructure.ProjectStates
         private async Task CreatePlayer()
         {
             await _playerFactory.CreatePlayer();
-            await _arComponentsFactory.CreateARComponent<ARCameraManager>();
-            await _arComponentsFactory.CreateARComponent<ARCameraBackground>();
-        }
-
-        private async Task CreateARSession()
-        {
-            await _arComponentsFactory.CreateARComponent<ARSession>();
         }
 
         private void MoveToNextState()

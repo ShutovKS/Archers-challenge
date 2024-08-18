@@ -5,7 +5,8 @@ namespace Infrastructure.Factories.ARComponents
 {
     public interface IARComponentsFactory
     {
-        Task<T> CreateARComponent<T>() where T : Behaviour;
-        void RemoveARComponent<T>() where T : Behaviour;
+        Task<T> Create<T>() where T : Behaviour;
+        void Remove<T>() where T : Behaviour;
+        T Get<T>() where T : Behaviour;
     }
 }

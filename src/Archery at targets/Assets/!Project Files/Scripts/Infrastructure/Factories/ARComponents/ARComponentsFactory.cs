@@ -16,20 +16,15 @@ namespace Infrastructure.Factories.ARComponents
     {
         private readonly IPlayerFactory _playerFactory;
         private readonly IGameObjectFactory _gameObjectFactory;
-        private readonly IXRSetupService _xrSetupService;
         private readonly Dictionary<Type, Behaviour> _arComponents = new();
 
-        public ARComponentsFactory(
-            IPlayerFactory playerFactory,
-            IGameObjectFactory gameObjectFactory,
-            IXRSetupService xrSetupService)
+        public ARComponentsFactory(IPlayerFactory playerFactory, IGameObjectFactory gameObjectFactory)
         {
             _playerFactory = playerFactory;
             _gameObjectFactory = gameObjectFactory;
-            _xrSetupService = xrSetupService;
         }
 
-        public async Task<T> CreateARComponent<T>() where T : Behaviour
+        public async Task<T> Create<T>() where T : Behaviour
         {
             if (typeof(T) == typeof(ARSession) || typeof(T) == typeof(ARInputManager))
             {
@@ -50,7 +45,7 @@ namespace Infrastructure.Factories.ARComponents
             return CreateComponent<T>(targetObject);
         }
 
-        public void RemoveARComponent<T>() where T : Behaviour
+        public void Remove<T>() where T : Behaviour
         {
             if (typeof(T) == typeof(ARSession) || typeof(T) == typeof(ARInputManager))
             {
@@ -62,9 +57,14 @@ namespace Infrastructure.Factories.ARComponents
             if (_arComponents.TryGetValue(typeof(T), out var component))
             {
                 _arComponents.Remove(typeof(T));
-                _xrSetupService.RemoveXRComponent<T>();
                 UnityEngine.Object.Destroy(component);
             }
+        }
+
+        public T Get<T>() where T : Behaviour
+        {
+            _arComponents.TryGetValue(typeof(T), out var component);
+            return component as T;
         }
 
         private async Task<T> CreateARSessionComponent<T>() where T : Behaviour
@@ -73,34 +73,32 @@ namespace Infrastructure.Factories.ARComponents
 
             if (typeof(T) == typeof(ARSession))
             {
-                var component = BindComponent(instance.GetComponent<ARSession>());
+                var component = instance.GetComponent<ARSession>();
                 _arComponents.Add(typeof(T), component);
                 return component as T;
             }
 
             if (typeof(T) == typeof(ARInputManager))
             {
-                var component = BindComponent(instance.GetComponent<ARInputManager>());
+                var component = instance.GetComponent<ARInputManager>();
                 _arComponents.Add(typeof(T), component);
                 return component as T;
             }
 
             throw new InvalidOperationException($"Unsupported AR session component type {typeof(T)}.");
         }
-        
+
         private void RemoveARSessionComponent()
         {
             if (_arComponents.TryGetValue(typeof(ARSession), out var arSession))
             {
                 _arComponents.Remove(typeof(ARSession));
-                _xrSetupService.RemoveXRComponent<ARSession>();
                 UnityEngine.Object.Destroy(arSession);
             }
 
             if (_arComponents.TryGetValue(typeof(ARInputManager), out var arInputManager))
             {
                 _arComponents.Remove(typeof(ARInputManager));
-                _xrSetupService.RemoveXRComponent<ARInputManager>();
                 UnityEngine.Object.Destroy(arInputManager);
             }
         }
@@ -109,12 +107,6 @@ namespace Infrastructure.Factories.ARComponents
         {
             var component = parent.AddComponent<T>();
             _arComponents.Add(typeof(T), component);
-            return BindComponent(component);
-        }
-
-        private T BindComponent<T>(T component) where T : Behaviour
-        {
-            _xrSetupService.AddXRComponent(component);
             return component;
         }
     }
