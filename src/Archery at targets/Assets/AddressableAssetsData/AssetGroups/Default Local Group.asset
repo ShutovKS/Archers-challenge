@@ -15,11 +15,6 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 298a50b6db136a24e807b6d3a66e72fb
   m_SerializeEntries:
-  - m_GUID: 2a5c901eb53c81e4a840573226bf847b
-    m_Address: Prefabs/AR Session.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64bf3ad128950a942a6ecbf2a544ac92
     m_Address: Prefabs/Main Menu Screen.prefab
     m_ReadOnly: 0

@@ -5,6 +5,7 @@ using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
 using Infrastructure.ProjectStateMachine;
 using Infrastructure.Services.AssetsAddressables;
+using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Timer;
@@ -30,6 +31,7 @@ namespace Infrastructure.Installers
             Container.Bind<ITimerService>().To<TimerService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
+            Container.Bind<IInteractorSetupService>().To<InteractorSetupService>().AsSingle();
             Container.Bind(typeof(IInitializable), typeof(IStaticDataService)).To<StaticDataService>().AsSingle();
         }
 

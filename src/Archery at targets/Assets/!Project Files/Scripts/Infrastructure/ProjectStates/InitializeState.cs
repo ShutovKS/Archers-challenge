@@ -34,8 +34,6 @@ namespace Infrastructure.ProjectStates
         {
             await CreatePlayer();
 
-            SetVrMode();
-
             MoveToNextState();
         }
 
@@ -44,11 +42,6 @@ namespace Infrastructure.ProjectStates
             await _playerFactory.CreatePlayer();
         }
 
-        private void SetVrMode()
-        {
-            _xrSetupService.SetXRMode(XRMode.VR);
-        }
-        
         private void MoveToNextState()
         {
             _projectStateMachine.SwitchState<MainMenuState>();

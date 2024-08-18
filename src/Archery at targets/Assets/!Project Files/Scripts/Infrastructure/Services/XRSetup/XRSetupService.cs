@@ -28,7 +28,10 @@ namespace Infrastructure.Services.XRSetup
                 { typeof(NoneTrackingMode), new NoneTrackingModeHandler() },
                 { typeof(PlaneTrackingMode), new PlaneTrackingModeHandler(_arComponentsFactory) },
                 { typeof(BoundingBoxTrackingMode), new BoundingBoxTrackingModeHandler(_arComponentsFactory) },
-                { typeof(PlaneAndBoundingBoxTrackingMode), new PlaneAndBoundingBoxTrackingModeHandler(_arComponentsFactory) },
+                {
+                    typeof(PlaneAndBoundingBoxTrackingMode),
+                    new PlaneAndBoundingBoxTrackingModeHandler(_arComponentsFactory)
+                },
                 { typeof(MeshTrackingMode), new MeshTrackingModeHandler(_arComponentsFactory) },
             };
         }
@@ -44,18 +47,18 @@ namespace Infrastructure.Services.XRSetup
                 case XRMode.None:
                 case XRMode.VR:
                     SetComponentState<ARSession>(false);
-                    SetComponentState<ARInputManager>(false);
                     SetComponentState<ARCameraManager>(false);
                     EnableTrackingMode(new NoneTrackingMode());
                     SetAnchorManagerState(false);
                     break;
                 case XRMode.MR:
                     SetComponentState<ARSession>(true);
-                    SetComponentState<ARInputManager>(true);
                     SetComponentState<ARCameraManager>(true);
                     break;
                 default: throw new ArgumentOutOfRangeException();
             }
+
+            SetComponentState<ARInputManager>(true);
         }
 
         public void SetXRTrackingMode(IXRTrackingMode xrTrackingMode)
