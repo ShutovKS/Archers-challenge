@@ -6,6 +6,6 @@ namespace Infrastructure.Services.XRSetup.TrackingModeHandler
     public interface IXRTrackingModeHandler
     {
         void Disable();
-        Task Enable(IXRTrackingMode trackingMode);
+        void Enable(IXRTrackingMode trackingMode);
     }
 }

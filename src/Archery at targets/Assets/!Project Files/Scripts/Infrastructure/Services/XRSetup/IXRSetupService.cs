@@ -6,8 +6,8 @@ namespace Infrastructure.Services.XRSetup
 {
     public interface IXRSetupService
     {
-        Task SetXRMode(XRMode mode);
-        Task SetXRTrackingMode(IXRTrackingMode xrTrackingMode);
-        Task SetAnchorManagerState(bool isAnchorManagerEnabled, GameObject anchorPrefab = null);
+        void SetXRMode(XRMode mode);
+        void SetXRTrackingMode(IXRTrackingMode xrTrackingMode);
+        void SetAnchorManagerState(bool isAnchorManagerEnabled, GameObject anchorPrefab = null);
     }
 }

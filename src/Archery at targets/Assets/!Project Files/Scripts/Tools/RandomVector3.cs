@@ -15,7 +15,7 @@ namespace Tools
             var x = Random.Range(min.x, max.x);
             var y = Random.Range(min.y, max.y);
             var z = Random.Range(min.z, max.z);
-            
+
             return new Vector3(x, y, z);
         }
     }

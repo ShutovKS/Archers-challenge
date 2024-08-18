@@ -14,7 +14,7 @@ namespace Extension
         {
             gameObject.transform.SetPositionAndRotation(position, rotation.ToQuaternion());
         }
-        
+
         public static void SetPositionAndRotation(this GameObject gameObject, SpawnPoint spawnPoint)
         {
             gameObject.transform.SetPositionAndRotation(spawnPoint.Position, spawnPoint.Rotation.ToQuaternion());

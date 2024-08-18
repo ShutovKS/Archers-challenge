@@ -14,17 +14,18 @@ namespace Features.BowAndArrows
         public event Action<float> PullReleased;
         public event Action<bool> Selected;
 
-        [Header("Transforms")] 
-        [SerializeField] private Transform startTransform;
+        [Header("Transforms")] [SerializeField]
+        private Transform startTransform;
+
         [SerializeField] private Transform endTransform;
         [SerializeField] private Transform notchTransform;
 
-        [Header("Components")] 
-        [SerializeField] private LineRenderer lineRenderer;
+        [Header("Components")] [SerializeField]
+        private LineRenderer lineRenderer;
+
         [SerializeField] private AudioSource audioSourceString;
 
-        [Header("Settings")] 
-        [SerializeField] private float forwardArrowOffset = 0.1f;
+        [Header("Settings")] [SerializeField] private float forwardArrowOffset = 0.1f;
 
         private IXRSelectInteractor _pullingInteractor;
         private float _pullAmount;
@@ -73,7 +74,7 @@ namespace Features.BowAndArrows
         public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
         {
             if (_isLocked) return;
-         
+
             base.ProcessInteractable(updatePhase);
 
             if (isSelected && _pullingInteractor != null && updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)

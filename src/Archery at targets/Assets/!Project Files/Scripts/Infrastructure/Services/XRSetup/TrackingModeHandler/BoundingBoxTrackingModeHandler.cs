@@ -19,9 +19,9 @@ namespace Infrastructure.Services.XRSetup.TrackingModeHandler
             _arComponentsFactory.Remove<ARBoundingBoxManager>();
         }
 
-        public async Task Enable(IXRTrackingMode trackingMode)
+        public void Enable(IXRTrackingMode trackingMode)
         {
-            var arBoundingBoxManager = await _arComponentsFactory.Create<ARBoundingBoxManager>();
+            var arBoundingBoxManager = _arComponentsFactory.Create<ARBoundingBoxManager>();
             trackingMode.ConfigureComponents(arBoundingBoxManager);
         }
     }

@@ -19,9 +19,9 @@ namespace Infrastructure.Services.XRSetup.TrackingModeHandler
             _arComponentsFactory.Remove<ARMeshManager>();
         }
 
-        public async Task Enable(IXRTrackingMode trackingMode)
+        public void Enable(IXRTrackingMode trackingMode)
         {
-            var arMeshManager = await _arComponentsFactory.Create<ARMeshManager>();
+            var arMeshManager = _arComponentsFactory.Create<ARMeshManager>();
             trackingMode.ConfigureComponents(arMeshManager);
         }
     }

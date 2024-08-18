@@ -9,6 +9,8 @@ namespace Infrastructure.Services.XRSetup.TrackingModeHandler
         {
         }
 
-        public Task Enable(IXRTrackingMode trackingMode) => Task.CompletedTask;
+        public void Enable(IXRTrackingMode trackingMode)
+        {
+        }
     }
 }

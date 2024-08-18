@@ -29,7 +29,8 @@ namespace Infrastructure.Factories.UI
                 return instance;
             }
 
-            Debug.LogWarning($"A screen with WindowID {windowId} already exists. Replacing an existing display object.");
+            Debug.LogWarning(
+                $"A screen with WindowID {windowId} already exists. Replacing an existing display object.");
 
             Object.Destroy(_screenTypeToInstanceMap[windowId]);
 

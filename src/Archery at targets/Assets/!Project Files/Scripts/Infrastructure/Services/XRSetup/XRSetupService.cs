@@ -28,34 +28,37 @@ namespace Infrastructure.Services.XRSetup
                 { typeof(NoneTrackingMode), new NoneTrackingModeHandler() },
                 { typeof(PlaneTrackingMode), new PlaneTrackingModeHandler(_arComponentsFactory) },
                 { typeof(BoundingBoxTrackingMode), new BoundingBoxTrackingModeHandler(_arComponentsFactory) },
-                { typeof(PlaneAndBoundingBoxTrackingMode), new PlaneAndBoundingBoxTrackingModeHandler(_arComponentsFactory) },
+                {
+                    typeof(PlaneAndBoundingBoxTrackingMode),
+                    new PlaneAndBoundingBoxTrackingModeHandler(_arComponentsFactory)
+                },
                 { typeof(MeshTrackingMode), new MeshTrackingModeHandler(_arComponentsFactory) },
             };
         }
 
-        public async Task SetXRMode(XRMode mode)
+        public void SetXRMode(XRMode mode)
         {
             if (_currentMode == mode) return;
 
             _currentMode = mode;
 
-            await SetComponentState<ARSession>(mode == XRMode.MR);
-            await SetComponentState<ARCameraManager>(mode == XRMode.MR);
+            SetComponentState<ARSession>(mode == XRMode.MR);
+            SetComponentState<ARCameraManager>(mode == XRMode.MR);
         }
 
-        public async Task SetXRTrackingMode(IXRTrackingMode xrTrackingMode)
+        public void SetXRTrackingMode(IXRTrackingMode xrTrackingMode)
         {
             if (_currentTrackingMode.GetType() == xrTrackingMode.GetType()) return;
 
             DisableCurrentTrackingMode();
-            await EnableTrackingMode(xrTrackingMode);
+            EnableTrackingMode(xrTrackingMode);
 
             _currentTrackingMode = xrTrackingMode;
         }
 
-        private async Task SetComponentState<T>(bool enabled) where T : Behaviour
+        private void SetComponentState<T>(bool enabled) where T : Behaviour
         {
-            var component = await GetOrCreateComponent<T>();
+            var component = GetOrCreateComponent<T>();
             component.enabled = enabled;
         }
 
@@ -67,15 +70,15 @@ namespace Infrastructure.Services.XRSetup
             }
         }
 
-        private async Task EnableTrackingMode(IXRTrackingMode xrTrackingMode)
+        private void EnableTrackingMode(IXRTrackingMode xrTrackingMode)
         {
             if (_trackingModeHandlers.TryGetValue(xrTrackingMode.GetType(), out var handler))
             {
-                await handler.Enable(xrTrackingMode);
+                handler.Enable(xrTrackingMode);
             }
         }
 
-        public async Task SetAnchorManagerState(bool isAnchorManagerEnabled, GameObject anchorPrefab = null)
+        public void SetAnchorManagerState(bool isAnchorManagerEnabled, GameObject anchorPrefab = null)
         {
             if (!isAnchorManagerEnabled)
             {
@@ -83,22 +86,23 @@ namespace Infrastructure.Services.XRSetup
                 return;
             }
 
-            var arAnchorManager = await _arComponentsFactory.Create<ARAnchorManager>();
+            var arAnchorManager = _arComponentsFactory.Create<ARAnchorManager>();
             if (anchorPrefab)
             {
                 arAnchorManager.anchorPrefab = anchorPrefab;
             }
         }
 
-        private async Task<T> GetOrCreateComponent<T>() where T : Behaviour
+        private T GetOrCreateComponent<T>() where T : Behaviour
         {
-            return _arComponentsFactory.Get<T>() ?? await _arComponentsFactory.Create<T>();
+            return _arComponentsFactory.Get<T>() ?? _arComponentsFactory.Create<T>();
         }
 
-        public async void Initialize()
+        public void Initialize()
         {
-            await _arComponentsFactory.Create<ARSession>();
-            await _arComponentsFactory.Create<ARCameraManager>();
+            _arComponentsFactory.Create<ARSession>();
+            _arComponentsFactory.Create<ARInputManager>();
+            _arComponentsFactory.Create<ARCameraManager>();
         }
     }
 }
