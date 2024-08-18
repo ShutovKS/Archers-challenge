@@ -1,5 +1,5 @@
+using Infrastructure.ProjectStateMachine;
 using Infrastructure.ProjectStates;
-using Infrastructure.Services.ProjectStateMachine;
 using JetBrains.Annotations;
 using Zenject;
 
@@ -8,16 +8,16 @@ namespace Infrastructure
     [UsedImplicitly]
     public class GamingBootloader : IInitializable
     {
-        private readonly IProjectStateMachineService _projectStateMachineService;
+        private readonly IProjectStateMachine _projectStateMachine;
 
-        public GamingBootloader(IProjectStateMachineService projectStateMachineService)
+        public GamingBootloader(IProjectStateMachine projectStateMachine)
         {
-            _projectStateMachineService = projectStateMachineService;
+            _projectStateMachine = projectStateMachine;
         }
 
         public void Initialize()
         {
-            _projectStateMachineService.SwitchState<BootstrapState>();
+            _projectStateMachine.SwitchState<BootstrapState>();
         }
     }
 }

@@ -1,9 +1,10 @@
+using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Player;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
+using Infrastructure.ProjectStateMachine;
 using Infrastructure.Services.AssetsAddressables;
-using Infrastructure.Services.ProjectStateMachine;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Timer;
@@ -19,7 +20,6 @@ namespace Infrastructure.Installers
         {
             BindServices();
             BindFactories();
-            BindXRSetup();
             BindProjectStateMachine();
         }
 
@@ -29,10 +29,12 @@ namespace Infrastructure.Installers
             Container.Bind<IStopwatchService>().To<StopwatchService>().AsSingle();
             Container.Bind<ITimerService>().To<TimerService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
-            
+
             Container
                 .Bind(typeof(StaticDataService), typeof(IStaticDataService), typeof(IInitializable))
                 .To<StaticDataService>().AsSingle();
+
+            Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
         }
 
         private void BindFactories()
@@ -41,16 +43,12 @@ namespace Infrastructure.Installers
             Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
             Container.Bind<ITargetFactory>().To<TargetFactory>().AsSingle();
             Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
+            Container.Bind<IARComponentsFactory>().To<ARComponentsFactory>().AsSingle();
         }
 
         private void BindProjectStateMachine()
         {
-            Container.Bind<IProjectStateMachineService>().To<ProjectStateMachineService>().AsSingle();
-        }
-
-        private void BindXRSetup()
-        {
-            Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
+            Container.Bind<IProjectStateMachine>().To<ProjectStateMachine.ProjectStateMachine>().AsSingle();
         }
     }
 }

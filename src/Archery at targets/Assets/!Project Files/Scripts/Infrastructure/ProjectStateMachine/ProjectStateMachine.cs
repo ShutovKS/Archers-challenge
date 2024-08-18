@@ -4,16 +4,16 @@ using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Zenject;
 
-namespace Infrastructure.Services.ProjectStateMachine
+namespace Infrastructure.ProjectStateMachine
 {
     [UsedImplicitly]
-    public class ProjectStateMachineService : IProjectStateMachineService
+    public class ProjectStateMachine : IProjectStateMachine
     {
         private IState _currentState;
         private readonly DiContainer _container;
         private CancellationTokenSource _tickCancellationTokenSource;
 
-        public ProjectStateMachineService(DiContainer container)
+        public ProjectStateMachine(DiContainer container)
         {
             _container = container;
         }

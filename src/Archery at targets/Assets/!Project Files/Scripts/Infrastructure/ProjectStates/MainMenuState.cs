@@ -1,18 +1,21 @@
-﻿using Data.Level;
+﻿using System.Threading.Tasks;
+using Data.Level;
+using Extension;
 using Infrastructure.Factories.GameObjects;
-using Infrastructure.Services.ProjectStateMachine;
+using Infrastructure.ProjectStateMachine;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
 using UI;
+using UnityEngine;
 
 namespace Infrastructure.ProjectStates
 {
     [UsedImplicitly]
-    public class MainMenuState : IState, IEnterable, IExitable
+    public class MainMenuState : IState, IEnterable, IExitable, ITickable
     {
-        private readonly IProjectStateMachineService _projectStateMachine;
+        private readonly IProjectStateMachine _projectStateMachine;
         private readonly IGameObjectFactory _gameObjectFactory;
         private readonly IStaticDataService _staticDataService;
         private readonly IWindowService _windowService;
@@ -21,7 +24,7 @@ namespace Infrastructure.ProjectStates
         private MainMenuUI _mainMenuUI;
 
         public MainMenuState(
-            IProjectStateMachineService projectStateMachine,
+            IProjectStateMachine projectStateMachine,
             IStaticDataService staticDataService,
             IWindowService windowService,
             IXRSetupService xrSetupService)
@@ -32,9 +35,9 @@ namespace Infrastructure.ProjectStates
             _xrSetupService = xrSetupService;
         }
 
-        public void OnEnter()
+        public async void OnEnter()
         {
-            _mainMenuUI = _windowService.Get<MainMenuUI>(WindowID.MainMenu);
+            await InstanceMainMenuScreen();
 
             ConfigurePlayer();
             ShowMainMenu();
@@ -43,6 +46,17 @@ namespace Infrastructure.ProjectStates
         public void OnExit()
         {
             _windowService.Close(WindowID.MainMenu);
+        }
+
+        private async Task InstanceMainMenuScreen()
+        {
+            var levelData = _staticDataService.GetLevelData<MainMenuLevelData>("MainMenuLevelData");
+
+            _mainMenuUI = await _windowService.OpenAndGet<MainMenuUI>(
+                WindowID.MainMenu,
+                levelData.ScreenSpawnPoint.Position,
+                levelData.ScreenSpawnPoint.Rotation.ToQuaternion()
+            );
         }
 
         private void ConfigurePlayer()
@@ -83,6 +97,19 @@ namespace Infrastructure.ProjectStates
 #else
             UnityEngine.Application.Quit();
 #endif
+        }
+
+        public void Tick()
+        {
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                _xrSetupService.SetXRMode(XRMode.VR);
+            }
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                _xrSetupService.SetXRMode(XRMode.MR);
+            }
         }
     }
 }

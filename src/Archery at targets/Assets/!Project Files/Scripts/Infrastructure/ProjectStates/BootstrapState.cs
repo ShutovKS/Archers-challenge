@@ -1,4 +1,4 @@
-﻿using Infrastructure.Services.ProjectStateMachine;
+﻿using Infrastructure.ProjectStateMachine;
 using JetBrains.Annotations;
 
 namespace Infrastructure.ProjectStates
@@ -6,9 +6,9 @@ namespace Infrastructure.ProjectStates
     [UsedImplicitly]
     public class BootstrapState : IState, IEnterable
     {
-        private readonly IProjectStateMachineService _projectStateMachine;
+        private readonly IProjectStateMachine _projectStateMachine;
 
-        public BootstrapState(IProjectStateMachineService projectStateMachine)
+        public BootstrapState(IProjectStateMachine projectStateMachine)
         {
             _projectStateMachine = projectStateMachine;
         }

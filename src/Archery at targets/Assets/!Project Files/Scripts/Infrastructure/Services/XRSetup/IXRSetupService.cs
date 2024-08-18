@@ -10,32 +10,27 @@ namespace Infrastructure.Services.XRSetup
     {
         void SetXRMode(XRMode mode);
 
-        void AddXRService<T>(T service);
-        T GetXRService<T>();
+        void AddXRComponent<T>(T service);
+        void RemoveXRComponent<T>();
+        T GetXRComponent<T>();
     }
 
     [UsedImplicitly]
     public class XRSetupService : IXRSetupService
     {
-        private readonly IPlayerFactory _playerFactory;
         private readonly Dictionary<Type, object> _xrServices = new();
-
-        public XRSetupService(IPlayerFactory playerFactory)
-        {
-            _playerFactory = playerFactory;
-        }
 
         public void SetXRMode(XRMode mode)
         {
-            GetXRService<ARSession>().enabled = mode switch
+            GetXRComponent<ARSession>().enabled = mode switch
             {
-                XRMode.AR => true,
+                XRMode.MR => true,
                 XRMode.None or XRMode.VR => false,
                 _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
             };
         }
 
-        public void AddXRService<T>(T service)
+        public void AddXRComponent<T>(T service)
         {
             if (_xrServices.ContainsKey(typeof(T)))
             {
@@ -47,13 +42,18 @@ namespace Infrastructure.Services.XRSetup
             }
         }
 
-        public T GetXRService<T>() => (T)_xrServices[typeof(T)];
+        public void RemoveXRComponent<T>()
+        {
+            _xrServices.Remove(typeof(T));
+        }
+
+        public T GetXRComponent<T>() => (T)_xrServices[typeof(T)];
     }
 
     public enum XRMode
     {
         None,
         VR,
-        AR
+        MR
     }
 }

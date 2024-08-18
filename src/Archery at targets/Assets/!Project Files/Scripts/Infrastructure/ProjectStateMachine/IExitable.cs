@@ -1,4 +1,4 @@
-namespace Infrastructure.Services.ProjectStateMachine
+namespace Infrastructure.ProjectStateMachine
 {
     public interface IExitable
     {

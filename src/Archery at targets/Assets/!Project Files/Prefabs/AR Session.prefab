@@ -9,10 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5471969089859596546}
-  - component: {fileID: 7337273038226324159}
   - component: {fileID: 7965117132234890406}
   - component: {fileID: 5856253396835622394}
-  - component: {fileID: -5234214554830473045}
   m_Layer: 0
   m_Name: AR Session
   m_TagString: Untagged
@@ -35,25 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7337273038226324159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3795948802087817915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: -5234214554830473045}
-  _installerPrefabs: []
-  _findSiblingMonoInstallers: 0
-  _autoRun: 1
-  _kernel: {fileID: 0}
 --- !u!114 &7965117132234890406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,17 +60,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa850fbd5b8aded44846f96e35f1a9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-5234214554830473045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3795948802087817915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ed53237e56049ff96f2c66d955ed3f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aRSession: {fileID: 7965117132234890406}
-  arInputManager: {fileID: 5856253396835622394}
