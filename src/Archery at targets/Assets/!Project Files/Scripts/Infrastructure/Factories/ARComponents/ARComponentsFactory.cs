@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Player;
@@ -15,6 +17,7 @@ namespace Infrastructure.Factories.ARComponents
         private readonly IPlayerFactory _playerFactory;
         private readonly IGameObjectFactory _gameObjectFactory;
         private readonly IXRSetupService _xrSetupService;
+        private readonly Dictionary<Type, Behaviour> _arComponents = new();
 
         public ARComponentsFactory(
             IPlayerFactory playerFactory,
@@ -26,52 +29,93 @@ namespace Infrastructure.Factories.ARComponents
             _xrSetupService = xrSetupService;
         }
 
-        public async Task CreateARComponent<T>() where T : Behaviour
+        public async Task<T> CreateARComponent<T>() where T : Behaviour
         {
-            var arComponentType = typeof(T);
-            switch (arComponentType)
+            if (typeof(T) == typeof(ARSession) || typeof(T) == typeof(ARInputManager))
             {
-                case not null when arComponentType == typeof(ARSession) ||
-                                   arComponentType == typeof(ARInputManager):
-                    await CreatedARSession();
-                    break;
+                return await CreateARSessionComponent<T>();
+            }
 
-                case not null when arComponentType == typeof(ARCameraManager) ||
-                                   arComponentType == typeof(ARCameraBackground):
-                    var player = _playerFactory.Player;
-                    var camera = player.GetComponentInChildren<Camera>().gameObject;
-                    CreatedComponent<T>(camera);
-                    break;
+            var targetObject = typeof(T) switch
+            {
+                _ when typeof(T) == typeof(ARCameraManager) || typeof(T) == typeof(ARCameraBackground) =>
+                    _playerFactory.Player.GetComponentInChildren<Camera>().gameObject,
+                _ when typeof(T) == typeof(ARPlaneManager) ||
+                       typeof(T) == typeof(ARBoundingBoxManager) ||
+                       typeof(T) == typeof(ARAnchorManager) =>
+                    _playerFactory.Player,
+                _ => throw new NotSupportedException($"AR component of type {typeof(T)} is not supported.")
+            };
 
-                case not null when arComponentType == typeof(ARPlaneManager) ||
-                                   arComponentType == typeof(ARBoundingBoxManager) ||
-                                   arComponentType == typeof(ARAnchorManager):
-                    CreatedComponent<T>(_playerFactory.Player);
-                    break;
+            return CreateComponent<T>(targetObject);
+        }
 
-                default:
-                    Debug.LogWarning($"AR component of type {arComponentType} is not supported.");
-                    break;
+        public void RemoveARComponent<T>() where T : Behaviour
+        {
+            if (typeof(T) == typeof(ARSession) || typeof(T) == typeof(ARInputManager))
+            {
+                RemoveARSessionComponent();
+                return;
+            }
+
+
+            if (_arComponents.TryGetValue(typeof(T), out var component))
+            {
+                _arComponents.Remove(typeof(T));
+                _xrSetupService.RemoveXRComponent<T>();
+                UnityEngine.Object.Destroy(component);
             }
         }
 
-        private async Task CreatedARSession()
+        private async Task<T> CreateARSessionComponent<T>() where T : Behaviour
         {
             var instance = await _gameObjectFactory.CreateInstance(AssetsAddressableConstants.AR_SESSION);
 
-            BindComponent(instance.GetComponent<ARSession>());
-            BindComponent(instance.GetComponent<ARInputManager>());
+            if (typeof(T) == typeof(ARSession))
+            {
+                var component = BindComponent(instance.GetComponent<ARSession>());
+                _arComponents.Add(typeof(T), component);
+                return component as T;
+            }
+
+            if (typeof(T) == typeof(ARInputManager))
+            {
+                var component = BindComponent(instance.GetComponent<ARInputManager>());
+                _arComponents.Add(typeof(T), component);
+                return component as T;
+            }
+
+            throw new InvalidOperationException($"Unsupported AR session component type {typeof(T)}.");
+        }
+        
+        private void RemoveARSessionComponent()
+        {
+            if (_arComponents.TryGetValue(typeof(ARSession), out var arSession))
+            {
+                _arComponents.Remove(typeof(ARSession));
+                _xrSetupService.RemoveXRComponent<ARSession>();
+                UnityEngine.Object.Destroy(arSession);
+            }
+
+            if (_arComponents.TryGetValue(typeof(ARInputManager), out var arInputManager))
+            {
+                _arComponents.Remove(typeof(ARInputManager));
+                _xrSetupService.RemoveXRComponent<ARInputManager>();
+                UnityEngine.Object.Destroy(arInputManager);
+            }
         }
 
-        private void CreatedComponent<T>(GameObject parent) where T : Behaviour
+        private T CreateComponent<T>(GameObject parent) where T : Behaviour
         {
             var component = parent.AddComponent<T>();
-            BindComponent(component);
+            _arComponents.Add(typeof(T), component);
+            return BindComponent(component);
         }
 
-        private void BindComponent<T>(T component) where T : Behaviour
+        private T BindComponent<T>(T component) where T : Behaviour
         {
             _xrSetupService.AddXRComponent(component);
+            return component;
         }
     }
 }

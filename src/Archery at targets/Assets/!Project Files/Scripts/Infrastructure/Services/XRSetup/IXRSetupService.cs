@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Infrastructure.Factories.Player;
 using JetBrains.Annotations;
 using UnityEngine.XR.ARFoundation;
 
@@ -9,45 +8,52 @@ namespace Infrastructure.Services.XRSetup
     public interface IXRSetupService
     {
         void SetXRMode(XRMode mode);
-
-        void AddXRComponent<T>(T service);
-        void RemoveXRComponent<T>();
-        T GetXRComponent<T>();
+        void AddXRComponent<T>(T service) where T : class;
+        void RemoveXRComponent<T>() where T : class;
+        T GetXRComponent<T>() where T : class;
     }
 
     [UsedImplicitly]
     public class XRSetupService : IXRSetupService
     {
-        private readonly Dictionary<Type, object> _xrServices = new();
+        private readonly Dictionary<Type, object> _xrComponents = new();
 
         public void SetXRMode(XRMode mode)
         {
-            GetXRComponent<ARSession>().enabled = mode switch
+            var arSession = GetXRComponent<ARSession>();
+            if (arSession)
             {
-                XRMode.MR => true,
-                XRMode.None or XRMode.VR => false,
-                _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
-            };
-        }
-
-        public void AddXRComponent<T>(T service)
-        {
-            if (_xrServices.ContainsKey(typeof(T)))
-            {
-                _xrServices[typeof(T)] = service;
+                arSession.enabled = mode == XRMode.MR;
             }
             else
             {
-                _xrServices.Add(typeof(T), service);
+                throw new InvalidOperationException("ARSession component not found. Please ensure ARSession is " +
+                                                    "created and added to XRSetupService.");
             }
         }
 
-        public void RemoveXRComponent<T>()
+        public void AddXRComponent<T>(T component) where T : class
         {
-            _xrServices.Remove(typeof(T));
+            if (_xrComponents.ContainsKey(typeof(T)))
+            {
+                _xrComponents[typeof(T)] = component;
+            }
+            else
+            {
+                _xrComponents.Add(typeof(T), component);
+            }
         }
 
-        public T GetXRComponent<T>() => (T)_xrServices[typeof(T)];
+        public void RemoveXRComponent<T>() where T : class
+        {
+            _xrComponents.Remove(typeof(T));
+        }
+
+        public T GetXRComponent<T>() where T : class
+        {
+            _xrComponents.TryGetValue(typeof(T), out var component);
+            return component as T;
+        }
     }
 
     public enum XRMode

@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Data.Level;
 using Extension;
+using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.ProjectStateMachine;
 using Infrastructure.Services.StaticData;
@@ -9,6 +10,7 @@ using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
 using UI;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 namespace Infrastructure.ProjectStates
 {
@@ -20,6 +22,7 @@ namespace Infrastructure.ProjectStates
         private readonly IStaticDataService _staticDataService;
         private readonly IWindowService _windowService;
         private readonly IXRSetupService _xrSetupService;
+        private readonly IARComponentsFactory _arComponentsFactory;
         private MainMenuLevelData _levelData;
         private MainMenuUI _mainMenuUI;
 
@@ -27,12 +30,14 @@ namespace Infrastructure.ProjectStates
             IProjectStateMachine projectStateMachine,
             IStaticDataService staticDataService,
             IWindowService windowService,
-            IXRSetupService xrSetupService)
+            IXRSetupService xrSetupService,
+            IARComponentsFactory arComponentsFactory)
         {
             _projectStateMachine = projectStateMachine;
             _staticDataService = staticDataService;
             _windowService = windowService;
             _xrSetupService = xrSetupService;
+            _arComponentsFactory = arComponentsFactory;
         }
 
         public async void OnEnter()
@@ -109,6 +114,16 @@ namespace Infrastructure.ProjectStates
             if (Input.GetKeyDown(KeyCode.M))
             {
                 _xrSetupService.SetXRMode(XRMode.MR);
+            }
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                _arComponentsFactory.CreateARComponent<ARSession>();
+            }
+            
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _arComponentsFactory.RemoveARComponent<ARSession>();
             }
         }
     }

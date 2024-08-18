@@ -3,7 +3,6 @@ using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Player;
 using Infrastructure.ProjectStateMachine;
-using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
 using UnityEngine.XR.ARFoundation;
@@ -45,6 +44,7 @@ namespace Infrastructure.ProjectStates
         {
             await _playerFactory.CreatePlayer();
             await _arComponentsFactory.CreateARComponent<ARCameraManager>();
+            await _arComponentsFactory.CreateARComponent<ARCameraBackground>();
         }
 
         private async Task CreateARSession()
