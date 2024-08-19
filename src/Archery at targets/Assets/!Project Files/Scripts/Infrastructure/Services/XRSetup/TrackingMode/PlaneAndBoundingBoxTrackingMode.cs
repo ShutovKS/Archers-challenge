@@ -7,18 +7,12 @@ namespace Infrastructure.Services.XRSetup.TrackingMode
 {
     public class PlaneAndBoundingBoxTrackingMode : IXRTrackingMode
     {
-        public PlaneAndBoundingBoxTrackingMode(GameObject planePrefab = null,
-            PlaneDetectionMode planeDetectionMode = PlaneDetectionMode.Horizontal | PlaneDetectionMode.Vertical,
-            GameObject boundingBoxPrefab = null)
-        {
-            _planePrefab = planePrefab;
-            _planeDetectionMode = planeDetectionMode;
-            _boundingBoxPrefab = boundingBoxPrefab;
-        }
+        public GameObject PlanePrefab { get; set; }
 
-        private readonly GameObject _planePrefab;
-        private readonly PlaneDetectionMode _planeDetectionMode;
-        private readonly GameObject _boundingBoxPrefab;
+        public PlaneDetectionMode PlaneDetectionMode { get; set; } =
+            PlaneDetectionMode.Horizontal | PlaneDetectionMode.Vertical;
+
+        public GameObject BoundingBoxPrefab { get; set; }
 
         public void ConfigureComponents(params Behaviour[] components)
         {
@@ -26,12 +20,12 @@ namespace Infrastructure.Services.XRSetup.TrackingMode
             {
                 if (component is ARPlaneManager arPlaneManager)
                 {
-                    arPlaneManager.planePrefab = _planePrefab;
-                    arPlaneManager.requestedDetectionMode = _planeDetectionMode;
+                    arPlaneManager.planePrefab = PlanePrefab;
+                    arPlaneManager.requestedDetectionMode = PlaneDetectionMode;
                 }
                 else if (component is ARBoundingBoxManager arBoundingBoxManager)
                 {
-                    arBoundingBoxManager.boundingBoxPrefab = _boundingBoxPrefab;
+                    arBoundingBoxManager.boundingBoxPrefab = BoundingBoxPrefab;
                 }
             }
         }

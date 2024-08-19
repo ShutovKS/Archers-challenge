@@ -1,12 +1,9 @@
 using System.Threading.Tasks;
-using Infrastructure.Factories.ARComponents;
-using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Player;
 using Infrastructure.ProjectStateMachine;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
-using UnityEngine.XR.ARFoundation;
 
 namespace Infrastructure.ProjectStates
 {
