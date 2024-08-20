@@ -20,14 +20,14 @@ namespace Infrastructure.Factories.Player
 
         public async Task<GameObject> CreatePlayer()
         {
-            var player = await _gameObjectFactory.CreateInstance(AssetsAddressableConstants.XR_ORIGIN_MR_RIG);
+            var player = await _gameObjectFactory.Instance(AssetsAddressableConstants.XR_ORIGIN_MR_RIG);
             Player = player;
             return player;
         }
 
         public async Task<GameObject> CreatePlayer(Vector3 position, Quaternion rotation)
         {
-            var player = await _gameObjectFactory.CreateInstance(AssetsAddressableConstants.XR_ORIGIN_MR_RIG);
+            var player = await _gameObjectFactory.Instance(AssetsAddressableConstants.XR_ORIGIN_MR_RIG);
             player.SetPositionAndRotation(position, rotation);
             Player = player;
             return player;

@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Data.GameplayConfigure;
 using Data.Level;
 using Extension;
 using Infrastructure.Factories.Player;
@@ -12,7 +11,6 @@ using Infrastructure.Services.XRSetup.TrackingMode;
 using JetBrains.Annotations;
 using UI;
 using UnityEngine;
-using UnityEngine.XR.ARSubsystems;
 
 namespace Infrastructure.ProjectStates
 {
@@ -28,7 +26,6 @@ namespace Infrastructure.ProjectStates
 
         private MainMenuLevelData _levelData;
         private MainMenuUI _mainMenuUI;
-        private GameplayConfigure _gameplayConfigure;
 
         public MainMenuState(
             IProjectStateMachine projectStateMachine,
@@ -48,159 +45,50 @@ namespace Infrastructure.ProjectStates
 
         public async void OnEnter()
         {
-            try
-            {
-                _levelData = _staticDataService.GetLevelData<MainMenuLevelData>("MainMenuLevelData");
-                _gameplayConfigure = new GameplayConfigure();
+            InitializeData();
 
-                await SetupMainMenuScreen();
-                ConfigurePlayer();
-                InitializeMainMenu();
-            }
-            catch (System.Exception ex)
-            {
-                Debug.LogError($"Error during MainMenuState OnEnter: {ex.Message}");
-            }
+            await InstanceMainMenuScreen();
+
+            ConfigurePlayer();
         }
 
-        public void OnExit()
+        private void InitializeData()
         {
-            try
-            {
-                _windowService.Close(WindowID.MainMenu);
-            }
-            catch (System.Exception ex)
-            {
-                Debug.LogError($"Error during MainMenuState OnExit: {ex.Message}");
-            }
+            _levelData = _staticDataService.GetLevelData<MainMenuLevelData>("MainMenu");
         }
 
-        private async Task SetupMainMenuScreen()
+        private async Task InstanceMainMenuScreen()
         {
-            try
-            {
-                _mainMenuUI = await _windowService.OpenAndGet<MainMenuUI>(
-                    WindowID.MainMenu,
-                    _levelData.ScreenSpawnPoint.Position,
-                    _levelData.ScreenSpawnPoint.Rotation.ToQuaternion()
-                );
-            }
-            catch (System.Exception ex)
-            {
-                Debug.LogError($"Error during SetupMainMenuScreen: {ex.Message}");
-                throw;
-            }
+            _mainMenuUI = await _windowService.OpenAndGet<MainMenuUI>(
+                WindowID.MainMenu,
+                _levelData.ScreenSpawnPoint.Position,
+                _levelData.ScreenSpawnPoint.Rotation.ToQuaternion()
+            );
         }
 
         private void ConfigurePlayer()
         {
-            try
-            {
-                _xrSetupService.SetXRMode(XRMode.VR);
-                _playerFactory.Player.SetPositionAndRotation(_levelData.PlayerSpawnPoint);
-                _interactorSetupService.SetInteractor(InteractorType.Ray);
-            }
-            catch (System.Exception ex)
-            {
-                Debug.LogError($"Error during ConfigurePlayer: {ex.Message}");
-                throw;
-            }
+            _xrSetupService.SetXRMode(XRMode.VR);
+            _xrSetupService.SetXRTrackingMode(new NoneTrackingMode());
+            _xrSetupService.SetAnchorManagerState(false);
+
+            _interactorSetupService.SetInteractor(InteractorType.Ray);
+
+            _playerFactory.Player.SetPositionAndRotation(_levelData.PlayerSpawnPoint);
         }
-
-        private void InitializeMainMenu()
-        {
-            try
-            {
-                _mainMenuUI.ClearButtons();
-                AddMainMenuButtons();
-
-                _gameplayConfigure.GameplayType = GameplayType.None;
-                _gameplayConfigure.XRMode = XRMode.None;
-            }
-            catch (System.Exception ex)
-            {
-                Debug.LogError($"Error during InitializeMainMenu: {ex.Message}");
-                throw;
-            }
-        }
-
-        private void AddMainMenuButtons()
-        {
-            _mainMenuUI.AddButton("VR режим", ShowVRGamesMenu);
-            _mainMenuUI.AddButton("MR режим", ShowMrGamesMenu);
-            _mainMenuUI.AddButton("Выход", ExitFromGame);
-        }
-
-        private void ShowVRGamesMenu()
-        {
-            ConfigureGameplayMenu(XRMode.VR);
-            _gameplayConfigure.XRTrackingMode = new NoneTrackingMode();
-        }
-
-        private void ShowMrGamesMenu()
-        {
-            ConfigureGameplayMenu(XRMode.MR);
-            _gameplayConfigure.XRTrackingMode = new PlaneAndBoundingBoxTrackingMode
-            {
-                PlanePrefab = null,
-                PlaneDetectionMode = PlaneDetectionMode.Horizontal | PlaneDetectionMode.Vertical,
-                BoundingBoxPrefab = null
-            };
-        }
-
-        private void ConfigureGameplayMenu(XRMode mode)
-        {
-            try
-            {
-                _mainMenuUI.ClearButtons();
-                AddGameplayMenuButtons();
-                _mainMenuUI.AddButton("Назад", InitializeMainMenu);
-
-                _gameplayConfigure.XRMode = mode;
-            }
-            catch (System.Exception ex)
-            {
-                Debug.LogError($"Error during ConfigureGameplayMenu: {ex.Message}");
-                throw;
-            }
-        }
-
-        private void AddGameplayMenuButtons()
-        {
-            _mainMenuUI.AddButton("На количество попаданий", () => LoadGame(GameplayType.PerNumberHitsState));
-            _mainMenuUI.AddButton("На время", () => LoadGame(GameplayType.ForTimeState));
-            _mainMenuUI.AddButton("Бесконечный режим", () => LoadGame(GameplayType.InfiniteState));
-        }
-
-        private void LoadGame(GameplayType gameplayType)
-        {
-            try
-            {
-                _gameplayConfigure.GameplayType = gameplayType;
-                _projectStateMachine.SwitchState<GameplayState, GameplayType>(gameplayType);
-            }
-            catch (System.Exception ex)
-            {
-                Debug.LogError($"Error during LoadGame: {ex.Message}");
-                throw;
-            }
-        }
-
+        
         private void ExitFromGame()
         {
-            try
-            {
 #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
 #else
-                UnityEngine.Application.Quit();
+            UnityEngine.Application.Quit();
 #endif
-            }
-            catch (System.Exception ex)
-            {
-                Debug.LogError($"Error during ExitFromGame: {ex.Message}");
-                throw;
-            }
+        }
+
+        public void OnExit()
+        {
+            _windowService.Close(WindowID.MainMenu);
         }
     }
 }

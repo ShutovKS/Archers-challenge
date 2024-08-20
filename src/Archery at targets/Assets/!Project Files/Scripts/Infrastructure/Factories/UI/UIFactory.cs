@@ -22,7 +22,7 @@ namespace Infrastructure.Factories.UI
 
         public async Task<GameObject> CreateScreen(string assetAddress, WindowID windowId)
         {
-            var instance = await _gameObjectFactory.CreateInstance(assetAddress);
+            var instance = await _gameObjectFactory.Instance(assetAddress);
 
             if (_screenTypeToInstanceMap.TryAdd(windowId, instance))
             {

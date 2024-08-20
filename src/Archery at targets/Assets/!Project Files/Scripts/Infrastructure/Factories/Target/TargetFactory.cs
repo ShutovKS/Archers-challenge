@@ -48,7 +48,7 @@ namespace Infrastructure.Factories.Target
         {
             var isHit = false;
             var id = UniqueIDGenerator.Generate();
-            var instance = await _gameObjectFactory.CreateInstance(TARGET_PREFAB_PATH);
+            var instance = await _gameObjectFactory.Instance(TARGET_PREFAB_PATH);
             instance.SetPositionAndRotation(position, rotation);
 
             var colliderInteractionEnterTrigger = instance.AddComponent<ColliderInteractionEnterTrigger>();

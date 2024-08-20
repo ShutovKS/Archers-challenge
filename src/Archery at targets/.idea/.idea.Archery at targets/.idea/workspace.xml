@@ -6,9 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/InitializeState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/InitializeState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/GameplayConfigure/GameplayConfigure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/GameplayConfigure/GameplayConfigure.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/BaseLevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/BaseLevelData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/GameplayLevelData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/GameplayLevelData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/MainMenuLevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/MainMenuLevelData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/ShootingBaseLevelData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/ShootingBaseLevelData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/SpawnPoint.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/SpawnPoint.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/GameObjects/GameObjectFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/GameObjects/GameObjectFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Player/PlayerFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Player/PlayerFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Target/TargetFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Target/TargetFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/UI/UIFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/UI/UIFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStateMachine/IEnterableWithOneArg.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStateMachine/IEnterableWithOneArg.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStateMachine/ProjectStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStateMachine/ProjectStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/GameplayState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/GameplayState.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/TrackingMode/PlaneAndBoundingBoxTrackingMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/XRSetup/TrackingMode/PlaneAndBoundingBoxTrackingMode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/AssetsAddressables/AssetsAddressableConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/AssetsAddressables/AssetsAddressableConstants.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +34,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ShutovKS&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:RTU-TVP/Archery-at-targets.git&quot;,
+    &quot;accountId&quot;: &quot;e284b688-3a5a-4a5f-9863-581b1ef230e4&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3dc794ec2f4f4bffb3393937fe47a8572ac00/b1/c22a4da3/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/92/a8eded2c/Void.cs" root0="SKIP_HIGHLIGHTING" />
@@ -153,6 +181,10 @@
       <workItem from="1723980849929" duration="4524000" />
       <workItem from="1723992185466" duration="8658000" />
       <workItem from="1724039601711" duration="1306000" />
+      <workItem from="1724156744791" duration="4443000" />
+      <workItem from="1724173926806" duration="2672000" />
+      <workItem from="1724177134283" duration="225000" />
+      <workItem from="1724177378690" duration="4261000" />
     </task>
     <servers />
   </component>

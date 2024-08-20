@@ -70,7 +70,7 @@ namespace Infrastructure.ProjectStateMachine
 
         private void TryEnterNewState<T0>(T0 arg)
         {
-            if (_currentState is IEnterableWithOneArg<T0> enterable)
+            if (_currentState is IEnterableWithArg<T0> enterable)
             {
                 enterable.OnEnter(arg);
             }
