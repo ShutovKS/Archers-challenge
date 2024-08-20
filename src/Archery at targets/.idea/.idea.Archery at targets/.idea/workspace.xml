@@ -6,25 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/GameplayConfigure/GameplayConfigure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/GameplayConfigure/GameplayConfigure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/BaseLevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/BaseLevelData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/GameplayLevelData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/GameplayLevelData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/MainMenuLevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/MainMenuLevelData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/ShootingBaseLevelData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/ShootingBaseLevelData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/SpawnPoint.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/Level/SpawnPoint.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/GameObjects/GameObjectFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/GameObjects/GameObjectFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Player/PlayerFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Player/PlayerFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Target/TargetFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Target/TargetFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/UI/UIFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/UI/UIFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStateMachine/IEnterableWithOneArg.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStateMachine/IEnterableWithOneArg.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStateMachine/ProjectStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStateMachine/ProjectStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/GameplayState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/GameplayState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/AssetsAddressables/AssetsAddressableConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/AssetsAddressables/AssetsAddressableConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Locations/Dungeon location.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Locations/Dungeon location.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPolyDungeonsLite/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPolyDungeonsLite/Scenes/LowPolyDungeonsLite_Demo.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPolyDungeonsLite/Scenes/LowPolyDungeonsLite_Demo.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPolyDungeonsLite/Scenes/Settings.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPolyDungeonsLite/Scenes/Settings/PostProcessing_LowPolyDungeonsLite.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPolyDungeonsLite/Scenes/Settings/PostProcessing_LowPolyDungeonsLite.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPolyDungeonsLite/Scenes/Settings/URP_DungeonsLite.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPolyDungeonsLite/Scenes/Settings/URP_DungeonsLite.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPolyDungeonsLite/Scenes/Settings/URP_DungeonsLite_Renderer.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LowPolyDungeonsLite/Scenes/Settings/URP_DungeonsLite_Renderer.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +177,7 @@
       <workItem from="1724156744791" duration="4443000" />
       <workItem from="1724173926806" duration="2672000" />
       <workItem from="1724177134283" duration="225000" />
-      <workItem from="1724177378690" duration="4261000" />
+      <workItem from="1724177378690" duration="5398000" />
     </task>
     <servers />
   </component>
