@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -11,7 +12,7 @@ using UnityEngine.SceneManagement;
 namespace Infrastructure.Services.AssetsAddressables
 {
     [UsedImplicitly]
-    public class AssetsAddressablesProvider : IAssetsAddressablesProvider
+    public class AssetsAddressablesProvider : IAssetsAddressablesProvider, IInitializable
     {
         private readonly Dictionary<string, AsyncOperationHandle> _completedOperations = new();
         private readonly Dictionary<string, List<AsyncOperationHandle>> _handles = new();
@@ -40,22 +41,6 @@ namespace Infrastructure.Services.AssetsAddressables
             return (await Task.WhenAll(loadTasks)).ToList();
         }
 
-        public async Task<SceneInstance> LoadScene(string sceneAddress,
-            LoadSceneMode loadSceneMode = LoadSceneMode.Single)
-        {
-            if (_completedOperations.TryGetValue(sceneAddress, out var completed))
-            {
-                return (SceneInstance)completed.Result;
-            }
-
-            var handle = Addressables.LoadSceneAsync(sceneAddress, loadSceneMode);
-            handle.Completed += h => { _completedOperations[sceneAddress] = h; };
-
-            AddHandle(sceneAddress, handle);
-
-            return await handle.Task;
-        }
-
         public void CleanUp()
         {
             foreach (var handle in _handles.Values.SelectMany(resourceHandles => resourceHandles))
@@ -67,6 +52,15 @@ namespace Infrastructure.Services.AssetsAddressables
             _completedOperations.Clear();
         }
 
+        private async Task<T> RunWinCacheOnComplete<T>(AsyncOperationHandle<T> handle, string cacheKey) where T : Object
+        {
+            handle.Completed += h => { _completedOperations[cacheKey] = h; };
+
+            AddHandle(cacheKey, handle);
+
+            return await handle.Task;
+        }
+
         private void AddHandle(string key, AsyncOperationHandle handle)
         {
             if (!_handles.TryGetValue(key, out var resourceHandles))
@@ -76,15 +70,6 @@ namespace Infrastructure.Services.AssetsAddressables
             }
 
             resourceHandles.Add(handle);
-        }
-
-        private async Task<T> RunWinCacheOnComplete<T>(AsyncOperationHandle<T> handle, string cacheKey) where T : Object
-        {
-            handle.Completed += h => { _completedOperations[cacheKey] = h; };
-
-            AddHandle(cacheKey, handle);
-
-            return await handle.Task;
         }
     }
 }

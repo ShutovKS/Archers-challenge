@@ -16,8 +16,8 @@ namespace Infrastructure.Services.InteractorSetup
         {
             if (_currentInteractorType == interactorType) return;
 
-            _playerFactory.Player.GetComponent<InteractorsManager>().SetInteractorLeft(interactorType);
-            _playerFactory.Player.GetComponent<InteractorsManager>().SetInteractorRight(interactorType);
+            _playerFactory.InteractorsManager.SetInteractorLeft(interactorType);
+            _playerFactory.InteractorsManager.SetInteractorRight(interactorType);
 
             _currentInteractorType = interactorType;
         }

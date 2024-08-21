@@ -24,7 +24,7 @@ namespace Infrastructure.Factories.ARComponents
             {
                 _ when typeof(T) == typeof(ARCameraManager) ||
                        typeof(T) == typeof(ARCameraBackground)
-                    => _playerFactory.Player.GetComponentInChildren<Camera>().gameObject,
+                    => _playerFactory.PlayerCameraGameObject,
 
                 _ when typeof(T) == typeof(ARSession) ||
                        typeof(T) == typeof(ARInputManager) ||

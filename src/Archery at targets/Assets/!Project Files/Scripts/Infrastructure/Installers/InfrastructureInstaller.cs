@@ -26,7 +26,7 @@ namespace Infrastructure.Installers
 
         private void BindServices()
         {
-            Container.Bind<IAssetsAddressablesProvider>().To<AssetsAddressablesProvider>().AsSingle();
+            Container.Bind(typeof(IInitializable), typeof(IAssetsAddressablesProvider)).To<AssetsAddressablesProvider>().AsSingle();
             Container.Bind<IStopwatchService>().To<StopwatchService>().AsSingle();
             Container.Bind<ITimerService>().To<TimerService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
