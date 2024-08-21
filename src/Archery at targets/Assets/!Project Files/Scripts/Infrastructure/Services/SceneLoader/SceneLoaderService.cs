@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
@@ -26,17 +27,32 @@ namespace Infrastructure.Services.SceneLoader
             return _sceneHandles.Keys;
         }
 
+        public async Task LoadScenesAsync(IEnumerable<AssetReference> sceneReferences,
+            LoadSceneMode loadSceneMode = LoadSceneMode.Additive, CancellationToken cancellationToken = default)
+        {
+            var loadTasks = sceneReferences
+                .Select(sceneReference => LoadSceneAsync(sceneReference, loadSceneMode, cancellationToken))
+                .ToList();
+
+            await Task.WhenAll(loadTasks);
+        }
+
         public async Task LoadScenesAsync(IEnumerable<string> scenePaths,
             LoadSceneMode loadSceneMode = LoadSceneMode.Additive, CancellationToken cancellationToken = default)
         {
-            var loadTasks = new List<Task<SceneInstance>>();
-
-            foreach (var scenePath in scenePaths)
-            {
-                loadTasks.Add(LoadSceneAsync(scenePath, loadSceneMode, cancellationToken));
-            }
+            var loadTasks = scenePaths
+                .Select(scenePath => LoadSceneAsync(scenePath, loadSceneMode, cancellationToken))
+                .ToList();
 
             await Task.WhenAll(loadTasks);
+        }
+
+        public async Task<SceneInstance> LoadSceneAsync(AssetReference sceneReference,
+            LoadSceneMode loadSceneMode = LoadSceneMode.Single, CancellationToken cancellationToken = default)
+        {
+            if (sceneReference == null) throw new ArgumentNullException(nameof(sceneReference));
+
+            return await LoadSceneAsync(sceneReference.editorAsset.name, loadSceneMode, cancellationToken);
         }
 
         public async Task<SceneInstance> LoadSceneAsync(string scenePath,
@@ -92,6 +108,13 @@ namespace Infrastructure.Services.SceneLoader
             await Task.WhenAll(unloadTasks);
         }
 
+        public async Task UnloadSceneAsync(AssetReference sceneReference)
+        {
+            if (sceneReference == null) throw new ArgumentNullException(nameof(sceneReference));
+
+            await UnloadSceneAsync(sceneReference.editorAsset.name);
+        }
+
         public async Task UnloadSceneAsync(string scenePath)
         {
             if (string.IsNullOrEmpty(scenePath))
@@ -110,6 +133,14 @@ namespace Infrastructure.Services.SceneLoader
             {
                 Debug.LogWarning($"Scene {scenePath} is not loaded or already unloaded.");
             }
+        }
+
+        public async Task ReloadSceneAsync(AssetReference sceneReference,
+            LoadSceneMode loadSceneMode = LoadSceneMode.Single, CancellationToken cancellationToken = default)
+        {
+            if (sceneReference == null) throw new ArgumentNullException(nameof(sceneReference));
+
+            await ReloadSceneAsync(sceneReference.editorAsset.name, loadSceneMode, cancellationToken);
         }
 
         public async Task ReloadSceneAsync(string scenePath, LoadSceneMode loadSceneMode = LoadSceneMode.Single,
