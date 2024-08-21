@@ -71,7 +71,7 @@ namespace Infrastructure.ProjectStates
 
         private async Task LoadLocation()
         {
-            await _sceneLoaderService.LoadSceneAsync(_levelData.LocationSceneReference, LoadSceneMode.Additive);
+            await _sceneLoaderService.LoadSceneAsync(_levelData.LocationScenePath, LoadSceneMode.Additive);
         }
 
         private void GetSceneContextData()
@@ -129,7 +129,7 @@ namespace Infrastructure.ProjectStates
 
         private void DestroyLocation()
         {
-            _sceneLoaderService.UnloadSceneAsync(_levelData.LocationSceneReference);
+            _sceneLoaderService.UnloadSceneAsync(_levelData.LocationScenePath);
         }
     }
 }

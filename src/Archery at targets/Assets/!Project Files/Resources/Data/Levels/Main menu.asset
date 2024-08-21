@@ -17,9 +17,4 @@ MonoBehaviour:
   <ShortDescription>k__BackingField: 
   <Music>k__BackingField: {fileID: 0}
   <MusicVolume>k__BackingField: 0
-  <LocationSceneReference>k__BackingField:
-    m_AssetGUID: 917f62c142e3e4a4b965a0009b80359b
-    m_SubObjectName: 
-    m_SubObjectGUID: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 1
+  <LocationScenePath>k__BackingField: Scenes/Locations/Location - Farm (Main menu).unity
