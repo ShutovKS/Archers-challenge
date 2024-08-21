@@ -6,6 +6,7 @@ using Infrastructure.Factories.UI;
 using Infrastructure.ProjectStateMachine;
 using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.InteractorSetup;
+using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Stopwatch;
@@ -30,6 +31,7 @@ namespace Infrastructure.Installers
             Container.Bind(typeof(IInitializable), typeof(IAssetsAddressablesProvider)).To<AssetsAddressablesProvider>().AsSingle();
             Container.Bind(typeof(IInitializable), typeof(IStaticDataService)).To<StaticDataService>().AsSingle();
             Container.Bind<IInteractorSetupService>().To<InteractorSetupService>().AsSingle();
+            Container.Bind<ISceneContextProvider>().To<SceneContextProvider>().AsSingle();
             Container.Bind<ISceneLoaderService>().To<SceneLoaderService>().AsSingle();
             Container.Bind<IStopwatchService>().To<StopwatchService>().AsSingle();
             Container.Bind<ITimerService>().To<TimerService>().AsSingle();

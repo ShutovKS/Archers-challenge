@@ -1,9 +1,11 @@
 ﻿using System.Threading.Tasks;
 using Data.Level;
+using Data.SceneContainer;
 using Extension;
 using Infrastructure.Factories.Player;
 using Infrastructure.ProjectStateMachine;
 using Infrastructure.Services.InteractorSetup;
+using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
@@ -25,6 +27,7 @@ namespace Infrastructure.ProjectStates
         private readonly IInteractorSetupService _interactorSetupService;
         private readonly IPlayerFactory _playerFactory;
         private readonly ISceneLoaderService _sceneLoaderService;
+        private readonly ISceneContextProvider _sceneContextProvider;
 
         private MainMenuLevelData _levelData;
         private MainMenuUI _mainMenuUI;
@@ -36,7 +39,8 @@ namespace Infrastructure.ProjectStates
             IXRSetupService xrSetupService,
             IInteractorSetupService interactorSetupService,
             IPlayerFactory playerFactory,
-            ISceneLoaderService sceneLoaderService)
+            ISceneLoaderService sceneLoaderService,
+            ISceneContextProvider sceneContextProvider)
         {
             _projectStateMachine = projectStateMachine;
             _staticDataService = staticDataService;
@@ -45,6 +49,7 @@ namespace Infrastructure.ProjectStates
             _interactorSetupService = interactorSetupService;
             _playerFactory = playerFactory;
             _sceneLoaderService = sceneLoaderService;
+            _sceneContextProvider = sceneContextProvider;
         }
 
         public async void OnEnter()
@@ -55,6 +60,8 @@ namespace Infrastructure.ProjectStates
             await InstanceMainMenuScreen();
 
             ConfigurePlayer();
+            
+            _sceneContextProvider.Get<MainMenuSceneContextData>().Print();
         }
 
         private void InitializeData()
