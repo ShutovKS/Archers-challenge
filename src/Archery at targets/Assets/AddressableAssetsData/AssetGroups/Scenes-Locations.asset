@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Scenes-Locations
+  m_EditorClassIdentifier: 
+  m_GroupName: Scenes-Locations
+  m_GUID: 3aa73b4fbf641234095de90e8cbd7efd
+  m_SerializeEntries:
+  - m_GUID: 0e2167bf9cb68f64fa407701106932ca
+    m_Address: Scenes/Locations/Location - Camping forest.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38e066d097665c942a9c3a991ad4ed6d
+    m_Address: Scenes/Locations/Location - Wild west railway station.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c2afee9b902dda40a175e82186a3132
+    m_Address: Scenes/Locations/Location - Desert pyramids.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e821e77bd19ed943905728fa517e461
+    m_Address: Scenes/Locations/Location - Treasure Island.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b64fdfdc70e5ec44843d957ffbdd6f6
+    m_Address: Scenes/Locations/Location - Christmas village.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79af46c7025591a449d9a25752e23194
+    m_Address: Scenes/Locations/Location - Nature.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 917f62c142e3e4a4b965a0009b80359b
+    m_Address: Scenes/Locations/Location - Farm.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e48016bf37454948a11677566c195ed
+    m_Address: Scenes/Locations/Location - Soccer field.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2034eb337faf114082bda4ffb10f455
+    m_Address: Scenes/Locations/Location - Japanes island.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba41503a7641375408247e8f88b5cc18
+    m_Address: Scenes/Locations/Location - Downtown.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de3a3256a67f1b544881122f62aacb54
+    m_Address: Scenes/Locations/Location - Dungeon.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0464d298368afe40a3c0fedf6273744
+    m_Address: Scenes/Locations/Location - Space shuttle launch.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e38e15fe38dc45b4585bbae55fe2d76b
+    m_Address: Scenes/Locations/Location - Mini village.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e76d8464145bb7b40b42def327174fe3
+    m_Address: Scenes/Locations/Location - Autumn forest.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1e01a01ec361a2e42acee6551134981e, type: 2}
+  m_SchemaSet:
+    m_Schemas: []

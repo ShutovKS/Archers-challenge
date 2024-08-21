@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -10,6 +11,7 @@ using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.SceneLoader
 {
+    [UsedImplicitly]
     public class SceneLoaderService : ISceneLoaderService
     {
         private readonly Dictionary<string, AsyncOperationHandle<SceneInstance>> _sceneHandles = new();
