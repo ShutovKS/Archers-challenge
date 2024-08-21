@@ -3,10 +3,11 @@ using UnityEngine.AddressableAssets;
 
 namespace Data.Level
 {
-    public abstract class BaseLevelData : ScriptableObject
+    [CreateAssetMenu(fileName = "LevelData", menuName = "Data/Level", order = 0)]
+    public class LevelData : ScriptableObject
     {
-        public abstract string Key { get; protected set; }
-        
+        [field: SerializeField] public string Key { get; private set; }
+
         [field: Header("Information")]
         [field: SerializeField] public string LevelName { get; private set; }
         [field: SerializeField] public string ShortDescription { get; private set; }
@@ -17,6 +18,5 @@ namespace Data.Level
         
         [field: Header("References")]
         [field: SerializeField] public AssetReference LocationSceneReference { get; private set; }
-        [field: SerializeField] public SpawnPoint PlayerSpawnPoint { get; private set; }
     }
 }

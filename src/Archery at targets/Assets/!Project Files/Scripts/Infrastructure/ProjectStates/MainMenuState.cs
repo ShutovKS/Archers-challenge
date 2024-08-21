@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Data.Level;
-using Data.SceneContainer;
+using Data.SceneContext;
 using Extension;
 using Infrastructure.Factories.Player;
 using Infrastructure.ProjectStateMachine;
@@ -29,7 +29,8 @@ namespace Infrastructure.ProjectStates
         private readonly ISceneLoaderService _sceneLoaderService;
         private readonly ISceneContextProvider _sceneContextProvider;
 
-        private MainMenuLevelData _levelData;
+        private MainMenuSceneContextData _sceneContextData;
+        private LevelData _levelData;
         private MainMenuUI _mainMenuUI;
 
         public MainMenuState(
@@ -54,19 +55,17 @@ namespace Infrastructure.ProjectStates
 
         public async void OnEnter()
         {
-            InitializeData();
-
+            GetLevelData();
             await LoadLocation();
+            GetSceneContextData();
             await InstanceMainMenuScreen();
 
             ConfigurePlayer();
-            
-            _sceneContextProvider.Get<MainMenuSceneContextData>().Print();
         }
 
-        private void InitializeData()
+        private void GetLevelData()
         {
-            _levelData = _staticDataService.GetLevelData<MainMenuLevelData>("MainMenu");
+            _levelData = _staticDataService.GetLevelData<LevelData>("MainMenu");
         }
 
         private async Task LoadLocation()
@@ -74,12 +73,17 @@ namespace Infrastructure.ProjectStates
             await _sceneLoaderService.LoadSceneAsync(_levelData.LocationSceneReference, LoadSceneMode.Additive);
         }
 
+        private void GetSceneContextData()
+        {
+            _sceneContextData = _sceneContextProvider.Get<MainMenuSceneContextData>();
+        }
+
         private async Task InstanceMainMenuScreen()
         {
             _mainMenuUI = await _windowService.OpenAndGet<MainMenuUI>(
                 WindowID.MainMenu,
-                _levelData.ScreenSpawnObject.Position,
-                _levelData.ScreenSpawnObject.Rotation.ToQuaternion()
+                _sceneContextData.MainMenuScreenSpawnPoint.position,
+                _sceneContextData.MainMenuScreenSpawnPoint.rotation
             );
         }
 
@@ -91,7 +95,7 @@ namespace Infrastructure.ProjectStates
 
             _interactorSetupService.SetInteractor(InteractorType.Ray);
 
-            _playerFactory.Player.SetPositionAndRotation(_levelData.PlayerSpawnPoint);
+            _playerFactory.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
         }
 
         private void ExitFromGame()

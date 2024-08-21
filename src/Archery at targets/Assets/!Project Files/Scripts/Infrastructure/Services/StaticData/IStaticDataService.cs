@@ -4,6 +4,6 @@ namespace Infrastructure.Services.StaticData
 {
     public interface IStaticDataService
     {
-        TLevelData GetLevelData<TLevelData>(string key) where TLevelData : BaseLevelData;
+        TLevelData GetLevelData<TLevelData>(string key) where TLevelData : LevelData;
     }
 }
