@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Infrastructure.Services.XRSetup.TrackingMode

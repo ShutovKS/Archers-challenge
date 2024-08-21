@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Infrastructure.Factories.ARComponents;
 using Infrastructure.Services.XRSetup.TrackingMode;
 using UnityEngine.XR.ARFoundation;

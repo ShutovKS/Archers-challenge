@@ -10,7 +10,6 @@ using Infrastructure.Services.XRSetup;
 using Infrastructure.Services.XRSetup.TrackingMode;
 using JetBrains.Annotations;
 using UI;
-using UnityEngine;
 
 namespace Infrastructure.ProjectStates
 {

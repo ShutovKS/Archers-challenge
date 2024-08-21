@@ -1,7 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace Infrastructure.Services.InteractorSetup
 {

@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Infrastructure.Factories.ARComponents;
 using Infrastructure.Services.XRSetup.TrackingMode;
 using Infrastructure.Services.XRSetup.TrackingModeHandler;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using Zenject;
 
 namespace Infrastructure.Services.XRSetup
 {

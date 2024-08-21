@@ -1,10 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Player;
-using Infrastructure.Services.AssetsAddressables;
-using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
