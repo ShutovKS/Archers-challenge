@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7572893939923837705}
   - component: {fileID: 3762925534749496636}
   - component: {fileID: 6665223334868632570}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Direct Interactor - L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_ImproveAccuracyWithSphereCollider: 1
   m_PhysicsLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2049
   m_PhysicsTriggerInteraction: 1
 --- !u!135 &3762925534749496636
 SphereCollider:

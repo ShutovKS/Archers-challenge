@@ -1,5 +1,6 @@
 ﻿using Infrastructure.ProjectStateMachine;
 using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 namespace Infrastructure.ProjectStates
 {
@@ -15,7 +16,17 @@ namespace Infrastructure.ProjectStates
 
         public void OnEnter()
         {
+            LoadBootstrapScene();
+
             _projectStateMachine.SwitchState<InitializeState>();
+        }
+
+        private void LoadBootstrapScene()
+        {
+            if (SceneManager.GetActiveScene().buildIndex != 0)
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 }

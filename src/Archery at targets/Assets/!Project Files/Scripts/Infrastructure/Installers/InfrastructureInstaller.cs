@@ -14,6 +14,7 @@ using Infrastructure.Services.Timer;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using Zenject;
+using ITickable = Zenject.ITickable;
 
 namespace Infrastructure.Installers
 {
@@ -33,8 +34,8 @@ namespace Infrastructure.Installers
             Container.Bind<IInteractorSetupService>().To<InteractorSetupService>().AsSingle();
             Container.Bind<ISceneContextProvider>().To<SceneContextProvider>().AsSingle();
             Container.Bind<ISceneLoaderService>().To<SceneLoaderService>().AsSingle();
-            Container.Bind<IStopwatchService>().To<StopwatchService>().AsSingle();
-            Container.Bind<ITimerService>().To<TimerService>().AsSingle();
+            Container.Bind(typeof(IStopwatchService), typeof(ITickable)).To<StopwatchService>().AsSingle();
+            Container.Bind(typeof(ITimerService), typeof(ITickable)).To<TimerService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
         }

@@ -7,6 +7,7 @@ namespace UI
     public class InformationDeskUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text informationPrefab;
+        [SerializeField] private Transform parent;
 
         private readonly Dictionary<string, TMP_Text> _informationTexts = new();
 
@@ -14,7 +15,7 @@ namespace UI
         {
             if (!_informationTexts.ContainsKey(key))
             {
-                var informationText = Instantiate(informationPrefab, transform);
+                var informationText = Instantiate(informationPrefab, parent);
 
                 informationText.gameObject.SetActive(true);
 

@@ -4,6 +4,7 @@ using Data.SceneContext;
 using Extension;
 using Infrastructure.Factories.Player;
 using Infrastructure.ProjectStateMachine;
+using Infrastructure.ProjectStates.Gameplay;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.SceneLoader;
@@ -85,6 +86,9 @@ namespace Infrastructure.ProjectStates
                 _sceneContextData.MainMenuScreenSpawnPoint.position,
                 _sceneContextData.MainMenuScreenSpawnPoint.rotation
             );
+            
+            _mainMenuUI.AddButton("Infinite VR", StartInfiniteVR);
+            _mainMenuUI.AddButton("Exit", ExitFromGame);
         }
 
         private void ConfigurePlayer()
@@ -93,9 +97,14 @@ namespace Infrastructure.ProjectStates
             _xrSetupService.SetXRTrackingMode(new NoneTrackingMode());
             _xrSetupService.SetAnchorManagerState(false);
 
-            _interactorSetupService.SetInteractor(InteractorType.Ray);
+            _interactorSetupService.SetInteractor(InteractorType.NearFar);
 
             _playerFactory.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
+        }
+
+        private void StartInfiniteVR()
+        {
+            _projectStateMachine.SwitchState<InfiniteModeVRState>();
         }
 
         private void ExitFromGame()
@@ -109,7 +118,18 @@ namespace Infrastructure.ProjectStates
 
         public void OnExit()
         {
+            CloseScreen();
+            DestroyLocation();
+        }
+        
+        private void CloseScreen()
+        {
             _windowService.Close(WindowID.MainMenu);
+        }
+
+        private void DestroyLocation()
+        {
+            _sceneLoaderService.UnloadSceneAsync(_levelData.LocationSceneReference);
         }
     }
 }

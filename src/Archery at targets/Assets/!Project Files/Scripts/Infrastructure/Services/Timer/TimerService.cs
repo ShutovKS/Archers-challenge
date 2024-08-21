@@ -1,9 +1,11 @@
 using System;
+using JetBrains.Annotations;
 using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.Services.Timer
 {
+    [UsedImplicitly]
     public class TimerService : ITimerService, ITickable
     {
         public float RemainingTime { get; private set; }
@@ -11,7 +13,6 @@ namespace Infrastructure.Services.Timer
         public event Action<float> OnTick;
         public event Action OnFinished;
 
-        private float _timerDuration;
         private bool _isRunning;
 
         public void Start(float duration)
@@ -21,7 +22,6 @@ namespace Infrastructure.Services.Timer
                 throw new Exception("Failed attempt to start TimerService, it is already running");
             }
 
-            _timerDuration = duration;
             RemainingTime = duration;
             _isRunning = true;
         }

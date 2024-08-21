@@ -7,12 +7,12 @@ namespace Infrastructure.Installers
 {
     public class SceneContextInstaller : MonoInstaller
     {
-        [SerializeField] private MainMenuSceneContextData mainMenuSceneContextData;
+        [SerializeField] private BaseSceneContextData sceneContextData;
 
         public override void InstallBindings()
         {
             var sceneContainerProvider = Container.Resolve<ISceneContextProvider>();
-            sceneContainerProvider.Set(mainMenuSceneContextData);
+            sceneContainerProvider.Set(sceneContextData);
         }
     }
 }

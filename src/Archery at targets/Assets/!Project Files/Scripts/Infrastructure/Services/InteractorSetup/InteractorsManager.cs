@@ -6,7 +6,13 @@ namespace Infrastructure.Services.InteractorSetup
     {
         [SerializeField] private InteractorsContainer interactorsContainerLeft;
         [SerializeField] private InteractorsContainer interactorsContainerRight;
-
+        [SerializeField] private GameObject gazeInteractor;
+        
+        public void SetGazeInteractor(bool isActive)
+        {
+            if (gazeInteractor) gazeInteractor.SetActive(isActive);
+        }
+        
         public void SetInteractorLeft(InteractorType interactorType)
         {
             interactorsContainerLeft.SetInteractor(interactorType);

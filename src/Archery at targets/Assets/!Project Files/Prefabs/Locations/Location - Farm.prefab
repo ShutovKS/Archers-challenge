@@ -50,10 +50,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3a2fd026b2ab48b4f8d57280875b9b83, type: 3}
       propertyPath: m_Name
-      value: Farm
+      value: Location - Farm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -718060498484367648, guid: 3a2fd026b2ab48b4f8d57280875b9b83, type: 3}
+    - {fileID: -5369972194362264560, guid: 3a2fd026b2ab48b4f8d57280875b9b83, type: 3}
+    - {fileID: 3515717276090252278, guid: 3a2fd026b2ab48b4f8d57280875b9b83, type: 3}
+    - {fileID: 7869873546869171050, guid: 3a2fd026b2ab48b4f8d57280875b9b83, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a2fd026b2ab48b4f8d57280875b9b83, type: 3}

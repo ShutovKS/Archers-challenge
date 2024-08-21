@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 688703640887069538}
   - component: {fileID: 137077412444443014}
   - component: {fileID: 8956082269178809433}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gaze Interactor - R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
     m_Bits: 1
-  m_Handedness: 0
+  m_Handedness: 2
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1

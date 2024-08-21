@@ -1,7 +1,9 @@
 using Infrastructure.Factories.Player;
+using JetBrains.Annotations;
 
 namespace Infrastructure.Services.InteractorSetup
 {
+    [UsedImplicitly]
     public class InteractorSetupService : IInteractorSetupService
     {
         private readonly IPlayerFactory _playerFactory;
@@ -15,6 +17,8 @@ namespace Infrastructure.Services.InteractorSetup
         public void SetInteractor(InteractorType interactorType)
         {
             if (_currentInteractorType == interactorType) return;
+
+            _playerFactory.InteractorsManager.SetGazeInteractor(interactorType == InteractorType.Gaze);
 
             _playerFactory.InteractorsManager.SetInteractorLeft(interactorType);
             _playerFactory.InteractorsManager.SetInteractorRight(interactorType);

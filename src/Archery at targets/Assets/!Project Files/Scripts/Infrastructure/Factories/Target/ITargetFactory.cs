@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Infrastructure.Factories.Target
@@ -6,7 +7,8 @@ namespace Infrastructure.Factories.Target
     public interface ITargetFactory
     {
         event Action<string> TargetHit;
-        void SpawnTargets(int count, Vector3 pointLimitationMin, Vector3 pointLimitationMax, Quaternion rotation);
+        Task Instance(Vector3 position, Quaternion rotation);
         void Destroy(string targetId);
+        void DestroyAll();
     }
 }

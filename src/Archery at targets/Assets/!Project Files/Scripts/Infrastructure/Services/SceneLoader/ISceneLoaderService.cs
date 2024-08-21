@@ -25,6 +25,7 @@ namespace Infrastructure.Services.SceneLoader
             CancellationToken cancellationToken = default);
 
         Task UnloadAllScenesAsync();
+        Task UnloadSceneAsync(AssetReference sceneReference);
         Task UnloadSceneAsync(string scenePath);
 
         Task ReloadSceneAsync(AssetReference sceneReference, LoadSceneMode loadSceneMode = LoadSceneMode.Single,

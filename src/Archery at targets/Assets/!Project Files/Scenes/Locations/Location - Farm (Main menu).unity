@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 923888928}
   - component: {fileID: 923888927}
   - component: {fileID: 923888929}
+  - component: {fileID: 923888930}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -350,15 +351,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce152d18cfeb4c21ae1fb39ebb9deaea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuSceneContextData:
-    <PlayerSpawnPoint>k__BackingField: {fileID: 308952588}
-    <MainMenuScreenSpawnPoint>k__BackingField: {fileID: 999397439}
-    <MainMenuScreen>k__BackingField:
-      m_AssetGUID: 64bf3ad128950a942a6ecbf2a544ac92
-      m_SubObjectName: 
-      m_SubObjectGUID: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
+  sceneContextData: {fileID: 923888930}
+--- !u!114 &923888930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923888926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5695955f5b05416b8f91f00ba64a0e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerSpawnPoint>k__BackingField: {fileID: 308952588}
+  <MainMenuScreenSpawnPoint>k__BackingField: {fileID: 999397439}
 --- !u!1 &999397438
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +770,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3514800525463511557, guid: 65664b23087c67446bffee99a1ec48bd, type: 3}
       propertyPath: m_Name
-      value: Farm
+      value: Location - Farm
       objectReference: {fileID: 0}
     - target: {fileID: 4291020977810946239, guid: 65664b23087c67446bffee99a1ec48bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -806,11 +813,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5336363561173103028, guid: 65664b23087c67446bffee99a1ec48bd, type: 3}
-    - {fileID: 683556590117792580, guid: 65664b23087c67446bffee99a1ec48bd, type: 3}
-    - {fileID: 922159959842940066, guid: 65664b23087c67446bffee99a1ec48bd, type: 3}
-    - {fileID: 5850481503564708926, guid: 65664b23087c67446bffee99a1ec48bd, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65664b23087c67446bffee99a1ec48bd, type: 3}

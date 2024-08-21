@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Extension;
 using Features.BowAndArrows;
 using Features.ColliderTools;
@@ -25,26 +26,7 @@ namespace Infrastructure.Factories.Target
             _gameObjectFactory = gameObjectFactory;
         }
 
-        public void SpawnTargets(int count, Vector3 pointLimitationMin, Vector3 pointLimitationMax,
-            Quaternion rotation)
-        {
-            for (var i = 0; i < count; i++)
-            {
-                var position = RandomVector3.Range(pointLimitationMin, pointLimitationMax);
-
-                InstanceTarget(position, rotation);
-            }
-        }
-
-        public void Destroy(string targetId)
-        {
-            if (_idToTarget.Remove(targetId, out var gameObject))
-            {
-                Object.Destroy(gameObject);
-            }
-        }
-
-        private async void InstanceTarget(Vector3 position, Quaternion rotation)
+        public async Task Instance(Vector3 position, Quaternion rotation)
         {
             var isHit = false;
             var id = UniqueIDGenerator.Generate();
@@ -71,6 +53,24 @@ namespace Infrastructure.Factories.Target
             {
                 return collider.TryGetComponent<Arrow>(out _);
             }
+        }
+
+        public void Destroy(string targetId)
+        {
+            if (_idToTarget.Remove(targetId, out var gameObject))
+            {
+                Object.Destroy(gameObject);
+            }
+        }
+
+        public void DestroyAll()
+        {
+            foreach (var (_, gameObject) in _idToTarget)
+            {
+                Object.Destroy(gameObject);
+            }
+
+            _idToTarget.Clear();
         }
     }
 }

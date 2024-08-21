@@ -2,10 +2,12 @@ using System;
 using System.Threading.Tasks;
 using Infrastructure.Factories.UI;
 using Infrastructure.Services.AssetsAddressables;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Infrastructure.Services.Window
 {
+    [UsedImplicitly]
     public class WindowService : IWindowService
     {
         public WindowService(IUIFactory uiFactory)
@@ -71,6 +73,7 @@ namespace Infrastructure.Services.Window
             return windowID switch
             {
                 WindowID.MainMenu => AssetsAddressableConstants.MAIN_MENU_SCREEN_PREFAB,
+                WindowID.InformationDesk => AssetsAddressableConstants.INFORMATION_DESK_SCREEN_PREFAB,
                 _ => null
             };
         }

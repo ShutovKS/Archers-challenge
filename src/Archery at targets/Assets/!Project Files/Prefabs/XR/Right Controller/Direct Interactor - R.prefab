@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8038435468883112168}
   - component: {fileID: 3652006174230726365}
   - component: {fileID: 6550962697025785883}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Direct Interactor - R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
     m_Bits: 1
-  m_Handedness: 0
+  m_Handedness: 2
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_ImproveAccuracyWithSphereCollider: 1
   m_PhysicsLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2049
   m_PhysicsTriggerInteraction: 1
 --- !u!135 &3652006174230726365
 SphereCollider:

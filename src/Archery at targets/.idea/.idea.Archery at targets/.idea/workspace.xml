@@ -4,7 +4,59 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="" />
+    <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Locations/Location - Dungeon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Locations/Location - Dungeon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Objects/Bow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Objects/Bow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Screens/Information desk Screen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Screens/Information desk Screen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Controller Visual - L.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Controller Visual - L.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Direct Interactor - L.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Direct Interactor - L.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Gaze Interactor - L.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Gaze Interactor - L.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Near-Far Interactor - L.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Near-Far Interactor - L.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Poke Interactor - L.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Poke Interactor - L.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Ray Interactor - L.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Left Controller/Ray Interactor - L.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Controller Visual - R.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Controller Visual - R.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Direct Interactor - R.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Direct Interactor - R.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Gaze Interactor - R.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Gaze Interactor - R.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Near-Far Interactor - R.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Near-Far Interactor - R.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Poke Interactor - R.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Poke Interactor - R.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Ray Interactor - R.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/Right Controller/Ray Interactor - R.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/XR Origin (MR Rig).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/XR/XR Origin (MR Rig).prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Resources/Data/Levels/MainMenuData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Resources/Data/Levels/MainMenuData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Locations/Location - Dungeon.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Locations/Location - Dungeon.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Locations/Location - Farm.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scenes/Locations/Location - Farm.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/SceneContext/BaseSceneContextData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Data/SceneContext/BaseSceneContextData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Target/ITargetFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Target/ITargetFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Target/TargetFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Factories/Target/TargetFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/GamingBootloader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/GamingBootloader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Installers/InfrastructureInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Installers/InfrastructureInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Installers/SceneContextInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Installers/SceneContextInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/BootstrapState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Gameplay/InfiniteModeVRState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/Gameplay/InfiniteModeVRState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/AssetsAddressables/AssetsAddressableConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/AssetsAddressables/AssetsAddressableConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/InteractorSetup/InteractorSetupService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/InteractorSetup/InteractorSetupService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/InteractorSetup/InteractorsContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/InteractorSetup/InteractorsContainer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/InteractorSetup/InteractorsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/InteractorSetup/InteractorsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/SceneLoader/ISceneLoaderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/SceneLoader/ISceneLoaderService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/SceneLoader/SceneLoaderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/SceneLoader/SceneLoaderService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/Stopwatch/StopwatchService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/Stopwatch/StopwatchService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/Timer/TimerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/Timer/TimerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/Window/WindowID.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/Window/WindowID.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/Window/WindowService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/Infrastructure/Services/Window/WindowService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Scripts/UI/InformationDeskUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Scripts/UI/InformationDeskUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Scenes-Locations.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Scenes-Locations.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Farm - Free Low Poly Game Objects/Farm.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Farm - Free Low Poly Game Objects/Farm.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +90,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f5b293c74049457cabc28437c5a763925a00/e4/fd2aee9e/IInitializable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fe22fa1c9ce44af491c6d67e6c35b4a41dbc00/c9/f4324d9b/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Project Files/Scripts/Features/PositionsContainer/IPositionContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables/Runtime/Addressables.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables/Runtime/AssetReference.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables/Runtime/ResourceManager/ResourceProviders/ISceneProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/TMP/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation/Runtime/ARFoundation/AROcclusionManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation/Runtime/ARFoundation/CameraFacingDirection.cs" root0="SKIP_HIGHLIGHTING" />
@@ -164,6 +220,10 @@
       <workItem from="1724173926806" duration="2672000" />
       <workItem from="1724177134283" duration="225000" />
       <workItem from="1724177378690" duration="6068000" />
+      <workItem from="1724220818565" duration="16066000" />
+      <workItem from="1724247458071" duration="5889000" />
+      <workItem from="1724257592150" duration="2168000" />
+      <workItem from="1724266673993" duration="1851000" />
     </task>
     <servers />
   </component>

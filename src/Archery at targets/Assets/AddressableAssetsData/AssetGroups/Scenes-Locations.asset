@@ -46,7 +46,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 917f62c142e3e4a4b965a0009b80359b
-    m_Address: Scenes/Locations/Location - Farm.unity
+    m_Address: Scenes/Locations/Location - Farm (Main menu).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -62,11 +62,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ba41503a7641375408247e8f88b5cc18
     m_Address: Scenes/Locations/Location - Downtown.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: de3a3256a67f1b544881122f62aacb54
-    m_Address: Scenes/Locations/Location - Dungeon.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 445520778193474273}
   - component: {fileID: 5147891961358575627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Controller Visual - L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6431144652552210004}
   - component: {fileID: 98666358597119874}
   - component: {fileID: 4974271536812658623}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 6350767257341061419}
   - component: {fileID: 417006280018977087}
   - component: {fileID: 7518583078010929636}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TouchPad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 6959714442563287174}
   - component: {fileID: 6822524934879472887}
   - component: {fileID: 4157700990568623283}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Button_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 3950463987567255029}
   - component: {fileID: 463529649977269787}
   - component: {fileID: 8147181637706062842}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ThumbStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 8972273563173463583}
   - component: {fileID: 5933321225334601222}
   - component: {fileID: 1999974026255535049}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Controller_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 5160935009125536088}
   - component: {fileID: 6350554687838158382}
   - component: {fileID: 8679476060966804820}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +618,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4739375784401259329}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UniversalController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 774755821085281841}
   - component: {fileID: 1935760093212721145}
   - component: {fileID: 4210331677953718481}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ThumbStick_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +743,7 @@ GameObject:
   - component: {fileID: 5694053525828465140}
   - component: {fileID: 5909448993491606376}
   - component: {fileID: 1480743425338650570}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Button_Home
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +829,7 @@ GameObject:
   - component: {fileID: 7453074423787820061}
   - component: {fileID: 4755553780259964420}
   - component: {fileID: 567111918254562722}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Button_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +913,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4144763335871807197}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: XRController_Thumbstick_Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}

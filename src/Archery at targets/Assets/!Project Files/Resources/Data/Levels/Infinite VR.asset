@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 117a8508193d4f38b6c6dc98fc201b20, type: 3}
-  m_Name: MainMenuData
+  m_Name: Infinite VR
   m_EditorClassIdentifier: 
-  <Key>k__BackingField: MainMenu
+  <Key>k__BackingField: InfiniteVR
   <LevelName>k__BackingField: 
   <ShortDescription>k__BackingField: 
   <Music>k__BackingField: {fileID: 0}
   <MusicVolume>k__BackingField: 0
   <LocationSceneReference>k__BackingField:
-    m_AssetGUID: 917f62c142e3e4a4b965a0009b80359b
+    m_AssetGUID: de3a3256a67f1b544881122f62aacb54
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
-    m_EditorAssetChanged: 1
+    m_EditorAssetChanged: 0

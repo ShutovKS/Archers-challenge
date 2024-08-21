@@ -52,9 +52,8 @@ namespace Infrastructure.Services.SceneLoader
         {
             if (sceneReference == null) throw new ArgumentNullException(nameof(sceneReference));
 
-            var scenePath = $"Scenes/Locations/{sceneReference.editorAsset.name}.unity";
 
-            return await LoadSceneAsync(scenePath, loadSceneMode, cancellationToken);
+            return await LoadSceneAsync(GetScenePathFrom(sceneReference), loadSceneMode, cancellationToken);
         }
 
         public async Task<SceneInstance> LoadSceneAsync(string scenePath,
@@ -115,7 +114,7 @@ namespace Infrastructure.Services.SceneLoader
         {
             if (sceneReference == null) throw new ArgumentNullException(nameof(sceneReference));
 
-            await UnloadSceneAsync(sceneReference.editorAsset.name);
+            await UnloadSceneAsync(GetScenePathFrom(sceneReference));
         }
 
         public async Task UnloadSceneAsync(string scenePath)
@@ -155,6 +154,11 @@ namespace Infrastructure.Services.SceneLoader
             }
 
             await LoadSceneAsync(scenePath, loadSceneMode, cancellationToken);
+        }
+
+        private string GetScenePathFrom(AssetReference sceneReference)
+        {
+            return $"Scenes/Locations/{sceneReference.editorAsset.name}.unity";
         }
     }
 }
