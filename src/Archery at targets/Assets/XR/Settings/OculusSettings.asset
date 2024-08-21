@@ -26,8 +26,8 @@ MonoBehaviour:
   LateLatching: 0
   LateLatchingDebug: 0
   EnableTrackingOriginStageMode: 0
-  SpaceWarp: 0
+  SpaceWarp: 1
   TargetQuest2: 1
   TargetQuestPro: 0
-  TargetQuest3: 0
+  TargetQuest3: 1
   SystemSplashScreen: {fileID: 0}
