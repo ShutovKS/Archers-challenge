@@ -12,10 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8e864c1011450cb6c548a4e5c354fe, type: 3}
   m_Name: MainMenuData
   m_EditorClassIdentifier: 
-  <Key>k__BackingField: MainMenuLevelData
+  <LevelName>k__BackingField: 
+  <ShortDescription>k__BackingField: 
+  <Music>k__BackingField: {fileID: 0}
+  <MusicVolume>k__BackingField: 0
+  <LocationSceneReference>k__BackingField:
+    m_AssetGUID: 917f62c142e3e4a4b965a0009b80359b
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 1
   <PlayerSpawnPoint>k__BackingField:
-    <Position>k__BackingField: {x: 0, y: 0, z: 0}
-    <Rotation>k__BackingField: {x: 0, y: 0, z: 0}
-  <ScreenSpawnPoint>k__BackingField:
-    <Position>k__BackingField: {x: 0, y: 0, z: 5}
-    <Rotation>k__BackingField: {x: 0, y: 0, z: 0}
+    <Position>k__BackingField: {x: 9.22, y: 2.14, z: 4.22}
+    <Rotation>k__BackingField: {x: 0, y: 210, z: 0}
+  <ScreenSpawnObject>k__BackingField:
+    <Position>k__BackingField: {x: 7.699999, y: 1.85, z: 1.621924}
+    <Rotation>k__BackingField: {x: 0, y: -150, z: 0}
+    <Object>k__BackingField:
+      m_AssetGUID: 64bf3ad128950a942a6ecbf2a544ac92
+      m_SubObjectName: 
+      m_SubObjectGUID: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1

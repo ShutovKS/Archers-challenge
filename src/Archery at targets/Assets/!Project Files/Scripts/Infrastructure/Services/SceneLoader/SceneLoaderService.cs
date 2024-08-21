@@ -52,7 +52,9 @@ namespace Infrastructure.Services.SceneLoader
         {
             if (sceneReference == null) throw new ArgumentNullException(nameof(sceneReference));
 
-            return await LoadSceneAsync(sceneReference.editorAsset.name, loadSceneMode, cancellationToken);
+            var scenePath = $"Scenes/Locations/{sceneReference.editorAsset.name}.unity";
+
+            return await LoadSceneAsync(scenePath, loadSceneMode, cancellationToken);
         }
 
         public async Task<SceneInstance> LoadSceneAsync(string scenePath,
@@ -77,15 +79,16 @@ namespace Infrastructure.Services.SceneLoader
                 var sceneHandle = Addressables.LoadSceneAsync(scenePath, loadSceneMode);
                 _sceneHandles[scenePath] = sceneHandle;
 
-                var sceneInstance = await sceneHandle.Task.ConfigureAwait(false);
+                var sceneInstance = await sceneHandle.Task;
 
-                if (cancellationToken.IsCancellationRequested)
+                if (!cancellationToken.IsCancellationRequested)
                 {
-                    await UnloadSceneAsync(scenePath).ConfigureAwait(false);
-                    cancellationToken.ThrowIfCancellationRequested();
+                    return sceneInstance;
                 }
 
-                sceneInstance.ActivateAsync();
+                await UnloadSceneAsync(scenePath).ConfigureAwait(false);
+                cancellationToken.ThrowIfCancellationRequested();
+
                 return sceneInstance;
             }
             catch (Exception ex)

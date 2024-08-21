@@ -6,7 +6,6 @@ namespace Data.Level
     public class InfiniteVRLevelData : BaseLevelData
     {
         public override string Key { get; protected set; } = "InfiniteVR";
-        [field: SerializeField] public SpawnPoint InfoScreenSpawnPoint { get; private set; }
-        [field: SerializeField] public string InfoScreenPrefabPath { get; private set; }
+        [field: SerializeField] public SpawnObject InfoScreenSpawnObject { get; private set; }
     }
 }

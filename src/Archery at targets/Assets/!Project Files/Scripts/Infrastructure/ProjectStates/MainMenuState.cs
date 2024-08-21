@@ -4,12 +4,14 @@ using Extension;
 using Infrastructure.Factories.Player;
 using Infrastructure.ProjectStateMachine;
 using Infrastructure.Services.InteractorSetup;
+using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using Infrastructure.Services.XRSetup.TrackingMode;
 using JetBrains.Annotations;
 using UI;
+using UnityEngine.SceneManagement;
 
 namespace Infrastructure.ProjectStates
 {
@@ -22,6 +24,7 @@ namespace Infrastructure.ProjectStates
         private readonly IXRSetupService _xrSetupService;
         private readonly IInteractorSetupService _interactorSetupService;
         private readonly IPlayerFactory _playerFactory;
+        private readonly ISceneLoaderService _sceneLoaderService;
 
         private MainMenuLevelData _levelData;
         private MainMenuUI _mainMenuUI;
@@ -32,7 +35,8 @@ namespace Infrastructure.ProjectStates
             IWindowService windowService,
             IXRSetupService xrSetupService,
             IInteractorSetupService interactorSetupService,
-            IPlayerFactory playerFactory)
+            IPlayerFactory playerFactory,
+            ISceneLoaderService sceneLoaderService)
         {
             _projectStateMachine = projectStateMachine;
             _staticDataService = staticDataService;
@@ -40,12 +44,14 @@ namespace Infrastructure.ProjectStates
             _xrSetupService = xrSetupService;
             _interactorSetupService = interactorSetupService;
             _playerFactory = playerFactory;
+            _sceneLoaderService = sceneLoaderService;
         }
 
         public async void OnEnter()
         {
             InitializeData();
 
+            await LoadLocation();
             await InstanceMainMenuScreen();
 
             ConfigurePlayer();
@@ -56,12 +62,17 @@ namespace Infrastructure.ProjectStates
             _levelData = _staticDataService.GetLevelData<MainMenuLevelData>("MainMenu");
         }
 
+        private async Task LoadLocation()
+        {
+            await _sceneLoaderService.LoadSceneAsync(_levelData.LocationSceneReference, LoadSceneMode.Additive);
+        }
+
         private async Task InstanceMainMenuScreen()
         {
             _mainMenuUI = await _windowService.OpenAndGet<MainMenuUI>(
                 WindowID.MainMenu,
-                _levelData.ScreenSpawnPoint.Position,
-                _levelData.ScreenSpawnPoint.Rotation.ToQuaternion()
+                _levelData.ScreenSpawnObject.Position,
+                _levelData.ScreenSpawnObject.Rotation.ToQuaternion()
             );
         }
 
@@ -75,7 +86,7 @@ namespace Infrastructure.ProjectStates
 
             _playerFactory.Player.SetPositionAndRotation(_levelData.PlayerSpawnPoint);
         }
-        
+
         private void ExitFromGame()
         {
 #if UNITY_EDITOR

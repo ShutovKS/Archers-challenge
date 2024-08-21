@@ -6,6 +6,6 @@ namespace Data.Level
     public class MainMenuLevelData : BaseLevelData
     {
         public override string Key { get; protected set; } = "MainMenu";
-        [field: SerializeField] public SpawnPoint ScreenSpawnPoint { get; private set; }
+        [field: SerializeField] public SpawnObject ScreenSpawnObject { get; private set; }
     }
 }

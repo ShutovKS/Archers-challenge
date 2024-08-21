@@ -6,6 +6,6 @@ namespace Data.Level
     public class InfiniteMRLevelData : BaseLevelData
     {
         public override string Key { get; protected set; } = "InfiniteMR";
-        [field: SerializeField] public string InfoScreenPrefabPath { get; private set; }
+        [field: SerializeField] public SpawnObject InfoScreenSpawnObject { get; private set; }
     }
 }

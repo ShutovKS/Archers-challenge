@@ -52,8 +52,8 @@ namespace Infrastructure.ProjectStates.Gameplay
 
         private async Task InstantiateLocation()
         {
-            var locationPrefabPath = _levelData.LocationPrefabPath;
-            _locationInstance = await _gameObjectFactory.Instance(locationPrefabPath);
+            var sceneReference = _levelData.LocationSceneReference;
+            _locationInstance = await _gameObjectFactory.Instance(sceneReference);
         }
 
         private void ConfigurePlayer()

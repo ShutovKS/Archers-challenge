@@ -12,12 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afec57b9f2584812896f968f5806a68f, type: 3}
   m_Name: InfiniteVRData
   m_EditorClassIdentifier: 
-  <Key>k__BackingField: 
+  <LevelName>k__BackingField: 
+  <ShortDescription>k__BackingField: 
+  <Music>k__BackingField: {fileID: 0}
+  <MusicVolume>k__BackingField: 0
+  <LocationSceneReference>k__BackingField:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   <PlayerSpawnPoint>k__BackingField:
+    <Position>k__BackingField: {x: 9.22, y: 2.14, z: 4.22}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0}
+  <InfoScreenSpawnObject>k__BackingField:
     <Position>k__BackingField: {x: 0, y: 0, z: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0}
-  <LocationPrefabPath>k__BackingField: 
-  <InfoScreenSpawnPoint>k__BackingField:
-    <Position>k__BackingField: {x: 0, y: 0, z: 0}
-    <Rotation>k__BackingField: {x: 0, y: 0, z: 0}
-  <InfoScreenPrefabPath>k__BackingField: 
+    <Object>k__BackingField:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectGUID: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
