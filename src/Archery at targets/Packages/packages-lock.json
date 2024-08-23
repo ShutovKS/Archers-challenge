@@ -9,6 +9,13 @@
       },
       "hash": "67ee3d8adaf6f3faf50da8dc33b57ec7964f98bb"
     },
+    "com.lbg.subclassselector": {
+      "version": "https://github.com/spiney199/Subclass-Selector.git?path=Assets/Subclass-Selector/Subclass-Selector",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "bc44c417df76cb730c53f80211d9f5ed06b85741"
+    },
     "com.unity.addressables": {
       "version": "2.2.2",
       "depth": 0,
