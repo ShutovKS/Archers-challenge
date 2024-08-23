@@ -25,7 +25,7 @@ namespace Infrastructure.ProjectStates
         private readonly IStaticDataService _staticDataService;
         private readonly IWindowService _windowService;
         private readonly IXRSetupService _xrSetupService;
-        private readonly IInteractorSetupService _interactorSetupService;
+        private readonly IInteractorService _interactorService;
         private readonly IPlayerFactory _playerFactory;
         private readonly ISceneLoaderService _sceneLoaderService;
         private readonly ISceneContextProvider _sceneContextProvider;
@@ -40,7 +40,7 @@ namespace Infrastructure.ProjectStates
             IStaticDataService staticDataService,
             IWindowService windowService,
             IXRSetupService xrSetupService,
-            IInteractorSetupService interactorSetupService,
+            IInteractorService interactorService,
             IPlayerFactory playerFactory,
             ISceneLoaderService sceneLoaderService,
             ISceneContextProvider sceneContextProvider,
@@ -50,7 +50,7 @@ namespace Infrastructure.ProjectStates
             _staticDataService = staticDataService;
             _windowService = windowService;
             _xrSetupService = xrSetupService;
-            _interactorSetupService = interactorSetupService;
+            _interactorService = interactorService;
             _playerFactory = playerFactory;
             _sceneLoaderService = sceneLoaderService;
             _sceneContextProvider = sceneContextProvider;
@@ -98,7 +98,8 @@ namespace Infrastructure.ProjectStates
         {
             _xrSetupService.SetXRMode(XRMode.VR);
 
-            _interactorSetupService.SetInteractor(InteractorType.NearFar);
+            _interactorService.SetUpInteractorForHand(HandType.Left, InteractorType.NearFar);
+            _interactorService.SetUpInteractorForHand(HandType.Right, InteractorType.NearFar);
 
             _playerFactory.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
         }

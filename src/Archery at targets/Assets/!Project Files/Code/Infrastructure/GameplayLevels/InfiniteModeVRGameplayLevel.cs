@@ -22,7 +22,7 @@ namespace Infrastructure.GameplayLevels
     [UsedImplicitly, Serializable]
     public class InfiniteModeVRGameplayLevel : IGameplayLevel
     {
-        private IInteractorSetupService _interactorSetupService;
+        private IInteractorService _interactorService;
         private IStopwatchService _stopwatchService;
         private IWindowService _windowService;
         private IGameObjectFactory _gameObjectFactory;
@@ -40,7 +40,7 @@ namespace Infrastructure.GameplayLevels
 
         [Inject]
         public void Construct(
-            IInteractorSetupService interactorSetupService,
+            IInteractorService interactorService,
             IStopwatchService stopwatchService,
             IWindowService windowService,
             IGameObjectFactory gameObjectFactory,
@@ -49,7 +49,7 @@ namespace Infrastructure.GameplayLevels
             ISceneContextProvider sceneContextProvider
         )
         {
-            _interactorSetupService = interactorSetupService;
+            _interactorService = interactorService;
             _stopwatchService = stopwatchService;
             _windowService = windowService;
             _gameObjectFactory = gameObjectFactory;
@@ -68,6 +68,7 @@ namespace Infrastructure.GameplayLevels
             await InstantiateInfoScreen();
             await InstantiateTarget();
             StartStopwatchOnSelectBow();
+            SwitchInteractorOnSelectBow();
         }
 
         private void GetSceneContextData()
@@ -78,7 +79,8 @@ namespace Infrastructure.GameplayLevels
 
         private void ConfigurePlayer()
         {
-            _interactorSetupService.SetInteractor(InteractorType.NearFar);
+            _interactorService.SetUpInteractorForHand(HandType.Left, InteractorType.NearFar);
+            _interactorService.SetUpInteractorForHand(HandType.Right, InteractorType.NearFar);
 
             _playerFactory.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
         }
@@ -108,16 +110,24 @@ namespace Infrastructure.GameplayLevels
         {
             _stopwatchService.OnTick += UpdateInfoScreen;
             _bow.OnSelected += StartStopwatch;
+        }
 
-            return;
+        private void StartStopwatch(bool isSelect)
+        {
+            if (!isSelect) return;
 
-            void StartStopwatch(bool isSelect)
-            {
-                if (!isSelect) return;
+            _stopwatchService.Start();
+            _bow.OnSelected -= StartStopwatch;
+        }
 
-                _stopwatchService.Start();
-                _bow.OnSelected -= StartStopwatch;
-            }
+        private void SwitchInteractorOnSelectBow()
+        {
+            _bow.OnSelected += SwitchInteractor;
+        }
+
+        private void SwitchInteractor(bool isSelect)
+        {
+            // TODO: Implement switching interactor
         }
 
         private void UpdateInfoScreen(float time)
@@ -140,7 +150,8 @@ namespace Infrastructure.GameplayLevels
         {
             StopStopwatch();
             CloseScreen();
-            DestroyObjects();
+            DestroyTargets();
+            DestroyBow();
 
             OnGameFinished?.Invoke(GameResult.Exit);
         }
@@ -153,12 +164,21 @@ namespace Infrastructure.GameplayLevels
 
         private void CloseScreen()
         {
+            _stopwatchService.OnTick -= UpdateInfoScreen;
             _windowService.Close(WindowID.InformationDesk);
         }
 
-        private void DestroyObjects()
+        private void DestroyTargets()
         {
+            _targetFactory.TargetHit -= OnTargetHit;
             _targetFactory.DestroyAll();
+        }
+
+
+        private void DestroyBow()
+        {
+            _bow.OnSelected -= StartStopwatch;
+            _bow.OnSelected -= SwitchInteractor;
             Object.Destroy(_bow.gameObject);
         }
     }

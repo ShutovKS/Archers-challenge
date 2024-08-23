@@ -16,9 +16,6 @@ namespace Infrastructure.Factories.Player
 
         public Camera PlayerCamera { get; private set; }
         public GameObject PlayerCameraGameObject => PlayerCamera.gameObject;
-        
-        public InteractorsManager InteractorsManager { get; private set; }
-
 
         public PlayerFactory(IGameObjectFactory gameObjectFactory)
         {
@@ -31,7 +28,6 @@ namespace Infrastructure.Factories.Player
 
             Player = player;
             PlayerCamera = player.GetComponentInChildren<Camera>();
-            InteractorsManager = player.GetComponent<InteractorsManager>();
 
             return player;
         }
@@ -43,7 +39,6 @@ namespace Infrastructure.Factories.Player
 
             Player = player;
             PlayerCamera = player.GetComponentInChildren<Camera>();
-            InteractorsManager = player.GetComponent<InteractorsManager>();
 
             return player;
         }

@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Infrastructure.Factories.Player;
+using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.XRSetup;
@@ -12,19 +13,14 @@ namespace Infrastructure.ProjectStates
     {
         private readonly IPlayerFactory _playerFactory;
         private readonly IProjectManagementService _projectManagementService;
-        private readonly IXRSetupService _xrSetupService;
-        private readonly IStaticDataService _staticDataService;
 
         public InitializeState(
             IPlayerFactory playerFactory,
-            IProjectManagementService projectManagementService,
-            IXRSetupService xrSetupService,
-            IStaticDataService staticDataService)
+            IProjectManagementService projectManagementService
+        )
         {
             _playerFactory = playerFactory;
             _projectManagementService = projectManagementService;
-            _xrSetupService = xrSetupService;
-            _staticDataService = staticDataService;
         }
 
         public async void OnEnter()

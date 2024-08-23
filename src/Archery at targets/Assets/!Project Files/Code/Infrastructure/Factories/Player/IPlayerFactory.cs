@@ -11,8 +11,6 @@ namespace Infrastructure.Factories.Player
         Camera PlayerCamera { get; }
         GameObject PlayerCameraGameObject { get; }
         
-        InteractorsManager InteractorsManager { get; }
-
         Task<GameObject> CreatePlayer();
         Task<GameObject> CreatePlayer(Vector3 position, Quaternion rotation);
     }

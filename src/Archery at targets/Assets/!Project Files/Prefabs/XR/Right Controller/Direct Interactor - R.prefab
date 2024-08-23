@@ -12,13 +12,15 @@ GameObject:
   - component: {fileID: 8038435468883112168}
   - component: {fileID: 3652006174230726365}
   - component: {fileID: 6550962697025785883}
+  - component: {fileID: 782204924906383090}
+  - component: {fileID: 4388049400363901254}
   m_Layer: 10
   m_Name: Direct Interactor - R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3698579701755371175
 Transform:
   m_ObjectHideFlags: 0
@@ -237,3 +239,30 @@ MonoBehaviour:
     m_Duration: 0.1
     m_Frequency: 0
   m_AllowHoverHapticsWhileSelecting: 0
+--- !u!114 &782204924906383090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018441762684866644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf243786cb24ebe8b599e723f272703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawingHand: {fileID: 0}
+--- !u!114 &4388049400363901254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018441762684866644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c71157d5eb241d8a2425eb04e927790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <InteractorType>k__BackingField: 1
+  <HandType>k__BackingField: 2
