@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "com.codewriter.triinspector": "https://github.com/codewriter-packages/Tri-Inspector.git",
-    "com.lbg.subclassselector": "https://github.com/spiney199/Subclass-Selector.git?path=Assets/Subclass-Selector/Subclass-Selector",
     "com.unity.addressables": "2.2.2",
     "com.unity.ai.navigation": "2.0.3",
     "com.unity.ide.rider": "3.0.31",

@@ -19,3 +19,12 @@ MonoBehaviour:
   <MusicVolume>k__BackingField: 0
   <LocationScenePath>k__BackingField: Scenes/Locations/Location - Dungeon (Infinite
     VR).unity
+  <XRMode>k__BackingField: 1
+  <GameplayLevel>k__BackingField:
+    rid: 4859448307887636755
+  references:
+    version: 2
+    RefIds:
+    - rid: 4859448307887636755
+      type: {class: InfiniteModeVRGameplayLevel, ns: Infrastructure.GameplayLevels, asm: Assembly-CSharp}
+      data: 
