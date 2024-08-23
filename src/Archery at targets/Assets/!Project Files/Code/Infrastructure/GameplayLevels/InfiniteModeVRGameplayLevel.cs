@@ -68,7 +68,6 @@ namespace Infrastructure.GameplayLevels
             await InstantiateInfoScreen();
             await InstantiateTarget();
             StartStopwatchOnSelectBow();
-            SwitchInteractorOnSelectBow();
         }
 
         private void GetSceneContextData()
@@ -80,7 +79,7 @@ namespace Infrastructure.GameplayLevels
         private void ConfigurePlayer()
         {
             _interactorService.SetUpInteractorForHand(HandType.Left, InteractorType.NearFar);
-            _interactorService.SetUpInteractorForHand(HandType.Right, InteractorType.NearFar);
+            _interactorService.SetUpInteractorForHand(HandType.Right, InteractorType.Direct );
 
             _playerFactory.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
         }
@@ -118,16 +117,6 @@ namespace Infrastructure.GameplayLevels
 
             _stopwatchService.Start();
             _bow.OnSelected -= StartStopwatch;
-        }
-
-        private void SwitchInteractorOnSelectBow()
-        {
-            _bow.OnSelected += SwitchInteractor;
-        }
-
-        private void SwitchInteractor(bool isSelect)
-        {
-            // TODO: Implement switching interactor
         }
 
         private void UpdateInfoScreen(float time)
@@ -178,7 +167,6 @@ namespace Infrastructure.GameplayLevels
         private void DestroyBow()
         {
             _bow.OnSelected -= StartStopwatch;
-            _bow.OnSelected -= SwitchInteractor;
             Object.Destroy(_bow.gameObject);
         }
     }

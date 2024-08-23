@@ -5,26 +5,37 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace Features.Weapon
 {
+    [RequireComponent(typeof(IXRSelectInteractable))]
     public class Bow : MonoBehaviour, IWeapon
     {
         public event Action<bool> OnSelected;
+        public event Action<bool> OnVisualizeProjectile;
         public event Action<float> OnPullReleased;
+        
+        public bool IsSelected => _xrSelectInteractable.isSelected;
 
-        [SerializeField] private XRBaseInteractable interactable;
+        private IXRSelectInteractable _xrSelectInteractable;
+
+        private void Awake()
+        {
+            _xrSelectInteractable = GetComponent<IXRSelectInteractable>();
+        }
 
         private void OnEnable()
         {
-            interactable.selectEntered.AddListener(OnBowTaken);
-            interactable.selectExited.AddListener(OnBowDropped);
+            _xrSelectInteractable.selectEntered.AddListener(OnBowTaken);
+            _xrSelectInteractable.selectExited.AddListener(OnBowDropped);
         }
 
         private void OnDisable()
         {
-            interactable.selectEntered.RemoveListener(OnBowTaken);
-            interactable.selectExited.RemoveListener(OnBowDropped);
+            _xrSelectInteractable.selectEntered.RemoveListener(OnBowTaken);
+            _xrSelectInteractable.selectExited.RemoveListener(OnBowDropped);
         }
 
         public void PullReleased(float pullAmount) => OnPullReleased?.Invoke(pullAmount);
+
+        public void SelectBowstring(bool isSelected) => OnVisualizeProjectile?.Invoke(isSelected);
 
         private void OnBowTaken(SelectEnterEventArgs args) => OnSelected?.Invoke(true);
         private void OnBowDropped(SelectExitEventArgs args) => OnSelected?.Invoke(false);

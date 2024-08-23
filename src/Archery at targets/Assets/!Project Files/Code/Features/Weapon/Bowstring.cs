@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -8,25 +7,27 @@ namespace Features.Weapon
 {
     public class Bowstring : XRBaseInteractable
     {
-        public event Action<float> OnPullReleased;
-        public event Action<bool> OnSelected;
-
         [Header("Transforms")] 
-        [SerializeField] private Transform startTransform;
-        [SerializeField] private Transform endTransform;
-        [SerializeField] private Transform notchTransform;
+        [SerializeField] private Transform startTransform, endTransform, notchTransform;
 
         [Header("Components")] 
+        [SerializeField] private Bow bow;
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private AudioSource audioSourceString;
-        [SerializeField] private Bow bow;
 
         [Header("Settings")] 
         [SerializeField] private Vector3 arrowOffset = new(0, 0, 0.1f);
 
-        private IXRSelectInteractor _pullingInteractor;
         private float _pullAmount;
-        private bool _isLocked;
+        private IXRSelectInteractor _pullingInteractor;
+        private InteractionLayerMask _interactionLayerMaskOnInitialized;
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            _interactionLayerMaskOnInitialized = interactionLayers;
+        }
 
         protected override void OnEnable()
         {
@@ -34,29 +35,51 @@ namespace Features.Weapon
 
             selectEntered.AddListener(Taken);
             selectExited.AddListener(Released);
-            
+
             bow.OnSelected += HandleBowSelection;
-            OnPullReleased += bow.PullReleased;
+
+            SetIsInteractable(bow.IsSelected);
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-            
+
             selectEntered.RemoveListener(Taken);
             selectExited.RemoveListener(Released);
-            
+
             bow.OnSelected -= HandleBowSelection;
-            OnPullReleased -= bow.PullReleased;
+        }
+
+        private void Selected(bool isSelected)
+        {
+            bow.SelectBowstring(isSelected);
+        }
+
+        private void PullReleased(float pullAmount)
+        {
+            bow.PullReleased(pullAmount);
         }
 
         private void HandleBowSelection(bool isSelected)
         {
-            _isLocked = isSelected;
+            SetIsInteractable(isSelected);
 
-            if (isSelected == false)
+            if (!isSelected)
             {
                 ResetPull();
+            }
+        }
+
+        private void SetIsInteractable(bool isInteractable)
+        {
+            if (isInteractable)
+            {
+                interactionLayers = _interactionLayerMaskOnInitialized;
+            }
+            else
+            {
+                interactionLayers = 0;
             }
         }
 
@@ -64,13 +87,13 @@ namespace Features.Weapon
         {
             _pullingInteractor = args.interactorObject;
 
-            OnSelected?.Invoke(true);
+            Selected(true);
         }
 
         private void Released(SelectExitEventArgs args)
         {
-            OnSelected?.Invoke(false);
-            OnPullReleased?.Invoke(_pullAmount);
+            Selected(false);
+            PullReleased(_pullAmount);
 
             ResetPull();
         }
@@ -97,7 +120,6 @@ namespace Features.Weapon
         private bool IsPulling(XRInteractionUpdateOrder.UpdatePhase updatePhase)
         {
             return isSelected &&
-                   _isLocked == false &&
                    _pullingInteractor != null &&
                    updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic;
         }
