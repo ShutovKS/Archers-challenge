@@ -129,7 +129,6 @@ SubShader {
 		bool _MaskInverse;
 		float _UIMaskSoftnessX;
         float _UIMaskSoftnessY;
-        int _UIVertexColorAlwaysGammaSpace;
 
 		pixel_t VertShader(vertex_t input)
 		{
@@ -156,10 +155,6 @@ SubShader {
 			float bias = (0.5 - weight) * scale - 0.5;
 			float outline = _OutlineWidth * _ScaleRatioA * 0.5 * scale;
 
-            if (_UIVertexColorAlwaysGammaSpace && !IsGammaSpace())
-            {
-                input.color.rgb = UIGammaToLinear(input.color.rgb);
-            }
 			float opacity = input.color.a;
 					#if (UNDERLAY_ON | UNDERLAY_INNER)
 					opacity = 1.0;

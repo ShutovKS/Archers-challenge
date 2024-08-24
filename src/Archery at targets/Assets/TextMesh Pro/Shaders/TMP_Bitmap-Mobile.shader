@@ -55,7 +55,6 @@ SubShader {
 
 
 		#include "UnityCG.cginc"
-		#include "UnityUI.cginc"
 
 		struct appdata_t
 		{
@@ -84,7 +83,6 @@ SubShader {
 		uniform float		_MaskSoftnessY;
 		uniform float		_UIMaskSoftnessX;
         uniform float		_UIMaskSoftnessY;
-        uniform int _UIVertexColorAlwaysGammaSpace;
 
 		v2f vert (appdata_t v)
 		{
@@ -94,11 +92,8 @@ SubShader {
 			vert.y += _VertexOffsetY;
 
 			vert.xy += (vert.w * 0.5) / _ScreenParams.xy;
-            if (_UIVertexColorAlwaysGammaSpace && !IsGammaSpace())
-            {
-                v.color.rgb = UIGammaToLinear(v.color.rgb);
-            }
-            OUT.vertex = UnityPixelSnap(UnityObjectToClipPos(vert));
+
+			OUT.vertex = UnityPixelSnap(UnityObjectToClipPos(vert));
 			OUT.color = v.color;
 			OUT.color *= _Color;
 			OUT.color.rgb *= _DiffusePower;

@@ -162,7 +162,6 @@ SubShader {
         float4 _OutlineTex_ST;
         float _UIMaskSoftnessX;
         float _UIMaskSoftnessY;
-        int _UIVertexColorAlwaysGammaSpace;
 
         float4 SRGBToLinear(float4 rgba)
         {
@@ -206,10 +205,6 @@ SubShader {
             float2 faceUV = TRANSFORM_TEX(textureUV, _FaceTex);
             float2 outlineUV = TRANSFORM_TEX(textureUV, _OutlineTex);
 
-            if (_UIVertexColorAlwaysGammaSpace && !IsGammaSpace())
-            {
-                input.color.rgb = UIGammaToLinear(input.color.rgb);
-            }
             float4 color = input.color;
             #if (FORCE_LINEAR && !UNITY_COLORSPACE_GAMMA)
             color = SRGBToLinear(input.color);

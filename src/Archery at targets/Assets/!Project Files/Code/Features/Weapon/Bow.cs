@@ -12,7 +12,7 @@ namespace Features.Weapon
         public event Action<bool> OnVisualizeProjectile;
         public event Action<float> OnPullReleased;
         
-        public bool IsSelected => _xrSelectInteractable.isSelected;
+        public bool IsSelected => _xrSelectInteractable is { isSelected: true };
 
         private IXRSelectInteractable _xrSelectInteractable;
 

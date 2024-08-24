@@ -17,15 +17,16 @@ namespace Infrastructure.Services.Window
 
         private readonly IUIFactory _uiFactory;
 
-        public async Task Open(WindowID windowID, Vector3? position = null, Quaternion? rotation = null)
+        public async Task Open(WindowID windowID, Vector3? position = null, Quaternion? rotation = null,
+            Transform parent = null)
         {
-            await OpenWindow(windowID, position, rotation);
+            await OpenWindow(windowID, position, rotation, parent);
         }
 
-        public async Task<T> OpenAndGet<T>(WindowID windowID, Vector3? position = null, Quaternion? rotation = null)
-            where T : Component
+        public async Task<T> OpenAndGet<T>(WindowID windowID, Vector3? position = null, Quaternion? rotation = null,
+            Transform parent = null) where T : Component
         {
-            await OpenWindow(windowID, position, rotation);
+            await OpenWindow(windowID, position, rotation, parent);
 
             return await _uiFactory.GetScreenComponent<T>(windowID);
         }
@@ -35,7 +36,8 @@ namespace Infrastructure.Services.Window
             return _uiFactory.GetScreenComponent<T>(windowID).Result;
         }
 
-        private async Task OpenWindow(WindowID windowID, Vector3? position = null, Quaternion? rotation = null)
+        private async Task OpenWindow(WindowID windowID, Vector3? position = null, Quaternion? rotation = null,
+            Transform parent = null)
         {
             var windowsPath = GetWindowsPath(windowID);
 
@@ -55,6 +57,11 @@ namespace Infrastructure.Services.Window
             {
                 instance.transform.rotation = rotation.Value;
             }
+
+            if (parent)
+            {
+                instance.transform.SetParent(parent);
+            }
         }
 
         public void Close(WindowID windowID)
@@ -72,6 +79,7 @@ namespace Infrastructure.Services.Window
         {
             return windowID switch
             {
+                WindowID.HandMenu => AssetsAddressableConstants.HAND_MENU_SCREEN_PREFAB,
                 WindowID.MainMenu => AssetsAddressableConstants.MAIN_MENU_SCREEN_PREFAB,
                 WindowID.InformationDesk => AssetsAddressableConstants.INFORMATION_DESK_SCREEN_PREFAB,
                 _ => null

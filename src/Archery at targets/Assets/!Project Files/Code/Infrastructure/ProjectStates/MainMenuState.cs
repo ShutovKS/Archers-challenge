@@ -101,7 +101,7 @@ namespace Infrastructure.ProjectStates
             _interactorService.SetUpInteractorForHand(HandType.Left, InteractorType.NearFar);
             _interactorService.SetUpInteractorForHand(HandType.Right, InteractorType.NearFar);
 
-            _playerFactory.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
+            _playerFactory.PlayerContainer.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
         }
 
         private void StartInfiniteVR()

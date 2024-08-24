@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Features.Player;
 using Infrastructure.Services.InteractorSetup;
 using UnityEngine;
 
@@ -6,11 +7,8 @@ namespace Infrastructure.Factories.Player
 {
     public interface IPlayerFactory
     {
-        GameObject Player { get; }
-        
-        Camera PlayerCamera { get; }
-        GameObject PlayerCameraGameObject { get; }
-        
+        PlayerContainer PlayerContainer { get; }
+
         Task<GameObject> CreatePlayer();
         Task<GameObject> CreatePlayer(Vector3 position, Quaternion rotation);
     }

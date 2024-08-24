@@ -5,6 +5,8 @@ namespace Infrastructure.Services.Window
         None = -1,
         Unknown = 0,
 
+        HandMenu = 5,
+
         MainMenu = 11,
 
         InformationDesk = 21,

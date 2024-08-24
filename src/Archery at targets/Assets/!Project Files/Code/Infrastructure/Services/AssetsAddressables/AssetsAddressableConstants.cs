@@ -7,7 +7,8 @@ namespace Infrastructure.Services.AssetsAddressables
         public const string BOW_PREFAB = "Prefabs/Bow.prefab";
         public const string ARROW_PREFAB = "Prefabs/Objects/Arrow.prefab";
 
-        public const string MAIN_MENU_SCREEN_PREFAB = "Prefabs/Main Menu Screen.prefab";
-        public const string INFORMATION_DESK_SCREEN_PREFAB = "Prefabs/Information desk Screen.prefab";
+        public const string MAIN_MENU_SCREEN_PREFAB = "Prefabs/Screens/Main Menu Screen.prefab";
+        public const string INFORMATION_DESK_SCREEN_PREFAB = "Prefabs/Screens/Information desk Screen.prefab";
+        public const string HAND_MENU_SCREEN_PREFAB = "Prefabs/Screens/Hand Menu Screen.prefab";
     }
 }

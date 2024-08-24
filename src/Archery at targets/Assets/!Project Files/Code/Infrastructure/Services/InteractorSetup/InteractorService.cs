@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -42,7 +43,10 @@ namespace Infrastructure.Services.InteractorSetup
                 throw new ArgumentOutOfRangeException(nameof(hand), hand, "Invalid side type");
             }
 
-            return interactors.Exists(interactor => interactor.IsActive && interactor.InteractorType == interactorType);
+            return interactors.Any(interactor =>
+                interactor.IsActive &&
+                (interactor.InteractorType & interactorType) != 0
+            );
         }
 
         private void SetUpInteractorForHand(List<IInteractor> interactors, HandType hand, InteractorType interactorType)
@@ -52,7 +56,7 @@ namespace Infrastructure.Services.InteractorSetup
                 interactor.OnSelect -= OnInteractorSelectHandler;
                 interactor.Deactivate();
 
-                if (interactor.InteractorType == interactorType)
+                if ((interactor.InteractorType & interactorType) != 0)
                 {
                     interactor.OnSelect += OnInteractorSelectHandler;
                     interactor.Activate();

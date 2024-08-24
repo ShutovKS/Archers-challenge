@@ -35,7 +35,7 @@
     },
     "com.unity.burst": {
       "version": "1.8.17",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
@@ -44,8 +44,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collections": {
-      "version": "2.4.1",
-      "depth": 2,
+      "version": "2.4.3",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.8.13",
@@ -112,7 +112,7 @@
     },
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.4",
-      "depth": 3,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -219,7 +219,7 @@
     },
     "com.unity.test-framework.performance": {
       "version": "3.0.3",
-      "depth": 3,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.31",
@@ -250,13 +250,14 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ugui": {
-      "version": "2.0.0",
+      "version": "3.0.0-exp.4",
       "depth": 0,
-      "source": "builtin",
+      "source": "registry",
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
-      }
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.visualscripting": {
       "version": "1.9.4",
@@ -269,7 +270,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arfoundation": {
-      "version": "6.0.2",
+      "version": "6.0.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {

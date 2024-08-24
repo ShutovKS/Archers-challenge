@@ -24,7 +24,7 @@ namespace Infrastructure.Factories.ARComponents
             {
                 _ when typeof(T) == typeof(ARCameraManager) ||
                        typeof(T) == typeof(ARCameraBackground)
-                    => _playerFactory.PlayerCameraGameObject,
+                    => _playerFactory.PlayerContainer.CameraGameObject,
 
                 _ when typeof(T) == typeof(ARSession) ||
                        typeof(T) == typeof(ARInputManager) ||
@@ -32,7 +32,7 @@ namespace Infrastructure.Factories.ARComponents
                        typeof(T) == typeof(ARBoundingBoxManager) ||
                        typeof(T) == typeof(ARMeshManager) ||
                        typeof(T) == typeof(ARAnchorManager)
-                    => _playerFactory.Player,
+                    => _playerFactory.PlayerContainer.Player,
 
                 _ => throw new NotSupportedException($"AR component of type {typeof(T)} is not supported.")
             };

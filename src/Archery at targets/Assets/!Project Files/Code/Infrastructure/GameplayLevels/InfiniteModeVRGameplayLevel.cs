@@ -14,6 +14,7 @@ using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Window;
 using JetBrains.Annotations;
 using UI;
+using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
 
@@ -22,7 +23,6 @@ namespace Infrastructure.GameplayLevels
     [UsedImplicitly, Serializable]
     public class InfiniteModeVRGameplayLevel : IGameplayLevel
     {
-        private IInteractorService _interactorService;
         private IStopwatchService _stopwatchService;
         private IWindowService _windowService;
         private IGameObjectFactory _gameObjectFactory;
@@ -32,6 +32,7 @@ namespace Infrastructure.GameplayLevels
 
         private InfiniteVRSceneContextData _sceneContextData;
 
+        private HandMenuUI _handMenuScreen;
         private InformationDeskUI _infoScreen;
         private PositionsContainer _positionsContainer;
         private Bow _bow;
@@ -40,7 +41,6 @@ namespace Infrastructure.GameplayLevels
 
         [Inject]
         public void Construct(
-            IInteractorService interactorService,
             IStopwatchService stopwatchService,
             IWindowService windowService,
             IGameObjectFactory gameObjectFactory,
@@ -49,7 +49,6 @@ namespace Infrastructure.GameplayLevels
             ISceneContextProvider sceneContextProvider
         )
         {
-            _interactorService = interactorService;
             _stopwatchService = stopwatchService;
             _windowService = windowService;
             _gameObjectFactory = gameObjectFactory;
@@ -66,6 +65,7 @@ namespace Infrastructure.GameplayLevels
             ConfigurePlayer();
             await InstantiateBow();
             await InstantiateInfoScreen();
+            await InstantiateHandMenuScreen();
             await InstantiateTarget();
             StartStopwatchOnSelectBow();
         }
@@ -78,10 +78,7 @@ namespace Infrastructure.GameplayLevels
 
         private void ConfigurePlayer()
         {
-            _interactorService.SetUpInteractorForHand(HandType.Left, InteractorType.NearFar);
-            _interactorService.SetUpInteractorForHand(HandType.Right, InteractorType.Direct );
-
-            _playerFactory.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
+            _playerFactory.PlayerContainer.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
         }
 
         private async Task InstantiateBow()
@@ -92,10 +89,19 @@ namespace Infrastructure.GameplayLevels
 
         private async Task InstantiateInfoScreen()
         {
-            _infoScreen = await _windowService.OpenAndGet<InformationDeskUI>(WindowID.InformationDesk);
-            _infoScreen.gameObject.SetPositionAndRotation(_sceneContextData.InfoScreenSpawnPoint);
+            var spawnPoint = _sceneContextData.InfoScreenSpawnPoint;
+            _infoScreen = await _windowService.OpenAndGet<InformationDeskUI>(WindowID.InformationDesk,
+                spawnPoint.position, spawnPoint.rotation);
             _infoScreen.SetInformationText("Time", "Time: 0.00");
             _infoScreen.SetInformationText("Score", $"Score count: {_targetCount}");
+        }
+
+        private async Task InstantiateHandMenuScreen()
+        {
+            var spawnPoint = _playerFactory.PlayerContainer.HandMenuSpawnPoint;
+            _handMenuScreen = await _windowService.OpenAndGet<HandMenuUI>(WindowID.HandMenu, spawnPoint.position,
+                spawnPoint.rotation, spawnPoint);
+            _handMenuScreen.OnExitButtonClicked += ExitInMainMenu;
         }
 
         private async Task InstantiateTarget()
@@ -138,7 +144,8 @@ namespace Infrastructure.GameplayLevels
         private void ExitInMainMenu()
         {
             StopStopwatch();
-            CloseScreen();
+            CloseUpdateInfoScreen();
+            CloseHandMenuScreen();
             DestroyTargets();
             DestroyBow();
 
@@ -151,10 +158,16 @@ namespace Infrastructure.GameplayLevels
             _stopwatchService.Stop();
         }
 
-        private void CloseScreen()
+        private void CloseUpdateInfoScreen()
         {
             _stopwatchService.OnTick -= UpdateInfoScreen;
             _windowService.Close(WindowID.InformationDesk);
+        }
+
+        private void CloseHandMenuScreen()
+        {
+            _handMenuScreen.OnExitButtonClicked -= ExitInMainMenu;
+            _windowService.Close(WindowID.HandMenu);
         }
 
         private void DestroyTargets()

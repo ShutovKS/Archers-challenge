@@ -6,7 +6,7 @@ namespace UI
 {
     public class InformationDeskUI : MonoBehaviour
     {
-        [SerializeField] private TMP_Text informationPrefab;
+        [SerializeField] private TMP_Text textPrefab;
         [SerializeField] private Transform parent;
 
         private readonly Dictionary<string, TMP_Text> _informationTexts = new();
@@ -15,11 +15,11 @@ namespace UI
         {
             if (!_informationTexts.ContainsKey(key))
             {
-                var informationText = Instantiate(informationPrefab, parent);
+                var text = Instantiate(textPrefab, parent);
 
-                informationText.gameObject.SetActive(true);
+                text.gameObject.SetActive(true);
 
-                _informationTexts.Add(key, informationText);
+                _informationTexts.Add(key, text);
             }
 
             _informationTexts[key].SetText(value);
@@ -33,16 +33,6 @@ namespace UI
 
                 _informationTexts.Remove(key);
             }
-        }
-
-        public void ClearInformationTexts()
-        {
-            foreach (var informationText in _informationTexts)
-            {
-                Destroy(informationText.Value.gameObject);
-            }
-
-            _informationTexts.Clear();
         }
     }
 }

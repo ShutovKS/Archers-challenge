@@ -4,6 +4,7 @@ using Data.Level;
 using Features.PositionsContainer;
 using Features.Weapon;
 using Infrastructure.GameplayLevels;
+using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.XRSetup;
@@ -19,6 +20,7 @@ namespace Infrastructure.ProjectStates
         private readonly IProjectManagementService _projectManagementService;
         private readonly ISceneLoaderService _sceneLoaderService;
         private readonly IXRSetupService _xrSetupService;
+        private readonly IInteractorService _interactorService;
         private readonly IGameplayLevel _gameplayLevel;
 
         private LevelData _levelData;
@@ -33,12 +35,14 @@ namespace Infrastructure.ProjectStates
             IProjectManagementService projectManagementService,
             ISceneLoaderService sceneLoaderService,
             IXRSetupService xrSetupService,
+            IInteractorService interactorService,
             IGameplayLevel gameplayLevel
         )
         {
             _projectManagementService = projectManagementService;
             _sceneLoaderService = sceneLoaderService;
             _xrSetupService = xrSetupService;
+            _interactorService = interactorService;
             _gameplayLevel = gameplayLevel;
         }
 
@@ -61,6 +65,9 @@ namespace Infrastructure.ProjectStates
         private void ConfigurePlayer()
         {
             _xrSetupService.SetXRMode(_levelData.XRMode);
+
+            _interactorService.SetUpInteractorForHand(HandType.Left, InteractorType.NearFar);
+            _interactorService.SetUpInteractorForHand(HandType.Right, InteractorType.Direct | InteractorType.Poke);
         }
 
         private async Task StartGameplay()

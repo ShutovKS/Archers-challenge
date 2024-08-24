@@ -16,21 +16,13 @@ namespace Infrastructure.Services.Stopwatch
 
         public void Start()
         {
-            if (_isRunning)
-            {
-                throw new Exception("Failed attempt to start StopwatchService, it is already running");
-            }
-
             _isRunning = true;
+            
+            CurrentTime = 0;
         }
 
         public void Stop()
         {
-            if (!_isRunning)
-            {
-                throw new Exception("Unsuccessful attempt to stop StopwatchService, it is not running");
-            }
-
             _isRunning = false;
         }
 
