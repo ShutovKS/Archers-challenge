@@ -6,10 +6,34 @@ namespace Infrastructure.Factories.GameObjects
 {
     public interface IGameObjectFactory
     {
-        public Task<GameObject> Instantiate(string path);
-        public Task<GameObject> Instantiate(AssetReference path);
+        Task<GameObject> Instantiate(
+            string path,
+            Vector3? position = null,
+            Quaternion? rotation = null,
+            Transform parent = null
+        );
 
-        public Task<T> InstantiateAndGetComponent<T>(string path) where T : Component;
-        public Task<T> InstantiateAndGetComponent<T>(AssetReference path) where T : Component;
+        Task<GameObject> Instantiate(
+            AssetReference path,
+            Vector3? position = null,
+            Quaternion? rotation = null,
+            Transform parent = null
+        );
+
+        Task<T> InstantiateAndGetComponent<T>(
+            string path,
+            Vector3? position = null,
+            Quaternion? rotation = null,
+            Transform parent = null
+        ) where T : Component;
+
+        Task<T> InstantiateAndGetComponent<T>(
+            AssetReference path,
+            Vector3? position = null,
+            Quaternion? rotation = null,
+            Transform parent = null
+        ) where T : Component;
+        
+        void Destroy(GameObject gameObject);
     }
 }

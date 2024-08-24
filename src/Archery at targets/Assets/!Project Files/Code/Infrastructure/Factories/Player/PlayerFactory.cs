@@ -16,28 +16,27 @@ namespace Infrastructure.Factories.Player
 
         private readonly IGameObjectFactory _gameObjectFactory;
 
+        private GameObject _instantiate;
+
         public PlayerFactory(IGameObjectFactory gameObjectFactory)
         {
             _gameObjectFactory = gameObjectFactory;
         }
 
-
-        public async Task<GameObject> CreatePlayer()
+        public async Task<GameObject> Instantiate(Vector3? position = null, Quaternion? rotation = null,
+            Transform parent = null)
         {
-            var player = await _gameObjectFactory.Instantiate(AssetsAddressableConstants.XR_ORIGIN_MR_RIG);
+            _instantiate = await _gameObjectFactory.Instantiate(AssetsAddressableConstants.XR_ORIGIN_MR_RIG,
+                position, rotation, parent);
 
-            PlayerContainer = player.GetComponent<PlayerContainer>();
+            PlayerContainer = _instantiate.GetComponent<PlayerContainer>();
 
-            return player;
+            return _instantiate;
         }
 
-        public async Task<GameObject> CreatePlayer(Vector3 position, Quaternion rotation)
+        public void Destroy()
         {
-            var player = await CreatePlayer();
-
-            player.SetPositionAndRotation(position, rotation);
-
-            return player;
+            _gameObjectFactory.Destroy(_instantiate);
         }
     }
 }

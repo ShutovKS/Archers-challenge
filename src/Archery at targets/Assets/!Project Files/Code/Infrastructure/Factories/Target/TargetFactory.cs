@@ -27,12 +27,11 @@ namespace Infrastructure.Factories.Target
             _gameObjectFactory = gameObjectFactory;
         }
 
-        public async Task<string> Instantiate(Vector3 position, Quaternion rotation)
+        public async Task<string> Instantiate(Vector3 position, Quaternion rotation, Transform parent = null)
         {
             var isHit = false;
             var id = UniqueIDGenerator.Generate();
-            var instance = await _gameObjectFactory.Instantiate(TARGET_PREFAB_PATH);
-            instance.SetPositionAndRotation(position, rotation);
+            var instance = await _gameObjectFactory.Instantiate(TARGET_PREFAB_PATH, position, rotation, parent);
 
             var colliderInteractionEnterTrigger = instance.AddComponent<ColliderInteractionEnterTrigger>();
             colliderInteractionEnterTrigger.OnTriggered += OnHit;

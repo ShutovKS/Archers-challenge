@@ -7,6 +7,7 @@ using Features.Weapon;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Player;
 using Infrastructure.Factories.Target;
+using Infrastructure.Factories.Weapon;
 using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.SceneContainer;
@@ -28,6 +29,7 @@ namespace Infrastructure.GameplayLevels
         private IGameObjectFactory _gameObjectFactory;
         private IPlayerFactory _playerFactory;
         private ITargetFactory _targetFactory;
+        private IWeaponFactory _weaponFactory;
         private ISceneContextProvider _sceneContextProvider;
 
         private InfiniteVRSceneContextData _sceneContextData;
@@ -35,7 +37,7 @@ namespace Infrastructure.GameplayLevels
         private HandMenuUI _handMenuScreen;
         private InformationDeskUI _infoScreen;
         private PositionsContainer _positionsContainer;
-        private Bow _bow;
+        private IWeapon _weapon;
 
         private int _targetCount;
 
@@ -46,6 +48,7 @@ namespace Infrastructure.GameplayLevels
             IGameObjectFactory gameObjectFactory,
             IPlayerFactory playerFactory,
             ITargetFactory targetFactory,
+            IWeaponFactory weaponFactory,
             ISceneContextProvider sceneContextProvider
         )
         {
@@ -54,6 +57,7 @@ namespace Infrastructure.GameplayLevels
             _gameObjectFactory = gameObjectFactory;
             _playerFactory = playerFactory;
             _targetFactory = targetFactory;
+            _weaponFactory = weaponFactory;
             _sceneContextProvider = sceneContextProvider;
         }
 
@@ -63,7 +67,7 @@ namespace Infrastructure.GameplayLevels
         {
             GetSceneContextData();
             ConfigurePlayer();
-            await InstantiateBow();
+            await InstantiateWeapon();
             await InstantiateInfoScreen();
             await InstantiateHandMenuScreen();
             await InstantiateTarget();
@@ -81,10 +85,11 @@ namespace Infrastructure.GameplayLevels
             _playerFactory.PlayerContainer.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
         }
 
-        private async Task InstantiateBow()
+        private async Task InstantiateWeapon()
         {
-            _bow = await _gameObjectFactory.InstantiateAndGetComponent<Bow>(AssetsAddressableConstants.BOW_PREFAB);
-            _bow.gameObject.SetPositionAndRotation(_sceneContextData.BowSpawnPoint);
+            var spawnPoint = _sceneContextData.BowSpawnPoint;
+
+            _weapon = await _weaponFactory.Instantiate(spawnPoint.position, spawnPoint.rotation);
         }
 
         private async Task InstantiateInfoScreen()
@@ -114,7 +119,7 @@ namespace Infrastructure.GameplayLevels
         private void StartStopwatchOnSelectBow()
         {
             _stopwatchService.OnTick += UpdateInfoScreen;
-            _bow.OnSelected += StartStopwatch;
+            _weapon.OnSelected += StartStopwatch;
         }
 
         private void StartStopwatch(bool isSelect)
@@ -122,7 +127,7 @@ namespace Infrastructure.GameplayLevels
             if (!isSelect) return;
 
             _stopwatchService.Start();
-            _bow.OnSelected -= StartStopwatch;
+            _weapon.OnSelected -= StartStopwatch;
         }
 
         private void UpdateInfoScreen(float time)
@@ -175,12 +180,11 @@ namespace Infrastructure.GameplayLevels
             _targetFactory.TargetHit -= OnTargetHit;
             _targetFactory.DestroyAll();
         }
-
-
+        
         private void DestroyBow()
         {
-            _bow.OnSelected -= StartStopwatch;
-            Object.Destroy(_bow.gameObject);
+            _weapon.OnSelected -= StartStopwatch;
+            _weaponFactory.Destroy(_weapon);
         }
     }
 }

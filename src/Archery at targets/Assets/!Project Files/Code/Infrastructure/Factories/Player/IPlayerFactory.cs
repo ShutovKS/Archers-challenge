@@ -9,7 +9,8 @@ namespace Infrastructure.Factories.Player
     {
         PlayerContainer PlayerContainer { get; }
 
-        Task<GameObject> CreatePlayer();
-        Task<GameObject> CreatePlayer(Vector3 position, Quaternion rotation);
+        Task<GameObject> Instantiate(Vector3? position = null, Quaternion? rotation = null, Transform parent = null);
+        
+        void Destroy();
     }
 }

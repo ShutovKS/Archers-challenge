@@ -32,7 +32,7 @@ namespace Infrastructure.ProjectStates
 
         private async Task CreatePlayer()
         {
-            await _playerFactory.CreatePlayer();
+            await _playerFactory.Instantiate();
         }
 
         private void MoveToNextState()

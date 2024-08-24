@@ -19,30 +19,45 @@ namespace Infrastructure.Factories.GameObjects
             _assetsAddressablesProvider = assetsAddressablesProvider;
         }
 
-        public async Task<GameObject> Instantiate(string path)
+        public async Task<GameObject> Instantiate(string path, Vector3? position = null, Quaternion? rotation = null,
+            Transform parent = null)
         {
+            position ??= Vector3.zero;
+            rotation ??= Quaternion.identity;
+
             var prefab = await _assetsAddressablesProvider.GetAsset<GameObject>(path);
-            var instance = _container.InstantiatePrefab(prefab);
+            var instance = _container.InstantiatePrefab(prefab, position.Value, rotation.Value, parent);
             return instance;
         }
 
-        public async Task<GameObject> Instantiate(AssetReference path)
+        public async Task<GameObject> Instantiate(AssetReference path, Vector3? position = null, Quaternion? rotation = null,
+            Transform parent = null)
         {
+            position ??= Vector3.zero;
+            rotation ??= Quaternion.identity;
+
             var prefab = await _assetsAddressablesProvider.GetAsset<GameObject>(path);
-            var instance = _container.InstantiatePrefab(prefab);
+            var instance = _container.InstantiatePrefab(prefab, position.Value, rotation.Value, parent);
             return instance;
         }
-        
-        public async Task<T> InstantiateAndGetComponent<T>(string path) where T : Component
+
+        public async Task<T> InstantiateAndGetComponent<T>(string path, Vector3? position = null, Quaternion? rotation = null,
+            Transform parent = null) where T : Component
         {
-            var instance = await Instantiate(path);
+            var instance = await Instantiate(path, position, rotation, parent);
+            return instance.GetComponent<T>();
+        }
+
+        public async Task<T> InstantiateAndGetComponent<T>(AssetReference path, Vector3? position = null, Quaternion? rotation = null,
+            Transform parent = null) where T : Component
+        {
+            var instance = await Instantiate(path, position, rotation, parent);
             return instance.GetComponent<T>();
         }
         
-        public async Task<T> InstantiateAndGetComponent<T>(AssetReference path) where T : Component
+        public void Destroy(GameObject gameObject)
         {
-            var instance = await Instantiate(path);
-            return instance.GetComponent<T>();
+            Object.Destroy(gameObject);
         }
     }
 }

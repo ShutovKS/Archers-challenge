@@ -4,6 +4,7 @@ using Infrastructure.Factories.LevelGameplay;
 using Infrastructure.Factories.Player;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
+using Infrastructure.Factories.Weapon;
 using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.ProjectManagement;
@@ -12,6 +13,7 @@ using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Timer;
+using Infrastructure.Services.Weapon;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using Zenject;
@@ -39,6 +41,7 @@ namespace Infrastructure.Installers
             Container.Bind(typeof(ITimerService), typeof(ITickable)).To<TimerService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
+            Container.Bind<IWeaponService>().To<WeaponService>().AsSingle();
         }
 
         private void BindFactories()
@@ -49,6 +52,7 @@ namespace Infrastructure.Installers
             Container.Bind<IARComponentsFactory>().To<ARComponentsFactory>().AsSingle();
             Container.Bind<ITargetFactory>().To<TargetFactory>().AsSingle();
             Container.Bind<IGameplayLevelFactory>().To<GameplayLevelFactory>().AsSingle();
+            Container.Bind<IWeaponFactory>().To<WeaponFactory>().AsSingle();
         }
     }
 }
