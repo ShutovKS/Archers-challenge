@@ -2,6 +2,7 @@ using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.LevelGameplay;
 using Infrastructure.Factories.Player;
+using Infrastructure.Factories.Projectile;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
 using Infrastructure.Factories.Weapon;
@@ -53,6 +54,7 @@ namespace Infrastructure.Installers
             Container.Bind<ITargetFactory>().To<TargetFactory>().AsSingle();
             Container.Bind<IGameplayLevelFactory>().To<GameplayLevelFactory>().AsSingle();
             Container.Bind<IWeaponFactory>().To<WeaponFactory>().AsSingle();
+            Container.Bind<IProjectileFactory>().To<ProjectileFactory>().AsSingle();
         }
     }
 }
