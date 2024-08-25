@@ -6,8 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/!Project Files/Scenes/Bootstrap.unity
+    path: Assets/!Project Files/Level/Scenes/Bootstrap.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5ea3b6c3a5be5f647b7a4fa11752514a, type: 2}
+    com.unity.addressableassets: {fileID: 11400000, guid: 9aab105f6cd6c6344bfbee9327a39138, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 7b5ab2d70529e4c4a80afa28be7a4030, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f05bb6f0a77f61c49ad364955b9e3576, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 98fd745e5518b13408e39a369c1dcb55, type: 2}
   m_UseUCBPForAssetBundles: 0

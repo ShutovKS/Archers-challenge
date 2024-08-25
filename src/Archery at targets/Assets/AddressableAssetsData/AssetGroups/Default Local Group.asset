@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_GUID: 298a50b6db136a24e807b6d3a66e72fb
+  m_SerializeEntries:
+  - m_GUID: 1b6d9920203cf204ca025db14635a195
+    m_Address: Prefabs/Bow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54ba44d4ecd83324991be29cf49b127d
+    m_Address: Prefabs/Objects/Arrow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69c9b360efcb9124c9a53a2995aedfea
+    m_Address: Prefabs/XR Origin (MR Rig).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd8676903f2a1d14cb5b73ccf12b3258
+    m_Address: Prefabs/Target.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de3a3256a67f1b544881122f62aacb54
+    m_Address: Scenes/Locations/Location - Dungeon (Infinite VR).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1e01a01ec361a2e42acee6551134981e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3d0a5d4c62978ca498649e5b6aae9608, type: 2}
+    - {fileID: 11400000, guid: 616ad62d7b11a7c4cbe1192eb833b4ed, type: 2}
