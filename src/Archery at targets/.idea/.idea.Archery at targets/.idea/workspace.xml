@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Features/Projectile/Arrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Features/Projectile/Arrow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Features/Weapon/Bow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Features/Weapon/Bow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Features/Weapon/Bowstring.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Features/Weapon/BowstringInteractable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Features/Weapon/Bowstring.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Features/Weapon/BowstringInteractable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Features/Weapon/IWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Features/Weapon/IWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Infrastructure/Factories/Projectile/IProjectileFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Infrastructure/Factories/Projectile/IProjectileFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Infrastructure/Factories/Target/ITargetFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Infrastructure/Factories/Target/ITargetFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Infrastructure/Factories/Target/TargetFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Infrastructure/Factories/Target/TargetFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Infrastructure/GameplayLevels/InfiniteModeVRGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Infrastructure/GameplayLevels/InfiniteModeVRGameplayLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Infrastructure/Installers/InfrastructureInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Infrastructure/Installers/InfrastructureInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Tools/UniqueIDGenerator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Tools/UniqueIDGenerator.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/UI/Base.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Objects/Arrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Objects/Arrow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Objects/Bow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Prefabs/Objects/Bow.prefab" afterDir="false" />
-    </list>
+    <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,7 +187,7 @@
       <workItem from="1724526042168" duration="169000" />
       <workItem from="1724526233805" duration="83000" />
       <workItem from="1724526334973" duration="51000" />
-      <workItem from="1724526398484" duration="19565000" />
+      <workItem from="1724526398484" duration="20756000" />
     </task>
     <servers />
   </component>
