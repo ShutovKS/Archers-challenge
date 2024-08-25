@@ -17,14 +17,14 @@ namespace Features.Projectile
 
         private void Awake()
         {
-            IsStopped(true);
+            IsFlight(false);
             IsPhysics(false);
             IsEffect(false);
         }
 
         public void Fire(float pullAmount)
         {
-            IsStopped(false);
+            IsFlight(true);
             IsPhysics(true);
             IsEffect(true);
 
@@ -43,20 +43,20 @@ namespace Features.Projectile
         {
             if (_isInFlight)
             {
-                IsStopped(true);
+                IsFlight(false);
                 IsPhysics(false);
                 IsEffect(false);
             }
         }
 
-        private void IsStopped(bool isStopped)
+        private void IsFlight(bool isFlight)
         {
-            _isInFlight = false;
-
-            if (isStopped)
+            if (_isInFlight && !isFlight)
             {
                 OnStopped?.Invoke();
             }
+            
+            _isInFlight = isFlight;
         }
 
         private void IsPhysics(bool isPhysics)
@@ -66,9 +66,9 @@ namespace Features.Projectile
             rigidbody.detectCollisions = isPhysics;
         }
 
-        private void IsEffect(bool isVisible)
+        private void IsEffect(bool isEffect)
         {
-            tailVisualization.SetActive(isVisible);
+            tailVisualization.SetActive(isEffect);
         }
     }
 }

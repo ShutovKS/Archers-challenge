@@ -331,12 +331,12 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 7385226130228568683}
   - {fileID: 1266200337275942604}
   - {fileID: 264718726}
   - {fileID: 649719643}
   - {fileID: 344871545}
   - {fileID: 74269884}
-  - {fileID: 7385226130228568683}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &746921915878800661
@@ -501,6 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd183e8d1214eeab533198cd421dd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notchTransform: {fileID: 74269884}
 --- !u!82 &-1085418725121784537
 AudioSource:
   m_ObjectHideFlags: 0
@@ -838,10 +839,10 @@ MonoBehaviour:
   startTransform: {fileID: 649719643}
   endTransform: {fileID: 344871545}
   notchTransform: {fileID: 74269884}
+  bow: {fileID: 1996543232296491574}
   lineRenderer: {fileID: 3782039089030254251}
   audioSourceString: {fileID: 5032372516789969668}
-  bow: {fileID: 1996543232296491574}
-  arrowOffset: {x: 0, y: 0, z: 0.1}
+  arrowOffset: {x: 0, y: 0, z: 0.2}
 --- !u!82 &5032372516789969668
 AudioSource:
   m_ObjectHideFlags: 0

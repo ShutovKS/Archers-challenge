@@ -52,6 +52,7 @@ MonoBehaviour:
   speed: 10
   tip: {fileID: 1769337598482281036}
   rigidbody: {fileID: 4890641968271106644}
+  arrowCollider: {fileID: 2564002901473706942}
   tailVisualization: {fileID: 8315384949226642208}
 --- !u!54 &4890641968271106644
 Rigidbody:

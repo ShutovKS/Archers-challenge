@@ -1,7 +1,10 @@
 using System;
+using Features.Projectile;
+using Infrastructure.Factories.Projectile;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using Zenject;
 
 namespace Features.Weapon
 {
@@ -9,12 +12,30 @@ namespace Features.Weapon
     public class Bow : MonoBehaviour, IWeapon
     {
         public event Action<bool> OnSelected;
-        public event Action<bool> OnVisualizeProjectile;
-        public event Action<float> OnPullReleased;
-        
-        public bool IsSelected => _xrSelectInteractable is { isSelected: true };
+
+        private bool _isSelected;
+
+        public bool IsSelected
+        {
+            get => _isSelected;
+            private set
+            {
+                _isSelected = value;
+                OnSelected?.Invoke(value);
+            }
+        }
+
+        [SerializeField] private Transform notchTransform;
 
         private IXRSelectInteractable _xrSelectInteractable;
+        private IProjectileFactory _projectileFactory;
+        private IProjectile _currentProjectile;
+
+        [Inject]
+        public void Construct(IProjectileFactory projectileFactory)
+        {
+            _projectileFactory = projectileFactory;
+        }
 
         private void Awake()
         {
@@ -33,11 +54,41 @@ namespace Features.Weapon
             _xrSelectInteractable.selectExited.RemoveListener(OnBowDropped);
         }
 
-        public void PullReleased(float pullAmount) => OnPullReleased?.Invoke(pullAmount);
+        public void Fire(float pullAmount)
+        {
+            if (_currentProjectile == null) return;
 
-        public void SelectBowstring(bool isSelected) => OnVisualizeProjectile?.Invoke(isSelected);
+            _projectileFactory.GetInstance(_currentProjectile).transform.SetParent(null);
 
-        private void OnBowTaken(SelectEnterEventArgs args) => OnSelected?.Invoke(true);
-        private void OnBowDropped(SelectExitEventArgs args) => OnSelected?.Invoke(false);
+            _currentProjectile.Fire(pullAmount);
+
+            _currentProjectile = null;
+        }
+
+        public async void Charge()
+        {
+            _currentProjectile = await _projectileFactory.Instantiate(notchTransform);
+        }
+
+        public void Discharge()
+        {
+            if (_currentProjectile == null) return;
+            
+            _projectileFactory.Destroy(_currentProjectile);
+
+            _currentProjectile = null;
+        }
+
+        private void OnBowTaken(SelectEnterEventArgs args)
+        {
+            IsSelected = true;
+        }
+
+        private void OnBowDropped(SelectExitEventArgs args)
+        {
+            IsSelected = false;
+
+            Discharge();
+        }
     }
 }

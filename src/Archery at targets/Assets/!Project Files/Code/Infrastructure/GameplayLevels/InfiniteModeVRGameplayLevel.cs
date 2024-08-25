@@ -135,10 +135,10 @@ namespace Infrastructure.GameplayLevels
             _infoScreen.SetInformationText("Time", $"Time: {time:0.00}");
         }
 
-        private async void OnTargetHit(string targetId)
+        private async void OnTargetHit(GameObject gameObject)
         {
             _targetFactory.TargetHit -= OnTargetHit;
-            _targetFactory.Destroy(targetId);
+            _targetFactory.Destroy(gameObject);
 
             _targetCount++;
             _infoScreen.SetInformationText("Score", $"Score count: {_targetCount}");

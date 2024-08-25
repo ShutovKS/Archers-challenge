@@ -5,18 +5,17 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace Features.Weapon
 {
-    public class Bowstring : XRBaseInteractable
+    public class BowstringInteractable : XRBaseInteractable
     {
-        [Header("Transforms")] 
         [SerializeField] private Transform startTransform, endTransform, notchTransform;
 
-        [Header("Components")] 
-        [SerializeField] private Bow bow;
+        [Header("Components")] [SerializeField]
+        private Bow bow;
+
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private AudioSource audioSourceString;
 
-        [Header("Settings")] 
-        [SerializeField] private Vector3 arrowOffset = new(0, 0, 0.1f);
+        [Header("Settings")] [SerializeField] private Vector3 arrowOffset = new(0, 0, 0.1f);
 
         private float _pullAmount;
         private IXRSelectInteractor _pullingInteractor;
@@ -51,16 +50,6 @@ namespace Features.Weapon
             bow.OnSelected -= HandleBowSelection;
         }
 
-        private void Selected(bool isSelected)
-        {
-            bow.SelectBowstring(isSelected);
-        }
-
-        private void PullReleased(float pullAmount)
-        {
-            bow.PullReleased(pullAmount);
-        }
-
         private void HandleBowSelection(bool isSelected)
         {
             SetIsInteractable(isSelected);
@@ -87,13 +76,12 @@ namespace Features.Weapon
         {
             _pullingInteractor = args.interactorObject;
 
-            Selected(true);
+            bow.Charge();
         }
 
         private void Released(SelectExitEventArgs args)
         {
-            Selected(false);
-            PullReleased(_pullAmount);
+            bow.Fire(_pullAmount);
 
             ResetPull();
         }
@@ -145,13 +133,12 @@ namespace Features.Weapon
 
         private void UpdateVisuals()
         {
-            lineRenderer.SetPosition(1, new Vector3(
-                startTransform.localPosition.x,
-                startTransform.localPosition.y,
-                Mathf.Lerp(startTransform.localPosition.z, endTransform.localPosition.z, _pullAmount))
-            );
+            var zPosition = Mathf.Lerp(startTransform.localPosition.z, endTransform.localPosition.z, _pullAmount);
+            var notchPosition = notchTransform.localPosition;
+            notchPosition.z = zPosition + arrowOffset.z;
+            notchTransform.localPosition = notchPosition;
 
-            notchTransform.localPosition += arrowOffset;
+            lineRenderer.SetPosition(1, new Vector3(startTransform.localPosition.x, startTransform.localPosition.y, zPosition));
         }
 
         private void UpdateSound()

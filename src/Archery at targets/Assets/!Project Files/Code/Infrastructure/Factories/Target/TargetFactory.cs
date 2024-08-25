@@ -15,10 +15,10 @@ namespace Infrastructure.Factories.Target
     [UsedImplicitly]
     public class TargetFactory : ITargetFactory
     {
-        public event Action<string> TargetHit;
+        public event Action<GameObject> TargetHit;
 
         private readonly IGameObjectFactory _gameObjectFactory;
-        private readonly Dictionary<string, GameObject> _idToTarget = new();
+        private readonly List<GameObject> _targets = new();
 
         private const string TARGET_PREFAB_PATH = AssetsAddressableConstants.TARGET_PREFAB;
 
@@ -27,25 +27,24 @@ namespace Infrastructure.Factories.Target
             _gameObjectFactory = gameObjectFactory;
         }
 
-        public async Task<string> Instantiate(Vector3 position, Quaternion rotation, Transform parent = null)
+        public async Task<GameObject> Instantiate(Vector3 position, Quaternion rotation, Transform parent = null)
         {
             var isHit = false;
-            var id = UniqueIDGenerator.Generate();
             var instance = await _gameObjectFactory.Instantiate(TARGET_PREFAB_PATH, position, rotation, parent);
 
             var colliderInteractionEnterTrigger = instance.AddComponent<ColliderInteractionEnterTrigger>();
             colliderInteractionEnterTrigger.OnTriggered += OnHit;
 
-            _idToTarget.Add(id, instance);
+            _targets.Add(instance);
 
-            return id;
+            return instance;
 
             void OnHit(Collider collider)
             {
                 if (!isHit && CheckHit(collider))
                 {
                     isHit = true;
-                    TargetHit?.Invoke(id);
+                    TargetHit?.Invoke(instance);
                 }
             }
 
@@ -55,22 +54,22 @@ namespace Infrastructure.Factories.Target
             }
         }
 
-        public void Destroy(string targetId)
+        public void Destroy(GameObject target)
         {
-            if (_idToTarget.Remove(targetId, out var gameObject))
+            if (_targets.Remove(target))
             {
-                Object.Destroy(gameObject);
+                Object.Destroy(target);
             }
         }
 
         public void DestroyAll()
         {
-            foreach (var (_, gameObject) in _idToTarget)
+            foreach (var target in _targets)
             {
-                Object.Destroy(gameObject);
+                Object.Destroy(target);
             }
 
-            _idToTarget.Clear();
+            _targets.Clear();
         }
     }
 }

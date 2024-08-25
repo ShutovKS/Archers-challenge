@@ -8,6 +8,7 @@ using Infrastructure.Factories.UI;
 using Infrastructure.Factories.Weapon;
 using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.InteractorSetup;
+using Infrastructure.Services.Projectile;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.SceneLoader;
@@ -43,6 +44,7 @@ namespace Infrastructure.Installers
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
             Container.Bind<IWeaponService>().To<WeaponService>().AsSingle();
+            Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();
         }
 
         private void BindFactories()
