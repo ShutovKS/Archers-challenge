@@ -1,6 +1,6 @@
-namespace Infrastructure.Services.AssetsAddressables
+namespace Data.Paths
 {
-    public static class AssetsAddressableConstants
+    public static class AddressablesPaths
     {
         public const string XR_ORIGIN_MR_RIG = "Prefabs/XR Origin (MR Rig).prefab";
         public const string TARGET_PREFAB = "Prefabs/Target.prefab";
