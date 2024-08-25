@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Extension;
+using Data.Paths;
 using Features.ColliderTools;
 using Infrastructure.Factories.GameObjects;
-using Infrastructure.Services.AssetsAddressables;
 using JetBrains.Annotations;
-using Tools;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -20,7 +18,7 @@ namespace Infrastructure.Factories.Target
         private readonly IGameObjectFactory _gameObjectFactory;
         private readonly List<GameObject> _targets = new();
 
-        private const string TARGET_PREFAB_PATH = AssetsAddressableConstants.TARGET_PREFAB;
+        private const string TARGET_PREFAB_PATH = AddressablesPaths.TARGET_PREFAB;
 
         public TargetFactory(IGameObjectFactory gameObjectFactory)
         {

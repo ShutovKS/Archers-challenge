@@ -1,4 +1,4 @@
-using Infrastructure.Services.AssetsAddressables;
+using Data.Paths;
 
 namespace Infrastructure.Services.Projectile
 {
@@ -11,7 +11,7 @@ namespace Infrastructure.Services.Projectile
     {
         public string GetCurrentlySelectedProjectilePath()
         {
-            return AssetsAddressableConstants.ARROW_PREFAB;
+            return AddressablesPaths.ARROW_PREFAB;
         }
     }
 }

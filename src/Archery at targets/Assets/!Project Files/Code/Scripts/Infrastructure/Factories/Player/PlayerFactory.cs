@@ -1,9 +1,7 @@
 using System.Threading.Tasks;
-using Extension;
+using Data.Paths;
 using Features.Player;
 using Infrastructure.Factories.GameObjects;
-using Infrastructure.Services.AssetsAddressables;
-using Infrastructure.Services.InteractorSetup;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -26,7 +24,7 @@ namespace Infrastructure.Factories.Player
         public async Task<GameObject> Instantiate(Vector3? position = null, Quaternion? rotation = null,
             Transform parent = null)
         {
-            _instantiate = await _gameObjectFactory.Instantiate(AssetsAddressableConstants.XR_ORIGIN_MR_RIG,
+            _instantiate = await _gameObjectFactory.Instantiate(AddressablesPaths.XR_ORIGIN_MR_RIG,
                 position, rotation, parent);
 
             PlayerContainer = _instantiate.GetComponent<PlayerContainer>();

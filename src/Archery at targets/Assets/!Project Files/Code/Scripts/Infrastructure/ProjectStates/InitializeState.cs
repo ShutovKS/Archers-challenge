@@ -1,9 +1,6 @@
 using System.Threading.Tasks;
 using Infrastructure.Factories.Player;
-using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.ProjectManagement;
-using Infrastructure.Services.StaticData;
-using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
 
 namespace Infrastructure.ProjectStates

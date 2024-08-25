@@ -1,4 +1,4 @@
-using Infrastructure.Services.AssetsAddressables;
+using Data.Paths;
 
 namespace Infrastructure.Services.Weapon
 {
@@ -6,7 +6,7 @@ namespace Infrastructure.Services.Weapon
     {
         public string GetCurrentlyEquippedWeaponPath()
         {
-            return AssetsAddressableConstants.BOW_PREFAB;
+            return AddressablesPaths.BOW_PREFAB;
         }
     }
 }

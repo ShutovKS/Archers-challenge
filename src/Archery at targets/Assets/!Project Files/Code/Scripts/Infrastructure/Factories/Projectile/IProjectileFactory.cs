@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using Features.Projectile;
-using Tools;
 using UnityEngine;
 
 namespace Infrastructure.Factories.Projectile

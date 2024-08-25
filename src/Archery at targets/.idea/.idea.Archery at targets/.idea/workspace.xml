@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Level/LevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Level/LevelData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,14 +79,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
-    "ignore.virus.scanning.warn.message": "true",
-    "settings.editor.selected.configurable": "RoslynSettingsId"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RoslynSettingsId&quot;
   }
-}]]></component>
+}</component>
   <component name="RiderTodoViewSettings" groupByProject="false" />
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
@@ -191,6 +194,8 @@
       <workItem from="1724526233805" duration="83000" />
       <workItem from="1724526334973" duration="51000" />
       <workItem from="1724526398484" duration="21988000" />
+      <workItem from="1724615853346" duration="239000" />
+      <workItem from="1724616305309" duration="3302000" />
     </task>
     <servers />
   </component>

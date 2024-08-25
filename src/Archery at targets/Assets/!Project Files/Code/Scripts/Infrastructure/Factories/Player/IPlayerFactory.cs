@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using Features.Player;
-using Infrastructure.Services.InteractorSetup;
 using UnityEngine;
 
 namespace Infrastructure.Factories.Player

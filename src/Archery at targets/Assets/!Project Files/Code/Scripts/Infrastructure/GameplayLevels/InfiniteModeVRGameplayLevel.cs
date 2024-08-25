@@ -8,8 +8,6 @@ using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Player;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.Weapon;
-using Infrastructure.Services.AssetsAddressables;
-using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Window;
@@ -17,7 +15,6 @@ using JetBrains.Annotations;
 using UI;
 using UnityEngine;
 using Zenject;
-using Object = UnityEngine.Object;
 
 namespace Infrastructure.GameplayLevels
 {

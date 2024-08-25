@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
+using Data.Paths;
 using Infrastructure.Factories.UI;
-using Infrastructure.Services.AssetsAddressables;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -79,9 +79,9 @@ namespace Infrastructure.Services.Window
         {
             return windowID switch
             {
-                WindowID.HandMenu => AssetsAddressableConstants.HAND_MENU_SCREEN_PREFAB,
-                WindowID.MainMenu => AssetsAddressableConstants.MAIN_MENU_SCREEN_PREFAB,
-                WindowID.InformationDesk => AssetsAddressableConstants.INFORMATION_DESK_SCREEN_PREFAB,
+                WindowID.HandMenu => AddressablesPaths.HAND_MENU_SCREEN_PREFAB,
+                WindowID.MainMenu => AddressablesPaths.MAIN_MENU_SCREEN_PREFAB,
+                WindowID.InformationDesk => AddressablesPaths.INFORMATION_DESK_SCREEN_PREFAB,
                 _ => null
             };
         }
