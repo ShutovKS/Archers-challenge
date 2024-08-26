@@ -14,6 +14,15 @@ namespace Data.Progress
         public string currentWeaponId;
 
         public List<LevelProgressData> levelProgressDataList = new();
+
+        public static ProgressData CreateDefault() => new()
+        {
+            isTutorialCompleted = false,
+            coins = 0,
+            unlockedWeapons = new List<string>(),
+            currentWeaponId = null,
+            levelProgressDataList = new List<LevelProgressData>()
+        };
     }
 
     [Serializable]

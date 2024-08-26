@@ -23,9 +23,18 @@ namespace Infrastructure.Services.DataStorage
             return JsonUtility.FromJson<T>(json);
         }
 
-        public bool HasKey(string key)
+        public bool Exists(string key)
         {
             return File.Exists(Application.persistentDataPath + "/" + key + ".json");
+        }
+        
+        public void Delete(string key)
+        {
+            var path = Application.persistentDataPath + "/" + key + ".json";
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
         }
     }
 }

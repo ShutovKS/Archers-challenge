@@ -9,6 +9,7 @@ using Infrastructure.Factories.Weapon;
 using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.DataStorage;
 using Infrastructure.Services.InteractorSetup;
+using Infrastructure.Services.Progress;
 using Infrastructure.Services.Projectile;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.SceneContainer;
@@ -47,6 +48,7 @@ namespace Infrastructure.Installers
             Container.Bind<IWeaponService>().To<WeaponService>().AsSingle();
             Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();
             Container.Bind<IDataStorageService>().To<DataStorageLocalService>().AsSingle();
+            Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
         }
 
         private void BindFactories()
