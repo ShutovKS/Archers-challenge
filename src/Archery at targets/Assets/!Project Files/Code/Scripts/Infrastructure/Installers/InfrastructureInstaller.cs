@@ -7,6 +7,7 @@ using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
 using Infrastructure.Factories.Weapon;
 using Infrastructure.Services.AssetsAddressables;
+using Infrastructure.Services.DataStorage;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.Projectile;
 using Infrastructure.Services.ProjectManagement;
@@ -45,6 +46,7 @@ namespace Infrastructure.Installers
             Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
             Container.Bind<IWeaponService>().To<WeaponService>().AsSingle();
             Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();
+            Container.Bind<IDataStorageService>().To<DataStorageLocalService>().AsSingle();
         }
 
         private void BindFactories()
