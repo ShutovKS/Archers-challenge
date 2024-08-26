@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using Data.Paths;
+using Data.Path;
 using Infrastructure.Factories.UI;
 using JetBrains.Annotations;
 using UnityEngine;

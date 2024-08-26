@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Data.Paths;
+using Data.Path;
 using Features.Player;
 using Infrastructure.Factories.GameObjects;
 using JetBrains.Annotations;

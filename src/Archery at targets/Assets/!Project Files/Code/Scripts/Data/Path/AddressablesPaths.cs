@@ -1,4 +1,4 @@
-namespace Data.Paths
+namespace Data.Path
 {
     public static class AddressablesPaths
     {

@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Data.Level;
-using Data.Paths;
+using Data.Path;
+using Data.Weapon;
 using JetBrains.Annotations;
 using UnityEngine;
 using Zenject;
@@ -13,11 +14,17 @@ namespace Infrastructure.Services.StaticData
     public class StaticDataService : IStaticDataService, IInitializable
     {
         private Dictionary<string, LevelData> _levels;
+        private Dictionary<string, WeaponData> _weapons;
 
         public void Initialize()
         {
             _levels = Resources
                 .Load<LevelDatabase>(ResourcesPaths.LEVEL_DATABASE)
+                .Items
+                .ToDictionary(x => x.Key, x => x);
+            
+            _weapons = Resources
+                .Load<WeaponDatabase>(ResourcesPaths.WEAPON_DATABASE)
                 .Items
                 .ToDictionary(x => x.Key, x => x);
         }
