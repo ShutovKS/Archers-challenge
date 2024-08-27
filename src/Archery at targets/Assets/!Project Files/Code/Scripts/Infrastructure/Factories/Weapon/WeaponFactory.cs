@@ -23,9 +23,9 @@ namespace Infrastructure.Factories.Weapon
 
         public async Task<IWeapon> Instantiate(Vector3? position = null, Quaternion? rotation = null, Transform parent = null)
         {
-            var path = _weaponService.GetCurrentlyEquippedWeaponPath();
+            var weaponReference = _weaponService.GetCurrentlyEquippedWeaponReference();
 
-            var instantiate = await _gameObjectFactory.Instantiate(path, position, rotation, parent);
+            var instantiate = await _gameObjectFactory.Instantiate(weaponReference, position, rotation, parent);
 
             var weapon = instantiate.GetComponent<IWeapon>();
 

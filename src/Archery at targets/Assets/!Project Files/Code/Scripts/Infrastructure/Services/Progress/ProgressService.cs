@@ -52,5 +52,17 @@ namespace Infrastructure.Services.Progress
             
             ProgressDataChanged?.Invoke(_progressData);
         }
+        
+        public void SetCurrentWeapon(string weaponId)
+        {
+            var progressData = Get();
+            progressData.currentWeaponId = weaponId;
+            Set(progressData);
+        }
+        
+        public string GetCurrentWeaponId()
+        {
+            return Get().currentWeaponId;
+        }
     }
 }

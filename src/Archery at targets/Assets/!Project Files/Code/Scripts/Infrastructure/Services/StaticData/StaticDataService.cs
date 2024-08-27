@@ -22,21 +22,33 @@ namespace Infrastructure.Services.StaticData
                 .Load<LevelDatabase>(ResourcesPaths.LEVEL_DATABASE)
                 .Items
                 .ToDictionary(x => x.Key, x => x);
-            
+
             _weapons = Resources
                 .Load<WeaponDatabase>(ResourcesPaths.WEAPON_DATABASE)
                 .Items
                 .ToDictionary(x => x.Key, x => x);
         }
+        
+        public TLevelData[] GetLevelData<TLevelData>() where TLevelData : LevelData =>
+            _levels.Values.OfType<TLevelData>().ToArray();
 
-        public TLevelData GetLevelData<TLevelData>(string key) where TLevelData : LevelData
+        public TLevelData GetLevelData<TLevelData>(string key) where TLevelData : LevelData =>
+            GetData(key, _levels) as TLevelData;
+
+        public TWeaponData[] GetWeaponData<TWeaponData>() where TWeaponData : WeaponData =>
+            _weapons.Values.OfType<TWeaponData>().ToArray();
+
+        public TWeaponData GetWeaponData<TWeaponData>(string key) where TWeaponData : WeaponData =>
+            GetData(key, _weapons) as TWeaponData;
+
+        private static TData GetData<TData>(string key, Dictionary<string, TData> data)
         {
-            if (_levels.TryGetValue(key, out var levelData))
+            if (data.TryGetValue(key, out var levelData))
             {
-                return (TLevelData)levelData;
+                return levelData;
             }
 
-            throw new Exception($"No level data for key: {key}");
+            throw new Exception($"Data with key {key} not found in database {typeof(TData)}");
         }
     }
 }

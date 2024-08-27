@@ -45,7 +45,7 @@ namespace Infrastructure.Installers
             Container.Bind(typeof(ITimerService), typeof(ITickable)).To<TimerService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
-            Container.Bind<IWeaponService>().To<WeaponService>().AsSingle();
+            Container.Bind(typeof(IInitializable), typeof(IWeaponService)).To<WeaponService>().AsSingle();
             Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();
             Container.Bind<IDataStorageService>().To<DataStorageLocalService>().AsSingle();
             Container.Bind<IProgressService>().To<ProgressService>().AsSingle();

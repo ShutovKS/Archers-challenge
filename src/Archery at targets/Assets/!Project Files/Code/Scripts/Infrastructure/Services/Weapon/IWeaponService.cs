@@ -1,7 +1,9 @@
+using UnityEngine.AddressableAssets;
+
 namespace Infrastructure.Services.Weapon
 {
     public interface IWeaponService
     {
-        string GetCurrentlyEquippedWeaponPath();
+        AssetReference GetCurrentlyEquippedWeaponReference();
     }
 }
