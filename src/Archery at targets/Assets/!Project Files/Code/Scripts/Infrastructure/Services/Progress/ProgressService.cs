@@ -1,4 +1,5 @@
 using Data.Progress;
+using Infrastructure.Observers.ProgressData;
 using Infrastructure.Services.DataStorage;
 using JetBrains.Annotations;
 
@@ -7,15 +8,15 @@ namespace Infrastructure.Services.Progress
     [UsedImplicitly]
     public class ProgressService : IProgressService
     {
-        public event ProgressDataChangedEventHandler ProgressDataChanged;
-
         private const string PROGRESS_DATA_KEY = "ProgressData";
         private readonly IDataStorageService _dataStorageService;
+        private readonly IProgressDataObserver _progressDataObserver;
         private ProgressData _progressData;
 
-        public ProgressService(IDataStorageService dataStorageService)
+        public ProgressService(IDataStorageService dataStorageService, IProgressDataObserver progressDataObserver)
         {
             _dataStorageService = dataStorageService;
+            _progressDataObserver = progressDataObserver;
         }
 
         public void Set(ProgressData progressData)
@@ -24,7 +25,7 @@ namespace Infrastructure.Services.Progress
 
             _dataStorageService.Save(PROGRESS_DATA_KEY, progressData);
 
-            ProgressDataChanged?.Invoke(_progressData);
+            _progressDataObserver.UpdateProgressData(progressData);
         }
 
         public ProgressData Get()
@@ -51,8 +52,8 @@ namespace Infrastructure.Services.Progress
             _progressData = ProgressData.CreateDefault();
 
             _dataStorageService.Delete(PROGRESS_DATA_KEY);
-            
-            ProgressDataChanged?.Invoke(_progressData);
+
+            _progressDataObserver.UpdateProgressData(_progressData);
         }
     }
 }

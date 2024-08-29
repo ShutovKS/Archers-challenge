@@ -31,6 +31,7 @@ namespace Infrastructure.Installers
         {
             BindServices();
             BindFactories();
+            BindObservers();
         }
 
         private void BindServices()
@@ -61,6 +62,11 @@ namespace Infrastructure.Installers
             Container.Bind<IGameplayLevelFactory>().To<GameplayLevelFactory>().AsSingle();
             Container.Bind<IWeaponFactory>().To<WeaponFactory>().AsSingle();
             Container.Bind<IProjectileFactory>().To<ProjectileFactory>().AsSingle();
+        }
+        
+        private void BindObservers()
+        {
+            Container.Bind<IProgressDataObserver>().To<ProgressDataObserver>().AsSingle();
         }
     }
 }
