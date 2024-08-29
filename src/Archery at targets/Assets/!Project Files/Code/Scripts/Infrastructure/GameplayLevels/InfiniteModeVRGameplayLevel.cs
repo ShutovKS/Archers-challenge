@@ -94,8 +94,8 @@ namespace Infrastructure.GameplayLevels
             var spawnPoint = _sceneContextData.InfoScreenSpawnPoint;
             _infoScreen = await _windowService.OpenAndGet<InformationDeskUI>(WindowID.InformationDesk,
                 spawnPoint.position, spawnPoint.rotation);
-            _infoScreen.SetInformationText("Time", "Time: 0.00");
-            _infoScreen.SetInformationText("Score", $"Score count: {_targetCount}");
+            _infoScreen.SetTimeText("0.00");
+            _infoScreen.SetScoreText("0");
         }
 
         private async Task InstantiateHandMenuScreen()
@@ -129,7 +129,7 @@ namespace Infrastructure.GameplayLevels
 
         private void UpdateInfoScreen(float time)
         {
-            _infoScreen.SetInformationText("Time", $"Time: {time:0.00}");
+            _infoScreen.SetTimeText(time.ToString("0.00"));
         }
 
         private async void OnTargetHit(GameObject gameObject)
@@ -138,7 +138,7 @@ namespace Infrastructure.GameplayLevels
             _targetFactory.Destroy(gameObject);
 
             _targetCount++;
-            _infoScreen.SetInformationText("Score", $"Score count: {_targetCount}");
+            _infoScreen.SetScoreText(_targetCount.ToString());
 
             await InstantiateTarget();
         }
@@ -177,7 +177,7 @@ namespace Infrastructure.GameplayLevels
             _targetFactory.TargetHit -= OnTargetHit;
             _targetFactory.DestroyAll();
         }
-        
+
         private void DestroyBow()
         {
             _weapon.OnSelected -= StartStopwatch;

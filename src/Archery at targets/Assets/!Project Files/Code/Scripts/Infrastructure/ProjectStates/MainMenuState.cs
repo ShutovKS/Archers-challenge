@@ -90,8 +90,8 @@ namespace Infrastructure.ProjectStates
                 _sceneContextData.MainMenuScreenSpawnPoint.rotation
             );
 
-            _mainMenuUI.AddButton("Infinite VR", StartInfiniteVR);
-            _mainMenuUI.AddButton("Exit", ExitFromGame);
+            _mainMenuUI.OnInfiniteVRClicked += StartInfiniteVR;
+            _mainMenuUI.OnExitClicked += ExitFromGame;
         }
 
         private void ConfigurePlayer()
@@ -109,7 +109,7 @@ namespace Infrastructure.ProjectStates
             _gameplayLevelFactory.Create<InfiniteModeVRGameplayLevel>();
 
             var levelData = _staticDataService.GetLevelData<LevelData>("InfiniteVR");
-            
+
             _projectManagementService.SwitchState<GameplayState, LevelData>(levelData);
         }
 
@@ -130,6 +130,9 @@ namespace Infrastructure.ProjectStates
 
         private void CloseScreen()
         {
+            _mainMenuUI.OnInfiniteVRClicked -= StartInfiniteVR;
+            _mainMenuUI.OnExitClicked -= ExitFromGame;
+            
             _windowService.Close(WindowID.MainMenu);
         }
 

@@ -5,11 +5,105 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/BlankStar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/BlankStar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/ButtonContainer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/ButtonContainer.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/CoinBar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/CoinBar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/CoinIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/CoinIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/CrossIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/CrossIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/CrossIconOrange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/CrossIconOrange.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/CrossIconRed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/CrossIconRed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/EmptyBox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/EmptyBox.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/GreenArrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/GreenArrow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/GreenBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/GreenBtn.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/GreenBtnPressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/GreenBtnPressed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/HealthBar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/HealthBar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/HealthBarFill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/HealthBarFill.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/HeartIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/HeartIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/LargeBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/LargeBackground.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/MediumBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/MediumBackground.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/MediumBackground2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/MediumBackground2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/NextIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/NextIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/OrangeBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/OrangeBtn.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/OrangeBtnPressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/OrangeBtnPressed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/PauseIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/PauseIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/PlayIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/PlayIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/RedBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/RedBtn.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/RedBtnPressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/RedBtnPressed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SaveSlot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SaveSlot.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SelectedSaveSlot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SelectedSaveSlot.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallBackground.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallBackground2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallBackground2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallGreenBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallGreenBtn.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallGreenBtnPressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallGreenBtnPressed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallRedBtn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallRedBtn.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallRedBtnPressed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SmallRedBtnPressed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/Star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/Star.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/StopIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/StopIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SwitchContainer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SwitchContainer.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SwitchOFF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SwitchOFF.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SwitchOn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/SwitchOn.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TextContainer1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TextContainer1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TextContainer2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TextContainer2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TickIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TickIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TimerBar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TimerBar.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TimerIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TimerIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TitleBar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Art/Sprites/TitleBar.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/GameplayLevels/InfiniteModeVRGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/GameplayLevels/InfiniteModeVRGameplayLevel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Installers/InfrastructureInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Installers/InfrastructureInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/DataStorage/DataStorageLocalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/DataStorage/DataStorageLocalService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Progress/IProgressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Progress/IProgressService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Progress/ProgressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Progress/ProgressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Store/StoreService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Store/StoreService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Wallet/WalletService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Wallet/WalletService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/InformationDeskUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/InformationDeskUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/MainMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/MainMenuUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Level/UI/Hand Menu Screen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Level/UI/Hand Menu Screen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Level/UI/Information desk Screen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Level/UI/Information desk Screen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Level/UI/Main Menu Screen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Level/UI/Main Menu Screen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,14 +173,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;RoslynSettingsId&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "CodeLensConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RiderTodoViewSettings" groupByProject="false" />
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
@@ -203,7 +297,7 @@
       <workItem from="1724730452709" duration="3145000" />
       <workItem from="1724739842046" duration="295000" />
       <workItem from="1724934113030" duration="1276000" />
-      <workItem from="1724940219321" duration="3985000" />
+      <workItem from="1724940219321" duration="8548000" />
     </task>
     <servers />
   </component>

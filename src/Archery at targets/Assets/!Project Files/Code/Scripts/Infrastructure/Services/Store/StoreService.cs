@@ -12,11 +12,11 @@ namespace Infrastructure.Services.Store
     public class StoreService : IStoreService, IInitializable
     {
         private readonly IWeaponService _weaponService;
-        private readonly WalletService _walletService;
+        private readonly IWalletService _walletService;
 
         private IEnumerable<WeaponData> _weapons;
 
-        public StoreService(IWeaponService weaponService, WalletService walletService)
+        public StoreService(IWeaponService weaponService, IWalletService walletService)
         {
             _weaponService = weaponService;
             _walletService = walletService;

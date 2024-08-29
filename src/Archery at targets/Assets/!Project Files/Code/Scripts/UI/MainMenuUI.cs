@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,27 +6,22 @@ namespace UI
 {
     public class MainMenuUI : MonoBehaviour
     {
-        [SerializeField] private Button buttonPrefab;
-        [SerializeField] private Transform parent;
+        public event Action OnInfiniteVRClicked, OnInfiniteMRClicked, OnExitClicked;
 
-        private readonly Dictionary<string, Button> _buttons = new();
-
-        public void AddButton(string buttonName, Action onClick)
+        [SerializeField] private Button infiniteVR, infiniteMR, exit;
+        
+        private void Awake()
         {
-            var button = Instantiate(buttonPrefab, parent);
-            button.GetComponentInChildren<TMP_Text>().text = buttonName;
-            button.onClick.AddListener(() => onClick());
-            button.gameObject.SetActive(true);
-
-            _buttons.Add(buttonName, button);
+            infiniteVR.onClick.AddListener(() => OnInfiniteVRClicked?.Invoke());
+            infiniteMR.onClick.AddListener(() => OnInfiniteMRClicked?.Invoke());
+            exit.onClick.AddListener(() => OnExitClicked?.Invoke());
         }
-
-        public void RemoveButton(string buttonName)
+        
+        private void OnDestroy()
         {
-            if (_buttons.Remove(buttonName, out var button))
-            {
-                Destroy(button.gameObject);
-            }
+            infiniteVR.onClick.RemoveAllListeners();
+            infiniteMR.onClick.RemoveAllListeners();
+            exit.onClick.RemoveAllListeners();
         }
     }
 }

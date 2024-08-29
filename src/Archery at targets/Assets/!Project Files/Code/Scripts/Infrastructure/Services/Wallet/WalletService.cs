@@ -1,7 +1,9 @@
 using Infrastructure.Services.Progress;
+using JetBrains.Annotations;
 
 namespace Infrastructure.Services.Wallet
 {
+    [UsedImplicitly]
     public class WalletService : IWalletService
     {
         private readonly IProgressService _progressService;
