@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/WeaponData - 0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/WeaponData - 0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Installers/InfrastructureInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Installers/InfrastructureInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/DataStorage/DataStorageLocalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/DataStorage/DataStorageLocalService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Progress/IProgressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Progress/IProgressService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Progress/ProgressService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Progress/ProgressService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +203,7 @@
       <workItem from="1724730452709" duration="3145000" />
       <workItem from="1724739842046" duration="295000" />
       <workItem from="1724934113030" duration="1276000" />
-      <workItem from="1724940219321" duration="2886000" />
+      <workItem from="1724940219321" duration="3985000" />
     </task>
     <servers />
   </component>

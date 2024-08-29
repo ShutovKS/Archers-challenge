@@ -6,6 +6,7 @@ using Infrastructure.Factories.Projectile;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
 using Infrastructure.Factories.Weapon;
+using Infrastructure.Observers.ProgressData;
 using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.DataStorage;
 using Infrastructure.Services.InteractorSetup;
@@ -16,6 +17,7 @@ using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Stopwatch;
+using Infrastructure.Services.Store;
 using Infrastructure.Services.Timer;
 using Infrastructure.Services.Weapon;
 using Infrastructure.Services.Window;
@@ -50,6 +52,7 @@ namespace Infrastructure.Installers
             Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();
             Container.Bind<IDataStorageService>().To<DataStorageLocalService>().AsSingle();
             Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
+            Container.Bind(typeof(IInteractorService), typeof(IStoreService)).To<StoreService>().AsSingle();
         }
 
         private void BindFactories()

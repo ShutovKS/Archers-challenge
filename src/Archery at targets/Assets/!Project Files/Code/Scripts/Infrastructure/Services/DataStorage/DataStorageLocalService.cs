@@ -1,8 +1,10 @@
 using System.IO;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Infrastructure.Services.DataStorage
 {
+    [UsedImplicitly]
     public class DataStorageLocalService : IDataStorageService
     {
         public void Save<T>(string key, T data)
