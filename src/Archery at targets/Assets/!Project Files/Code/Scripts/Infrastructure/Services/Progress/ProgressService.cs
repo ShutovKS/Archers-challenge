@@ -1,8 +1,10 @@
 using Data.Progress;
 using Infrastructure.Services.DataStorage;
+using JetBrains.Annotations;
 
 namespace Infrastructure.Services.Progress
 {
+    [UsedImplicitly]
     public class ProgressService : IProgressService
     {
         public event ProgressDataChangedEventHandler ProgressDataChanged;
@@ -51,18 +53,6 @@ namespace Infrastructure.Services.Progress
             _dataStorageService.Delete(PROGRESS_DATA_KEY);
             
             ProgressDataChanged?.Invoke(_progressData);
-        }
-        
-        public void SetCurrentWeapon(string weaponId)
-        {
-            var progressData = Get();
-            progressData.currentWeaponId = weaponId;
-            Set(progressData);
-        }
-        
-        public string GetCurrentWeaponId()
-        {
-            return Get().currentWeaponId;
         }
     }
 }

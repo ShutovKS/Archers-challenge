@@ -10,8 +10,5 @@ namespace Infrastructure.Services.Progress
         void Set(ProgressData progressData);
         ProgressData Get();
         void Reset();
-        
-        void SetCurrentWeapon(string weaponId);
-        string GetCurrentWeaponId();
     }
 }
