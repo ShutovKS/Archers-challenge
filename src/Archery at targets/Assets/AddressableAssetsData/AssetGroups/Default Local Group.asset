@@ -15,11 +15,6 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 298a50b6db136a24e807b6d3a66e72fb
   m_SerializeEntries:
-  - m_GUID: 1b6d9920203cf204ca025db14635a195
-    m_Address: Prefabs/Bow.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 54ba44d4ecd83324991be29cf49b127d
     m_Address: Prefabs/Objects/Arrow.prefab
     m_ReadOnly: 0
