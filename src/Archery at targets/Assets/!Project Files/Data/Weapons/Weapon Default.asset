@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd6427fba8f48eabd2e4fdef3192757, type: 3}
-  m_Name: Basic Weapon
+  m_Name: Weapon Default
   m_EditorClassIdentifier: 
   <Key>k__BackingField: 708078f6-a6cf-4cac-a4e2-44098fc59167
   <Name>k__BackingField: Standard Bow
@@ -20,7 +20,7 @@ MonoBehaviour:
   <IsUnlocked>k__BackingField: 1
   <Price>k__BackingField: 0
   <Reference>k__BackingField:
-    m_AssetGUID: 1b6d9920203cf204ca025db14635a195
+    m_AssetGUID: 86f8afcad42030a408a5e4eb9d4c205c
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 

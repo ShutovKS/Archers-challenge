@@ -17,9 +17,7 @@ using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Stopwatch;
-using Infrastructure.Services.Store;
 using Infrastructure.Services.Timer;
-using Infrastructure.Services.Wallet;
 using Infrastructure.Services.Weapon;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
@@ -53,8 +51,6 @@ namespace Infrastructure.Installers
             Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();
             Container.Bind<IDataStorageService>().To<DataStorageLocalService>().AsSingle();
             Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
-            Container.Bind(typeof(IInitializable), typeof(IStoreService)).To<StoreService>().AsSingle();
-            Container.Bind<IWalletService>().To<WalletService>().AsSingle();
         }
 
         private void BindFactories()
