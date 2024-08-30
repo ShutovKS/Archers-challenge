@@ -12,7 +12,8 @@ using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Window;
 using JetBrains.Annotations;
-using UI;
+using UI.HandMenu;
+using UI.InformationDesk;
 using UnityEngine;
 using Zenject;
 

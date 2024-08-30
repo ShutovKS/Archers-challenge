@@ -7,8 +7,9 @@ namespace Data.Path
         public const string BOW_PREFAB = "Prefabs/Bow.prefab";
         public const string ARROW_PREFAB = "Prefabs/Objects/Arrow.prefab";
 
-        public const string MAIN_MENU_SCREEN_PREFAB = "Prefabs/Screens/Main Menu Screen.prefab";
-        public const string INFORMATION_DESK_SCREEN_PREFAB = "Prefabs/Screens/Information desk Screen.prefab";
-        public const string HAND_MENU_SCREEN_PREFAB = "Prefabs/Screens/Hand Menu Screen.prefab";
+        public const string MAIN_MENU_SCREEN_PREFAB = "UI/Main Menu Screen.prefab";
+        public const string INFORMATION_DESK_SCREEN_PREFAB = "UI/Information desk Screen.prefab";
+        public const string HAND_MENU_SCREEN_PREFAB = "UI/Hand Menu Screen.prefab";
+        public const string STORE_SCREEN_PREFAB = "UI/Store Screen.prefab";
     }
 }

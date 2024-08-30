@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Services.Window;
+using JetBrains.Annotations;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Infrastructure.Factories.UI
 {
+    [UsedImplicitly]
     public class UIFactory : IUIFactory
     {
         private readonly IGameObjectFactory _gameObjectFactory;

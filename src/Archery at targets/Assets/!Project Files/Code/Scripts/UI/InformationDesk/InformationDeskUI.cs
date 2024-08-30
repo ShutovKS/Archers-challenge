@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace UI
+namespace UI.InformationDesk
 {
     public class InformationDeskUI : MonoBehaviour
     {

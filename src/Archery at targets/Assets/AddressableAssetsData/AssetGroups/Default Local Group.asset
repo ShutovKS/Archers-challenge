@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf2427f7b7b020140b4a5f6a7c7d14dc
+    m_Address: UI/Store Screen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd8676903f2a1d14cb5b73ccf12b3258
     m_Address: Prefabs/Target.prefab
     m_ReadOnly: 0

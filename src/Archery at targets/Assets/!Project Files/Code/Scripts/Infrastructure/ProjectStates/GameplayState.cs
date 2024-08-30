@@ -9,7 +9,7 @@ using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
-using UI;
+using UI.InformationDesk;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure.ProjectStates

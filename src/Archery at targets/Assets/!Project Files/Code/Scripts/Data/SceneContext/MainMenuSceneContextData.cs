@@ -6,7 +6,8 @@ namespace Data.SceneContext
     [Serializable]
     public class MainMenuSceneContextData : BaseSceneContextData
     {
-        [field: Header("Main Menu")]
+        [field: Header("UI")]
         [field: SerializeField] public Transform MainMenuScreenSpawnPoint { get; private set; }
+        [field: SerializeField] public Transform StoreScreenSpawnPoint { get; private set; }
     }
 }
