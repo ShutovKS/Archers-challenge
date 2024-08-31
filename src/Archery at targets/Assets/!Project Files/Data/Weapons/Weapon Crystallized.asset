@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd6427fba8f48eabd2e4fdef3192757, type: 3}
+  m_Name: Weapon Crystallized
+  m_EditorClassIdentifier: 
+  <Key>k__BackingField: 09a14408-3575-4674-aa41-676f36fd89de
+  <Name>k__BackingField: Weapon Crystallized
+  <Description>k__BackingField: Weapon Crystallized
+  <Icon>k__BackingField: {fileID: 0}
+  <IsUnlocked>k__BackingField: 0
+  <Customization>k__BackingField:
+    rid: 4859448478522146908
+  references:
+    version: 2
+    RefIds:
+    - rid: 4859448478522146908
+      type: {class: WeaponLevelCustomization, ns: Data.Weapon, asm: Assembly-CSharp}
+      data:
+        <Customizations>k__BackingField:
+        - <Key>k__BackingField: 8905c05c-fa08-4bfe-82d7-e38952f7dcaa
+          <Level>k__BackingField: 1
+          <Reference>k__BackingField:
+            m_AssetGUID: ecb7c10c931a2e4479ae4d31b01f3c4d
+            m_SubObjectName: 
+            m_SubObjectGUID: 
+            m_SubObjectType: 
+            m_EditorAssetChanged: 0
+        - <Key>k__BackingField: eba68e81-fd72-419f-81d4-ad0f3d9d3b75
+          <Level>k__BackingField: 2
+          <Reference>k__BackingField:
+            m_AssetGUID: 3ba363814f96a194cbb47d5356f60501
+            m_SubObjectName: 
+            m_SubObjectGUID: 
+            m_SubObjectType: 
+            m_EditorAssetChanged: 0
+        - <Key>k__BackingField: 87f8b8c0-ac48-4f88-a5ca-01c83c38977c
+          <Level>k__BackingField: 3
+          <Reference>k__BackingField:
+            m_AssetGUID: 20bded57e1c6b5542aff7fd5af1ca2d9
+            m_SubObjectName: 
+            m_SubObjectGUID: 
+            m_SubObjectType: 
+            m_EditorAssetChanged: 0
+        - <Key>k__BackingField: 65bf4cdd-1242-4d79-bd11-82f4671f0116
+          <Level>k__BackingField: 4
+          <Reference>k__BackingField:
+            m_AssetGUID: faa671b99534fb9458e9612e6de7e292
+            m_SubObjectName: 
+            m_SubObjectGUID: 
+            m_SubObjectType: 
+            m_EditorAssetChanged: 0
+        - <Key>k__BackingField: 5d499530-b600-438b-92c7-89cc4f04a3d8
+          <Level>k__BackingField: 5
+          <Reference>k__BackingField:
+            m_AssetGUID: da08c5e508cf36b49ab458a102dc42a0
+            m_SubObjectName: 
+            m_SubObjectGUID: 
+            m_SubObjectType: 
+            m_EditorAssetChanged: 0
+        <Key>k__BackingField: 

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd6427fba8f48eabd2e4fdef3192757, type: 3}
+  m_Name: Weapon Colors
+  m_EditorClassIdentifier: 
+  <Key>k__BackingField: a6a57a84-0bc0-4380-a6d2-630e7c3ab17b
+  <Name>k__BackingField: Weapon Colors
+  <Description>k__BackingField: Weapon Colors
+  <Icon>k__BackingField: {fileID: 0}
+  <IsUnlocked>k__BackingField: 0
+  <Customization>k__BackingField:
+    rid: 4859448478522146907
+  references:
+    version: 2
+    RefIds:
+    - rid: 4859448478522146907
+      type: {class: WeaponColorCustomization, ns: Data.Weapon, asm: Assembly-CSharp}
+      data:
+        <Customizations>k__BackingField:
+        - <Key>k__BackingField: 2e656e43-d4f9-4a83-a926-83c30ccd07a7
+          <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+          <Reference>k__BackingField:
+            m_AssetGUID: 64634c3875fcdf4459bfd203220109d4
+            m_SubObjectName: 
+            m_SubObjectGUID: 
+            m_SubObjectType: 
+            m_EditorAssetChanged: 0
+        - <Key>k__BackingField: 389e97b7-266f-42c9-862e-07168869f6e3
+          <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+          <Reference>k__BackingField:
+            m_AssetGUID: 8c37701ce2af1534cb7a7677a535b16a
+            m_SubObjectName: 
+            m_SubObjectGUID: 
+            m_SubObjectType: 
+            m_EditorAssetChanged: 0
+        - <Key>k__BackingField: ca7c73a1-f929-4306-9f99-3586b6472bdf
+          <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+          <Reference>k__BackingField:
+            m_AssetGUID: 4259bf2c9f6e55e4d9b6f8302c7b2b17
+            m_SubObjectName: 
+            m_SubObjectGUID: 
+            m_SubObjectType: 
+            m_EditorAssetChanged: 0
+        <Key>k__BackingField: 

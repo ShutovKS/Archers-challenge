@@ -20,6 +20,10 @@ namespace Infrastructure.Services.Weapon
         private Dictionary<string, WeaponData> _allWeaponsCache;
         private Dictionary<string, WeaponData> _ownedWeaponsCache;
         private WeaponData _currentWeaponData;
+        private string _currentCustomizationId;
+
+        public event Action<WeaponData> OnWeaponEquipped;
+        public event Action<WeaponData> OnWeaponUnlocked;
 
         public WeaponService(IStaticDataService staticDataService, IProgressService progressService)
         {
@@ -34,66 +38,107 @@ namespace Infrastructure.Services.Weapon
             CacheAllWeapons();
             
             CacheOwnedWeapons(progressData.unlockedWeapons);
-
-            _currentWeaponData = string.IsNullOrEmpty(progressData.currentWeaponId)
-                ? GetDefaultWeapon()
-                : GetWeaponData(progressData.currentWeaponId);
+            
+            _currentWeaponData = !string.IsNullOrEmpty(progressData.currentWeaponId)
+                ? GetWeaponData(progressData.currentWeaponId)
+                : GetDefaultWeapon();
+            
+            _currentCustomizationId = progressData.currentCustomizationId;
         }
 
-        public AssetReference GetCurrentlyEquippedWeaponReference() => _currentWeaponData.Reference;
+        public AssetReference GetCurrentlyEquippedWeaponReference()
+        {
+            switch (_currentWeaponData.Customization)
+            {
+                case WeaponDefaultCustomization weaponDefaultCustomization:
+                    return weaponDefaultCustomization.Reference;
+                case WeaponLevelCustomization weaponLevelCustomization:
+                    return weaponLevelCustomization.Customizations
+                        .FirstOrDefault(c => c.Key == _currentCustomizationId)
+                        ?.Reference;
+                case WeaponColorCustomization weaponColorCustomization:
+                    return weaponColorCustomization.Customizations
+                        .FirstOrDefault(c => c.Key == _currentCustomizationId)
+                        ?.Reference;
+                default: throw new ArgumentOutOfRangeException(
+                    $"Unknown customization type: {_currentWeaponData.Customization.GetType()}");
+            }
+        }
 
         public WeaponData GetCurrentlyEquippedWeaponData() => _currentWeaponData;
 
         public WeaponData GetWeaponData(string weaponId)
         {
             if (_allWeaponsCache.TryGetValue(weaponId, out var weaponData))
-            {
                 return weaponData;
-            }
 
             var errorMessage = $"Weapon with ID {weaponId} not found.";
+           
             Debug.LogError(errorMessage);
             throw new ArgumentException(errorMessage, nameof(weaponId));
         }
 
-        public IEnumerable<WeaponData> GetWeaponDatas(WeaponReceiptType? weaponReceiptType = null)
-        {
-            return weaponReceiptType.HasValue
-                ? _allWeaponsCache.Values.Where(w => w.WeaponReceiptType == weaponReceiptType.Value)
-                : _allWeaponsCache.Values;
-        }
+        public IEnumerable<WeaponData> GetWeaponDatas() => _allWeaponsCache.Values;
 
-        public IEnumerable<WeaponData> GetOwnedWeaponDatas(WeaponReceiptType? weaponReceiptType = null)
-        {
-            return weaponReceiptType.HasValue
-                ? _ownedWeaponsCache.Values.Where(w => w.WeaponReceiptType == weaponReceiptType.Value)
-                : _ownedWeaponsCache.Values;
-        }
+        public IEnumerable<WeaponData> GetOwnedWeaponDatas() => _ownedWeaponsCache.Values;
 
-        public void EquipWeapon(string weaponId)
-        {
-            _currentWeaponData = GetWeaponData(weaponId);
-
-            var progressData = _progressService.Get();
-            progressData.currentWeaponId = weaponId;
-            _progressService.Set(progressData);
-        }
-
-        public void UnlockWeapon(string weaponId)
+        public void EquipWeapon(string weaponId, string customizationId = null)
         {
             if (_allWeaponsCache.TryGetValue(weaponId, out var weaponData))
             {
-                var progressData = _progressService.Get();
-                if (!progressData.unlockedWeapons.Contains(weaponId))
+                if (!_ownedWeaponsCache.ContainsKey(weaponId))
                 {
+                    const string ERROR_MESSAGE = "Weapon not unlocked.";
+                    
+                    Debug.LogError(ERROR_MESSAGE);
+                    throw new InvalidOperationException(ERROR_MESSAGE);
+                }
+
+                _currentWeaponData = weaponData;
+                _currentCustomizationId = customizationId;
+                
+                var progressData = _progressService.Get();
+                progressData.currentWeaponId = weaponId;
+                progressData.currentCustomizationId = customizationId;
+                
+                _progressService.Set(progressData);
+                
+                OnWeaponEquipped?.Invoke(weaponData);
+            }
+            else
+            {
+                var errorMessage = $"Weapon with ID {weaponId} not found.";
+                
+                Debug.LogError(errorMessage);
+                throw new ArgumentException(errorMessage, nameof(weaponId));
+            }
+        }
+
+        public void UnlockWeapon(string weaponId, string customizationId = null)
+        {
+            if (_allWeaponsCache.TryGetValue(weaponId, out var weaponData))
+            {
+                if (_ownedWeaponsCache.TryAdd(weaponId, weaponData))
+                {
+                    var progressData = _progressService.Get();
                     progressData.unlockedWeapons.Add(weaponId);
+
                     _progressService.Set(progressData);
-                    _ownedWeaponsCache[weaponId] = weaponData;
+
+                    OnWeaponUnlocked?.Invoke(weaponData);
+                }
+                else
+                {
+                    const string ERROR_MESSAGE = "Weapon already unlocked.";
+
+                    Debug.LogError(ERROR_MESSAGE);
+                    throw new InvalidOperationException(ERROR_MESSAGE);
                 }
             }
             else
             {
                 var errorMessage = $"Weapon with ID {weaponId} not found.";
+                
                 Debug.LogError(errorMessage);
                 throw new ArgumentException(errorMessage, nameof(weaponId));
             }
@@ -115,12 +160,11 @@ namespace Infrastructure.Services.Weapon
 
         private WeaponData GetDefaultWeapon()
         {
-            var defaultWeapon =
-                _allWeaponsCache.Values.FirstOrDefault(w => w.WeaponReceiptType == WeaponReceiptType.Default);
-
+            var defaultWeapon = _allWeaponsCache.Values.FirstOrDefault(w => w.IsUnlocked);
             if (!defaultWeapon)
             {
                 const string ERROR_MESSAGE = "Default weapon not found in the static data.";
+
                 Debug.LogError(ERROR_MESSAGE);
                 throw new Exception(ERROR_MESSAGE);
             }

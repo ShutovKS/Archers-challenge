@@ -14,7 +14,6 @@ using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
 using UI.MainMenu;
-using UI.Store;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure.ProjectStates
@@ -35,8 +34,7 @@ namespace Infrastructure.ProjectStates
         private MainMenuSceneContextData _sceneContextData;
         private LevelData _levelData;
         private MainMenuUI _mainMenuUI;
-        private StoreUI _storeUI;
-
+        
         public MainMenuState(
             IProjectManagementService projectManagementService,
             IStaticDataService staticDataService,
@@ -94,7 +92,6 @@ namespace Infrastructure.ProjectStates
 
             _mainMenuUI.OnInfiniteVRClicked += StartInfiniteVR;
             _mainMenuUI.OnInfiniteMRClicked += () => { };
-            _mainMenuUI.OnStoreClicked += async () => await OpenStore();
             _mainMenuUI.OnExitClicked += ExitFromGame;
         }
 
@@ -115,23 +112,6 @@ namespace Infrastructure.ProjectStates
             var levelData = _staticDataService.GetLevelData<LevelData>("InfiniteVR");
 
             _projectManagementService.SwitchState<GameplayState, LevelData>(levelData);
-        }
-
-        private async Task OpenStore()
-        {
-            _windowService.Close(WindowID.MainMenu);
-
-            _storeUI = await _windowService.OpenAndGet<StoreUI>(
-                WindowID.Store,
-                _sceneContextData.StoreScreenSpawnPoint.position,
-                _sceneContextData.StoreScreenSpawnPoint.rotation
-            );
-
-            _storeUI.OnBackClicked += async () =>
-            {
-                _windowService.Close(WindowID.Store);
-                await OpenMainMenu();
-            };
         }
 
         private void ExitFromGame()

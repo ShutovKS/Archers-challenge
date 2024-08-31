@@ -12,6 +12,7 @@ namespace Data.Progress
         public List<string> unlockedWeapons = new();
 
         public string currentWeaponId;
+        public string currentCustomizationId;
 
         public List<LevelProgressData> levelProgressDataList = new();
 

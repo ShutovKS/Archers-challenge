@@ -9,9 +9,9 @@ namespace Infrastructure.Services.Weapon
         AssetReference GetCurrentlyEquippedWeaponReference();
         WeaponData GetCurrentlyEquippedWeaponData();
         WeaponData GetWeaponData(string weaponId);
-        IEnumerable<WeaponData> GetWeaponDatas(WeaponReceiptType? weaponReceiptType = null);
-        IEnumerable<WeaponData> GetOwnedWeaponDatas(WeaponReceiptType? weaponReceiptType = null);
-        void EquipWeapon(string weaponId);
-        void UnlockWeapon(string weaponId);
+        IEnumerable<WeaponData> GetWeaponDatas();
+        IEnumerable<WeaponData> GetOwnedWeaponDatas();
+        void EquipWeapon(string weaponId, string customizationId = null);
+        void UnlockWeapon(string weaponId, string customizationId = null);
     }
 }
