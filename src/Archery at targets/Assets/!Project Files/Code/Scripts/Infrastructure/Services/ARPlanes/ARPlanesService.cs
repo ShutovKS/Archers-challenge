@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 namespace Infrastructure.Services.ARPlanes
 {
@@ -14,7 +16,6 @@ namespace Infrastructure.Services.ARPlanes
         public bool IsPlaneDetected => _planes.Count > 0;
 
         private readonly List<ARPlane> _planes = new();
-        public ReadOnlyCollection<ARPlane> Planes => _planes.AsReadOnly();
 
         private ARPlaneManager _planeManager;
 
@@ -35,6 +36,13 @@ namespace Infrastructure.Services.ARPlanes
             _planes.Clear();
 
             CheckForPlanes();
+        }
+
+        public ReadOnlyCollection<ARPlane> GetPlanes(PlaneClassifications classification)
+        {
+            var planes = _planes.Where(plane => plane.classifications == classification);
+
+            return planes.ToList().AsReadOnly();
         }
 
         private void OnTrackablesChanged(ARTrackablesChangedEventArgs<ARPlane> args)

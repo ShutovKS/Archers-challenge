@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 namespace Infrastructure.Services.ARPlanes
 {
@@ -12,6 +13,6 @@ namespace Infrastructure.Services.ARPlanes
 
         void SetArPlaneManager(ARPlaneManager planeManager);
 
-        ReadOnlyCollection<UnityEngine.XR.ARFoundation.ARPlane> Planes { get; }
+        ReadOnlyCollection<ARPlane> GetPlanes(PlaneClassifications classification);
     }
 }

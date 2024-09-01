@@ -6,6 +6,7 @@ using Infrastructure.Services.XRSetup.TrackingModeHandler;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using Zenject;
 
 namespace Infrastructure.Services.XRSetup
 {
@@ -18,19 +19,16 @@ namespace Infrastructure.Services.XRSetup
         private XRMode _currentMode = XRMode.None;
         private IXRTrackingMode _currentTrackingMode = new NoneTrackingMode();
 
-        public XRSetupService(IARComponentsFactory arComponentsFactory)
+        public XRSetupService(DiContainer container, IARComponentsFactory arComponentsFactory)
         {
             _arComponentsFactory = arComponentsFactory;
             _trackingModeHandlers = new Dictionary<Type, IXRTrackingModeHandler>
             {
-                { typeof(NoneTrackingMode), new NoneTrackingModeHandler() },
-                { typeof(PlaneTrackingMode), new PlaneTrackingModeHandler(_arComponentsFactory) },
-                { typeof(BoundingBoxTrackingMode), new BoundingBoxTrackingModeHandler(_arComponentsFactory) },
-                {
-                    typeof(PlaneAndBoundingBoxTrackingMode),
-                    new PlaneAndBoundingBoxTrackingModeHandler(_arComponentsFactory)
-                },
-                { typeof(MeshTrackingMode), new MeshTrackingModeHandler(_arComponentsFactory) },
+                { typeof(NoneTrackingMode), container.Instantiate<NoneTrackingModeHandler>() },
+                { typeof(PlaneTrackingMode), container.Instantiate<PlaneTrackingModeHandler>() },
+                { typeof(BoundingBoxTrackingMode), container.Instantiate<BoundingBoxTrackingModeHandler>() },
+                { typeof(PlaneAndBoundingBoxTrackingMode), container.Instantiate<PlaneAndBoundingBoxTrackingModeHandler>() },
+                { typeof(MeshTrackingMode), container.Instantiate<MeshTrackingModeHandler>() },
             };
         }
 
