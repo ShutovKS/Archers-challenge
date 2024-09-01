@@ -5,42 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/ICustomizable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/ICustomizable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponColorCustomization.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponColorCustomization.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponCustomization.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponCustomization.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponCustomizationDict.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponCustomizationDict.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponDefaultCustomization.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponDefaultCustomization.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponLevelCustomization.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponLevelCustomization.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Tools/KeyGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Tools/KeyGenerator.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/Weapon Colors.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/Weapon Colors.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/Weapon Crystallized.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/Weapon Crystallized.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/Weapon Forest.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/Weapon Forest.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/Weapon Winged.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/Weapon Winged.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Progress/ProgressData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Progress/ProgressData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Weapon/WeaponData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/ProjectStates/MainMenuState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Weapon/IWeaponService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Weapon/IWeaponService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Weapon/WeaponService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Weapon/WeaponService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Window/WindowID.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Window/WindowID.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Window/WindowService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Window/WindowService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/Store.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/Store/StoreItemUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/Store/StoreItemUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/Store/StoreUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/Store/StoreUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/Weapon Default.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Data/Weapons/Weapon Default.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,14 +75,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CodeLensConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "mr-mode",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "settings.sync"
   }
-}</component>
+}]]></component>
   <component name="RiderTodoViewSettings" groupByProject="false" />
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
@@ -240,6 +205,11 @@
       <workItem from="1725001990310" duration="8083000" />
       <workItem from="1725025746285" duration="4403000" />
       <workItem from="1725087893795" duration="6876000" />
+      <workItem from="1725095751935" duration="22000" />
+      <workItem from="1725095785445" duration="106000" />
+      <workItem from="1725129152339" duration="42000" />
+      <workItem from="1725222515688" duration="596000" />
+      <workItem from="1725223882295" duration="1071000" />
     </task>
     <servers />
   </component>
