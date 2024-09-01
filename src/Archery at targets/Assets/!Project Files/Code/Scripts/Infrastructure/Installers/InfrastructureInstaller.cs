@@ -7,6 +7,7 @@ using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
 using Infrastructure.Factories.Weapon;
 using Infrastructure.Observers.ProgressData;
+using Infrastructure.Services.ARPlanes;
 using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.DataStorage;
 using Infrastructure.Services.InteractorSetup;
@@ -51,6 +52,7 @@ namespace Infrastructure.Installers
             Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();
             Container.Bind<IDataStorageService>().To<DataStorageLocalService>().AsSingle();
             Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
+            Container.Bind<IARPlanesService>().To<ARPlanesService>().AsSingle();
         }
 
         private void BindFactories()
