@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -69,6 +70,8 @@ namespace Infrastructure.Services.ARPlanes
             {
                 OnPlaneDetected?.Invoke();
             }
+            
+            Debug.Log($"Planes count: {_planes.Count}");
         }
 
         private void CheckForPlanes()

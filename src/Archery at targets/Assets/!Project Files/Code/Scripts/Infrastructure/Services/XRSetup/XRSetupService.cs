@@ -54,6 +54,9 @@ namespace Infrastructure.Services.XRSetup
                     break;
                 case XRMode.MR:
                     SetComponentState<ARSession>(true);
+                    var arSession = GetOrCreateComponent<ARSession>();
+                    arSession.Reset();
+                    
                     SetComponentState<ARCameraManager>(true);
                     _playerFactory.PlayerContainer.Camera.clearFlags = CameraClearFlags.Color;
                     _playerFactory.PlayerContainer.Camera.backgroundColor = Color.clear;

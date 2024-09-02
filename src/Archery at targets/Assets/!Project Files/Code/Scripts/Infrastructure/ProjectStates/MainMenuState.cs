@@ -91,7 +91,7 @@ namespace Infrastructure.ProjectStates
             );
 
             _mainMenuUI.OnInfiniteVRClicked += StartInfiniteVR;
-            _mainMenuUI.OnInfiniteMRClicked += () => { };
+            _mainMenuUI.OnInfiniteMRClicked += StartInfiniteMR;
             _mainMenuUI.OnExitClicked += ExitFromGame;
         }
 
@@ -110,6 +110,15 @@ namespace Infrastructure.ProjectStates
             _gameplayLevelFactory.Create<InfiniteModeVRGameplayLevel>();
 
             var levelData = _staticDataService.GetLevelData<LevelData>("InfiniteVR");
+
+            _projectManagementService.SwitchState<GameplayState, LevelData>(levelData);
+        }
+        
+        private void StartInfiniteMR()
+        {
+            _gameplayLevelFactory.Create<InfiniteModeMRGameplayLevel>();
+
+            var levelData = _staticDataService.GetLevelData<LevelData>("InfiniteMR");
 
             _projectManagementService.SwitchState<GameplayState, LevelData>(levelData);
         }

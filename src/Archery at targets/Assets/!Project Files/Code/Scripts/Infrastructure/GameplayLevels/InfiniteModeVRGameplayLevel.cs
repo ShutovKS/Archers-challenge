@@ -19,18 +19,17 @@ using Zenject;
 
 namespace Infrastructure.GameplayLevels
 {
-    [UsedImplicitly, Serializable]
+    [UsedImplicitly]
     public class InfiniteModeVRGameplayLevel : IGameplayLevel
     {
         private IStopwatchService _stopwatchService;
         private IWindowService _windowService;
-        private IGameObjectFactory _gameObjectFactory;
         private IPlayerFactory _playerFactory;
         private ITargetFactory _targetFactory;
         private IWeaponFactory _weaponFactory;
         private ISceneContextProvider _sceneContextProvider;
 
-        private InfiniteVRSceneContextData _sceneContextData;
+        private InfiniteSceneContextData _sceneContextData;
 
         private HandMenuUI _handMenuScreen;
         private InformationDeskUI _infoScreen;
@@ -43,7 +42,6 @@ namespace Infrastructure.GameplayLevels
         public void Construct(
             IStopwatchService stopwatchService,
             IWindowService windowService,
-            IGameObjectFactory gameObjectFactory,
             IPlayerFactory playerFactory,
             ITargetFactory targetFactory,
             IWeaponFactory weaponFactory,
@@ -52,7 +50,6 @@ namespace Infrastructure.GameplayLevels
         {
             _stopwatchService = stopwatchService;
             _windowService = windowService;
-            _gameObjectFactory = gameObjectFactory;
             _playerFactory = playerFactory;
             _targetFactory = targetFactory;
             _weaponFactory = weaponFactory;
@@ -74,7 +71,7 @@ namespace Infrastructure.GameplayLevels
 
         private void GetSceneContextData()
         {
-            _sceneContextData = _sceneContextProvider.Get<InfiniteVRSceneContextData>();
+            _sceneContextData = _sceneContextProvider.Get<InfiniteSceneContextData>();
             _positionsContainer = _sceneContextData.PositionsContainer;
         }
 

@@ -15,5 +15,6 @@ namespace Infrastructure.GameplayLevels
         Exit,
         Win,
         Lose,
+        Error
     }
 }

@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Infrastructure.Factories.Player;
 using Infrastructure.Services.ARPlanes;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using Zenject;
 
@@ -45,26 +48,52 @@ namespace Features.PositionsContainer
 
         public override (Vector3 position, Quaternion rotation) GetTargetPosition()
         {
-            if (!_planesAvailable || _arPlanesService.IsPlaneDetected == false)
+            if (!_planesAvailable)
             {
-                throw new InvalidOperationException("No AR planes available to get a random position.");
+                return (Vector3.zero, Quaternion.identity);
+            }
+            
+            ReadOnlyCollection<ARPlane> planes = null;
+            var classifications = new List<PlaneClassifications>
+            {
+#if UNITY_EDITOR
+                PlaneClassifications.None
+#else
+                PlaneClassifications.WallFace,
+                PlaneClassifications.Floor,
+                PlaneClassifications.Ceiling
+#endif
+            };
+
+            while (classifications.Count > 0)
+            {
+                if (planes == null || planes.Count == 0)
+                {
+                    var classification = classifications[UnityEngine.Random.Range(0, classifications.Count)];
+                    planes = _arPlanesService.GetPlanes(classification);
+                    classifications.Remove(classification);
+                }
+                else
+                {
+                    break;
+                }
             }
 
-            var planes = _arPlanesService.GetPlanes(PlaneClassifications.WallFace | PlaneClassifications.Floor);
-            if (planes.Count == 0)
+            if (planes == null || planes.Count == 0)
             {
-                throw new InvalidOperationException("No AR planes available to get a random position.");
+                return (Vector3.zero, Quaternion.identity);
             }
 
             var selectedPlane = planes[UnityEngine.Random.Range(0, planes.Count)];
 
             var randomPoint = GetRandomPointOnPlane(selectedPlane);
+
             var rotation = GetRotation(randomPoint);
 
             return (randomPoint, rotation);
         }
 
-        private Vector3 GetRandomPointOnPlane(UnityEngine.XR.ARFoundation.ARPlane plane)
+        private Vector3 GetRandomPointOnPlane(ARPlane plane)
         {
             var boundary = plane.boundary;
             if (boundary.Length == 0)

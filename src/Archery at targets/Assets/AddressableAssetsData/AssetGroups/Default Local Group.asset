@@ -21,9 +21,19 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ddac2b6314c3074b9acc7e6eaf9bbc9
+    m_Address: Scenes/Locations/Location - Empty (Infinite MR).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ba363814f96a194cbb47d5356f60501
     m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
       Crystallized 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e74e4d80d2ec234ba15d09fdc3729d0
+    m_Address: Assets/!Project Files/Level/Prefabs/XR/ARPlaneColored.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -67,11 +77,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bf2427f7b7b020140b4a5f6a7c7d14dc
-    m_Address: UI/Store Screen.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c6aafebc37dfb774ca49413a839a1f9a
     m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
       Forest.prefab
@@ -91,6 +96,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de3a3256a67f1b544881122f62aacb54
     m_Address: Scenes/Locations/Location - Dungeon (Infinite VR).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0936319140d20b4891693f0ba60d11f
+    m_Address: Assets/!Project Files/Level/Prefabs/XR/ARBoundingBoxColored.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
