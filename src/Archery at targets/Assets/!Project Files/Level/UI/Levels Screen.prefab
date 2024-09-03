@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4853156376744259254}
   - component: {fileID: 8982284618847105062}
   m_Layer: 5
-  m_Name: Price
+  m_Name: Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,9 +77,9 @@ GameObject:
   - component: {fileID: 5878235681936101012}
   - component: {fileID: 7963172896708291950}
   - component: {fileID: 6705549136959645490}
-  - component: {fileID: 3025121017216314276}
+  - component: {fileID: 914681931252626808}
   m_Layer: 5
-  m_Name: Store Screen
+  m_Name: Levels Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
---- !u!114 &3025121017216314276
+--- !u!114 &914681931252626808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,12 +198,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1310103965201522991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4686757a4df646929faa68b7425b70a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 54fa64abc0e542aea0ab5eb4ceb757b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   backButton: {fileID: 5684901188598640658}
   itemContainer: {fileID: 1430460658215479583}
-  itemUIPrefab: {fileID: 2618157692673951975}
+  itemUIPrefab: {fileID: 7194970892192570980}
 --- !u!1 &1345316711832833168
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1662219050777524937}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999905
+  m_Size: 0.9999961
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 261318393086320566}
   - component: {fileID: 3100165846248546688}
   - component: {fileID: 7659561474641877572}
-  - component: {fileID: 2618157692673951975}
+  - component: {fileID: 7194970892192570980}
   m_Layer: 5
   m_Name: Item prefab
   m_TagString: Untagged
@@ -866,7 +866,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2618157692673951975
+--- !u!114 &7194970892192570980
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -875,13 +875,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4143293108532844858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be5aa1816b214d8488f1938a8f192f67, type: 3}
+  m_Script: {fileID: 11500000, guid: ce353f950a164dacb2fbd399ae6d3f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemButton: {fileID: 7659561474641877572}
   itemImage: {fileID: 8471895418410089222}
   itemName: {fileID: 5474172211554788451}
-  itemPrice: {fileID: 1696611680891182892}
+  itemStars: {fileID: 1696611680891182892}
 --- !u!1 &4902340433014746295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f0079f0bf4abbb44ab29259c05f323c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 645ac3a966e21af45a39438ef82b77d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1097,7 +1097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.001633876, y: 0}
+  m_AnchoredPosition: {x: 0.0030139175, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3290788283273780513
@@ -1443,7 +1443,7 @@ GameObject:
   - component: {fileID: 8493327008682542614}
   - component: {fileID: 1696611680891182892}
   m_Layer: 5
-  m_Name: Price Text (TMP)
+  m_Name: Stars Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
