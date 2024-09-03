@@ -8,6 +8,6 @@ namespace Data.SceneContext
     {
         [field: Header("UI")]
         [field: SerializeField] public Transform MainMenuScreenSpawnPoint { get; private set; }
-        [field: SerializeField] public Transform StoreScreenSpawnPoint { get; private set; }
+        [field: SerializeField] public Transform LevelsScreenSpawnPoint { get; private set; }
     }
 }

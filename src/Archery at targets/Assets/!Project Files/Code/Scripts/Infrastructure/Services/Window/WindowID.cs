@@ -8,6 +8,7 @@ namespace Infrastructure.Services.Window
         HandMenu = 5,
 
         MainMenu = 11,
+        Levels = 12,
         
         InformationDesk = 21,
     }

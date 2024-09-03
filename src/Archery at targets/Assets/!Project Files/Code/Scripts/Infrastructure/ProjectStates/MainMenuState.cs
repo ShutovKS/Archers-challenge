@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Data.Level;
 using Data.SceneContext;
 using Extension;
@@ -13,7 +14,9 @@ using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
+using UI.Levels;
 using UI.MainMenu;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure.ProjectStates
@@ -34,7 +37,8 @@ namespace Infrastructure.ProjectStates
         private MainMenuSceneContextData _sceneContextData;
         private LevelData _levelData;
         private MainMenuUI _mainMenuUI;
-        
+        private LevelsUI _levelsUI;
+
         public MainMenuState(
             IProjectManagementService projectManagementService,
             IStaticDataService staticDataService,
@@ -63,7 +67,6 @@ namespace Infrastructure.ProjectStates
             await LoadLocation();
             GetSceneContextData();
             await OpenMainMenu();
-
             ConfigurePlayer();
         }
 
@@ -92,7 +95,45 @@ namespace Infrastructure.ProjectStates
 
             _mainMenuUI.OnInfiniteVRClicked += StartInfiniteVR;
             _mainMenuUI.OnInfiniteMRClicked += () => { };
+            _mainMenuUI.OnLevelsClicked += async () => await OpenLevelsScreen();
             _mainMenuUI.OnExitClicked += ExitFromGame;
+        }
+
+        private async Task OpenLevelsScreen()
+        {
+            _levelsUI = await _windowService.OpenAndGet<LevelsUI>(
+                WindowID.Levels,
+                _sceneContextData.LevelsScreenSpawnPoint.position,
+                _sceneContextData.LevelsScreenSpawnPoint.rotation
+            );
+
+            _levelsUI.OnBackClicked += CloseLevelsScreen;
+            _levelsUI.OnItemClicked += OnLevelItemClicked;
+
+            var levelDatas = _staticDataService.GetLevelData<GameplayLevelData>();
+            
+            Debug.Log(levelDatas.Count());
+
+            _levelsUI.SetItems(levelDatas);
+        }
+
+        private async void CloseLevelsScreen()
+        {
+            _levelsUI.OnBackClicked -= CloseLevelsScreen;
+            _levelsUI.OnItemClicked -= OnLevelItemClicked;
+
+            _windowService.Close(WindowID.Levels);
+
+            await OpenMainMenu();
+        }
+
+        private void OnLevelItemClicked(string levelId)
+        {
+            // _gameplayLevelFactory.Create<VRGameplayLevel>();
+            
+            var levelData = _staticDataService.GetLevelData<LevelData>(levelId);
+
+            _projectManagementService.SwitchState<GameplayState, LevelData>(levelData);
         }
 
         private void ConfigurePlayer()
@@ -125,13 +166,15 @@ namespace Infrastructure.ProjectStates
 
         public void OnExit()
         {
-            CloseScreen();
+            CloseMainMenuScreen();
             DestroyLocation();
         }
 
-        private void CloseScreen()
+        private void CloseMainMenuScreen()
         {
             _mainMenuUI.OnInfiniteVRClicked -= StartInfiniteVR;
+            _mainMenuUI.OnInfiniteMRClicked -= () => { };
+            _mainMenuUI.OnLevelsClicked -= async () => await OpenLevelsScreen();
             _mainMenuUI.OnExitClicked -= ExitFromGame;
 
             _windowService.Close(WindowID.MainMenu);

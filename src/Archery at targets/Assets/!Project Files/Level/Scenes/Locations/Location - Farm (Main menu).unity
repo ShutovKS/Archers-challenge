@@ -367,7 +367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PlayerSpawnPoint>k__BackingField: {fileID: 308952588}
   <MainMenuScreenSpawnPoint>k__BackingField: {fileID: 999397439}
-  <StoreScreenSpawnPoint>k__BackingField: {fileID: 1298387549}
+  <LevelsScreenSpawnPoint>k__BackingField: {fileID: 1298387549}
 --- !u!1 &999397438
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1298387549}
   m_Layer: 0
-  m_Name: Store Screen SpawnPoint
+  m_Name: Levels Screen SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

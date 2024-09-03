@@ -82,6 +82,7 @@ namespace Infrastructure.Services.Window
                 WindowID.HandMenu => AddressablesPaths.HAND_MENU_SCREEN_PREFAB,
                 
                 WindowID.MainMenu => AddressablesPaths.MAIN_MENU_SCREEN_PREFAB,
+                WindowID.Levels => AddressablesPaths.LEVELS_SCREEN_PREFAB,
                 
                 WindowID.InformationDesk => AddressablesPaths.INFORMATION_DESK_SCREEN_PREFAB,
                 _ => null

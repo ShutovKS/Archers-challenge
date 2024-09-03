@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62435713341c41a087376b922bb25fc3, type: 3}
+  m_Name: GameplayLevel - 1
+  m_EditorClassIdentifier: 
+  <Key>k__BackingField: 4b9941b6-00ef-4888-8ce6-180cd46dbfa2
+  <LevelName>k__BackingField: GameplayLevel - 1
+  <ShortDescription>k__BackingField: GameplayLevel - 1 Description
+  <Icon>k__BackingField: {fileID: 21300000, guid: a6e9e9736379c164e81fdfd2c806a91c, type: 3}
+  <Music>k__BackingField: {fileID: 0}
+  <MusicVolume>k__BackingField: 1
+  <LocationScenePath>k__BackingField: Scenes/Locations/Location - Autumn forest.unity
+  <XRMode>k__BackingField: 1
+  <LevelIndex>k__BackingField: 1
