@@ -1,8 +1,12 @@
+#region
+
 using System;
 using Data.Level;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+#endregion
 
 namespace UI.Levels
 {

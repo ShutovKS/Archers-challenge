@@ -1,7 +1,11 @@
+#region
+
 using Infrastructure.ProjectStates;
 using Infrastructure.Services.ProjectManagement;
 using JetBrains.Annotations;
 using Zenject;
+
+#endregion
 
 namespace Infrastructure
 {

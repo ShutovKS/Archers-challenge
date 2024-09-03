@@ -1,7 +1,11 @@
+#region
+
 using System.Threading.Tasks;
 using Infrastructure.Factories.Player;
 using Infrastructure.Services.ProjectManagement;
 using JetBrains.Annotations;
+
+#endregion
 
 namespace Infrastructure.ProjectStates
 {

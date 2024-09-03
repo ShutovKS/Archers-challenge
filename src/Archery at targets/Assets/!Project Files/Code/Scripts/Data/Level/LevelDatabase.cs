@@ -1,5 +1,9 @@
+#region
+
 using Data.Database;
 using UnityEngine;
+
+#endregion
 
 namespace Data.Level
 {

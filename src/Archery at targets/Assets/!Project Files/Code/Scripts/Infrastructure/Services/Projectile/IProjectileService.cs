@@ -1,4 +1,8 @@
+#region
+
 using Data.Path;
+
+#endregion
 
 namespace Infrastructure.Services.Projectile
 {

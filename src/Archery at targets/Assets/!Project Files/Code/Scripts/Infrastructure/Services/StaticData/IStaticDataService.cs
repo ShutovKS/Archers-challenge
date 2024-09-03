@@ -1,5 +1,9 @@
+#region
+
 using Data.Level;
 using Data.Weapon;
+
+#endregion
 
 namespace Infrastructure.Services.StaticData
 {

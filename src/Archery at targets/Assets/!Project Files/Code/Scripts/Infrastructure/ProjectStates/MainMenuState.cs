@@ -1,9 +1,11 @@
-﻿using System.Linq;
+﻿#region
+
+using System.Linq;
 using System.Threading.Tasks;
 using Data.Level;
 using Data.SceneContext;
 using Extension;
-using Infrastructure.Factories.LevelGameplay;
+using Infrastructure.Factories.GameplayLevels;
 using Infrastructure.Factories.Player;
 using Infrastructure.GameplayLevels;
 using Infrastructure.Services.InteractorSetup;
@@ -19,6 +21,8 @@ using UI.MainMenu;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#endregion
+
 namespace Infrastructure.ProjectStates
 {
     [UsedImplicitly]
@@ -32,7 +36,7 @@ namespace Infrastructure.ProjectStates
         private readonly IPlayerFactory _playerFactory;
         private readonly ISceneLoaderService _sceneLoaderService;
         private readonly ISceneContextProvider _sceneContextProvider;
-        private readonly IGameplayLevelFactory _gameplayLevelFactory;
+        private readonly IGameplayLevelsFactory _gameplayLevelsFactory;
 
         private MainMenuSceneContextData _sceneContextData;
         private LevelData _levelData;
@@ -48,7 +52,7 @@ namespace Infrastructure.ProjectStates
             IPlayerFactory playerFactory,
             ISceneLoaderService sceneLoaderService,
             ISceneContextProvider sceneContextProvider,
-            IGameplayLevelFactory gameplayLevelFactory)
+            IGameplayLevelsFactory gameplayLevelsFactory)
         {
             _projectManagementService = projectManagementService;
             _staticDataService = staticDataService;
@@ -58,7 +62,7 @@ namespace Infrastructure.ProjectStates
             _playerFactory = playerFactory;
             _sceneLoaderService = sceneLoaderService;
             _sceneContextProvider = sceneContextProvider;
-            _gameplayLevelFactory = gameplayLevelFactory;
+            _gameplayLevelsFactory = gameplayLevelsFactory;
         }
 
         public async void OnEnter()
@@ -129,8 +133,6 @@ namespace Infrastructure.ProjectStates
 
         private void OnLevelItemClicked(string levelId)
         {
-            // _gameplayLevelFactory.Create<VRGameplayLevel>();
-            
             var levelData = _staticDataService.GetLevelData<LevelData>(levelId);
 
             _projectManagementService.SwitchState<GameplayState, LevelData>(levelData);
@@ -148,7 +150,7 @@ namespace Infrastructure.ProjectStates
 
         private void StartInfiniteVR()
         {
-            _gameplayLevelFactory.Create<InfiniteModeVRGameplayLevel>();
+            _gameplayLevelsFactory.Create<InfiniteModeVRGameplayLevel>();
 
             var levelData = _staticDataService.GetLevelData<LevelData>("InfiniteVR");
 

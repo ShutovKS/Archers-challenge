@@ -1,6 +1,10 @@
+#region
+
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+
+#endregion
 
 namespace UI.MainMenu
 {

@@ -1,8 +1,11 @@
+#region
+
 using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.GameObjects;
-using Infrastructure.Factories.LevelGameplay;
+using Infrastructure.Factories.GameplayLevels;
 using Infrastructure.Factories.Player;
 using Infrastructure.Factories.Projectile;
+using Infrastructure.Factories.ProjectStates;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
 using Infrastructure.Factories.Weapon;
@@ -23,6 +26,8 @@ using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using Zenject;
 using ITickable = Zenject.ITickable;
+
+#endregion
 
 namespace Infrastructure.Installers
 {
@@ -60,11 +65,12 @@ namespace Infrastructure.Installers
             Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
             Container.Bind<IARComponentsFactory>().To<ARComponentsFactory>().AsSingle();
             Container.Bind<ITargetFactory>().To<TargetFactory>().AsSingle();
-            Container.Bind<IGameplayLevelFactory>().To<GameplayLevelFactory>().AsSingle();
             Container.Bind<IWeaponFactory>().To<WeaponFactory>().AsSingle();
             Container.Bind<IProjectileFactory>().To<ProjectileFactory>().AsSingle();
+            Container.Bind<IProjectStatesFactory>().To<ProjectStatesFactory>().AsSingle();
+            Container.Bind<IGameplayLevelsFactory>().To<GameplayLevelsFactory>().AsSingle();
         }
-        
+
         private void BindObservers()
         {
             Container.Bind<IProgressDataObserver>().To<ProgressDataObserver>().AsSingle();

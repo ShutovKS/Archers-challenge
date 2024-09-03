@@ -1,3 +1,5 @@
+#region
+
 using System;
 using System.Threading.Tasks;
 using Data.SceneContext;
@@ -16,6 +18,8 @@ using UI.HandMenu;
 using UI.InformationDesk;
 using UnityEngine;
 using Zenject;
+
+#endregion
 
 namespace Infrastructure.GameplayLevels
 {

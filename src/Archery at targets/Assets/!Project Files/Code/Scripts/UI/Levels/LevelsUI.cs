@@ -1,9 +1,12 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using Data.Level;
-using Data.Weapon;
 using UnityEngine;
 using UnityEngine.UI;
+
+#endregion
 
 namespace UI.Levels
 {

@@ -1,6 +1,10 @@
+#region
+
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
+
+#endregion
 
 namespace Infrastructure.Factories.Target
 {

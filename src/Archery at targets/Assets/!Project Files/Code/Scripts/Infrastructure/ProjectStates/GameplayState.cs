@@ -1,3 +1,5 @@
+#region
+
 using System;
 using System.Threading.Tasks;
 using Data.Level;
@@ -11,6 +13,8 @@ using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
 using UI.InformationDesk;
 using UnityEngine.SceneManagement;
+
+#endregion
 
 namespace Infrastructure.ProjectStates
 {

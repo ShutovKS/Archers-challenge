@@ -1,6 +1,10 @@
-﻿using Infrastructure.Services.ProjectManagement;
+﻿#region
+
+using Infrastructure.Services.ProjectManagement;
 using JetBrains.Annotations;
 using UnityEngine.SceneManagement;
+
+#endregion
 
 namespace Infrastructure.ProjectStates
 {

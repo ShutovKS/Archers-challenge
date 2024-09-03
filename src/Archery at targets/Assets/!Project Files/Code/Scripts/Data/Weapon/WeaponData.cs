@@ -1,5 +1,9 @@
+#region
+
 using Tools;
 using UnityEngine;
+
+#endregion
 
 namespace Data.Weapon
 {

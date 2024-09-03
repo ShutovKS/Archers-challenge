@@ -1,6 +1,10 @@
+#region
+
 using System.IO;
 using JetBrains.Annotations;
 using UnityEngine;
+
+#endregion
 
 namespace Infrastructure.Services.DataStorage
 {

@@ -1,5 +1,9 @@
+#region
+
 using Features.PositionsContainer;
 using UnityEngine;
+
+#endregion
 
 namespace Data.SceneContext
 {

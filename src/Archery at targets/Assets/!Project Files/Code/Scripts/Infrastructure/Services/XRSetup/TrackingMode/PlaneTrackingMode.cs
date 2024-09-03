@@ -1,6 +1,10 @@
+#region
+
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+
+#endregion
 
 namespace Infrastructure.Services.XRSetup.TrackingMode
 {

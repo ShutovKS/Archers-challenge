@@ -1,5 +1,9 @@
+#region
+
 using Infrastructure.Services.XRSetup;
 using UnityEngine;
+
+#endregion
 
 namespace Data.Level
 {

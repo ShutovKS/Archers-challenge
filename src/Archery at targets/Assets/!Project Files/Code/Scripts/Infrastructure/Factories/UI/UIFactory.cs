@@ -1,3 +1,5 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -6,6 +8,8 @@ using Infrastructure.Services.Window;
 using JetBrains.Annotations;
 using UnityEngine;
 using Object = UnityEngine.Object;
+
+#endregion
 
 namespace Infrastructure.Factories.UI
 {

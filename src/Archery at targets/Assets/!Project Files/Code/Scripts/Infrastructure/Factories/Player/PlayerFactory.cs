@@ -1,9 +1,13 @@
+#region
+
 using System.Threading.Tasks;
 using Data.Path;
 using Features.Player;
 using Infrastructure.Factories.GameObjects;
 using JetBrains.Annotations;
 using UnityEngine;
+
+#endregion
 
 namespace Infrastructure.Factories.Player
 {

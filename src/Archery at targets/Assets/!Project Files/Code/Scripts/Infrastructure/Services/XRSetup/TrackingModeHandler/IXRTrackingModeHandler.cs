@@ -1,4 +1,8 @@
+#region
+
 using Infrastructure.Services.XRSetup.TrackingMode;
+
+#endregion
 
 namespace Infrastructure.Services.XRSetup.TrackingModeHandler
 {

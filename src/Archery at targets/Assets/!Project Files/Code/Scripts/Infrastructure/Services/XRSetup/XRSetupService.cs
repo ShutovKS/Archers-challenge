@@ -1,3 +1,5 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using Infrastructure.Factories.ARComponents;
@@ -6,6 +8,8 @@ using Infrastructure.Services.XRSetup.TrackingModeHandler;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+
+#endregion
 
 namespace Infrastructure.Services.XRSetup
 {

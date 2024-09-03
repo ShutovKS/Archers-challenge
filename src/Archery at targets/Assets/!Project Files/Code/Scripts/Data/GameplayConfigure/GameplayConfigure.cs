@@ -1,6 +1,10 @@
+#region
+
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.XRSetup;
 using Infrastructure.Services.XRSetup.TrackingMode;
+
+#endregion
 
 namespace Data.GameplayConfigure
 {

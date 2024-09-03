@@ -1,4 +1,9 @@
+#region
+
+using Data.Gameplay;
 using UnityEngine;
+
+#endregion
 
 namespace Data.Level
 {
@@ -7,5 +12,6 @@ namespace Data.Level
     {
         [field: Header("Gameplay")]
         [field: SerializeField] public int LevelIndex { get; private set; }
+        [field: SerializeField] public GameplayMode GameplayMode { get; private set; } = GameplayMode.None;
     }
 }

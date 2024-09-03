@@ -1,5 +1,9 @@
+#region
+
 using Data.SceneContext;
 using JetBrains.Annotations;
+
+#endregion
 
 namespace Infrastructure.Services.SceneContainer
 {
