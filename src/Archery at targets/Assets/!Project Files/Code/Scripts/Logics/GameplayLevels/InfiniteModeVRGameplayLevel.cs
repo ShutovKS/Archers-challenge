@@ -21,7 +21,7 @@ using Zenject;
 
 #endregion
 
-namespace Infrastructure.GameplayLevels
+namespace Logics.GameplayLevels
 {
     [UsedImplicitly, Serializable]
     public class InfiniteModeVRGameplayLevel : IGameplayLevel

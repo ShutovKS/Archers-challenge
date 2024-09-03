@@ -1,7 +1,7 @@
 #region
 
 using Data.Gameplay;
-using Infrastructure.GameplayLevels;
+using Logics.GameplayLevels;
 
 #endregion
 

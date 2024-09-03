@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 #endregion
 
-namespace Infrastructure.GameplayLevels
+namespace Logics.GameplayLevels
 {
     public interface IGameplayLevel
     {

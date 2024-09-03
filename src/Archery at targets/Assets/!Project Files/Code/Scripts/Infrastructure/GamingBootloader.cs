@@ -1,8 +1,8 @@
 #region
 
-using Infrastructure.ProjectStates;
 using Infrastructure.Services.ProjectManagement;
 using JetBrains.Annotations;
+using Logics.ProjectStates;
 using Zenject;
 
 #endregion

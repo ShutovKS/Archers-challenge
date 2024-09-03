@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 
 #endregion
 
-namespace Infrastructure.ProjectStates
+namespace Logics.ProjectStates
 {
     [UsedImplicitly]
     public class InitializeState : IState, IEnterable

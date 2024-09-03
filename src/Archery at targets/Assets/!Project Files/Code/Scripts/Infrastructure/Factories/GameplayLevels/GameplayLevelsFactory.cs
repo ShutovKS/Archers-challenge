@@ -1,8 +1,8 @@
 #region
 
 using Data.Gameplay;
-using Infrastructure.GameplayLevels;
 using JetBrains.Annotations;
+using Logics.GameplayLevels;
 using Zenject;
 using static Data.Gameplay.GameplayMode;
 

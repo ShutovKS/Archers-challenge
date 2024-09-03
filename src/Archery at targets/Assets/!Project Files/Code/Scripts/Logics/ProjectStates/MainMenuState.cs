@@ -7,7 +7,6 @@ using Data.SceneContext;
 using Extension;
 using Infrastructure.Factories.GameplayLevels;
 using Infrastructure.Factories.Player;
-using Infrastructure.GameplayLevels;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.SceneContainer;
@@ -16,6 +15,7 @@ using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
+using Logics.GameplayLevels;
 using UI.Levels;
 using UI.MainMenu;
 using UnityEngine;
@@ -23,7 +23,7 @@ using UnityEngine.SceneManagement;
 
 #endregion
 
-namespace Infrastructure.ProjectStates
+namespace Logics.ProjectStates
 {
     [UsedImplicitly]
     public class MainMenuState : IState, IEnterable, IExitable

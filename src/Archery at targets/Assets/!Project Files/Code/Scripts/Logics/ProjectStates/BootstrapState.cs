@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 #endregion
 
-namespace Infrastructure.ProjectStates
+namespace Logics.ProjectStates
 {
     [UsedImplicitly]
     public class BootstrapState : IState, IEnterable
