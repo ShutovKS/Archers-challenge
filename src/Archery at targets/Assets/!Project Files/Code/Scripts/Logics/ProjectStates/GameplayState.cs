@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Data.Level;
 using Features.PositionsContainer;
 using Features.Weapon;
+using Infrastructure.Factories.GameplayLevels;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.SceneLoader;
@@ -12,6 +13,7 @@ using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
 using Logics.GameplayLevels;
 using UI.InformationDesk;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 #endregion
@@ -25,9 +27,10 @@ namespace Logics.ProjectStates
         private readonly ISceneLoaderService _sceneLoaderService;
         private readonly IXRSetupService _xrSetupService;
         private readonly IInteractorService _interactorService;
-        private readonly IGameplayLevel _gameplayLevel;
+        private readonly IGameplayLevelsFactory _gameplayLevelsFactory;
 
         private GameplayLevelData _levelData;
+        private IGameplayLevel _gameplayLevel;
 
         private InformationDeskUI _infoScreen;
         private PositionsContainer _positionsContainer;
@@ -40,14 +43,14 @@ namespace Logics.ProjectStates
             ISceneLoaderService sceneLoaderService,
             IXRSetupService xrSetupService,
             IInteractorService interactorService,
-            IGameplayLevel gameplayLevel
+            IGameplayLevelsFactory gameplayLevelsFactory
         )
         {
             _projectManagementService = projectManagementService;
             _sceneLoaderService = sceneLoaderService;
             _xrSetupService = xrSetupService;
             _interactorService = interactorService;
-            _gameplayLevel = gameplayLevel;
+            _gameplayLevelsFactory = gameplayLevelsFactory;
         }
 
         public async void OnEnter(GameplayLevelData levelData)
@@ -76,6 +79,8 @@ namespace Logics.ProjectStates
 
         private async Task StartGameplay()
         {
+            _gameplayLevel = _gameplayLevelsFactory.Create(_levelData.GameplayModeData.Mode);
+
             await _gameplayLevel.StartGame(_levelData.GameplayModeData);
 
             _gameplayLevel.OnGameFinished += GameFinished;
@@ -89,19 +94,37 @@ namespace Logics.ProjectStates
                     ExitInMainMenu();
                     break;
                 case GameResult.Win:
+                    Win();
+                    break;
                 case GameResult.Lose:
+                    Lose();
+                    break;
                 default: throw new ArgumentOutOfRangeException(nameof(gameResult), gameResult, null);
             }
         }
 
-        private void ExitInMainMenu()
+        private void Win()
         {
-            _projectManagementService.SwitchState<MainMenuState>();
+            Debug.Log("Win");
+
+            ExitInMainMenu();
+        }
+
+        private void Lose()
+        {
+            Debug.Log("Lose");
+
+            ExitInMainMenu();
         }
 
         public void OnExit()
         {
             DestroyLocation();
+        }
+
+        private void ExitInMainMenu()
+        {
+            _projectManagementService.SwitchState<MainMenuState>();
         }
 
         private void DestroyLocation()

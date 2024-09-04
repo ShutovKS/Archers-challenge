@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Data.Path;
+using Data.Paths;
 using Features.ColliderTools;
 using Infrastructure.Factories.GameObjects;
 using JetBrains.Annotations;

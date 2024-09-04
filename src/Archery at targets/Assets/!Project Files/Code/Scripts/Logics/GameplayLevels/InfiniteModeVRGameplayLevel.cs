@@ -6,7 +6,6 @@ using Data.SceneContext;
 using Extension;
 using Features.PositionsContainer;
 using Features.Weapon;
-using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Player;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.Weapon;
@@ -34,11 +33,7 @@ namespace Logics.GameplayLevels
         private IWeaponFactory _weaponFactory;
         private ISceneContextProvider _sceneContextProvider;
 
-<<<<<<< HEAD:src/Archery at targets/Assets/!Project Files/Code/Scripts/Infrastructure/GameplayLevels/InfiniteModeVRGameplayLevel.cs
         private InfiniteSceneContextData _sceneContextData;
-=======
-        private GameplaySceneContextData _sceneContextData;
->>>>>>> dev:src/Archery at targets/Assets/!Project Files/Code/Scripts/Logics/GameplayLevels/InfiniteModeVRGameplayLevel.cs
 
         private HandMenuUI _handMenuScreen;
         private InformationDeskUI _infoScreen;
@@ -81,11 +76,7 @@ namespace Logics.GameplayLevels
 
         private void GetSceneContextData()
         {
-<<<<<<< HEAD:src/Archery at targets/Assets/!Project Files/Code/Scripts/Infrastructure/GameplayLevels/InfiniteModeVRGameplayLevel.cs
             _sceneContextData = _sceneContextProvider.Get<InfiniteSceneContextData>();
-=======
-            _sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
->>>>>>> dev:src/Archery at targets/Assets/!Project Files/Code/Scripts/Logics/GameplayLevels/InfiniteModeVRGameplayLevel.cs
             _positionsContainer = _sceneContextData.PositionsContainer;
         }
 

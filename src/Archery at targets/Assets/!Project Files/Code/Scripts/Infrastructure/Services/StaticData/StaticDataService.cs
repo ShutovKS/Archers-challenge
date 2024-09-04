@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Data.Level;
-using Data.Path;
+using Data.Paths;
 using Data.Weapon;
 using JetBrains.Annotations;
 using UnityEngine;

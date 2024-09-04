@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Data.Gameplay;
 using Data.SceneContext;
 using Extension;
 using Features.PositionsContainer;
@@ -20,7 +21,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.OpenXR.Features.Meta;
 using Zenject;
 
-namespace Infrastructure.GameplayLevels
+namespace Logics.GameplayLevels
 {
     [UsedImplicitly]
     public class InfiniteModeMRGameplayLevel : IGameplayLevel
@@ -67,14 +68,15 @@ namespace Infrastructure.GameplayLevels
 
         public event Action<GameResult> OnGameFinished;
 
-        public async Task StartGame()
+        public async Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
+            where TGameplayModeData : GameplayModeData
         {
             if (!TryRequestSceneCapture())
             {
                 Debug.LogError("Failed to request scene capture");
-            
+
                 OnGameFinished?.Invoke(GameResult.Error);
-            
+
                 return;
             }
 

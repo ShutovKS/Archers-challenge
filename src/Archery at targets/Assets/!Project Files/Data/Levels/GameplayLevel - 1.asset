@@ -21,11 +21,12 @@ MonoBehaviour:
   <LocationScenePath>k__BackingField: Scenes/Locations/Location - Autumn forest.unity
   <XRMode>k__BackingField: 1
   <LevelIndex>k__BackingField: 1
-  <GameplayModeData>k__BackingField:
-    rid: 3229442775035674703
+  gameplayModeData:
+    rid: 3229442775035674889
   references:
     version: 2
     RefIds:
-    - rid: 3229442775035674703
-      type: {class: InfiniteGameplayModeData, ns: Data.Gameplay, asm: Assembly-CSharp}
-      data: 
+    - rid: 3229442775035674889
+      type: {class: DestroyingAllTargetsGameplay, ns: Data.Gameplay, asm: Assembly-CSharp}
+      data:
+        <TargetCount>k__BackingField: 5

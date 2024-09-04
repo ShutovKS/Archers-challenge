@@ -1,6 +1,5 @@
-#region
+﻿#region
 
-using System.Linq;
 using System.Threading.Tasks;
 using Data.Level;
 using Data.SceneContext;
@@ -18,7 +17,6 @@ using JetBrains.Annotations;
 using Logics.GameplayLevels;
 using UI.Levels;
 using UI.MainMenu;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 #endregion
@@ -112,30 +110,20 @@ namespace Logics.ProjectStates
             );
 
             _levelsUI.OnBackClicked += CloseLevelsScreen;
+            _levelsUI.OnBackClicked += async () => await OpenMainMenu();
             _levelsUI.OnItemClicked += OnLevelItemClicked;
 
             var levelDatas = _staticDataService.GetLevelData<GameplayLevelData>();
-            
-            Debug.Log(levelDatas.Count());
 
             _levelsUI.SetItems(levelDatas);
         }
 
-        private async void CloseLevelsScreen()
+        private void CloseLevelsScreen()
         {
             _levelsUI.OnBackClicked -= CloseLevelsScreen;
             _levelsUI.OnItemClicked -= OnLevelItemClicked;
 
             _windowService.Close(WindowID.Levels);
-
-            await OpenMainMenu();
-        }
-
-        private void OnLevelItemClicked(string levelId)
-        {
-            var levelData = _staticDataService.GetLevelData<LevelData>(levelId);
-
-            _projectManagementService.SwitchState<GameplayState, LevelData>(levelData);
         }
 
         private void ConfigurePlayer()
@@ -148,6 +136,8 @@ namespace Logics.ProjectStates
             _playerFactory.PlayerContainer.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
         }
 
+        private void OnLevelItemClicked(string levelId) => StartLevel(levelId);
+
         private void StartInfiniteVR()
         {
             _gameplayLevelsFactory.Create<InfiniteModeVRGameplayLevel>();
@@ -156,14 +146,21 @@ namespace Logics.ProjectStates
 
             _projectManagementService.SwitchState<GameplayState, LevelData>(levelData);
         }
-        
+
         private void StartInfiniteMR()
         {
-            _gameplayLevelFactory.Create<InfiniteModeMRGameplayLevel>();
+            _gameplayLevelsFactory.Create<InfiniteModeMRGameplayLevel>();
 
             var levelData = _staticDataService.GetLevelData<LevelData>("InfiniteMR");
 
             _projectManagementService.SwitchState<GameplayState, LevelData>(levelData);
+        }
+
+        private void StartLevel(string levelId)
+        {
+            var levelData = _staticDataService.GetLevelData<GameplayLevelData>(levelId);
+
+            _projectManagementService.SwitchState<GameplayState, GameplayLevelData>(levelData);
         }
 
         private void ExitFromGame()

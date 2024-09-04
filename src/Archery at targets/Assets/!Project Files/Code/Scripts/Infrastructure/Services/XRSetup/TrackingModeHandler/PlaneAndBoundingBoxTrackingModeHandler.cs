@@ -1,6 +1,6 @@
 #region
 
-using Data.Path;
+using Data.Paths;
 using Infrastructure.Factories.ARComponents;
 using Infrastructure.Services.ARPlanes;
 using Infrastructure.Services.AssetsAddressables;
