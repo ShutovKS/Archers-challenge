@@ -13,6 +13,7 @@ namespace Data.Level
         [field: Header("Gameplay")]
         [field: SerializeField] public int LevelIndex { get; private set; }
 
-        [field: SerializeReference] public GameplayModeData GameplayModeData { get; private set; }
+        [SerializeReference] private GameplayModeData gameplayModeData;
+        public GameplayModeData GameplayModeData => gameplayModeData;
     }
 }

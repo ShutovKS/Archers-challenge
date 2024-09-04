@@ -6,7 +6,6 @@ using Data.SceneContext;
 using Extension;
 using Features.PositionsContainer;
 using Features.Weapon;
-using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Player;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.Weapon;
@@ -24,18 +23,17 @@ using Data.Gameplay;
 
 namespace Logics.GameplayLevels
 {
-    [UsedImplicitly, Serializable]
+    [UsedImplicitly]
     public class InfiniteModeVRGameplayLevel : IGameplayLevel
     {
         private IStopwatchService _stopwatchService;
         private IWindowService _windowService;
-        private IGameObjectFactory _gameObjectFactory;
         private IPlayerFactory _playerFactory;
         private ITargetFactory _targetFactory;
         private IWeaponFactory _weaponFactory;
         private ISceneContextProvider _sceneContextProvider;
 
-        private GameplaySceneContextData _sceneContextData;
+        private InfiniteSceneContextData _sceneContextData;
 
         private HandMenuUI _handMenuScreen;
         private InformationDeskUI _infoScreen;
@@ -48,7 +46,6 @@ namespace Logics.GameplayLevels
         public void Construct(
             IStopwatchService stopwatchService,
             IWindowService windowService,
-            IGameObjectFactory gameObjectFactory,
             IPlayerFactory playerFactory,
             ITargetFactory targetFactory,
             IWeaponFactory weaponFactory,
@@ -57,7 +54,6 @@ namespace Logics.GameplayLevels
         {
             _stopwatchService = stopwatchService;
             _windowService = windowService;
-            _gameObjectFactory = gameObjectFactory;
             _playerFactory = playerFactory;
             _targetFactory = targetFactory;
             _weaponFactory = weaponFactory;
@@ -80,7 +76,7 @@ namespace Logics.GameplayLevels
 
         private void GetSceneContextData()
         {
-            _sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
+            _sceneContextData = _sceneContextProvider.Get<InfiniteSceneContextData>();
             _positionsContainer = _sceneContextData.PositionsContainer;
         }
 

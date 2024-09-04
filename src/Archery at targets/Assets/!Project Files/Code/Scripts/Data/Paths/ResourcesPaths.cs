@@ -1,4 +1,4 @@
-namespace Data.Path
+namespace Data.Paths
 {
     public static class ResourcesPaths
     {

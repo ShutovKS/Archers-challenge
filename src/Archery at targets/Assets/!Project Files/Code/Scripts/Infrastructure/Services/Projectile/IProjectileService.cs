@@ -1,6 +1,6 @@
 #region
 
-using Data.Path;
+using Data.Paths;
 
 #endregion
 

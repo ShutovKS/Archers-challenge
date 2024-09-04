@@ -61,7 +61,7 @@ namespace Logics.GameplayLevels
         public async Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
             where TGameplayModeData : GameplayModeData
         {
-            if (gameplayModeData is not DestroyingAllTargetsGameplayModeData modeData)
+            if (gameplayModeData is not DestroyingAllTargetsGameplay modeData)
             {
                 Debug.LogError("Invalid gameplay mode data type");
                 throw new ArgumentException("Invalid gameplay mode data type");

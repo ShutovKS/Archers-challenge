@@ -21,5 +21,6 @@ namespace Logics.GameplayLevels
         Exit,
         Win,
         Lose,
+        Error
     }
 }

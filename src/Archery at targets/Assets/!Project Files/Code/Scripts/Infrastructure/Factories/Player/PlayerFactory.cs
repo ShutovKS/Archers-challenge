@@ -1,7 +1,7 @@
 #region
 
 using System.Threading.Tasks;
-using Data.Path;
+using Data.Paths;
 using Features.Player;
 using Infrastructure.Factories.GameObjects;
 using JetBrains.Annotations;

@@ -18,19 +18,19 @@ namespace Data.Gameplay
         public abstract GameplayMode Mode { get; }
     }
 
-    public class InfiniteGameplayModeData : GameplayModeData
+    public class InfiniteGameplay : GameplayModeData
     {
         public override GameplayMode Mode => GameplayMode.Infinite;
     }
 
-    public class DestroyingAllTargetsGameplayModeData : GameplayModeData
+    public class DestroyingAllTargetsGameplay : GameplayModeData
     {
         public override GameplayMode Mode => GameplayMode.DestroyingAllTargets;
 
         [field: SerializeField] public int TargetCount { get; private set; }
     }
 
-    public class DestroyingAllTargetsInTimeGameplayModeData : GameplayModeData
+    public class DestroyingAllTargetsInTimeGameplay : GameplayModeData
     {
         public override GameplayMode Mode => GameplayMode.DestroyingAllTargetsInTime;
 

@@ -51,7 +51,7 @@ namespace Infrastructure.Services.SceneLoader
             {
                 if (handle.Status == AsyncOperationStatus.Succeeded)
                 {
-                    handle.Result.ActivateAsync();
+                    var activateAsync = handle.Result.ActivateAsync();
                     return handle.Result;
                 }
 
