@@ -19,7 +19,7 @@ using UnityEngine.SceneManagement;
 namespace Logics.ProjectStates
 {
     [UsedImplicitly]
-    public class GameplayState : IState, IEnterableWithArg<LevelData>, IExitable
+    public class GameplayState : IState, IEnterableWithArg<GameplayLevelData>, IExitable
     {
         private readonly IProjectManagementService _projectManagementService;
         private readonly ISceneLoaderService _sceneLoaderService;
@@ -27,7 +27,7 @@ namespace Logics.ProjectStates
         private readonly IInteractorService _interactorService;
         private readonly IGameplayLevel _gameplayLevel;
 
-        private LevelData _levelData;
+        private GameplayLevelData _levelData;
 
         private InformationDeskUI _infoScreen;
         private PositionsContainer _positionsContainer;
@@ -50,7 +50,7 @@ namespace Logics.ProjectStates
             _gameplayLevel = gameplayLevel;
         }
 
-        public async void OnEnter(LevelData levelData)
+        public async void OnEnter(GameplayLevelData levelData)
         {
             _levelData = levelData;
 
@@ -76,7 +76,7 @@ namespace Logics.ProjectStates
 
         private async Task StartGameplay()
         {
-            await _gameplayLevel.StartGame();
+            await _gameplayLevel.StartGame(_levelData.GameplayModeData);
 
             _gameplayLevel.OnGameFinished += GameFinished;
         }

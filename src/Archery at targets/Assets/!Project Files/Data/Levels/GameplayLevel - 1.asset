@@ -21,3 +21,11 @@ MonoBehaviour:
   <LocationScenePath>k__BackingField: Scenes/Locations/Location - Autumn forest.unity
   <XRMode>k__BackingField: 1
   <LevelIndex>k__BackingField: 1
+  <GameplayModeData>k__BackingField:
+    rid: 3229442775035674703
+  references:
+    version: 2
+    RefIds:
+    - rid: 3229442775035674703
+      type: {class: InfiniteGameplayModeData, ns: Data.Gameplay, asm: Assembly-CSharp}
+      data: 

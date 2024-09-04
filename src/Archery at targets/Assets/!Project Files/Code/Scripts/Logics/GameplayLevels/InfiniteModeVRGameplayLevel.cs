@@ -18,6 +18,7 @@ using UI.HandMenu;
 using UI.InformationDesk;
 using UnityEngine;
 using Zenject;
+using Data.Gameplay;
 
 #endregion
 
@@ -34,7 +35,7 @@ namespace Logics.GameplayLevels
         private IWeaponFactory _weaponFactory;
         private ISceneContextProvider _sceneContextProvider;
 
-        private InfiniteVRSceneContextData _sceneContextData;
+        private GameplaySceneContextData _sceneContextData;
 
         private HandMenuUI _handMenuScreen;
         private InformationDeskUI _infoScreen;
@@ -65,7 +66,8 @@ namespace Logics.GameplayLevels
 
         public event Action<GameResult> OnGameFinished;
 
-        public async Task StartGame()
+        public async Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
+            where TGameplayModeData : GameplayModeData
         {
             GetSceneContextData();
             ConfigurePlayer();
@@ -78,7 +80,7 @@ namespace Logics.GameplayLevels
 
         private void GetSceneContextData()
         {
-            _sceneContextData = _sceneContextProvider.Get<InfiniteVRSceneContextData>();
+            _sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
             _positionsContainer = _sceneContextData.PositionsContainer;
         }
 

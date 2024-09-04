@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Data.SceneContext
 {
-    public class InfiniteVRSceneContextData : BaseSceneContextData
+    public class GameplaySceneContextData : BaseSceneContextData
     {
         [field: Header("Spawn Points")]
         [field: SerializeField] public Transform BowSpawnPoint { get; private set; }

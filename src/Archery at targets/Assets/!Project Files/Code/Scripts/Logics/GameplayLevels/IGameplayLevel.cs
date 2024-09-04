@@ -2,6 +2,7 @@
 
 using System;
 using System.Threading.Tasks;
+using Data.Gameplay;
 
 #endregion
 
@@ -11,7 +12,8 @@ namespace Logics.GameplayLevels
     {
         event Action<GameResult> OnGameFinished;
 
-        Task StartGame();
+        Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
+            where TGameplayModeData : GameplayModeData;
     }
 
     public enum GameResult
