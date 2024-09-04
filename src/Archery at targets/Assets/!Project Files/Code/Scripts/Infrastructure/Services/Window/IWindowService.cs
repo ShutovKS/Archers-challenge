@@ -1,5 +1,9 @@
+#region
+
 using System.Threading.Tasks;
 using UnityEngine;
+
+#endregion
 
 namespace Infrastructure.Services.Window
 {

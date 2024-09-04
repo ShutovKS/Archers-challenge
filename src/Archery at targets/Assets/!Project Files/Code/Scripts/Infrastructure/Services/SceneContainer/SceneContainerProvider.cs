@@ -1,4 +1,8 @@
+#region
+
 using Data.SceneContext;
+
+#endregion
 
 namespace Infrastructure.Services.SceneContainer
 {

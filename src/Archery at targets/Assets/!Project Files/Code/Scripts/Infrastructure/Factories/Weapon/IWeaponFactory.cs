@@ -1,6 +1,10 @@
+#region
+
 using System.Threading.Tasks;
 using Features.Weapon;
 using UnityEngine;
+
+#endregion
 
 namespace Infrastructure.Factories.Weapon
 {

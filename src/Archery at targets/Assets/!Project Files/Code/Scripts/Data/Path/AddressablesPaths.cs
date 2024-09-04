@@ -9,6 +9,7 @@ namespace Data.Path
         public const string MAIN_MENU_SCREEN_PREFAB = "UI/Main Menu Screen.prefab";
         public const string INFORMATION_DESK_SCREEN_PREFAB = "UI/Information desk Screen.prefab";
         public const string HAND_MENU_SCREEN_PREFAB = "UI/Hand Menu Screen.prefab";
+        public const string LEVELS_SCREEN_PREFAB = "Assets/!Project Files/Level/UI/Levels Screen.prefab";
 
         public const string AR_PLANE_PREFAB = "Assets/!Project Files/Level/Prefabs/XR/ARPlaneColored.prefab";
         public const string AR_BOUNDED_BOX_PREFAB = "Assets/!Project Files/Level/Prefabs/XR/ARBoundingBoxColored.prefab";

@@ -1,9 +1,13 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using Infrastructure.Factories.Player;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+
+#endregion
 
 namespace Infrastructure.Factories.ARComponents
 {

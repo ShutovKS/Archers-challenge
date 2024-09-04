@@ -1,3 +1,5 @@
+#region
+
 using Data.Path;
 using Infrastructure.Factories.ARComponents;
 using Infrastructure.Services.ARPlanes;
@@ -6,6 +8,8 @@ using Infrastructure.Services.XRSetup.TrackingMode;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+
+#endregion
 
 namespace Infrastructure.Services.XRSetup.TrackingModeHandler
 {

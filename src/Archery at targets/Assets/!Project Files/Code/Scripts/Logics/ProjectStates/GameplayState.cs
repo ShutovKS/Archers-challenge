@@ -1,21 +1,25 @@
+#region
+
 using System;
 using System.Threading.Tasks;
 using Data.Level;
 using Features.PositionsContainer;
 using Features.Weapon;
-using Infrastructure.GameplayLevels;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
+using Logics.GameplayLevels;
 using UI.InformationDesk;
 using UnityEngine.SceneManagement;
 
-namespace Infrastructure.ProjectStates
+#endregion
+
+namespace Logics.ProjectStates
 {
     [UsedImplicitly]
-    public class GameplayState : IState, IEnterableWithArg<LevelData>, IExitable
+    public class GameplayState : IState, IEnterableWithArg<GameplayLevelData>, IExitable
     {
         private readonly IProjectManagementService _projectManagementService;
         private readonly ISceneLoaderService _sceneLoaderService;
@@ -23,7 +27,7 @@ namespace Infrastructure.ProjectStates
         private readonly IInteractorService _interactorService;
         private readonly IGameplayLevel _gameplayLevel;
 
-        private LevelData _levelData;
+        private GameplayLevelData _levelData;
 
         private InformationDeskUI _infoScreen;
         private PositionsContainer _positionsContainer;
@@ -46,7 +50,7 @@ namespace Infrastructure.ProjectStates
             _gameplayLevel = gameplayLevel;
         }
 
-        public async void OnEnter(LevelData levelData)
+        public async void OnEnter(GameplayLevelData levelData)
         {
             _levelData = levelData;
 
@@ -72,7 +76,7 @@ namespace Infrastructure.ProjectStates
 
         private async Task StartGameplay()
         {
-            await _gameplayLevel.StartGame();
+            await _gameplayLevel.StartGame(_levelData.GameplayModeData);
 
             _gameplayLevel.OnGameFinished += GameFinished;
         }

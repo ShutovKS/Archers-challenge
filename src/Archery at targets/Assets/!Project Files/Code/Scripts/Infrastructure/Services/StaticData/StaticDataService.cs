@@ -1,3 +1,5 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +9,8 @@ using Data.Weapon;
 using JetBrains.Annotations;
 using UnityEngine;
 using Zenject;
+
+#endregion
 
 namespace Infrastructure.Services.StaticData
 {

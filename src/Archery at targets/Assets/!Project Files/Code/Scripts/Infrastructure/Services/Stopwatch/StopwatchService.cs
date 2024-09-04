@@ -1,7 +1,11 @@
+#region
+
 using System;
 using JetBrains.Annotations;
 using UnityEngine;
 using Zenject;
+
+#endregion
 
 namespace Infrastructure.Services.Stopwatch
 {

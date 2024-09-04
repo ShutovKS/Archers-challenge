@@ -1,6 +1,10 @@
+#region
+
 using System.Threading.Tasks;
 using Infrastructure.Services.Window;
 using UnityEngine;
+
+#endregion
 
 namespace Infrastructure.Factories.UI
 {

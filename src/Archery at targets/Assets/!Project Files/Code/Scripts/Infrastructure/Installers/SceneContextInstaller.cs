@@ -1,7 +1,11 @@
+#region
+
 using Data.SceneContext;
 using Infrastructure.Services.SceneContainer;
 using UnityEngine;
 using Zenject;
+
+#endregion
 
 namespace Infrastructure.Installers
 {

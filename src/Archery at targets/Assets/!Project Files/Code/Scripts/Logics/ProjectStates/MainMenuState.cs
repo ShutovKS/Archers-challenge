@@ -1,10 +1,12 @@
-﻿using System.Threading.Tasks;
+#region
+
+using System.Linq;
+using System.Threading.Tasks;
 using Data.Level;
 using Data.SceneContext;
 using Extension;
-using Infrastructure.Factories.LevelGameplay;
+using Infrastructure.Factories.GameplayLevels;
 using Infrastructure.Factories.Player;
-using Infrastructure.GameplayLevels;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.SceneContainer;
@@ -13,10 +15,15 @@ using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
+using Logics.GameplayLevels;
+using UI.Levels;
 using UI.MainMenu;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Infrastructure.ProjectStates
+#endregion
+
+namespace Logics.ProjectStates
 {
     [UsedImplicitly]
     public class MainMenuState : IState, IEnterable, IExitable
@@ -29,12 +36,13 @@ namespace Infrastructure.ProjectStates
         private readonly IPlayerFactory _playerFactory;
         private readonly ISceneLoaderService _sceneLoaderService;
         private readonly ISceneContextProvider _sceneContextProvider;
-        private readonly IGameplayLevelFactory _gameplayLevelFactory;
+        private readonly IGameplayLevelsFactory _gameplayLevelsFactory;
 
         private MainMenuSceneContextData _sceneContextData;
         private LevelData _levelData;
         private MainMenuUI _mainMenuUI;
-        
+        private LevelsUI _levelsUI;
+
         public MainMenuState(
             IProjectManagementService projectManagementService,
             IStaticDataService staticDataService,
@@ -44,7 +52,7 @@ namespace Infrastructure.ProjectStates
             IPlayerFactory playerFactory,
             ISceneLoaderService sceneLoaderService,
             ISceneContextProvider sceneContextProvider,
-            IGameplayLevelFactory gameplayLevelFactory)
+            IGameplayLevelsFactory gameplayLevelsFactory)
         {
             _projectManagementService = projectManagementService;
             _staticDataService = staticDataService;
@@ -54,7 +62,7 @@ namespace Infrastructure.ProjectStates
             _playerFactory = playerFactory;
             _sceneLoaderService = sceneLoaderService;
             _sceneContextProvider = sceneContextProvider;
-            _gameplayLevelFactory = gameplayLevelFactory;
+            _gameplayLevelsFactory = gameplayLevelsFactory;
         }
 
         public async void OnEnter()
@@ -63,7 +71,6 @@ namespace Infrastructure.ProjectStates
             await LoadLocation();
             GetSceneContextData();
             await OpenMainMenu();
-
             ConfigurePlayer();
         }
 
@@ -92,7 +99,43 @@ namespace Infrastructure.ProjectStates
 
             _mainMenuUI.OnInfiniteVRClicked += StartInfiniteVR;
             _mainMenuUI.OnInfiniteMRClicked += StartInfiniteMR;
+            _mainMenuUI.OnLevelsClicked += async () => await OpenLevelsScreen();
             _mainMenuUI.OnExitClicked += ExitFromGame;
+        }
+
+        private async Task OpenLevelsScreen()
+        {
+            _levelsUI = await _windowService.OpenAndGet<LevelsUI>(
+                WindowID.Levels,
+                _sceneContextData.LevelsScreenSpawnPoint.position,
+                _sceneContextData.LevelsScreenSpawnPoint.rotation
+            );
+
+            _levelsUI.OnBackClicked += CloseLevelsScreen;
+            _levelsUI.OnItemClicked += OnLevelItemClicked;
+
+            var levelDatas = _staticDataService.GetLevelData<GameplayLevelData>();
+            
+            Debug.Log(levelDatas.Count());
+
+            _levelsUI.SetItems(levelDatas);
+        }
+
+        private async void CloseLevelsScreen()
+        {
+            _levelsUI.OnBackClicked -= CloseLevelsScreen;
+            _levelsUI.OnItemClicked -= OnLevelItemClicked;
+
+            _windowService.Close(WindowID.Levels);
+
+            await OpenMainMenu();
+        }
+
+        private void OnLevelItemClicked(string levelId)
+        {
+            var levelData = _staticDataService.GetLevelData<LevelData>(levelId);
+
+            _projectManagementService.SwitchState<GameplayState, LevelData>(levelData);
         }
 
         private void ConfigurePlayer()
@@ -107,7 +150,7 @@ namespace Infrastructure.ProjectStates
 
         private void StartInfiniteVR()
         {
-            _gameplayLevelFactory.Create<InfiniteModeVRGameplayLevel>();
+            _gameplayLevelsFactory.Create<InfiniteModeVRGameplayLevel>();
 
             var levelData = _staticDataService.GetLevelData<LevelData>("InfiniteVR");
 
@@ -134,13 +177,15 @@ namespace Infrastructure.ProjectStates
 
         public void OnExit()
         {
-            CloseScreen();
+            CloseMainMenuScreen();
             DestroyLocation();
         }
 
-        private void CloseScreen()
+        private void CloseMainMenuScreen()
         {
             _mainMenuUI.OnInfiniteVRClicked -= StartInfiniteVR;
+            _mainMenuUI.OnInfiniteMRClicked -= () => { };
+            _mainMenuUI.OnLevelsClicked -= async () => await OpenLevelsScreen();
             _mainMenuUI.OnExitClicked -= ExitFromGame;
 
             _windowService.Close(WindowID.MainMenu);

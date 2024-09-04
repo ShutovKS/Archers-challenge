@@ -1,7 +1,11 @@
+#region
+
 using Data.Progress;
 using Infrastructure.Observers.ProgressData;
 using Infrastructure.Services.DataStorage;
 using JetBrains.Annotations;
+
+#endregion
 
 namespace Infrastructure.Services.Progress
 {

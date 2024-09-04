@@ -1,4 +1,8 @@
+#region
+
 using UnityEngine;
+
+#endregion
 
 namespace Infrastructure.Services.XRSetup.TrackingMode
 {

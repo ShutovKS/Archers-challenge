@@ -1,3 +1,5 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using Infrastructure.Factories.ARComponents;
@@ -8,6 +10,8 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using Zenject;
+
+#endregion
 
 namespace Infrastructure.Services.XRSetup
 {

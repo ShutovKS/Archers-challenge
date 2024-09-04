@@ -1,20 +1,24 @@
+#region
+
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+
+#endregion
 
 namespace UI.MainMenu
 {
     public class MainMenuUI : MonoBehaviour
     {
-        public event Action OnInfiniteVRClicked, OnInfiniteMRClicked, OnStoreClicked, OnExitClicked;
+        public event Action OnInfiniteVRClicked, OnInfiniteMRClicked, OnLevelsClicked, OnExitClicked;
 
-        [SerializeField] private Button infiniteVR, infiniteMR, store, exit;
+        [SerializeField] private Button infiniteVR, infiniteMR, levels, exit;
 
         private void Awake()
         {
             infiniteVR.onClick.AddListener(() => OnInfiniteVRClicked?.Invoke());
             infiniteMR.onClick.AddListener(() => OnInfiniteMRClicked?.Invoke());
-            store.onClick.AddListener(() => OnStoreClicked?.Invoke());
+            levels.onClick.AddListener(() => OnLevelsClicked?.Invoke());
             exit.onClick.AddListener(() => OnExitClicked?.Invoke());
         }
 
@@ -22,7 +26,7 @@ namespace UI.MainMenu
         {
             infiniteVR.onClick.RemoveAllListeners();
             infiniteMR.onClick.RemoveAllListeners();
-            store.onClick.RemoveAllListeners();
+            levels.onClick.RemoveAllListeners();
             exit.onClick.RemoveAllListeners();
         }
     }

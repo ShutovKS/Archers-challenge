@@ -1,8 +1,12 @@
-﻿using Infrastructure.Services.ProjectManagement;
+﻿#region
+
+using Infrastructure.Services.ProjectManagement;
 using JetBrains.Annotations;
 using UnityEngine.SceneManagement;
 
-namespace Infrastructure.ProjectStates
+#endregion
+
+namespace Logics.ProjectStates
 {
     [UsedImplicitly]
     public class BootstrapState : IState, IEnterable

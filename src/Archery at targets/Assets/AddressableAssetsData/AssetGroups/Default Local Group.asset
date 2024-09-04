@@ -77,6 +77,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf2427f7b7b020140b4a5f6a7c7d14dc
+    m_Address: Assets/!Project Files/Level/UI/Levels Screen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c6aafebc37dfb774ca49413a839a1f9a
     m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
       Forest.prefab

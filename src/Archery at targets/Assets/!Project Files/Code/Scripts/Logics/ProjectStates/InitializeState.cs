@@ -1,9 +1,13 @@
+#region
+
 using System.Threading.Tasks;
 using Infrastructure.Factories.Player;
 using Infrastructure.Services.ProjectManagement;
 using JetBrains.Annotations;
 
-namespace Infrastructure.ProjectStates
+#endregion
+
+namespace Logics.ProjectStates
 {
     [UsedImplicitly]
     public class InitializeState : IState, IEnterable

@@ -1,6 +1,10 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+
+#endregion
 
 namespace Data.Weapon
 {

@@ -1,21 +1,26 @@
+#region
+
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Infrastructure.Factories.ProjectStates;
 using JetBrains.Annotations;
-using Zenject;
+
+#endregion
 
 namespace Infrastructure.Services.ProjectManagement
 {
     [UsedImplicitly]
     public class ProjectStateMachine : IProjectManagementService
     {
+        private readonly IProjectStatesFactory _projectStatesFactory;
+
         private IState _currentState;
-        private readonly DiContainer _container;
         private CancellationTokenSource _tickCancellationTokenSource;
 
-        public ProjectStateMachine(DiContainer container)
+        public ProjectStateMachine(IProjectStatesFactory projectStatesFactory)
         {
-            _container = container;
+            _projectStatesFactory = projectStatesFactory;
         }
 
         public void SwitchState<TState>() where TState : IState
@@ -78,7 +83,7 @@ namespace Infrastructure.Services.ProjectManagement
 
         private void GetNewState<TState>() where TState : IState
         {
-            _currentState = _container.Instantiate<TState>();
+            _currentState = _projectStatesFactory.CreateProjectState<TState>();
         }
 
         private void TryTickNewState()

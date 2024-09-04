@@ -1,4 +1,8 @@
+#region
+
 using Data.Progress;
+
+#endregion
 
 namespace Infrastructure.Services.Progress
 {
