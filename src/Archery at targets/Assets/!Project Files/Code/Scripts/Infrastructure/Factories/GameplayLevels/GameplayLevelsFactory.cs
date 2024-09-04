@@ -22,7 +22,8 @@ namespace Infrastructure.Factories.GameplayLevels
 
         public IGameplayLevel Create(GameplayMode gameplayMode) => gameplayMode switch
         {
-            // Mode => CreateGameplayLevel<Mode>(),
+            DestroyingAllTargets => _container.Instantiate<DestroyingAllTargetsGameplayLevel>(),
+            DestroyingAllTargetsInTime => _container.Instantiate<DestroyingAllTargetsInTimeGameplayLevel>(),
 
             None or _ => throw new System.NotImplementedException($"Gameplay mode {gameplayMode} is not implemented."),
         };
