@@ -18,7 +18,7 @@ using UnityEngine.SceneManagement;
 
 #endregion
 
-namespace Logics.ProjectStates
+namespace Logics.Project
 {
     [UsedImplicitly]
     public class GameplayState : IState, IEnterableWithArg<GameplayLevelData>, IExitable
@@ -73,8 +73,8 @@ namespace Logics.ProjectStates
         {
             _xrSetupService.SetXRMode(_levelData.XRMode);
 
-            _interactorService.SetUpInteractorForHand(HandType.Left, InteractorType.NearFar);
-            _interactorService.SetUpInteractorForHand(HandType.Right, InteractorType.Direct | InteractorType.Poke);
+            _interactorService.SetUpInteractor(HandType.Left, InteractorType.NearFar);
+            _interactorService.SetUpInteractor(HandType.Right, InteractorType.Direct | InteractorType.Poke);
         }
 
         private async Task StartGameplay()
@@ -124,7 +124,7 @@ namespace Logics.ProjectStates
 
         private void ExitInMainMenu()
         {
-            _projectManagementService.SwitchState<MainMenuState>();
+            _projectManagementService.ChangeState<MainMenuState>();
         }
 
         private void DestroyLocation()

@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 
 #endregion
 
-namespace Logics.ProjectStates
+namespace Logics.Project
 {
     [UsedImplicitly]
     public class InitializeState : IState, IEnterable
@@ -38,7 +38,7 @@ namespace Logics.ProjectStates
 
         private void MoveToNextState()
         {
-            _projectManagementService.SwitchState<MainMenuState>();
+            _projectManagementService.ChangeState<MainMenuState>();
         }
     }
 }

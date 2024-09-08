@@ -10,14 +10,14 @@ namespace Infrastructure.Factories.GameObjects
 {
     public interface IGameObjectFactory
     {
-        Task<GameObject> Instantiate(
+        Task<GameObject> InstantiateAsync(
             string path,
             Vector3? position = null,
             Quaternion? rotation = null,
             Transform parent = null
         );
 
-        Task<GameObject> Instantiate(
+        Task<GameObject> InstantiateAsync(
             AssetReference path,
             Vector3? position = null,
             Quaternion? rotation = null,

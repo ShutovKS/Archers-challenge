@@ -32,7 +32,7 @@ namespace Infrastructure.Factories.Target
         public async Task<GameObject> Instantiate(Vector3 position, Quaternion rotation, Transform parent = null)
         {
             var isHit = false;
-            var instance = await _gameObjectFactory.Instantiate(TARGET_PREFAB_PATH, position, rotation, parent);
+            var instance = await _gameObjectFactory.InstantiateAsync(TARGET_PREFAB_PATH, position, rotation, parent);
 
             var colliderInteractionEnterTrigger = instance.AddComponent<ColliderInteractionEnterTrigger>();
             colliderInteractionEnterTrigger.OnTriggered += OnHit;

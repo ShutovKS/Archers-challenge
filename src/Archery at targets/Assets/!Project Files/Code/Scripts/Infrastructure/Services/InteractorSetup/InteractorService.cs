@@ -22,7 +22,7 @@ namespace Infrastructure.Services.InteractorSetup
 
         private IInteractor _gazeInteractor;
 
-        public void SetUpInteractorForHand(HandType hand, InteractorType interactorType)
+        public void SetUpInteractor(HandType hand, InteractorType interactorType)
         {
             SetUpGazeInteractor(hand, interactorType);
 

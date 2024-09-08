@@ -12,8 +12,10 @@ using Infrastructure.Factories.Weapon;
 using Infrastructure.Observers.ProgressData;
 using Infrastructure.Services.ARPlanes;
 using Infrastructure.Services.AssetsAddressables;
+using Infrastructure.Services.Camera;
 using Infrastructure.Services.DataStorage;
 using Infrastructure.Services.InteractorSetup;
+using Infrastructure.Services.Player;
 using Infrastructure.Services.Progress;
 using Infrastructure.Services.Projectile;
 using Infrastructure.Services.ProjectManagement;
@@ -58,6 +60,8 @@ namespace Infrastructure.Installers
             Container.Bind<IDataStorageService>().To<DataStorageLocalService>().AsSingle();
             Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
             Container.Bind<IARPlanesService>().To<ARPlanesService>().AsSingle();
+            Container.Bind<IPlayerService>().To<PlayerService>().AsSingle();
+            Container.Bind<ICameraService>().To<CameraService>().AsSingle();
         }
 
         private void BindFactories()

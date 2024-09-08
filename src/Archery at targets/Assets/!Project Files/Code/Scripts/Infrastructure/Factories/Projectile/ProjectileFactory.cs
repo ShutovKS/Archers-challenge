@@ -29,7 +29,7 @@ namespace Infrastructure.Factories.Projectile
         {
             var path = _projectileProviderService.GetCurrentlySelectedProjectilePath();
 
-            var instantiate = await _gameObjectFactory.Instantiate(path, parent: parent);
+            var instantiate = await _gameObjectFactory.InstantiateAsync(path, parent: parent);
             instantiate.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             instantiate.transform.localScale = Vector3.one;
 

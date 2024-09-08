@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 using Infrastructure.Factories.ARComponents;
-using Infrastructure.Factories.Player;
+using Infrastructure.Services.Camera;
 using Infrastructure.Services.XRSetup.TrackingMode;
 using Infrastructure.Services.XRSetup.TrackingModeHandler;
 using JetBrains.Annotations;
@@ -19,16 +19,17 @@ namespace Infrastructure.Services.XRSetup
     public class XRSetupService : IXRSetupService
     {
         private readonly IARComponentsFactory _arComponentsFactory;
-        private readonly IPlayerFactory _playerFactory;
+        private readonly ICameraService _cameraService;
         private readonly Dictionary<Type, IXRTrackingModeHandler> _trackingModeHandlers;
 
         private XRMode _currentMode = XRMode.None;
         private IXRTrackingMode _currentTrackingMode = new NoneTrackingMode();
 
-        public XRSetupService(DiContainer container, IARComponentsFactory arComponentsFactory, IPlayerFactory playerFactory)
+        public XRSetupService(DiContainer container, IARComponentsFactory arComponentsFactory,
+            ICameraService cameraService)
         {
             _arComponentsFactory = arComponentsFactory;
-            _playerFactory = playerFactory;
+            _cameraService = cameraService;
             _trackingModeHandlers = new Dictionary<Type, IXRTrackingModeHandler>
             {
                 { typeof(NoneTrackingMode), container.Instantiate<NoneTrackingModeHandler>() },
@@ -51,22 +52,21 @@ namespace Infrastructure.Services.XRSetup
                 case XRMode.VR:
                     SetComponentState<ARSession>(false);
                     SetComponentState<ARCameraManager>(false);
-                    _playerFactory.PlayerContainer.Camera.clearFlags = CameraClearFlags.Skybox;
-
                     SetXRTrackingMode(new NoneTrackingMode());
                     SetAnchorManagerState(false);
+                    _cameraService.SetBackgroundType(CameraBackgroundType.Skybox);
                     break;
                 case XRMode.MR:
                     SetComponentState<ARSession>(true);
                     var arSession = GetOrCreateComponent<ARSession>();
                     arSession.Reset();
-                    
+
                     SetComponentState<ARCameraManager>(true);
-                    _playerFactory.PlayerContainer.Camera.clearFlags = CameraClearFlags.Color;
-                    _playerFactory.PlayerContainer.Camera.backgroundColor = Color.clear;
-                    
+
                     SetXRTrackingMode(new PlaneAndBoundingBoxTrackingMode());
-                    SetAnchorManagerState(true); 
+                    SetAnchorManagerState(true);
+
+                    _cameraService.SetBackgroundType(CameraBackgroundType.SolidColor, Color.clear);
                     break;
                 default: throw new ArgumentOutOfRangeException();
             }

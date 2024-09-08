@@ -29,7 +29,7 @@ namespace Infrastructure.Factories.Weapon
         {
             var weaponReference = _weaponService.GetCurrentlyEquippedWeaponReference();
 
-            var instantiate = await _gameObjectFactory.Instantiate(weaponReference, position, rotation, parent);
+            var instantiate = await _gameObjectFactory.InstantiateAsync(weaponReference, position, rotation, parent);
 
             var weapon = instantiate.GetComponent<IWeapon>();
 

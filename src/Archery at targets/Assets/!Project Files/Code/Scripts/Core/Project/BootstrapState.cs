@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 #endregion
 
-namespace Logics.ProjectStates
+namespace Logics.Project
 {
     [UsedImplicitly]
     public class BootstrapState : IState, IEnterable
@@ -22,7 +22,7 @@ namespace Logics.ProjectStates
         {
             LoadBootstrapScene();
 
-            _projectManagementService.SwitchState<InitializeState>();
+            _projectManagementService.ChangeState<InitializeState>();
         }
 
         private void LoadBootstrapScene()

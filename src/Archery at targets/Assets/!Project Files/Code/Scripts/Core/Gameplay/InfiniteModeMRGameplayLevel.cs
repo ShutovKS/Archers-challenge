@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 using Data.Gameplay;
 using Data.SceneContext;
-using Extension;
 using Features.PositionsContainer;
 using Features.Weapon;
 using Infrastructure.Factories.ARComponents;
@@ -10,6 +9,7 @@ using Infrastructure.Factories.Player;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.Weapon;
 using Infrastructure.Services.ARPlanes;
+using Infrastructure.Services.Player;
 using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Window;
@@ -28,7 +28,7 @@ namespace Logics.GameplayLevels
     {
         private readonly IStopwatchService _stopwatchService;
         private readonly IWindowService _windowService;
-        private readonly IPlayerFactory _playerFactory;
+        private readonly IPlayerService _playerService;
         private readonly ITargetFactory _targetFactory;
         private readonly IWeaponFactory _weaponFactory;
         private readonly ISceneContextProvider _sceneContextProvider;
@@ -48,7 +48,7 @@ namespace Logics.GameplayLevels
         public InfiniteModeMRGameplayLevel(
             IStopwatchService stopwatchService,
             IWindowService windowService,
-            IPlayerFactory playerFactory,
+            IPlayerService playerService,
             ITargetFactory targetFactory,
             IWeaponFactory weaponFactory,
             ISceneContextProvider sceneContextProvider,
@@ -58,7 +58,7 @@ namespace Logics.GameplayLevels
         {
             _stopwatchService = stopwatchService;
             _windowService = windowService;
-            _playerFactory = playerFactory;
+            _playerService = playerService;
             _targetFactory = targetFactory;
             _weaponFactory = weaponFactory;
             _sceneContextProvider = sceneContextProvider;
@@ -118,7 +118,8 @@ namespace Logics.GameplayLevels
 
         private void ConfigurePlayer()
         {
-            _playerFactory.PlayerContainer.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
+            _playerService.SetPlayerPositionAndRotation(_sceneContextData.PlayerSpawnPoint.position,
+                _sceneContextData.PlayerSpawnPoint.rotation);
         }
 
         private async Task InstantiateWeapon()
@@ -131,7 +132,7 @@ namespace Logics.GameplayLevels
         private async Task InstantiateInfoScreen()
         {
             var spawnPoint = _sceneContextData.InfoScreenSpawnPoint;
-            _infoScreen = await _windowService.OpenAndGet<InformationDeskUI>(WindowID.InformationDesk,
+            _infoScreen = await _windowService.OpenInWorldAndGet<InformationDeskUI>(WindowID.InformationDesk,
                 spawnPoint.position, spawnPoint.rotation);
             _infoScreen.SetTimeText("0.00");
             _infoScreen.SetScoreText("0");
@@ -139,8 +140,8 @@ namespace Logics.GameplayLevels
 
         private async Task InstantiateHandMenuScreen()
         {
-            var spawnPoint = _playerFactory.PlayerContainer.HandMenuSpawnPoint;
-            _handMenuScreen = await _windowService.OpenAndGet<HandMenuUI>(WindowID.HandMenu, spawnPoint.position,
+            var spawnPoint = _playerService.PlayerContainer.HandMenuSpawnPoint;
+            _handMenuScreen = await _windowService.OpenInWorldAndGet<HandMenuUI>(WindowID.HandMenu, spawnPoint.position,
                 spawnPoint.rotation, spawnPoint);
             _handMenuScreen.OnExitButtonClicked += ExitInMainMenu;
         }

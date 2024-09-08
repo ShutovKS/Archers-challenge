@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Infrastructure.Factories.Player;
 using Infrastructure.Services.ARPlanes;
+using Infrastructure.Services.Camera;
+using Infrastructure.Services.Player;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -15,14 +17,14 @@ namespace Features.PositionsContainer
         public override bool InfinitePositions => true;
 
         private IARPlanesService _arPlanesService;
-        private IPlayerFactory _playerFactory;
+        private ICameraService _cameraService;
         private bool _planesAvailable;
 
         [Inject]
-        public void Construct(IARPlanesService arPlanesService, IPlayerFactory playerFactory)
+        public void Construct(IARPlanesService arPlanesService, ICameraService cameraService)
         {
             _arPlanesService = arPlanesService;
-            _playerFactory = playerFactory;
+            _cameraService = cameraService;
         }
 
         private void Awake()
@@ -52,7 +54,7 @@ namespace Features.PositionsContainer
             {
                 return (Vector3.zero, Quaternion.identity);
             }
-            
+
             ReadOnlyCollection<ARPlane> planes = null;
             var classifications = new List<PlaneClassifications>
             {
@@ -106,8 +108,8 @@ namespace Features.PositionsContainer
 
         private Quaternion GetRotation(Vector3 position)
         {
-            var player = _playerFactory.PlayerContainer.CameraGameObject;
-            var direction = position - player.transform.position;
+            var cameraPosition = _cameraService.CameraPosition;
+            var direction = position - cameraPosition;
             return Quaternion.LookRotation(direction);
         }
     }

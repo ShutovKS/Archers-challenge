@@ -1,88 +1,96 @@
-#region
-
 using System;
 using System.Threading.Tasks;
+using Data.Gameplay;
 using Data.SceneContext;
-using Extension;
 using Features.PositionsContainer;
 using Features.Weapon;
 using Infrastructure.Factories.Player;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.Weapon;
+using Infrastructure.Services.Player;
 using Infrastructure.Services.SceneContainer;
-using Infrastructure.Services.Stopwatch;
+using Infrastructure.Services.Timer;
 using Infrastructure.Services.Window;
 using JetBrains.Annotations;
 using UI.HandMenu;
 using UI.InformationDesk;
 using UnityEngine;
 using Zenject;
-using Data.Gameplay;
-
-#endregion
 
 namespace Logics.GameplayLevels
 {
     [UsedImplicitly]
-    public class InfiniteModeVRGameplayLevel : IGameplayLevel
+    public class DestroyingAllTargetsInTimeGameplayLevel : IGameplayLevel
     {
-        private IStopwatchService _stopwatchService;
+        public event Action<GameResult> OnGameFinished;
+
+        private ITimerService _timerService;
         private IWindowService _windowService;
-        private IPlayerFactory _playerFactory;
+        private IPlayerService _playerService;
         private ITargetFactory _targetFactory;
         private IWeaponFactory _weaponFactory;
         private ISceneContextProvider _sceneContextProvider;
 
-        private InfiniteSceneContextData _sceneContextData;
+        private GameplaySceneContextData _sceneContextData;
+        private PositionsContainer _positionsContainer;
 
+        private IWeapon _weapon;
         private HandMenuUI _handMenuScreen;
         private InformationDeskUI _infoScreen;
-        private PositionsContainer _positionsContainer;
-        private IWeapon _weapon;
 
         private int _targetCount;
+        private float _timeLimit;
 
         [Inject]
         public void Construct(
-            IStopwatchService stopwatchService,
+            ITimerService timerService,
             IWindowService windowService,
-            IPlayerFactory playerFactory,
+            IPlayerService playerService,
             ITargetFactory targetFactory,
             IWeaponFactory weaponFactory,
             ISceneContextProvider sceneContextProvider
         )
         {
-            _stopwatchService = stopwatchService;
+            _timerService = timerService;
             _windowService = windowService;
-            _playerFactory = playerFactory;
+            _playerService = playerService;
             _targetFactory = targetFactory;
             _weaponFactory = weaponFactory;
             _sceneContextProvider = sceneContextProvider;
         }
 
-        public event Action<GameResult> OnGameFinished;
-
         public async Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
             where TGameplayModeData : GameplayModeData
         {
+            if (gameplayModeData is not DestroyingAllTargetsInTimeGameplay modeData)
+            {
+                Debug.LogError("Invalid gameplay mode data type");
+                throw new ArgumentException("Invalid gameplay mode data type");
+            }
+
+            _targetCount = modeData.TargetCount;
+            _timeLimit = modeData.TimeLimit;
+
             GetSceneContextData();
             ConfigurePlayer();
             await InstantiateWeapon();
             await InstantiateInfoScreen();
             await InstantiateHandMenuScreen();
-            await InstantiateTarget();
-            StartStopwatchOnSelectBow();
+            await InstantiateTargets(modeData.TargetCount);
+            StartTimerOnSelectBow();
         }
 
         private void GetSceneContextData()
         {
-            _sceneContextData = _sceneContextProvider.Get<InfiniteSceneContextData>();
+            _sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
             _positionsContainer = _sceneContextData.PositionsContainer;
         }
 
         private void ConfigurePlayer()
         {
-            _playerFactory.PlayerContainer.Player.SetPositionAndRotation(_sceneContextData.PlayerSpawnPoint);
+            _playerService.SetPlayerPositionAndRotation(
+                _sceneContextData.PlayerSpawnPoint.position,
+                _sceneContextData.PlayerSpawnPoint.rotation);
         }
 
         private async Task InstantiateWeapon()
@@ -95,18 +103,26 @@ namespace Logics.GameplayLevels
         private async Task InstantiateInfoScreen()
         {
             var spawnPoint = _sceneContextData.InfoScreenSpawnPoint;
-            _infoScreen = await _windowService.OpenAndGet<InformationDeskUI>(WindowID.InformationDesk,
+            _infoScreen = await _windowService.OpenInWorldAndGet<InformationDeskUI>(WindowID.InformationDesk,
                 spawnPoint.position, spawnPoint.rotation);
-            _infoScreen.SetTimeText("0.00");
-            _infoScreen.SetScoreText("0");
+            _infoScreen.SetTimeText(_timeLimit.ToString("0.00"));
+            _infoScreen.SetScoreText(_targetCount.ToString());
         }
 
         private async Task InstantiateHandMenuScreen()
         {
-            var spawnPoint = _playerFactory.PlayerContainer.HandMenuSpawnPoint;
-            _handMenuScreen = await _windowService.OpenAndGet<HandMenuUI>(WindowID.HandMenu, spawnPoint.position,
+            var spawnPoint = _playerService.PlayerContainer.HandMenuSpawnPoint;
+            _handMenuScreen = await _windowService.OpenInWorldAndGet<HandMenuUI>(WindowID.HandMenu, spawnPoint.position,
                 spawnPoint.rotation, spawnPoint);
             _handMenuScreen.OnExitButtonClicked += ExitInMainMenu;
+        }
+
+        private async Task InstantiateTargets(int targetCount = 1)
+        {
+            for (var i = 0; i < targetCount; i++)
+            {
+                await InstantiateTarget();
+            }
         }
 
         private async Task InstantiateTarget()
@@ -116,18 +132,19 @@ namespace Logics.GameplayLevels
             _targetFactory.TargetHit += OnTargetHit;
         }
 
-        private void StartStopwatchOnSelectBow()
+        private void StartTimerOnSelectBow()
         {
-            _stopwatchService.OnTick += UpdateInfoScreen;
-            _weapon.OnSelected += StartStopwatch;
+            _timerService.OnTick += UpdateInfoScreen;
+            _weapon.OnSelected += StartTimer;
         }
 
-        private void StartStopwatch(bool isSelect)
+        private void StartTimer(bool isSelect)
         {
             if (!isSelect) return;
 
-            _stopwatchService.Start();
-            _weapon.OnSelected -= StartStopwatch;
+            _timerService.Start(_timeLimit);
+            _weapon.OnSelected -= StartTimer;
+            _timerService.OnFinished += OnTimeIsUp;
         }
 
         private void UpdateInfoScreen(float time)
@@ -135,37 +152,54 @@ namespace Logics.GameplayLevels
             _infoScreen.SetTimeText(time.ToString("0.00"));
         }
 
-        private async void OnTargetHit(GameObject gameObject)
+        private void OnTimeIsUp()
+        {
+            StopGame();
+
+            OnGameFinished?.Invoke(GameResult.Lose);
+        }
+
+        private void OnTargetHit(GameObject gameObject)
         {
             _targetFactory.TargetHit -= OnTargetHit;
             _targetFactory.Destroy(gameObject);
 
-            _targetCount++;
+            _targetCount--;
             _infoScreen.SetScoreText(_targetCount.ToString());
 
-            await InstantiateTarget();
+            if (_targetCount == 0)
+            {
+                StopGame();
+
+                OnGameFinished?.Invoke(GameResult.Win);
+            }
         }
 
         private void ExitInMainMenu()
         {
-            StopStopwatch();
-            CloseUpdateInfoScreen();
-            CloseHandMenuScreen();
-            DestroyTargets();
-            DestroyBow();
+            StopGame();
 
             OnGameFinished?.Invoke(GameResult.Exit);
         }
 
-        private void StopStopwatch()
+        private void StopGame()
         {
-            _stopwatchService.OnTick -= UpdateInfoScreen;
-            _stopwatchService.Stop();
+            StopTimer();
+            CloseUpdateInfoScreen();
+            CloseHandMenuScreen();
+            DestroyTargets();
+            DestroyBow();
+        }
+
+        private void StopTimer()
+        {
+            _timerService.OnTick -= UpdateInfoScreen;
+            _timerService.Stop();
         }
 
         private void CloseUpdateInfoScreen()
         {
-            _stopwatchService.OnTick -= UpdateInfoScreen;
+            _timerService.OnTick -= UpdateInfoScreen;
             _windowService.Close(WindowID.InformationDesk);
         }
 
@@ -183,7 +217,7 @@ namespace Logics.GameplayLevels
 
         private void DestroyBow()
         {
-            _weapon.OnSelected -= StartStopwatch;
+            _weapon.OnSelected -= StartTimer;
             _weaponFactory.Destroy(_weapon);
         }
     }

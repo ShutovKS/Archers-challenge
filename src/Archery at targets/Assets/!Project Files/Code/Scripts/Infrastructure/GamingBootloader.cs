@@ -2,7 +2,7 @@
 
 using Infrastructure.Services.ProjectManagement;
 using JetBrains.Annotations;
-using Logics.ProjectStates;
+using Logics.Project;
 using Zenject;
 
 #endregion
@@ -21,7 +21,7 @@ namespace Infrastructure
 
         public void Initialize()
         {
-            _projectManagementService.SwitchState<BootstrapState>();
+            _projectManagementService.ChangeState<BootstrapState>();
         }
     }
 }
