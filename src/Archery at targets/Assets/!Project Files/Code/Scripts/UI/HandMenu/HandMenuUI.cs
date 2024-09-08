@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace UI.HandMenu
 {
-    public class HandMenuUI : MonoBehaviour
+    public class HandMenuUI : BaseUI
     {
         public event Action OnExitButtonClicked;
 

@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace UI.Levels
 {
-    public class LevelsUI : MonoBehaviour
+    public class LevelsUI : BaseUI
     {
         public event Action OnBackClicked;
         public event Action<string> OnItemClicked;

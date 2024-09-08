@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace UI.InformationDesk
 {
-    public class InformationDeskUI : MonoBehaviour
+    public class InformationDeskUI : BaseUI
     {
         [SerializeField] private TMP_Text timeText;
         [SerializeField] private TMP_Text scoreText;

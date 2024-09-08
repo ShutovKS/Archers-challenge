@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace UI.MainMenu
 {
-    public class MainMenuUI : MonoBehaviour
+    public class MainMenuUI : BaseUI
     {
         public event Action OnInfiniteVRClicked, OnInfiniteMRClicked, OnLevelsClicked, OnExitClicked;
 
