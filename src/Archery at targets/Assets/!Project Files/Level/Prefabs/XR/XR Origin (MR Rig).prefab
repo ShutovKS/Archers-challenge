@@ -454,7 +454,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 1390665139892746045}
   m_CameraFloorOffsetObject: {fileID: 9137985916125940212}
   m_RequestedTrackingOriginMode: 1
-  m_CameraYOffset: 0
+  m_CameraYOffset: 1.8
 --- !u!114 &4970963063153584427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,7 +624,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 20
+  far clip plane: 50
   field of view: 60
   orthographic: 0
   orthographic size: 5

@@ -68,8 +68,8 @@ namespace Logics.ProjectStates
             GetLevelData();
             await LoadLocation();
             GetSceneContextData();
-            await OpenMainMenu();
             ConfigurePlayer();
+            await OpenMainMenu();
         }
 
         private void GetLevelData()
@@ -98,6 +98,7 @@ namespace Logics.ProjectStates
             _mainMenuUI.OnInfiniteVRClicked += StartInfiniteVR;
             _mainMenuUI.OnInfiniteMRClicked += StartInfiniteMR;
             _mainMenuUI.OnLevelsClicked += async () => await OpenLevelsScreen();
+            _mainMenuUI.OnLevelsClicked += CloseMainMenuScreen;
             _mainMenuUI.OnExitClicked += ExitFromGame;
         }
 
@@ -111,6 +112,8 @@ namespace Logics.ProjectStates
 
             _levelsUI.OnBackClicked += CloseLevelsScreen;
             _levelsUI.OnBackClicked += async () => await OpenMainMenu();
+            
+            _levelsUI.OnItemClicked += _ => CloseLevelsScreen();
             _levelsUI.OnItemClicked += OnLevelItemClicked;
 
             var levelDatas = _staticDataService.GetLevelData<GameplayLevelData>();
@@ -121,6 +124,7 @@ namespace Logics.ProjectStates
         private void CloseLevelsScreen()
         {
             _levelsUI.OnBackClicked -= CloseLevelsScreen;
+            _levelsUI.OnBackClicked -= async () => await OpenMainMenu();
             _levelsUI.OnItemClicked -= OnLevelItemClicked;
 
             _windowService.Close(WindowID.Levels);
@@ -174,15 +178,15 @@ namespace Logics.ProjectStates
 
         public void OnExit()
         {
-            CloseMainMenuScreen();
             DestroyLocation();
         }
 
         private void CloseMainMenuScreen()
         {
             _mainMenuUI.OnInfiniteVRClicked -= StartInfiniteVR;
-            _mainMenuUI.OnInfiniteMRClicked -= () => { };
+            _mainMenuUI.OnInfiniteMRClicked -= StartInfiniteMR;
             _mainMenuUI.OnLevelsClicked -= async () => await OpenLevelsScreen();
+            _mainMenuUI.OnLevelsClicked -= CloseMainMenuScreen;
             _mainMenuUI.OnExitClicked -= ExitFromGame;
 
             _windowService.Close(WindowID.MainMenu);
