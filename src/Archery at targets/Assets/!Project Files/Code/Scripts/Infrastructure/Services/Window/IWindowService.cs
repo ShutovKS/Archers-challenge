@@ -9,7 +9,7 @@ namespace Infrastructure.Services.Window
 {
     public interface IWindowService
     {
-        Task OpenInWorld(WindowID windowID, Vector3 position, Quaternion rotation, Transform transform);
+        Task OpenInWorld(WindowID windowID, Vector3 position, Quaternion rotation, Transform transform = null);
 
         Task<T> OpenInWorldAndGet<T>(WindowID windowID, Vector3 position, Quaternion rotation,
             Transform transform = null) where T : Component;

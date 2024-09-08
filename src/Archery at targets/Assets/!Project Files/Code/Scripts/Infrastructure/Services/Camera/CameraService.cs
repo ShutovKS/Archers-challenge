@@ -13,8 +13,8 @@ namespace Infrastructure.Services.Camera
 
         public void SetCamera(UnityEngine.Camera camera)
         {
-            Camera = camera.gameObject;
             _camera = camera;
+            Camera = camera.gameObject;
         }
 
         public void SetBackgroundType(CameraBackgroundType backgroundType, object parameter = null)

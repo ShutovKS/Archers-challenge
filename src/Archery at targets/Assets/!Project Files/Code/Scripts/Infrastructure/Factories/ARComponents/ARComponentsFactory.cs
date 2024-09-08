@@ -44,6 +44,8 @@ namespace Infrastructure.Factories.ARComponents
 
                 _ => throw new NotSupportedException($"AR component of type {typeof(T)} is not supported.")
             };
+            
+            Debug.Log($"Creating AR component of type {typeof(T)}.");
 
             return CreateComponent<T>(targetObject);
         }

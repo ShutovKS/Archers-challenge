@@ -1,12 +1,13 @@
 ﻿#region
 
 using Infrastructure.Services.ProjectManagement;
+using Infrastructure.Services.SceneLoader;
 using JetBrains.Annotations;
 using UnityEngine.SceneManagement;
 
 #endregion
 
-namespace Logics.Project
+namespace Core.Project
 {
     [UsedImplicitly]
     public class BootstrapState : IState, IEnterable
@@ -22,7 +23,7 @@ namespace Logics.Project
         {
             LoadBootstrapScene();
 
-            _projectManagementService.ChangeState<InitializeState>();
+            _projectManagementService.ChangeState<InitializationState>();
         }
 
         private void LoadBootstrapScene()

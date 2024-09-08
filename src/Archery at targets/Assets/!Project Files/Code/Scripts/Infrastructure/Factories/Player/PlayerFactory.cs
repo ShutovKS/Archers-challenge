@@ -15,12 +15,10 @@ namespace Infrastructure.Factories.Player
     public class PlayerFactory : IPlayerFactory
     {
         private readonly IGameObjectFactory _gameObjectFactory;
-        private readonly ICameraService _cameraService;
 
-        public PlayerFactory(IGameObjectFactory gameObjectFactory, ICameraService cameraService)
+        public PlayerFactory(IGameObjectFactory gameObjectFactory)
         {
             _gameObjectFactory = gameObjectFactory;
-            _cameraService = cameraService;
         }
 
         public async Task<GameObject> Instantiate(Vector3? position = null, Quaternion? rotation = null,
@@ -28,9 +26,7 @@ namespace Infrastructure.Factories.Player
         {
             var instantiate = await _gameObjectFactory.InstantiateAsync(AddressablesPaths.XR_ORIGIN_MR_RIG,
                 position, rotation, parent);
-
-            _cameraService.SetCamera(instantiate.GetComponentInChildren<Camera>());
-
+            
             return instantiate;
         }
     }
