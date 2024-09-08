@@ -2,8 +2,8 @@
 
 using System.Threading.Tasks;
 using Data.Paths;
-using Features.Player;
 using Infrastructure.Factories.GameObjects;
+using Infrastructure.Services.Camera;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -14,31 +14,24 @@ namespace Infrastructure.Factories.Player
     [UsedImplicitly]
     public class PlayerFactory : IPlayerFactory
     {
-        public PlayerContainer PlayerContainer { get; private set; }
-
         private readonly IGameObjectFactory _gameObjectFactory;
+        private readonly ICameraService _cameraService;
 
-        private GameObject _instantiate;
-
-        public PlayerFactory(IGameObjectFactory gameObjectFactory)
+        public PlayerFactory(IGameObjectFactory gameObjectFactory, ICameraService cameraService)
         {
             _gameObjectFactory = gameObjectFactory;
+            _cameraService = cameraService;
         }
 
         public async Task<GameObject> Instantiate(Vector3? position = null, Quaternion? rotation = null,
             Transform parent = null)
         {
-            _instantiate = await _gameObjectFactory.Instantiate(AddressablesPaths.XR_ORIGIN_MR_RIG,
+            var instantiate = await _gameObjectFactory.InstantiateAsync(AddressablesPaths.XR_ORIGIN_MR_RIG,
                 position, rotation, parent);
 
-            PlayerContainer = _instantiate.GetComponent<PlayerContainer>();
+            _cameraService.SetCamera(instantiate.GetComponentInChildren<Camera>());
 
-            return _instantiate;
-        }
-
-        public void Destroy()
-        {
-            _gameObjectFactory.Destroy(_instantiate);
+            return instantiate;
         }
     }
 }
