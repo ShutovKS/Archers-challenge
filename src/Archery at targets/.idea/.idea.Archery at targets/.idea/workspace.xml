@@ -6,32 +6,745 @@
   <component name="ChangeListManager">
     <list default="true" id="3bc55d7b-3b5b-49ed-8bcf-0178280bad01" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Gameplay/GameplayMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Gameplay/GameplayMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Level/GameplayLevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Level/GameplayLevelData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Path.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Path/AddressablesPaths.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Path/AddressablesPaths.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Path/ResourcesPaths.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Path/ResourcesPaths.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/Player/PlayerFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/Player/PlayerFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/Target/TargetFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/Target/TargetFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Projectile/IProjectileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Projectile/IProjectileService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/SceneLoader/SceneLoaderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/SceneLoader/SceneLoaderService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/StaticData/StaticDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/StaticData/StaticDataService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Window/WindowService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Window/WindowService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/XRSetup/TrackingModeHandler/BoundingBoxTrackingModeHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/XRSetup/TrackingModeHandler/BoundingBoxTrackingModeHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/XRSetup/TrackingModeHandler/PlaneAndBoundingBoxTrackingModeHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/XRSetup/TrackingModeHandler/PlaneAndBoundingBoxTrackingModeHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/XRSetup/TrackingModeHandler/PlaneTrackingModeHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/XRSetup/TrackingModeHandler/PlaneTrackingModeHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Logics/GameplayLevels/DestroyingAllTargetsGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Logics/GameplayLevels/DestroyingAllTargetsGameplayLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Logics/GameplayLevels/DestroyingAllTargetsInTimeGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Logics/GameplayLevels/DestroyingAllTargetsInTimeGameplayLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Logics/GameplayLevels/InfiniteModeMRGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Logics/GameplayLevels/InfiniteModeMRGameplayLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Logics/ProjectStates/GameplayState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Logics/ProjectStates/GameplayState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Logics/ProjectStates/MainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Logics/ProjectStates/MainMenuState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Data/Levels/GameplayLevel - 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Data/Levels/GameplayLevel - 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Level/UI/Main Menu Screen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Level/UI/Main Menu Screen.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/EditorStaticInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/EditorStaticInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/EditorWindow.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/EditorWindow/ZenjectEditorWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/EditorWindow/ZenjectEditorWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/BaseCompositeInstallerEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/BaseCompositeInstallerEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/CompositeInstallerEditorDescriptions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/CompositeInstallerEditorDescriptions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/CompositeMonoInstallerEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/CompositeMonoInstallerEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/CompositeScriptableObjectInstallerEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/CompositeScriptableObjectInstallerEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/ContextEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/ContextEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/GameObjectContextEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/GameObjectContextEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/InstallerPropertyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/InstallerPropertyInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/ProjectContextEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/ProjectContextEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/RunnableContextEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/RunnableContextEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/SceneContextEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/SceneContextEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/SceneDecoratorContextEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Editors/SceneDecoratorContextEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/DebugWindow.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/DebugWindow/InPlaceStableSort.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/DebugWindow/InPlaceStableSort.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/DebugWindow/MpmView.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/DebugWindow/MpmView.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/DebugWindow/MpmWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/DebugWindow/MpmWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/MpmSettingsInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/MpmSettingsInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/Resources/Installers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/Resources/Installers/MpmSettingsInstaller.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/Resources/Installers/MpmSettingsInstaller.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/TriangleDown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/TriangleDown.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/TriangleUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/TriangleUp.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/Zenject-PoolMonitor-Editor.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/MemoryPoolMonitor/Editor/Zenject-PoolMonitor-Editor.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ObjectGraphVisualizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ObjectGraphVisualizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Common.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Common/CecilExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Common/CecilExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Common/ReflectionBakingModuleEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Common/ReflectionBakingModuleEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Lib.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/AssemblyPathRegistry.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/AssemblyPathRegistry.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/ReflectionBakingBuildObserver.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/ReflectionBakingBuildObserver.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/ReflectionBakingInternalUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/ReflectionBakingInternalUtil.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/ReflectionBakingMenuItems.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/ReflectionBakingMenuItems.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/UnityAssemblyResolver.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/UnityAssemblyResolver.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/ZenjectReflectionBakingSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/ZenjectReflectionBakingSettings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/ZenjectReflectionBakingSettingsEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Unity/ZenjectReflectionBakingSettingsEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Zenject-ReflectionBaking-Editor.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Zenject-ReflectionBaking-Editor.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ReflectionBaking/Zenject-ReflectionBaking.csproj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/SceneParentLoading.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/SceneParentLoading/DefaultSceneContractConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/SceneParentLoading/DefaultSceneContractConfig.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/SceneParentLoading/SceneParentAutomaticLoader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/SceneParentLoading/SceneParentAutomaticLoader.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestBuildAssemblyFilter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestBuildAssemblyFilter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/SceneTestFixture.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/SceneTestFixture.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/SceneTestFixtureSceneReference.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/SceneTestFixtureSceneReference.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/ValidateOnlyAttribute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/ValidateOnlyAttribute.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/Zenject-TestFramework.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/Zenject-TestFramework.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/ZenjectIntegrationTestFixture.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/ZenjectIntegrationTestFixture.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/ZenjectTestUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/ZenjectTestUtil.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/ZenjectUnitTestFixture.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/TestFramework/ZenjectUnitTestFixture.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/UnityInspectorListEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/UnityInspectorListEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ZenMenuItems.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ZenMenuItems.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ZenUnityEditorUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/ZenUnityEditorUtil.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Zenject-Editor.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Editor/Zenject-Editor.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/AnimatorInterfaces.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/AnimatorInterfaces/AnimatorIkHandlerManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/AnimatorInterfaces/AnimatorIkHandlerManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/AnimatorInterfaces/AnimatorInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/AnimatorInterfaces/AnimatorInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/AnimatorInterfaces/AnimatorMoveHandlerManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/AnimatorInterfaces/AnimatorMoveHandlerManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/AnimatorInterfaces/IAnimatorIkHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/AnimatorInterfaces/IAnimatorIkHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/AnimatorInterfaces/IAnimatorMoveHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/AnimatorInterfaces/IAnimatorMoveHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/AddressableInject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/AddressableInject.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/AsyncDiContainerExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/AsyncDiContainerExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/AsyncInject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/AsyncInject.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/AddressableFromBinderGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/AddressableFromBinderGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/AsyncFromBinderBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/AsyncFromBinderBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/AsyncFromBinderGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/AsyncFromBinderGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/ConcreteAddressableBinderGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/ConcreteAddressableBinderGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/ConcreteAddressableIdBinderGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/ConcreteAddressableIdBinderGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/ConcreteAsyncBinderGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/ConcreteAsyncBinderGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/ConcreteAsyncIdBinderGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Binders/ConcreteAsyncIdBinderGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Extenject-Async.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Extenject-Async.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Providers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Providers/AddressableProviderSimple.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Providers/AddressableProviderSimple.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Providers/AsyncMethodProviderSimple.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Async/Providers/AsyncMethodProviderSimple.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindInfo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindInfo/BindInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindInfo/BindInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindInfo/BindStatement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindInfo/BindStatement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindInfo/FactoryBindInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindInfo/FactoryBindInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindInfo/GameObjectCreationParameters.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindInfo/GameObjectCreationParameters.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindInfo/MemoryPoolBindInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindInfo/MemoryPoolBindInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ArgConditionCopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ArgConditionCopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConcreteBinders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConcreteBinders/ConcreteBinderGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConcreteBinders/ConcreteBinderGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConcreteBinders/ConcreteBinderNonGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConcreteBinders/ConcreteBinderNonGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConcreteBinders/ConcreteIdBinderGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConcreteBinders/ConcreteIdBinderGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConcreteBinders/ConcreteIdBinderNonGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConcreteBinders/ConcreteIdBinderNonGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConcreteIdArgConditionCopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConcreteIdArgConditionCopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConditionCopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ConditionCopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Conventions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Conventions/ConventionAssemblySelectionBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Conventions/ConventionAssemblySelectionBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Conventions/ConventionBindInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Conventions/ConventionBindInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Conventions/ConventionFilterTypesBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Conventions/ConventionFilterTypesBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Conventions/ConventionSelectTypesBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Conventions/ConventionSelectTypesBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/CopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/CopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/DefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/DefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder0.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder0.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder1.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder10.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder10.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder2.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder2.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder3.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder3.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder4.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder4.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder5.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder5.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder6.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder6.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder0.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder0.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder1.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder10.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder10.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder2.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder2.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder3.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder3.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder4.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder4.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder5.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder5.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder6.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder6.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder0.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder0.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder1.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder10.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder10.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder2.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder2.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder3.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder3.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder4.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder4.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder5.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder5.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder6.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder6.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinderBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinderBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinderWithParams.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinderWithParams.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/Untyped.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/Untyped/FactoryFromBinderUntyped.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinder/Untyped/FactoryFromBinderUntyped.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinderBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryFromBinderBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/DecoratorToChoiceFromBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/DecoratorToChoiceFromBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder0.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder0.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder1.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder10.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder10.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder2.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder2.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder3.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder3.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder4.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder4.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder5.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder5.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder6.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder6.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder0.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder0.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder1.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder10.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder10.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder2.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder2.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder3.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder3.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder4.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder4.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder5.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder5.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder6.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder6.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/PlaceholderFactoryBindingFinalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/PlaceholderFactoryBindingFinalizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/Pooling.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/Pooling/MemoryPoolBindingFinalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/Pooling/MemoryPoolBindingFinalizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/Pooling/MemoryPoolExpandBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/Pooling/MemoryPoolExpandBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/Pooling/MemoryPoolInitialSizeBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/Factory/Pooling/MemoryPoolInitialSizeBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/FromBinders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/FromBinders/FromBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/FromBinders/FromBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/FromBinders/FromBinderGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/FromBinders/FromBinderGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/FromBinders/FromBinderNonGeneric.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/FromBinders/FromBinderNonGeneric.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/GameObject.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/GameObject/NameTransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/GameObject/NameTransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/GameObject/TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/GameObject/TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/IdBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/IdBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/IdScopeConcreteIdArgConditionCopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/IdScopeConcreteIdArgConditionCopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/IfNotBoundBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/IfNotBoundBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/InstantiateCallbackConditionCopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/InstantiateCallbackConditionCopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/NonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/NonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ScopeConcreteIdArgConditionCopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/ScopeConcreteIdArgConditionCopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/SubContainerBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/SubContainerBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/WithKernelDefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/WithKernelDefaultParentScopeConcreteIdArgConditionCopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/WithKernelScopeConcreteIdArgConditionCopyNonLazyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Binders/WithKernelScopeConcreteIdArgConditionCopyNonLazyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindingUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/BindingUtil.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/IBindingFinalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/IBindingFinalizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/NullBindingFinalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/NullBindingFinalizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/PrefabBindingFinalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/PrefabBindingFinalizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/PrefabResourceBindingFinalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/PrefabResourceBindingFinalizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/ProviderBindingFinalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/ProviderBindingFinalizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/ScopableBindingFinalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/ScopableBindingFinalizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/SingleProviderBindingFinalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/SingleProviderBindingFinalizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/SubContainerBindingFinalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/SubContainerBindingFinalizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/SubContainerPrefabBindingFinalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Binding/Finalizers/SubContainerPrefabBindingFinalizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/FactoryProviderWrapper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/FactoryProviderWrapper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/IFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/IFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/KeyedFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/KeyedFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/PlaceholderFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/PlaceholderFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/PlaceholderFactoryBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/PlaceholderFactoryBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/IMemoryPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/IMemoryPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/MemoryPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/MemoryPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/MemoryPoolBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/MemoryPoolBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/MonoMemoryPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/MonoMemoryPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/MonoPoolableMemoryPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/MonoPoolableMemoryPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/PoolFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/PoolFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/PoolableMemoryPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/PoolableMemoryPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Static.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Static/PoolableStaticMemoryPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Static/PoolableStaticMemoryPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Static/StaticMemoryPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Static/StaticMemoryPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/ArrayPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/ArrayPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/DictionaryPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/DictionaryPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/HashSetPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/HashSetPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/ListPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/ListPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/PoolCleanupChecker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/PoolCleanupChecker.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/StaticMemoryPoolRegistry.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/Pooling/Util/StaticMemoryPoolRegistry.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/PrefabFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/PrefabFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/PrefabResourceFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Factories/PrefabResourceFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Injection.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Injection/InjectContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Injection/InjectContext.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Injection/InjectUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Injection/InjectUtil.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Injection/LazyInject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Injection/LazyInject.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/CompositeInstallerExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/CompositeInstallerExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/CompositeMonoInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/CompositeMonoInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/CompositeScriptableObjectInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/CompositeScriptableObjectInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/Context.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/Context.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/GameObjectContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/GameObjectContext.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/ProjectContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/ProjectContext.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/RunnableContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/RunnableContext.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/SceneContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/SceneContext.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/SceneDecoratorContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/SceneDecoratorContext.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/StaticContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Contexts/StaticContext.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/ICompositeInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/ICompositeInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/IInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/IInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Installer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/Installer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/InstallerBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/InstallerBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/MonoInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/MonoInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/MonoInstallerBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/MonoInstallerBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/ScriptableObjectInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/ScriptableObjectInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/ScriptableObjectInstallerBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/ScriptableObjectInstallerBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/ZenjectBinding.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/ZenjectBinding.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/ZenjectManagersInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Install/ZenjectManagersInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/Assert.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/Assert.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/Func.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/Func.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/LinqExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/LinqExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/Log.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/Log.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/MiscExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/MiscExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/PreserveAttribute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/PreserveAttribute.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/TypeExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/TypeExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/TypeStringFormatter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/TypeStringFormatter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/ValuePair.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Internal/ValuePair.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/DecoratableMonoKernel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/DecoratableMonoKernel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/DefaultGameObjectKernel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/DefaultGameObjectKernel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/Kernel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/Kernel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/MonoKernel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/MonoKernel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/ProjectKernel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/ProjectKernel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/SceneKernel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Kernels/SceneKernel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/BindingId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/BindingId.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/DiContainer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/DiContainer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/IInstantiator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/IInstantiator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/LazyInstanceInjector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/LazyInstanceInjector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/LookupId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/LookupId.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/SingletonMarkRegistry.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/SingletonMarkRegistry.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/ZenjectSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Main/ZenjectSettings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/DisposableManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/DisposableManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/GuiRenderableManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/GuiRenderableManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/GuiRenderer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/GuiRenderer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/InitializableManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/InitializableManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/PoolableManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/PoolableManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/SceneContextRegistry.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/SceneContextRegistry.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/SceneContextRegistryAdderAndRemover.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/SceneContextRegistryAdderAndRemover.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/TaskUpdater.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/TaskUpdater.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/TickableManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Managers/TickableManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/CachedOpenTypeProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/CachedOpenTypeProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/CachedProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/CachedProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/AddToGameObjectComponentProviders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToCurrentGameObjectComponentProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToCurrentGameObjectComponentProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToExistingGameObjectComponentProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToExistingGameObjectComponentProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToGameObjectComponentProviderBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToGameObjectComponentProviderBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToNewGameObjectComponentProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToNewGameObjectComponentProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/GetFromGameObjectComponentProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/GetFromGameObjectComponentProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/GetFromGameObjectGetterComponentProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/GetFromGameObjectGetterComponentProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/GetFromPrefabComponentProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/GetFromPrefabComponentProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/InstantiateOnPrefabComponentProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ComponentProviders/InstantiateOnPrefabComponentProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/Decorator.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/Decorator/DecoratorProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/Decorator/DecoratorProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/GameObjectProviders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/GameObjectProviders/EmptyGameObjectProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/GameObjectProviders/EmptyGameObjectProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/GameObjectProviders/PrefabGameObjectProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/GameObjectProviders/PrefabGameObjectProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/GetterProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/GetterProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/IFactoryProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/IFactoryProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/IProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/IProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/IProviderExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/IProviderExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/InstanceProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/InstanceProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodMultipleProviderUntyped.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodMultipleProviderUntyped.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodProviderMultiple.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodProviderMultiple.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodProviderSimple.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodProviderSimple.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodProviderUntyped.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodProviderUntyped.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodProviderWithContainer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/MethodProviderWithContainer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PoolableMemoryPoolProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PoolableMemoryPoolProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabCreators.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabCreators/IPrefabInstantiator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabCreators/IPrefabInstantiator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabCreators/PrefabInstantiator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabCreators/PrefabInstantiator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabCreators/PrefabInstantiatorCached.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabCreators/PrefabInstantiatorCached.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabProviders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabProviders/IPrefabProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabProviders/IPrefabProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabProviders/PrefabProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabProviders/PrefabProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabProviders/PrefabProviderCustom.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabProviders/PrefabProviderCustom.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabProviders/PrefabProviderResource.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/PrefabProviders/PrefabProviderResource.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ProviderUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ProviderUtil.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ResolveProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ResolveProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ResourceProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ResourceProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ScriptableObjectInstanceProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ScriptableObjectInstanceProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ScriptableObjectResourceProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/ScriptableObjectResourceProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/ISubContainerCreator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/ISubContainerCreator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorBindInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorBindInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByInstance.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByInstance.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByInstanceGetter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByInstanceGetter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByMethod.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByMethod.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByNewGameObjectDynamicContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByNewGameObjectDynamicContext.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByNewPrefab.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByNewPrefab.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByNewPrefabDynamicContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByNewPrefabDynamicContext.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByNewPrefabWithParams.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorByNewPrefabWithParams.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorCached.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorCached.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorDynamicContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorDynamicContext.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerCreators/SubContainerCreatorUtil.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerDependencyProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/SubContainerDependencyProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/TransientProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Providers/TransientProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/BindSignal.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/BindSignal/BindSignalFromBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/BindSignal/BindSignalFromBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/BindSignal/BindSignalIdToBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/BindSignal/BindSignalIdToBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/BindSignal/BindSignalToBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/BindSignal/BindSignalToBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/BindSignal/SignalCallbackWithLookupWrapper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/BindSignal/SignalCallbackWithLookupWrapper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/BindSignal/SignalCallbackWrapper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/BindSignal/SignalCallbackWrapper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/DeclareSignal.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/DeclareSignal/DeclareSignalAsyncTickPriorityCopyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/DeclareSignal/DeclareSignalAsyncTickPriorityCopyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/DeclareSignal/DeclareSignalIdRequireHandlerAsyncTickPriorityCopyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/DeclareSignal/DeclareSignalIdRequireHandlerAsyncTickPriorityCopyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/DeclareSignal/DeclareSignalRequireHandlerAsyncTickPriorityCopyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/DeclareSignal/DeclareSignalRequireHandlerAsyncTickPriorityCopyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/DeclareSignal/SignalBindingBindInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/DeclareSignal/SignalBindingBindInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/DeclareSignal/SignalDeclarationBindInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/DeclareSignal/SignalDeclarationBindInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/SignalCopyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/SignalCopyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/SignalExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/SignalExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/SignalTickPriorityCopyBinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/Binders/SignalTickPriorityCopyBinder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/SignalDeclaration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/SignalDeclaration.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/SignalSubscription.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/SignalSubscription.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/SignalSubscriptionId.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Internal/SignalSubscriptionId.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Main.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Main/SignalBus.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Main/SignalBus.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Main/SignalBusInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Main/SignalBusInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Main/SignalDeclarationAsyncInitializer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Main/SignalDeclarationAsyncInitializer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Signals/Zenject-Signals.csproj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ActionInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ActionInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/CheatSheet.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/CheatSheet.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ConstructorChoiceStrategy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ConstructorChoiceStrategy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/DefaultGameObjectParentInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/DefaultGameObjectParentInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/DisposeBlock.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/DisposeBlock.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ExecutionOrderInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ExecutionOrderInstaller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ProfileBlock.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ProfileBlock.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ProfileTimers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ProfileTimers.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ReflectionInfoTypeInfoConverter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ReflectionInfoTypeInfoConverter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ReflectionTypeInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ReflectionTypeInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ReflectionUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ReflectionUtil.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/TypeAnalyzer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/TypeAnalyzer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/UnityUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/UnityUtil.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ValidationUtil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ValidationUtil.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenAutoInjecter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenAutoInjecter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenPools.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenPools.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenReflectionTypeAnalyzer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenReflectionTypeAnalyzer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenUtilInternal.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenUtilInternal.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenjectException.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenjectException.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenjectSceneLoader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenjectSceneLoader.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenjectStateMachineBehaviourAutoInjecter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Util/ZenjectStateMachineBehaviourAutoInjecter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Validation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Validation/IValidatable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Validation/IValidatable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Validation/ValidationMarker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Validation/ValidationMarker.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Zenject.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/Zenject.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/link.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Runtime/link.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Usage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Usage/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Usage/Zenject-usage.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Usage/Zenject-usage.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Usage/link.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Usage/link.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/Zenject.csproj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugin/Zenject/package.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,21 +754,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ShutovKS"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ShutovKS&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:RTU-TVP/Archery-at-targets.git",
-    "accountId": "e284b688-3a5a-4a5f-9863-581b1ef230e4"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:RTU-TVP/Archery-at-targets.git&quot;,
+    &quot;accountId&quot;: &quot;e284b688-3a5a-4a5f-9863-581b1ef230e4&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2lcVz1a8G6Cl58illqwPcF3F5Yk" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -64,13 +777,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "mr-mode",
-    "ignore.virus.scanning.warn.message": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.15f1\Editor\Unity.exe" />
@@ -118,11 +831,20 @@
       <option name="presentableId" value="Default" />
       <updated>1725479613418</updated>
       <workItem from="1725479615276" duration="664000" />
+      <workItem from="1725517243298" duration="290000" />
+      <workItem from="1725574637615" duration="14000" />
+      <workItem from="1725643111747" duration="1355000" />
+      <workItem from="1725653467184" duration="1397000" />
+      <workItem from="1725786850509" duration="1521000" />
+      <workItem from="1725791206804" duration="1086000" />
+      <workItem from="1725794605331" duration="290000" />
+      <workItem from="1725794920588" duration="806000" />
     </task>
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
     <option name="unityProject" value="true" />
     <option name="unityProjectFolder" value="true" />
   </component>
