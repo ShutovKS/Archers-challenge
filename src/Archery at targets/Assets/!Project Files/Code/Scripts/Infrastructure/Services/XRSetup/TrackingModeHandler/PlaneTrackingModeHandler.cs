@@ -13,7 +13,6 @@ using UnityEngine.XR.ARFoundation;
 
 namespace Infrastructure.Services.XRSetup.TrackingModeHandler
 {
-    [UsedImplicitly]
     public class PlaneTrackingModeHandler : IXRTrackingModeHandler
     {
         private readonly IARComponentsFactory _arComponentsFactory;

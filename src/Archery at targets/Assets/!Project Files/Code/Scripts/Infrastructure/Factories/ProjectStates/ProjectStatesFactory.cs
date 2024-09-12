@@ -8,7 +8,6 @@ using Zenject;
 
 namespace Infrastructure.Factories.ProjectStates
 {
-    [UsedImplicitly]
     public class ProjectStatesFactory : IProjectStatesFactory
     {
         private readonly DiContainer _container;

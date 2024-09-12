@@ -8,7 +8,6 @@ using UnityEngine.XR.ARSubsystems;
 
 namespace Infrastructure.Services.ARPlanes
 {
-    [UsedImplicitly]
     public class ARPlanesService : IARPlanesService
     {
         public event Action OnPlaneDetected;

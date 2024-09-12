@@ -15,7 +15,6 @@ using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.SceneLoader
 {
-    [UsedImplicitly]
     public class SceneLoaderService : ISceneLoaderService
     {
         private readonly Dictionary<string, AsyncOperationHandle<SceneInstance>> _sceneHandles = new();

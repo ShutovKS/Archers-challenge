@@ -9,7 +9,6 @@ using Zenject;
 
 namespace Infrastructure.Services.Timer
 {
-    [UsedImplicitly]
     public class TimerService : ITimerService, ITickable
     {
         public float RemainingTime { get; private set; }

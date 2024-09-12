@@ -15,7 +15,6 @@ using Zenject;
 
 namespace Infrastructure.Services.Weapon
 {
-    [UsedImplicitly]
     public class WeaponService : IWeaponService, IInitializable
     {
         private readonly IStaticDataService _staticDataService;

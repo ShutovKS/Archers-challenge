@@ -14,7 +14,6 @@ using Object = UnityEngine.Object;
 
 namespace Infrastructure.Factories.Target
 {
-    [UsedImplicitly]
     public class TargetFactory : ITargetFactory
     {
         public event Action<GameObject> TargetHit;

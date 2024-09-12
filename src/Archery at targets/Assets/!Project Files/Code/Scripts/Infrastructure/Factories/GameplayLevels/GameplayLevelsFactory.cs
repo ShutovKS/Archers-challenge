@@ -10,7 +10,6 @@ using static Data.Gameplay.GameplayMode;
 
 namespace Infrastructure.Factories.GameplayLevels
 {
-    [UsedImplicitly]
     public class GameplayLevelsFactory : IGameplayLevelsFactory
     {
         private readonly DiContainer _container;

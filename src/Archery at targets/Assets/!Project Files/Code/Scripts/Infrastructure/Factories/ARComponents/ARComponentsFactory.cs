@@ -13,7 +13,6 @@ using UnityEngine.XR.ARFoundation;
 
 namespace Infrastructure.Factories.ARComponents
 {
-    [UsedImplicitly]
     public class ARComponentsFactory : IARComponentsFactory
     {
         private readonly IPlayerService _playerFactory;

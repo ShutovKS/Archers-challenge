@@ -12,7 +12,6 @@ using UnityEngine;
 
 namespace Infrastructure.Factories.Projectile
 {
-    [UsedImplicitly]
     public class ProjectileFactory : IProjectileFactory
     {
         private readonly IGameObjectFactory _gameObjectFactory;

@@ -20,7 +20,6 @@ using UI.MainMenu;
 
 namespace Core.Project.MainMenu
 {
-    [UsedImplicitly]
     public class MainMenuLogicState : IState, IEnterable, IExitable
     {
         private readonly IProjectManagementService _projectManagementService;

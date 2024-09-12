@@ -10,7 +10,6 @@ using UnityEngine;
 
 namespace Infrastructure.Services.Window
 {
-    [UsedImplicitly]
     public class WindowService : IWindowService
     {
         public WindowService(IUIFactory uiFactory)

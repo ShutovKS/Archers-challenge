@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 
 namespace Core.Project
 {
-    [UsedImplicitly]
     public class BootstrapState : IState, IEnterable
     {
         private readonly IProjectManagementService _projectManagementService;

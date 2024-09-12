@@ -21,7 +21,6 @@ using UnityEngine.SceneManagement;
 
 namespace Logics.Project
 {
-    [UsedImplicitly]
     public class GameplayState : IState, IEnterableWithArg<GameplayLevelData>, IExitable
     {
         private readonly IProjectManagementService _projectManagementService;

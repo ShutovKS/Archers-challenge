@@ -10,7 +10,6 @@ using JetBrains.Annotations;
 
 namespace Core.Project
 {
-    [UsedImplicitly]
     public class PlayerInstantiateState : IState, IEnterable
     {
         private readonly IPlayerService _playerService;

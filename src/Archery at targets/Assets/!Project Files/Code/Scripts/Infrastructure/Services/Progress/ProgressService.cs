@@ -9,7 +9,6 @@ using JetBrains.Annotations;
 
 namespace Infrastructure.Services.Progress
 {
-    [UsedImplicitly]
     public class ProgressService : IProgressService
     {
         private const string PROGRESS_DATA_KEY = "ProgressData";

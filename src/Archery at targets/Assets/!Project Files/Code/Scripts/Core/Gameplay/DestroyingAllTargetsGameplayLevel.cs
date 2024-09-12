@@ -19,7 +19,6 @@ using Zenject;
 
 namespace Logics.GameplayLevels
 {
-    [UsedImplicitly]
     public class DestroyingAllTargetsGameplayLevel : IGameplayLevel
     {
         public event Action<GameResult> OnGameFinished;

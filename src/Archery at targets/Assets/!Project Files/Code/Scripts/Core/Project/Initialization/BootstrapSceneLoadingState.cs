@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 namespace Core.Project
 {
-    [UsedImplicitly]
     public class BootstrapSceneLoadingState : IState, IEnterable
     {
         private readonly IProjectManagementService _projectManagementService;

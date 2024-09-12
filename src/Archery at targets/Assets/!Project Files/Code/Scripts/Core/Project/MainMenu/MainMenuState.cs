@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 
 namespace Core.Project.MainMenu
 {
-    [UsedImplicitly]
     public class MainMenuState : IState, IEnterable
     {
         private readonly IProjectManagementService _projectManagementService;

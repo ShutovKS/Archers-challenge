@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace Infrastructure.Services.DataStorage
 {
-    [UsedImplicitly]
     public class DataStorageLocalService : IDataStorageService
     {
         public void Save<T>(string key, T data)

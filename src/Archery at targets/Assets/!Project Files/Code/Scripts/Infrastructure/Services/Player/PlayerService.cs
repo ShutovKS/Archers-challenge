@@ -9,7 +9,6 @@ using UnityEngine;
 
 namespace Infrastructure.Services.Player
 {
-    [UsedImplicitly]
     public class PlayerService : IPlayerService
     {
         public GameObject Player { get; private set; }

@@ -7,7 +7,6 @@ using JetBrains.Annotations;
 
 namespace Infrastructure.Services.SceneContainer
 {
-    [UsedImplicitly]
     public class SceneContextProvider : ISceneContextProvider
     {
         private BaseSceneContextData _sceneContextData;

@@ -23,7 +23,6 @@ using Zenject;
 
 namespace Logics.GameplayLevels
 {
-    [UsedImplicitly]
     public class InfiniteModeMRGameplayLevel : IGameplayLevel
     {
         private readonly IStopwatchService _stopwatchService;

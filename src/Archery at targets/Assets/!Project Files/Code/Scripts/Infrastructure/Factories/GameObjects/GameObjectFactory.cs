@@ -7,7 +7,6 @@ using Zenject;
 
 namespace Infrastructure.Factories.GameObjects
 {
-    [UsedImplicitly]
     public class GameObjectFactory : IGameObjectFactory
     {
         private readonly DiContainer _container;

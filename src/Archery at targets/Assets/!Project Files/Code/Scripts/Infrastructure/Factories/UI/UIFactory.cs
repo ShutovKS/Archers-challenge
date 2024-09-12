@@ -13,7 +13,6 @@ using Object = UnityEngine.Object;
 
 namespace Infrastructure.Factories.UI
 {
-    [UsedImplicitly]
     public class UIFactory : IUIFactory
     {
         private readonly IGameObjectFactory _gameObjectFactory;

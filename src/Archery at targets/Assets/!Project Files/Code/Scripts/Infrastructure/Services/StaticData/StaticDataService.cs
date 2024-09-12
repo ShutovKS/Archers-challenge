@@ -14,7 +14,6 @@ using Zenject;
 
 namespace Infrastructure.Services.StaticData
 {
-    [UsedImplicitly]
     public class StaticDataService : IStaticDataService, IInitializable
     {
         private Dictionary<string, LevelData> _levels;

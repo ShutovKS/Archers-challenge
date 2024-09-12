@@ -9,7 +9,6 @@ using Zenject;
 
 namespace Infrastructure.Services.Stopwatch
 {
-    [UsedImplicitly]
     public class StopwatchService : IStopwatchService, ITickable
     {
         public float CurrentTime { get; private set; }

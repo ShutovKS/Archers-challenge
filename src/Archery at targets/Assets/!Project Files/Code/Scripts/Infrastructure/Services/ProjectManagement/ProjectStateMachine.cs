@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 
 namespace Infrastructure.Services.ProjectManagement
 {
-    [UsedImplicitly]
     public class ProjectStateMachine : IProjectManagementService
     {
         private readonly IProjectStatesFactory _projectStatesFactory;

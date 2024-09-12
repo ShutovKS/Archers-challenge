@@ -11,7 +11,6 @@ using UnityEngine;
 
 namespace Infrastructure.Factories.Player
 {
-    [UsedImplicitly]
     public class PlayerFactory : IPlayerFactory
     {
         private readonly IGameObjectFactory _gameObjectFactory;

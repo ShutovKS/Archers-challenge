@@ -9,7 +9,6 @@ using JetBrains.Annotations;
 
 namespace Infrastructure.Services.InteractorSetup
 {
-    [UsedImplicitly]
     public class InteractorService : IInteractorService, IInteractorProvider
     {
         public event Action<HandType, InteractorType, bool> OnInteractorSelect;

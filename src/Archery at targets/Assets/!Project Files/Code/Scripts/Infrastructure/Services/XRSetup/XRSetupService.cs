@@ -15,7 +15,6 @@ using Zenject;
 
 namespace Infrastructure.Services.XRSetup
 {
-    [UsedImplicitly]
     public class XRSetupService : IXRSetupService
     {
         private readonly IARComponentsFactory _arComponentsFactory;

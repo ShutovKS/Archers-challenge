@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Infrastructure.Services.Camera
 {
-    [UsedImplicitly]
     public class CameraService : ICameraService
     {
         public GameObject Camera { get; private set; }

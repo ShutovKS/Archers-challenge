@@ -16,7 +16,6 @@ using UnityEngine.SceneManagement;
 
 namespace Core.Project.MainMenu
 {
-    [UsedImplicitly]
     public class MainMenuBootState : IState, IEnterable
     {
         private readonly IProjectManagementService _projectManagementService;

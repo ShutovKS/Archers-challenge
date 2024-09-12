@@ -12,7 +12,6 @@ using UnityEngine;
 
 namespace Infrastructure.Factories.Weapon
 {
-    [UsedImplicitly]
     public class WeaponFactory : IWeaponFactory
     {
         private readonly IWeaponService _weaponService;

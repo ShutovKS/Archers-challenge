@@ -13,7 +13,6 @@ using Zenject;
 
 namespace Infrastructure.Services.AssetsAddressables
 {
-    [UsedImplicitly]
     public class AssetsAddressablesProvider : IAssetsAddressablesProvider, IInitializable
     {
         private readonly Dictionary<string, AsyncOperationHandle> _completedOperations = new();
