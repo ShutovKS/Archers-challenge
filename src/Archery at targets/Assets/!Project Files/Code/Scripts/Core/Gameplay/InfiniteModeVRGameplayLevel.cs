@@ -2,14 +2,14 @@
 
 using System;
 using System.Threading.Tasks;
-using Data.Gameplay;
-using Data.SceneContext;
+using Data.Configurations.GameplayMode;
+using Data.Contexts.Scene;
 using Features.PositionsContainer;
 using Features.Weapon;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.Weapon;
+using Infrastructure.Providers.SceneContainer;
 using Infrastructure.Services.Player;
-using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Window;
 using UI.HandMenu;
@@ -19,7 +19,7 @@ using Zenject;
 
 #endregion
 
-namespace Logics.GameplayLevels
+namespace Core.Gameplay
 {
     public class InfiniteModeVRGameplayLevel : IGameplayLevel
     {

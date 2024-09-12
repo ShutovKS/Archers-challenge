@@ -2,11 +2,11 @@
 
 using System;
 using System.Threading.Tasks;
-using Data.Gameplay;
+using Data.Configurations.GameplayMode;
 
 #endregion
 
-namespace Logics.GameplayLevels
+namespace Core.Gameplay
 {
     public interface IGameplayLevel
     {

@@ -10,8 +10,12 @@ using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
 using Infrastructure.Factories.Weapon;
 using Infrastructure.Observers.ProgressData;
+using Infrastructure.Providers.AssetsAddressables;
+using Infrastructure.Providers.GlobalDataContainer;
+using Infrastructure.Providers.Interactor;
+using Infrastructure.Providers.SceneContainer;
+using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.ARPlanes;
-using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.Camera;
 using Infrastructure.Services.DataStorage;
 using Infrastructure.Services.InteractorSetup;
@@ -19,9 +23,7 @@ using Infrastructure.Services.Player;
 using Infrastructure.Services.Progress;
 using Infrastructure.Services.Projectile;
 using Infrastructure.Services.ProjectManagement;
-using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.SceneLoader;
-using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Timer;
 using Infrastructure.Services.Weapon;
@@ -39,17 +41,14 @@ namespace Infrastructure.Installers
         public override void InstallBindings()
         {
             BindServices();
+            BindProviders();
             BindFactories();
             BindObservers();
         }
 
         private void BindServices()
         {
-            Container.Bind(typeof(IInitializable), typeof(IAssetsAddressablesProvider)).To<AssetsAddressablesProvider>().AsSingle();
-            Container.Bind(typeof(IInitializable), typeof(IStaticDataService)).To<StaticDataService>().AsSingle();
-            Container.Bind(typeof(IInteractorService), typeof(IInteractorProvider)).To<InteractorService>().AsSingle();
             Container.Bind<IProjectManagementService>().To<ProjectStateMachine>().AsSingle();
-            Container.Bind<ISceneContextProvider>().To<SceneContextProvider>().AsSingle();
             Container.Bind<ISceneLoaderService>().To<SceneLoaderService>().AsSingle();
             Container.Bind(typeof(IStopwatchService), typeof(ITickable)).To<StopwatchService>().AsSingle();
             Container.Bind(typeof(ITimerService), typeof(ITickable)).To<TimerService>().AsSingle();
@@ -62,6 +61,15 @@ namespace Infrastructure.Installers
             Container.Bind<IARPlanesService>().To<ARPlanesService>().AsSingle();
             Container.Bind<IPlayerService>().To<PlayerService>().AsSingle();
             Container.Bind<ICameraService>().To<CameraService>().AsSingle();
+        }
+        
+        private void BindProviders()
+        {
+            Container.Bind(typeof(IInitializable), typeof(IAssetsAddressablesProvider)).To<AssetsAddressablesProvider>().AsSingle();
+            Container.Bind(typeof(IInitializable), typeof(IStaticDataProvider)).To<StaticDataProvider>().AsSingle();
+            Container.Bind(typeof(IInteractorService), typeof(IInteractorProvider)).To<InteractorService>().AsSingle();
+            Container.Bind<ISceneContextProvider>().To<SceneContextProvider>().AsSingle();
+            Container.Bind<IGlobalContextProvider>().To<GlobalContextProvider>().AsSingle();
         }
 
         private void BindFactories()

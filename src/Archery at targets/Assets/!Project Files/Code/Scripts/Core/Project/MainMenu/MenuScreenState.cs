@@ -1,12 +1,12 @@
 ﻿#region
 
-using Data.Level;
+using Core.Gameplay;
+using Core.Project.Gameplay;
+using Data.Configurations.Level;
 using Infrastructure.Factories.GameplayLevels;
+using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.ProjectManagement;
-using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
-using Logics.GameplayLevels;
-using Logics.Project;
 using UI.Levels;
 using UI.MainMenu;
 
@@ -17,7 +17,7 @@ namespace Core.Project.MainMenu
     public class MenuScreenState : IState, IEnterable, IExitable
     {
         private readonly IProjectManagementService _projectManagementService;
-        private readonly IStaticDataService _staticDataService;
+        private readonly IStaticDataProvider _staticDataProvider;
         private readonly IWindowService _windowService;
         private readonly IGameplayLevelsFactory _gameplayLevelsFactory;
 
@@ -26,12 +26,12 @@ namespace Core.Project.MainMenu
 
         public MenuScreenState(
             IProjectManagementService projectManagementService,
-            IStaticDataService staticDataService,
+            IStaticDataProvider staticDataProvider,
             IWindowService windowService,
             IGameplayLevelsFactory gameplayLevelsFactory)
         {
             _projectManagementService = projectManagementService;
-            _staticDataService = staticDataService;
+            _staticDataProvider = staticDataProvider;
             _windowService = windowService;
             _gameplayLevelsFactory = gameplayLevelsFactory;
         }
@@ -62,7 +62,7 @@ namespace Core.Project.MainMenu
         {
             _gameplayLevelsFactory.Create<T>();
             
-            var levelData = _staticDataService.GetLevelData<LevelData>(modeName);
+            var levelData = _staticDataProvider.GetLevelData<LevelData>(modeName);
             
             _projectManagementService.ChangeState<GameplayState, LevelData>(levelData);
         }

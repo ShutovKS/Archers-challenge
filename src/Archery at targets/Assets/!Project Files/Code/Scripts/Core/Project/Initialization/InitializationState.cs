@@ -1,6 +1,6 @@
 using Infrastructure.Services.ProjectManagement;
 
-namespace Core.Project
+namespace Core.Project.Initialization
 {
     public class InitializationState : IState, IEnterable
     {

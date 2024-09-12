@@ -1,9 +1,9 @@
 #region
 
-using Data.Paths;
+using Data.Constants.Paths;
 using Infrastructure.Factories.ARComponents;
+using Infrastructure.Providers.AssetsAddressables;
 using Infrastructure.Services.ARPlanes;
-using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.XRSetup.TrackingMode;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;

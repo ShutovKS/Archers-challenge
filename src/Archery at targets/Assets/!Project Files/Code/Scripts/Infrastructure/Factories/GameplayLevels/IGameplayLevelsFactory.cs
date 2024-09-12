@@ -1,7 +1,7 @@
 #region
 
-using Data.Gameplay;
-using Logics.GameplayLevels;
+using Core.Gameplay;
+using Data.Configurations.GameplayMode;
 
 #endregion
 
@@ -9,7 +9,7 @@ namespace Infrastructure.Factories.GameplayLevels
 {
     public interface IGameplayLevelsFactory
     {
-        IGameplayLevel Create(GameplayMode gameplayMode);
+        IGameplayLevel Create(GameplayModeType gameplayModeType);
         IGameplayLevel Create<T>() where T : IGameplayLevel;
     }
 }

@@ -1,7 +1,7 @@
 #region
 
 using System.Collections.Generic;
-using Data.Weapon;
+using Data.Configurations.Weapon;
 using UnityEngine.AddressableAssets;
 
 #endregion

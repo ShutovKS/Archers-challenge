@@ -1,7 +1,7 @@
 #region
 
-using Data.SceneContext;
-using Infrastructure.Services.SceneContainer;
+using Data.Contexts.Scene;
+using Infrastructure.Providers.SceneContainer;
 using UnityEngine;
 using Zenject;
 

@@ -1,8 +1,8 @@
-using Data.Level;
+using Core.Project.Gameplay;
+using Data.Configurations.Level;
+using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.ProjectManagement;
-using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
-using Logics.Project;
 using UI.Levels;
 
 namespace Core.Project.MainMenu
@@ -10,16 +10,16 @@ namespace Core.Project.MainMenu
     public class LevelsScreenState : IState, IEnterable, IExitable
     {
         private readonly IWindowService _windowService;
-        private readonly IStaticDataService _staticDataService;
+        private readonly IStaticDataProvider _staticDataProvider;
         private readonly IProjectManagementService _projectManagementService;
 
         private LevelsUI _levelsUI;
 
-        public LevelsScreenState(IWindowService windowService, IStaticDataService staticDataService,
+        public LevelsScreenState(IWindowService windowService, IStaticDataProvider staticDataProvider,
             IProjectManagementService projectManagementService)
         {
             _windowService = windowService;
-            _staticDataService = staticDataService;
+            _staticDataProvider = staticDataProvider;
             _projectManagementService = projectManagementService;
         }
 
@@ -41,7 +41,7 @@ namespace Core.Project.MainMenu
 
         private void StartLevel(string levelId)
         {
-            var levelData = _staticDataService.GetLevelData<GameplayLevelData>(levelId);
+            var levelData = _staticDataProvider.GetLevelData<GameplayLevelData>(levelId);
 
             _projectManagementService.ChangeState<GameplayState, GameplayLevelData>(levelData);
         }

@@ -1,7 +1,7 @@
 #region
 
 using System.Threading.Tasks;
-using Data.Paths;
+using Data.Constants.Paths;
 using Infrastructure.Factories.GameObjects;
 using UnityEngine;
 

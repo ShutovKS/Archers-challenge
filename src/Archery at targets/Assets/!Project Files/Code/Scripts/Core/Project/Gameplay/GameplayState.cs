@@ -2,8 +2,9 @@
 
 using System;
 using System.Threading.Tasks;
+using Core.Gameplay;
 using Core.Project.MainMenu;
-using Data.Level;
+using Data.Configurations.Level;
 using Features.PositionsContainer;
 using Features.Weapon;
 using Infrastructure.Factories.GameplayLevels;
@@ -11,14 +12,13 @@ using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.XRSetup;
-using Logics.GameplayLevels;
 using UI.InformationDesk;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 #endregion
 
-namespace Logics.Project
+namespace Core.Project.Gameplay
 {
     public class GameplayState : IState, IEnterableWithArg<GameplayLevelData>, IExitable
     {
@@ -54,18 +54,9 @@ namespace Logics.Project
 
         public async void OnEnter(GameplayLevelData levelData)
         {
-            _levelData = levelData;
-
-            await InstantiateLocation();
-
             ConfigurePlayer();
 
             await StartGameplay();
-        }
-
-        private async Task InstantiateLocation()
-        {
-            await _sceneLoaderService.LoadSceneAsync(_levelData.LocationScenePath, LoadSceneMode.Additive);
         }
 
         private void ConfigurePlayer()
@@ -78,7 +69,7 @@ namespace Logics.Project
 
         private async Task StartGameplay()
         {
-            _gameplayLevel = _gameplayLevelsFactory.Create(_levelData.GameplayModeData.Mode);
+            _gameplayLevel = _gameplayLevelsFactory.Create(_levelData.GameplayModeData.ModeType);
 
             await _gameplayLevel.StartGame(_levelData.GameplayModeData);
 
@@ -129,6 +120,21 @@ namespace Logics.Project
         private void DestroyLocation()
         {
             _sceneLoaderService.UnloadSceneAsync(_levelData.LocationScenePath);
+        }
+    }
+
+    public class BootState : IState, IEnterable
+    {
+        public void OnEnter()
+        {
+            _levelData = levelData;
+            
+            await InstantiateLocation();
+        }
+        
+        private async Task InstantiateLocation()
+        {
+            await _sceneLoaderService.LoadSceneAsync(_levelData.LocationScenePath, LoadSceneMode.Additive);
         }
     }
 }

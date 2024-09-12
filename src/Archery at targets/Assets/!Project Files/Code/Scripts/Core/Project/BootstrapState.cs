@@ -1,5 +1,6 @@
 ﻿#region
 
+using Core.Project.Initialization;
 using Infrastructure.Services.ProjectManagement;
 using UnityEngine.SceneManagement;
 

@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Infrastructure.Services.AssetsAddressables;
+using Infrastructure.Providers.AssetsAddressables;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;

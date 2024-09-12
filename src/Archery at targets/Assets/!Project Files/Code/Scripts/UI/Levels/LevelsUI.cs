@@ -2,7 +2,7 @@
 
 using System;
 using System.Collections.Generic;
-using Data.Level;
+using Data.Configurations.Level;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -3,7 +3,7 @@ using Infrastructure.Services.ProjectManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Core.Project
+namespace Core.Project.Initialization
 {
     public class BootstrapSceneLoadingState : IState, IEnterable
     {

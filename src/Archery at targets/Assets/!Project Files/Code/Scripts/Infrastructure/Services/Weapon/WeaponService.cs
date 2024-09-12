@@ -3,9 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Data.Weapon;
+using Data.Configurations.Weapon;
+using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.Progress;
-using Infrastructure.Services.StaticData;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
@@ -16,7 +16,7 @@ namespace Infrastructure.Services.Weapon
 {
     public class WeaponService : IWeaponService, IInitializable
     {
-        private readonly IStaticDataService _staticDataService;
+        private readonly IStaticDataProvider _staticDataProvider;
         private readonly IProgressService _progressService;
 
         private Dictionary<string, WeaponData> _allWeaponsCache;
@@ -27,9 +27,9 @@ namespace Infrastructure.Services.Weapon
         public event Action<WeaponData> OnWeaponEquipped;
         public event Action<WeaponData> OnWeaponUnlocked;
 
-        public WeaponService(IStaticDataService staticDataService, IProgressService progressService)
+        public WeaponService(IStaticDataProvider staticDataProvider, IProgressService progressService)
         {
-            _staticDataService = staticDataService;
+            _staticDataProvider = staticDataProvider;
             _progressService = progressService;
         }
 
@@ -148,7 +148,7 @@ namespace Infrastructure.Services.Weapon
 
         private void CacheAllWeapons()
         {
-            _allWeaponsCache = _staticDataService
+            _allWeaponsCache = _staticDataProvider
                 .GetWeaponData<WeaponData>()
                 .ToDictionary(w => w.Key, w => w);
         }

@@ -7,7 +7,7 @@ using Infrastructure.Services.ProjectManagement;
 
 #endregion
 
-namespace Core.Project
+namespace Core.Project.Initialization
 {
     public class PlayerInstantiateState : IState, IEnterable
     {

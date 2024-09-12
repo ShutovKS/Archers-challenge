@@ -1,7 +1,7 @@
 #region
 
 using System;
-using Data.Level;
+using Data.Configurations.Level;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

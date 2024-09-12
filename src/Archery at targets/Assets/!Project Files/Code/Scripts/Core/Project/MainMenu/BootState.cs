@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using Data.Level;
-using Data.SceneContext;
+using Data.Configurations.Level;
+using Data.Contexts.Scene;
+using Infrastructure.Providers.SceneContainer;
+using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.ProjectManagement;
-using Infrastructure.Services.SceneContainer;
 using Infrastructure.Services.SceneLoader;
-using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
 using UI.Levels;
 using UI.MainMenu;
@@ -15,20 +15,20 @@ namespace Core.Project.MainMenu
     public class BootState : IState, IEnterable
     {
         private readonly IProjectManagementService _projectManagementService;
-        private readonly IStaticDataService _staticDataService;
+        private readonly IStaticDataProvider _staticDataProvider;
         private readonly IWindowService _windowService;
         private readonly ISceneLoaderService _sceneLoaderService;
         private readonly ISceneContextProvider _sceneContextProvider;
 
         public BootState(
             IProjectManagementService projectManagementService,
-            IStaticDataService staticDataService,
+            IStaticDataProvider staticDataProvider,
             IWindowService windowService,
             ISceneLoaderService sceneLoaderService,
             ISceneContextProvider sceneContextProvider)
         {
             _projectManagementService = projectManagementService;
-            _staticDataService = staticDataService;
+            _staticDataProvider = staticDataProvider;
             _windowService = windowService;
             _sceneLoaderService = sceneLoaderService;
             _sceneContextProvider = sceneContextProvider;
@@ -44,7 +44,7 @@ namespace Core.Project.MainMenu
 
         private async Task LoadMainMenuScene()
         {
-            var levelData = _staticDataService.GetLevelData<LevelData>("MainMenu");
+            var levelData = _staticDataProvider.GetLevelData<LevelData>("MainMenu");
             await _sceneLoaderService.LoadSceneAsync(levelData.LocationScenePath, LoadSceneMode.Additive);
         }
 

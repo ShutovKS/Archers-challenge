@@ -1,6 +1,7 @@
 #region
 
 using System;
+using Infrastructure.Providers.Interactor;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;

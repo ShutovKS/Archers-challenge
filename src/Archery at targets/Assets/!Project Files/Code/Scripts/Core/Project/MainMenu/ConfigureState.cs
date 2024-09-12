@@ -1,10 +1,10 @@
-using Data.Level;
-using Data.SceneContext;
+using Data.Configurations.Level;
+using Data.Contexts.Scene;
+using Infrastructure.Providers.SceneContainer;
+using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.ProjectManagement;
-using Infrastructure.Services.SceneContainer;
-using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using UI.Levels;
@@ -17,7 +17,7 @@ namespace Core.Project.MainMenu
         private readonly IXRSetupService _xrSetupService;
         private readonly IInteractorService _interactorService;
         private readonly ISceneContextProvider _sceneContextProvider;
-        private readonly IStaticDataService _staticDataService;
+        private readonly IStaticDataProvider _staticDataProvider;
         private readonly IWindowService _windowService;
         private readonly IProjectManagementService _projectManagementService;
 
@@ -26,7 +26,7 @@ namespace Core.Project.MainMenu
             IXRSetupService xrSetupService,
             IInteractorService interactorService,
             ISceneContextProvider sceneContextProvider,
-            IStaticDataService staticDataService,
+            IStaticDataProvider staticDataProvider,
             IWindowService windowService,
             IProjectManagementService projectManagementService)
         {
@@ -34,7 +34,7 @@ namespace Core.Project.MainMenu
             _xrSetupService = xrSetupService;
             _interactorService = interactorService;
             _sceneContextProvider = sceneContextProvider;
-            _staticDataService = staticDataService;
+            _staticDataProvider = staticDataProvider;
             _windowService = windowService;
             _projectManagementService = projectManagementService;
         }
@@ -61,7 +61,7 @@ namespace Core.Project.MainMenu
         {
             var levelsUI = _windowService.Get<LevelsUI>(WindowID.Levels);
 
-            var gameplayLevelDatas = _staticDataService.GetLevelData<GameplayLevelData>();
+            var gameplayLevelDatas = _staticDataProvider.GetLevelData<GameplayLevelData>();
             levelsUI.SetItems(gameplayLevelDatas);
         }
 

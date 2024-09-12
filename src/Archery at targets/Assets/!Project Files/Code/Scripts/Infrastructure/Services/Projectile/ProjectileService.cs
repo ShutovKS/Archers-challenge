@@ -1,4 +1,4 @@
-using Data.Paths;
+using Data.Constants.Paths;
 
 namespace Infrastructure.Services.Projectile
 {
