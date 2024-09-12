@@ -18,52 +18,16 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 0}
   <IsUnlocked>k__BackingField: 0
   <Customization>k__BackingField:
-    rid: 4859448478522146908
+    rid: 3229442957521715394
   references:
     version: 2
     RefIds:
-    - rid: 4859448478522146908
-      type: {class: WeaponLevelCustomization, ns: Data.Weapon, asm: Assembly-CSharp}
+    - rid: 3229442957521715394
+      type: {class: WeaponDefaultCustomization, ns: Data.Configurations.Weapon, asm: Assembly-CSharp}
       data:
-        <Customizations>k__BackingField:
-        - <Key>k__BackingField: 8905c05c-fa08-4bfe-82d7-e38952f7dcaa
-          <Level>k__BackingField: 1
-          <Reference>k__BackingField:
-            m_AssetGUID: ecb7c10c931a2e4479ae4d31b01f3c4d
-            m_SubObjectName: 
-            m_SubObjectGUID: 
-            m_SubObjectType: 
-            m_EditorAssetChanged: 0
-        - <Key>k__BackingField: eba68e81-fd72-419f-81d4-ad0f3d9d3b75
-          <Level>k__BackingField: 2
-          <Reference>k__BackingField:
-            m_AssetGUID: 3ba363814f96a194cbb47d5356f60501
-            m_SubObjectName: 
-            m_SubObjectGUID: 
-            m_SubObjectType: 
-            m_EditorAssetChanged: 0
-        - <Key>k__BackingField: 87f8b8c0-ac48-4f88-a5ca-01c83c38977c
-          <Level>k__BackingField: 3
-          <Reference>k__BackingField:
-            m_AssetGUID: 20bded57e1c6b5542aff7fd5af1ca2d9
-            m_SubObjectName: 
-            m_SubObjectGUID: 
-            m_SubObjectType: 
-            m_EditorAssetChanged: 0
-        - <Key>k__BackingField: 65bf4cdd-1242-4d79-bd11-82f4671f0116
-          <Level>k__BackingField: 4
-          <Reference>k__BackingField:
-            m_AssetGUID: faa671b99534fb9458e9612e6de7e292
-            m_SubObjectName: 
-            m_SubObjectGUID: 
-            m_SubObjectType: 
-            m_EditorAssetChanged: 0
-        - <Key>k__BackingField: 5d499530-b600-438b-92c7-89cc4f04a3d8
-          <Level>k__BackingField: 5
-          <Reference>k__BackingField:
-            m_AssetGUID: da08c5e508cf36b49ab458a102dc42a0
-            m_SubObjectName: 
-            m_SubObjectGUID: 
-            m_SubObjectType: 
-            m_EditorAssetChanged: 0
-        <Key>k__BackingField: 
+        <Reference>k__BackingField:
+          m_AssetGUID: 
+          m_SubObjectName: 
+          m_SubObjectGUID: 
+          m_SubObjectType: 
+          m_EditorAssetChanged: 0

@@ -29,14 +29,14 @@ namespace Infrastructure.Factories.GameObjects
             Vector3? position = null,
             Quaternion? rotation = null,
             Transform parent = null
-        ) where T : Component;
+        ) where T : class;
 
         Task<T> InstantiateAndGetComponent<T>(
             AssetReference path,
             Vector3? position = null,
             Quaternion? rotation = null,
             Transform parent = null
-        ) where T : Component;
+        ) where T : class;
         
         void Destroy(GameObject gameObject);
     }

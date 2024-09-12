@@ -18,39 +18,24 @@ namespace Infrastructure.Factories.GameObjects
         }
 
         public async Task<GameObject> InstantiateAsync(string path, Vector3? position = null,
-            Quaternion? rotation = null, Transform parent = null)
-        {
-            return InstantiateAsync(await _assetsProvider.GetAsset<GameObject>(path), position, rotation, parent);
-        }
+            Quaternion? rotation = null, Transform parent = null) =>
+            InstantiateAsync(await _assetsProvider.GetAsset<GameObject>(path), position, rotation, parent);
 
         public async Task<GameObject> InstantiateAsync(AssetReference path, Vector3? position = null,
-            Quaternion? rotation = null, Transform parent = null)
-        {
-            return InstantiateAsync(await _assetsProvider.GetAsset<GameObject>(path), position, rotation, parent);
-        }
+            Quaternion? rotation = null, Transform parent = null) =>
+            InstantiateAsync(await _assetsProvider.GetAsset<GameObject>(path), position, rotation, parent);
 
         public async Task<T> InstantiateAndGetComponent<T>(string path, Vector3? position = null,
-            Quaternion? rotation = null, Transform parent = null) where T : Component
-        {
-            return (await InstantiateAsync(path, position, rotation, parent)).GetComponent<T>();
-        }
+            Quaternion? rotation = null, Transform parent = null) where T : class =>
+            (await InstantiateAsync(path, position, rotation, parent)).GetComponent<T>();
 
         public async Task<T> InstantiateAndGetComponent<T>(AssetReference path, Vector3? position = null,
-            Quaternion? rotation = null, Transform parent = null) where T : Component
-        {
-            return (await InstantiateAsync(path, position, rotation, parent)).GetComponent<T>();
-        }
+            Quaternion? rotation = null, Transform parent = null) where T : class =>
+            (await InstantiateAsync(path, position, rotation, parent)).GetComponent<T>();
 
-        public void Destroy(GameObject gameObject)
-        {
-            Object.Destroy(gameObject);
-        }
+        public void Destroy(GameObject gameObject) => Object.Destroy(gameObject);
 
-        private GameObject InstantiateAsync(GameObject prefab, Vector3? position = null, Quaternion? rotation = null,
-            Transform parent = null)
-        {
-            return _container.InstantiatePrefab(prefab, position ?? Vector3.zero, rotation ?? Quaternion.identity,
-                parent);
-        }
+        private GameObject InstantiateAsync(GameObject prefab, Vector3? pos, Quaternion? rot, Transform parent) =>
+            _container.InstantiatePrefab(prefab, pos ?? Vector3.zero, rot ?? Quaternion.identity, parent);
     }
 }

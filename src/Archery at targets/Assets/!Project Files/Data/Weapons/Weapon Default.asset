@@ -18,12 +18,12 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 0}
   <IsUnlocked>k__BackingField: 1
   <Customization>k__BackingField:
-    rid: 4859448478522146903
+    rid: 3229442957521715392
   references:
     version: 2
     RefIds:
-    - rid: 4859448478522146903
-      type: {class: WeaponDefaultCustomization, ns: Data.Weapon, asm: Assembly-CSharp}
+    - rid: 3229442957521715392
+      type: {class: WeaponDefaultCustomization, ns: Data.Configurations.Weapon, asm: Assembly-CSharp}
       data:
         <Reference>k__BackingField:
           m_AssetGUID: 86f8afcad42030a408a5e4eb9d4c205c

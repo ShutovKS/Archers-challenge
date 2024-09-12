@@ -1,9 +1,9 @@
 ﻿#region
 
-using Core.Gameplay;
 using Core.Project.Gameplay;
 using Data.Configurations.Level;
 using Infrastructure.Factories.GameplayLevels;
+using Infrastructure.Providers.GlobalDataContainer;
 using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.Window;
@@ -19,7 +19,7 @@ namespace Core.Project.MainMenu
         private readonly IProjectManagementService _projectManagementService;
         private readonly IStaticDataProvider _staticDataProvider;
         private readonly IWindowService _windowService;
-        private readonly IGameplayLevelsFactory _gameplayLevelsFactory;
+        private readonly IGlobalContextProvider _globalContextProvider;
 
         private MainMenuUI _mainMenuUI;
         private LevelsUI _levelsUI;
@@ -28,12 +28,13 @@ namespace Core.Project.MainMenu
             IProjectManagementService projectManagementService,
             IStaticDataProvider staticDataProvider,
             IWindowService windowService,
-            IGameplayLevelsFactory gameplayLevelsFactory)
+            IGameplayLevelsFactory gameplayLevelsFactory,
+            IGlobalContextProvider globalContextProvider)
         {
             _projectManagementService = projectManagementService;
             _staticDataProvider = staticDataProvider;
             _windowService = windowService;
-            _gameplayLevelsFactory = gameplayLevelsFactory;
+            _globalContextProvider = globalContextProvider;
         }
 
         public void OnEnter()
@@ -47,9 +48,9 @@ namespace Core.Project.MainMenu
         {
             _mainMenuUI = _windowService.Get<MainMenuUI>(WindowID.MainMenu);
 
-            _mainMenuUI.OnInfiniteVRClicked += () => StartMode<InfiniteModeVRGameplayLevel>("InfiniteVR");
+            _mainMenuUI.OnInfiniteVRClicked += () => StartMode("InfiniteVR");
 
-            _mainMenuUI.OnInfiniteMRClicked += () => StartMode<InfiniteModeMRGameplayLevel>("InfiniteMR");
+            _mainMenuUI.OnInfiniteMRClicked += () => StartMode("InfiniteMR");
 
             _mainMenuUI.OnLevelsClicked += OpenLevelsScreen;
 
@@ -58,13 +59,12 @@ namespace Core.Project.MainMenu
 
         private void OpenLevelsScreen() => _projectManagementService.ChangeState<LevelsScreenState>();
 
-        private void StartMode<T>(string modeName) where T : IGameplayLevel
+        private void StartMode(string modeName)
         {
-            _gameplayLevelsFactory.Create<T>();
-            
             var levelData = _staticDataProvider.GetLevelData<LevelData>(modeName);
+            _globalContextProvider.GlobalContext.LevelData = levelData;
             
-            _projectManagementService.ChangeState<GameplayState, LevelData>(levelData);
+            _projectManagementService.ChangeState<ExitMenuAndLaunchGameplay>();
         }
 
         private void ExitGame()

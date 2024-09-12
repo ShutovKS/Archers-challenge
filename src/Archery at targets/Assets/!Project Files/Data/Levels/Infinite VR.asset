@@ -13,18 +13,20 @@ MonoBehaviour:
   m_Name: Infinite VR
   m_EditorClassIdentifier: 
   <Key>k__BackingField: InfiniteVR
+  <LevelIndex>k__BackingField: -1
   <LevelName>k__BackingField: 
   <ShortDescription>k__BackingField: 
+  <Icon>k__BackingField: {fileID: 0}
   <Music>k__BackingField: {fileID: 0}
   <MusicVolume>k__BackingField: 0
   <LocationScenePath>k__BackingField: Scenes/Locations/Location - Dungeon (Infinite
     VR).unity
   <XRMode>k__BackingField: 1
-  <GameplayLevel>k__BackingField:
-    rid: 4859448307887636755
+  gameplayModeData:
+    rid: 3229442957521715399
   references:
     version: 2
     RefIds:
-    - rid: 4859448307887636755
-      type: {class: InfiniteModeVRGameplayLevel, ns: Infrastructure.GameplayLevels, asm: Assembly-CSharp}
+    - rid: 3229442957521715399
+      type: {class: InfiniteVRGameplay, ns: Data.Configurations.Level, asm: Assembly-CSharp}
       data: 

@@ -11,20 +11,33 @@ namespace Data.Configurations.Level
     public class LevelData : ScriptableObject
     {
         [field: SerializeField] public string Key { get; private set; } = System.Guid.NewGuid().ToString();
+        [field: SerializeField] public int LevelIndex { get; private set; }
 
         [field: Header("Information")]
-        [field: SerializeField] public string LevelName { get; private set; }
+        [field: SerializeField]
+        public string LevelName { get; private set; }
+
         [field: SerializeField] public string ShortDescription { get; private set; }
         [field: SerializeField] public Sprite Icon { get; private set; }
 
         [field: Header("Sounds")]
-        [field: SerializeField] public AudioClip Music { get; private set; }
-        [field: SerializeField, Range(0.0f, 1.0f)] public float MusicVolume { get; private set; } = 1.0f;
+        [field: SerializeField]
+        public AudioClip Music { get; private set; }
+
+        [field: SerializeField, Range(0.0f, 1.0f)]
+        public float MusicVolume { get; private set; } = 1.0f;
 
         [field: Header("References")]
-        [field: SerializeField] public string LocationScenePath { get; private set; }
+        [field: SerializeField]
+        public string LocationScenePath { get; private set; }
 
         [field: Header("Player Configure")]
-        [field: SerializeField] public XRMode XRMode { get; private set; } = XRMode.VR;
+        [field: SerializeField]
+        public XRMode XRMode { get; private set; } = XRMode.VR;
+
+        [Header("Gameplay Mode")] [SerializeReference]
+        private GameplayModeData gameplayModeData;
+
+        public GameplayModeData GameplayModeData => gameplayModeData;
     }
 }

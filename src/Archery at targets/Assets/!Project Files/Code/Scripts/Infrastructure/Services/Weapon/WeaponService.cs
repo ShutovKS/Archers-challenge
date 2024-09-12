@@ -3,7 +3,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Data.Configurations.Weapon;
+using Features.Weapon;
+using Infrastructure.Factories.GameObjects;
 using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.Progress;
 using UnityEngine;
@@ -18,54 +21,65 @@ namespace Infrastructure.Services.Weapon
     {
         private readonly IStaticDataProvider _staticDataProvider;
         private readonly IProgressService _progressService;
+        private readonly IGameObjectFactory _gameObjectFactory;
 
         private Dictionary<string, WeaponData> _allWeaponsCache;
         private Dictionary<string, WeaponData> _ownedWeaponsCache;
         private WeaponData _currentWeaponData;
         private string _currentCustomizationId;
+        private GameObject _currentWeaponInstance;
 
+        public IWeapon CurrentWeapon { get; private set; }
         public event Action<WeaponData> OnWeaponEquipped;
         public event Action<WeaponData> OnWeaponUnlocked;
 
-        public WeaponService(IStaticDataProvider staticDataProvider, IProgressService progressService)
+        public WeaponService(IStaticDataProvider staticDataProvider, IProgressService progressService,
+            IGameObjectFactory gameObjectFactory)
         {
             _staticDataProvider = staticDataProvider;
             _progressService = progressService;
+            _gameObjectFactory = gameObjectFactory;
         }
 
         public void Initialize()
         {
             var progressData = _progressService.Get();
-            
+
             CacheAllWeapons();
-            
+
             CacheOwnedWeapons(progressData.unlockedWeapons);
-            
+
             _currentWeaponData = !string.IsNullOrEmpty(progressData.currentWeaponId)
                 ? GetWeaponData(progressData.currentWeaponId)
                 : GetDefaultWeapon();
-            
+
             _currentCustomizationId = progressData.currentCustomizationId;
         }
 
-        public AssetReference GetCurrentlyEquippedWeaponReference()
+        public async Task InstantiateEquippedWeapon(Vector3 position, Quaternion rotation)
         {
-            switch (_currentWeaponData.Customization)
+            var instance = await _gameObjectFactory.InstantiateAsync(
+                GetCurrentlyEquippedWeaponReference(),
+                position,
+                rotation
+            );
+
+            _currentWeaponInstance = instance;
+            CurrentWeapon = instance.GetComponent<IWeapon>();
+        }
+
+        public void DestroyWeapon()
+        {
+            if (_currentWeaponInstance)
             {
-                case WeaponDefaultCustomization weaponDefaultCustomization:
-                    return weaponDefaultCustomization.Reference;
-                case WeaponLevelCustomization weaponLevelCustomization:
-                    return weaponLevelCustomization.Customizations
-                        .FirstOrDefault(c => c.Key == _currentCustomizationId)
-                        ?.Reference;
-                case WeaponColorCustomization weaponColorCustomization:
-                    return weaponColorCustomization.Customizations
-                        .FirstOrDefault(c => c.Key == _currentCustomizationId)
-                        ?.Reference;
-                default: throw new ArgumentOutOfRangeException(
-                    $"Unknown customization type: {_currentWeaponData.Customization.GetType()}");
+                _gameObjectFactory.Destroy(_currentWeaponInstance);
+             
+                _currentWeaponInstance = null;
+                
+                CurrentWeapon = null;
             }
         }
+
 
         public WeaponData GetCurrentlyEquippedWeaponData() => _currentWeaponData;
 
@@ -75,7 +89,7 @@ namespace Infrastructure.Services.Weapon
                 return weaponData;
 
             var errorMessage = $"Weapon with ID {weaponId} not found.";
-           
+
             Debug.LogError(errorMessage);
             throw new ArgumentException(errorMessage, nameof(weaponId));
         }
@@ -91,26 +105,26 @@ namespace Infrastructure.Services.Weapon
                 if (!_ownedWeaponsCache.ContainsKey(weaponId))
                 {
                     const string ERROR_MESSAGE = "Weapon not unlocked.";
-                    
+
                     Debug.LogError(ERROR_MESSAGE);
                     throw new InvalidOperationException(ERROR_MESSAGE);
                 }
 
                 _currentWeaponData = weaponData;
                 _currentCustomizationId = customizationId;
-                
+
                 var progressData = _progressService.Get();
                 progressData.currentWeaponId = weaponId;
                 progressData.currentCustomizationId = customizationId;
-                
+
                 _progressService.Set(progressData);
-                
+
                 OnWeaponEquipped?.Invoke(weaponData);
             }
             else
             {
                 var errorMessage = $"Weapon with ID {weaponId} not found.";
-                
+
                 Debug.LogError(errorMessage);
                 throw new ArgumentException(errorMessage, nameof(weaponId));
             }
@@ -140,7 +154,7 @@ namespace Infrastructure.Services.Weapon
             else
             {
                 var errorMessage = $"Weapon with ID {weaponId} not found.";
-                
+
                 Debug.LogError(errorMessage);
                 throw new ArgumentException(errorMessage, nameof(weaponId));
             }
@@ -173,5 +187,16 @@ namespace Infrastructure.Services.Weapon
 
             return defaultWeapon;
         }
+
+        private AssetReference GetCurrentlyEquippedWeaponReference() => _currentWeaponData.Customization switch
+        {
+            WeaponDefaultCustomization weaponDefaultCustomization => weaponDefaultCustomization.Reference,
+            WeaponLevelCustomization weaponLevelCustomization => weaponLevelCustomization.Customizations
+                .FirstOrDefault(c => c.Key == _currentCustomizationId)?.Reference,
+            WeaponColorCustomization weaponColorCustomization => weaponColorCustomization.Customizations
+                .FirstOrDefault(c => c.Key == _currentCustomizationId)?.Reference,
+            _ => throw new ArgumentOutOfRangeException(
+                $"Unknown customization type: {_currentWeaponData.Customization.GetType()}")
+        };
     }
 }

@@ -1,13 +1,10 @@
-#region
-
 using System;
 using System.Threading.Tasks;
-using Data.Configurations.GameplayMode;
+using Data.Configurations.Level;
 using Data.Contexts.Scene;
 using Features.PositionsContainer;
 using Features.Weapon;
 using Infrastructure.Factories.Target;
-using Infrastructure.Factories.Weapon;
 using Infrastructure.Providers.SceneContainer;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.Stopwatch;
@@ -17,44 +14,30 @@ using UI.InformationDesk;
 using UnityEngine;
 using Zenject;
 
-#endregion
-
 namespace Core.Gameplay
 {
     public class InfiniteModeVRGameplayLevel : IGameplayLevel
     {
-        private IStopwatchService _stopwatchService;
-        private IWindowService _windowService;
-        private IPlayerService _playerFactory;
-        private ITargetFactory _targetFactory;
-        private IWeaponFactory _weaponFactory;
         private ISceneContextProvider _sceneContextProvider;
+        private WindowService _windowService;
+        private IStopwatchService _stopwatchService;
+        private ITargetFactory _targetFactory;
 
-        private InfiniteSceneContextData _sceneContextData;
-
-        private HandMenuUI _handMenuScreen;
-        private InformationDeskUI _infoScreen;
         private PositionsContainer _positionsContainer;
-        private IWeapon _weapon;
-
+        private InformationDeskUI _infoScreen;
         private int _targetCount;
 
         [Inject]
         public void Construct(
             IStopwatchService stopwatchService,
-            IWindowService windowService,
-            IPlayerService playerFactory,
             ITargetFactory targetFactory,
-            IWeaponFactory weaponFactory,
-            ISceneContextProvider sceneContextProvider
-        )
+            ISceneContextProvider sceneContextProvider,
+            WindowService windowService)
         {
             _stopwatchService = stopwatchService;
-            _windowService = windowService;
-            _playerFactory = playerFactory;
             _targetFactory = targetFactory;
-            _weaponFactory = weaponFactory;
             _sceneContextProvider = sceneContextProvider;
+            _windowService = windowService;
         }
 
         public event Action<GameResult> OnGameFinished;
@@ -62,76 +45,26 @@ namespace Core.Gameplay
         public async Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
             where TGameplayModeData : GameplayModeData
         {
-            GetSceneContextData();
-            ConfigurePlayer();
-            await InstantiateWeapon();
-            await InstantiateInfoScreen();
-            await InstantiateHandMenuScreen();
+            _infoScreen = _windowService.Get<InformationDeskUI>(WindowID.InformationDesk);
+            var sceneContextData = _sceneContextProvider.Get<InfiniteSceneContextData>();
+            _positionsContainer = sceneContextData.PositionsContainer;
+
             await InstantiateTarget();
-            StartStopwatchOnSelectBow();
-        }
 
-        private void GetSceneContextData()
-        {
-            _sceneContextData = _sceneContextProvider.Get<InfiniteSceneContextData>();
-            _positionsContainer = _sceneContextData.PositionsContainer;
-        }
-
-        private void ConfigurePlayer()
-        {
-            _playerFactory.SetPlayerPositionAndRotation(_sceneContextData.PlayerSpawnPoint.position,
-                _sceneContextData.PlayerSpawnPoint.rotation);
-        }
-
-        private async Task InstantiateWeapon()
-        {
-            var spawnPoint = _sceneContextData.BowSpawnPoint;
-
-            _weapon = await _weaponFactory.Instantiate(spawnPoint.position, spawnPoint.rotation);
-        }
-
-        private async Task InstantiateInfoScreen()
-        {
-            var spawnPoint = _sceneContextData.InfoScreenSpawnPoint;
-            _infoScreen = await _windowService.OpenInWorldAndGet<InformationDeskUI>(WindowID.InformationDesk,
-                spawnPoint.position, spawnPoint.rotation);
-            _infoScreen.SetTimeText("0.00");
-            _infoScreen.SetScoreText("0");
-        }
-
-        private async Task InstantiateHandMenuScreen()
-        {
-            var spawnPoint = _playerFactory.PlayerContainer.HandMenuSpawnPoint;
-            _handMenuScreen = await _windowService.OpenInWorldAndGet<HandMenuUI>(WindowID.HandMenu, spawnPoint.position,
-                spawnPoint.rotation, spawnPoint);
-            _handMenuScreen.OnExitButtonClicked += ExitInMainMenu;
+            _stopwatchService.Start();
+            _stopwatchService.OnTick += UpdateInfoScreen;
         }
 
         private async Task InstantiateTarget()
         {
             var (position, rotation) = _positionsContainer.GetTargetPosition();
+
             await _targetFactory.Instantiate(position, rotation);
+
             _targetFactory.TargetHit += OnTargetHit;
         }
 
-        private void StartStopwatchOnSelectBow()
-        {
-            _stopwatchService.OnTick += UpdateInfoScreen;
-            _weapon.OnSelected += StartStopwatch;
-        }
-
-        private void StartStopwatch(bool isSelect)
-        {
-            if (!isSelect) return;
-
-            _stopwatchService.Start();
-            _weapon.OnSelected -= StartStopwatch;
-        }
-
-        private void UpdateInfoScreen(float time)
-        {
-            _infoScreen.SetTimeText(time.ToString("0.00"));
-        }
+        private void UpdateInfoScreen(float time) => _infoScreen.SetTimeText(time.ToString("0.00"));
 
         private async void OnTargetHit(GameObject gameObject)
         {
@@ -139,20 +72,16 @@ namespace Core.Gameplay
             _targetFactory.Destroy(gameObject);
 
             _targetCount++;
+
             _infoScreen.SetScoreText(_targetCount.ToString());
 
             await InstantiateTarget();
         }
 
-        private void ExitInMainMenu()
+        public void Dispose()
         {
             StopStopwatch();
-            CloseUpdateInfoScreen();
-            CloseHandMenuScreen();
             DestroyTargets();
-            DestroyBow();
-
-            OnGameFinished?.Invoke(GameResult.Exit);
         }
 
         private void StopStopwatch()
@@ -161,28 +90,10 @@ namespace Core.Gameplay
             _stopwatchService.Stop();
         }
 
-        private void CloseUpdateInfoScreen()
-        {
-            _stopwatchService.OnTick -= UpdateInfoScreen;
-            _windowService.Close(WindowID.InformationDesk);
-        }
-
-        private void CloseHandMenuScreen()
-        {
-            _handMenuScreen.OnExitButtonClicked -= ExitInMainMenu;
-            _windowService.Close(WindowID.HandMenu);
-        }
-
         private void DestroyTargets()
         {
             _targetFactory.TargetHit -= OnTargetHit;
             _targetFactory.DestroyAll();
-        }
-
-        private void DestroyBow()
-        {
-            _weapon.OnSelected -= StartStopwatch;
-            _weaponFactory.Destroy(_weapon);
         }
     }
 }

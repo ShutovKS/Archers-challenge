@@ -8,7 +8,6 @@ using Infrastructure.Factories.Projectile;
 using Infrastructure.Factories.ProjectStates;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
-using Infrastructure.Factories.Weapon;
 using Infrastructure.Observers.ProgressData;
 using Infrastructure.Providers.AssetsAddressables;
 using Infrastructure.Providers.GlobalDataContainer;
@@ -40,10 +39,10 @@ namespace Infrastructure.Installers
     {
         public override void InstallBindings()
         {
-            BindServices();
             BindProviders();
             BindFactories();
             BindObservers();
+            BindServices();
         }
 
         private void BindServices()
@@ -79,7 +78,6 @@ namespace Infrastructure.Installers
             Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
             Container.Bind<IARComponentsFactory>().To<ARComponentsFactory>().AsSingle();
             Container.Bind<ITargetFactory>().To<TargetFactory>().AsSingle();
-            Container.Bind<IWeaponFactory>().To<WeaponFactory>().AsSingle();
             Container.Bind<IProjectileFactory>().To<ProjectileFactory>().AsSingle();
             Container.Bind<IProjectStatesFactory>().To<ProjectStatesFactory>().AsSingle();
             Container.Bind<IGameplayLevelsFactory>().To<GameplayLevelsFactory>().AsSingle();

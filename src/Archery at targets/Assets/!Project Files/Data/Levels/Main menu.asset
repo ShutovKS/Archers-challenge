@@ -13,8 +13,18 @@ MonoBehaviour:
   m_Name: Main menu
   m_EditorClassIdentifier: 
   <Key>k__BackingField: MainMenu
+  <LevelIndex>k__BackingField: -1
   <LevelName>k__BackingField: 
   <ShortDescription>k__BackingField: 
+  <Icon>k__BackingField: {fileID: 0}
   <Music>k__BackingField: {fileID: 0}
   <MusicVolume>k__BackingField: 0
   <LocationScenePath>k__BackingField: Scenes/Locations/Location - Farm (Main menu).unity
+  <XRMode>k__BackingField: 1
+  gameplayModeData:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

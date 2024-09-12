@@ -21,7 +21,7 @@ namespace Data.Configurations.Weapon
         [field: SerializeField] public bool IsUnlocked { get; private set; } = false;
 
         [Header("References")]
-        [field: SerializeReference] public WeaponCustomization Customization { get; private set; }
+        [field: SerializeReference] public WeaponCustomization Customization { get; private set; } = new WeaponDefaultCustomization();
 
         private void OnValidate()
         {

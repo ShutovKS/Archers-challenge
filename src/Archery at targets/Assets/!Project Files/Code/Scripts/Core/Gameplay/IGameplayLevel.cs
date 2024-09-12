@@ -2,7 +2,7 @@
 
 using System;
 using System.Threading.Tasks;
-using Data.Configurations.GameplayMode;
+using Data.Configurations.Level;
 
 #endregion
 
@@ -14,11 +14,12 @@ namespace Core.Gameplay
 
         Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
             where TGameplayModeData : GameplayModeData;
+
+        void Dispose();
     }
 
     public enum GameResult
     {
-        Exit,
         Win,
         Lose,
         Error

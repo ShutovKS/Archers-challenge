@@ -61,7 +61,7 @@ namespace Core.Project.MainMenu
         {
             var levelsUI = _windowService.Get<LevelsUI>(WindowID.Levels);
 
-            var gameplayLevelDatas = _staticDataProvider.GetLevelData<GameplayLevelData>();
+            var gameplayLevelDatas = _staticDataProvider.GetLevelData<LevelData>();
             levelsUI.SetItems(gameplayLevelDatas);
         }
 

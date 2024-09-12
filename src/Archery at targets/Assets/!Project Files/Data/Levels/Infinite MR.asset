@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Infinite MR
   m_EditorClassIdentifier: 
   <Key>k__BackingField: InfiniteMR
+  <LevelIndex>k__BackingField: -1
   <LevelName>k__BackingField: 
   <ShortDescription>k__BackingField: 
   <Icon>k__BackingField: {fileID: 0}
@@ -21,3 +22,11 @@ MonoBehaviour:
   <LocationScenePath>k__BackingField: Scenes/Locations/Location - Empty (Infinite
     MR).unity
   <XRMode>k__BackingField: 2
+  gameplayModeData:
+    rid: 3229442957521715398
+  references:
+    version: 2
+    RefIds:
+    - rid: 3229442957521715398
+      type: {class: InfiniteMRGameplay, ns: Data.Configurations.Level, asm: Assembly-CSharp}
+      data: 

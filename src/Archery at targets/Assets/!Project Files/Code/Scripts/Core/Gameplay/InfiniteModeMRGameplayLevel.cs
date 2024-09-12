@@ -1,12 +1,11 @@
 using System;
 using System.Threading.Tasks;
-using Data.Configurations.GameplayMode;
+using Data.Configurations.Level;
 using Data.Contexts.Scene;
 using Features.PositionsContainer;
 using Features.Weapon;
 using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.Target;
-using Infrastructure.Factories.Weapon;
 using Infrastructure.Providers.SceneContainer;
 using Infrastructure.Services.ARPlanes;
 using Infrastructure.Services.Player;
@@ -27,7 +26,6 @@ namespace Core.Gameplay
         private readonly IWindowService _windowService;
         private readonly IPlayerService _playerService;
         private readonly ITargetFactory _targetFactory;
-        private readonly IWeaponFactory _weaponFactory;
         private readonly ISceneContextProvider _sceneContextProvider;
         private readonly IARComponentsFactory _arComponentsFactory;
         private readonly IARPlanesService _arPlanesService;
@@ -47,7 +45,6 @@ namespace Core.Gameplay
             IWindowService windowService,
             IPlayerService playerService,
             ITargetFactory targetFactory,
-            IWeaponFactory weaponFactory,
             ISceneContextProvider sceneContextProvider,
             IARComponentsFactory arComponentsFactory,
             IARPlanesService arPlanesService
@@ -57,7 +54,6 @@ namespace Core.Gameplay
             _windowService = windowService;
             _playerService = playerService;
             _targetFactory = targetFactory;
-            _weaponFactory = weaponFactory;
             _sceneContextProvider = sceneContextProvider;
             _arComponentsFactory = arComponentsFactory;
             _arPlanesService = arPlanesService;
@@ -79,11 +75,15 @@ namespace Core.Gameplay
 
             GetSceneContextData();
             ConfigurePlayer();
-            await InstantiateWeapon();
             await InstantiateInfoScreen();
             await InstantiateHandMenuScreen();
             await InstantiateTarget();
             StartStopwatchOnSelectBow();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
 
         private bool TryRequestSceneCapture()
@@ -117,13 +117,6 @@ namespace Core.Gameplay
         {
             _playerService.SetPlayerPositionAndRotation(_sceneContextData.PlayerSpawnPoint.position,
                 _sceneContextData.PlayerSpawnPoint.rotation);
-        }
-
-        private async Task InstantiateWeapon()
-        {
-            var spawnPoint = _sceneContextData.BowSpawnPoint;
-
-            _weapon = await _weaponFactory.Instantiate(spawnPoint.position, spawnPoint.rotation);
         }
 
         private async Task InstantiateInfoScreen()
@@ -216,7 +209,7 @@ namespace Core.Gameplay
             DestroyTargets();
             DestroyBow();
 
-            OnGameFinished?.Invoke(GameResult.Exit);
+            // OnGameFinished?.Invoke(GameResult.Exit);
         }
 
         private void StopStopwatch()
@@ -246,7 +239,6 @@ namespace Core.Gameplay
         private void DestroyBow()
         {
             _weapon.OnSelected -= StartStopwatch;
-            _weaponFactory.Destroy(_weapon);
         }
     }
 }

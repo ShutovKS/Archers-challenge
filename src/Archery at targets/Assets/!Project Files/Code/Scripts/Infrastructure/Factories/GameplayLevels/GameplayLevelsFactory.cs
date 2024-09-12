@@ -1,9 +1,9 @@
 #region
 
 using Core.Gameplay;
-using Data.Configurations.GameplayMode;
+using Data.Configurations.Level;
 using Zenject;
-using static Data.Configurations.GameplayMode.GameplayModeType;
+using static Data.Configurations.Level.GameplayModeType;
 
 #endregion
 
@@ -20,13 +20,14 @@ namespace Infrastructure.Factories.GameplayLevels
 
         public IGameplayLevel Create(GameplayModeType gameplayModeType) => gameplayModeType switch
         {
-            DestroyingAllTargets => _container.Instantiate<DestroyingAllTargetsGameplayLevel>(),
-            DestroyingAllTargetsInTime => _container.Instantiate<DestroyingAllTargetsInTimeGameplayLevel>(),
+            InfiniteMR => Create<InfiniteModeMRGameplayLevel>(),
+            InfiniteVR => Create<InfiniteModeVRGameplayLevel>(),
 
-            None or _ => throw new System.NotImplementedException($"Gameplay mode {gameplayModeType} is not implemented."),
+            None or _ => throw new System.NotImplementedException(
+                $"Gameplay mode {gameplayModeType} is not implemented."),
         };
 
-        public IGameplayLevel Create<T>() where T : IGameplayLevel
+        private IGameplayLevel Create<T>() where T : IGameplayLevel
         {
             var gameplayLevel = _container.Instantiate<T>();
 

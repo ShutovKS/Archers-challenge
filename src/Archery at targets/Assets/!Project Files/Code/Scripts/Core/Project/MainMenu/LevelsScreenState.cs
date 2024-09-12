@@ -1,5 +1,6 @@
 using Core.Project.Gameplay;
 using Data.Configurations.Level;
+using Infrastructure.Providers.GlobalDataContainer;
 using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.Window;
@@ -12,15 +13,17 @@ namespace Core.Project.MainMenu
         private readonly IWindowService _windowService;
         private readonly IStaticDataProvider _staticDataProvider;
         private readonly IProjectManagementService _projectManagementService;
+        private readonly IGlobalContextProvider _globalContextProvider;
 
         private LevelsUI _levelsUI;
 
         public LevelsScreenState(IWindowService windowService, IStaticDataProvider staticDataProvider,
-            IProjectManagementService projectManagementService)
+            IProjectManagementService projectManagementService, IGlobalContextProvider globalContextProvider)
         {
             _windowService = windowService;
             _staticDataProvider = staticDataProvider;
             _projectManagementService = projectManagementService;
+            _globalContextProvider = globalContextProvider;
         }
 
         public void OnEnter()
@@ -41,15 +44,13 @@ namespace Core.Project.MainMenu
 
         private void StartLevel(string levelId)
         {
-            var levelData = _staticDataProvider.GetLevelData<GameplayLevelData>(levelId);
+            var levelData = _staticDataProvider.GetLevelData<LevelData>(levelId);
+            _globalContextProvider.GlobalContext.LevelData = levelData;
 
-            _projectManagementService.ChangeState<GameplayState, GameplayLevelData>(levelData);
+            _projectManagementService.ChangeState<ExitMenuAndLaunchGameplay>();
         }
 
-        private void ExitLevelsScreen()
-        {
-            _projectManagementService.ChangeState<MenuScreenState>();
-        }
+        private void ExitLevelsScreen() => _projectManagementService.ChangeState<MenuScreenState>();
 
         public void OnExit()
         {
