@@ -2,15 +2,9 @@
 
 using Data.Level;
 using Infrastructure.Factories.GameplayLevels;
-using Infrastructure.Services.InteractorSetup;
-using Infrastructure.Services.Player;
 using Infrastructure.Services.ProjectManagement;
-using Infrastructure.Services.SceneContainer;
-using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
-using Infrastructure.Services.XRSetup;
-using JetBrains.Annotations;
 using Logics.GameplayLevels;
 using Logics.Project;
 using UI.Levels;
@@ -20,39 +14,32 @@ using UI.MainMenu;
 
 namespace Core.Project.MainMenu
 {
-    public class MainMenuLogicState : IState, IEnterable, IExitable
+    public class MenuScreenState : IState, IEnterable, IExitable
     {
         private readonly IProjectManagementService _projectManagementService;
         private readonly IStaticDataService _staticDataService;
         private readonly IWindowService _windowService;
-        private readonly ISceneLoaderService _sceneLoaderService;
         private readonly IGameplayLevelsFactory _gameplayLevelsFactory;
 
         private MainMenuUI _mainMenuUI;
         private LevelsUI _levelsUI;
 
-        public MainMenuLogicState(
+        public MenuScreenState(
             IProjectManagementService projectManagementService,
             IStaticDataService staticDataService,
             IWindowService windowService,
-            IPlayerService playerService,
-            ISceneLoaderService sceneLoaderService,
-            ISceneContextProvider sceneContextProvider,
-            IGameplayLevelsFactory gameplayLevelsFactory,
-            IXRSetupService xrSetupService,
-            IInteractorService interactorService)
+            IGameplayLevelsFactory gameplayLevelsFactory)
         {
             _projectManagementService = projectManagementService;
             _staticDataService = staticDataService;
             _windowService = windowService;
-            _sceneLoaderService = sceneLoaderService;
             _gameplayLevelsFactory = gameplayLevelsFactory;
         }
 
         public void OnEnter()
         {
             InitializeMainMenuScreen();
-            InitializeLevelsScreen();
+
             _mainMenuUI.Show();
         }
 
@@ -64,33 +51,19 @@ namespace Core.Project.MainMenu
 
             _mainMenuUI.OnInfiniteMRClicked += () => StartMode<InfiniteModeMRGameplayLevel>("InfiniteMR");
 
-            _mainMenuUI.OnLevelsClicked += _mainMenuUI.Hide;
-            _mainMenuUI.OnLevelsClicked += _levelsUI.Show;
+            _mainMenuUI.OnLevelsClicked += OpenLevelsScreen;
 
             _mainMenuUI.OnExitClicked += ExitGame;
         }
 
-        private void InitializeLevelsScreen()
-        {
-            _levelsUI = _windowService.Get<LevelsUI>(WindowID.Levels);
-
-            _levelsUI.OnBackClicked += _levelsUI.Hide;
-            _levelsUI.OnBackClicked += _mainMenuUI.Show;
-
-            _levelsUI.OnItemClicked += StartLevel;
-        }
-
-        private void StartLevel(string levelId)
-        {
-            var levelData = _staticDataService.GetLevelData<GameplayLevelData>(levelId);
-
-            _projectManagementService.ChangeState<GameplayState, GameplayLevelData>(levelData);
-        }
+        private void OpenLevelsScreen() => _projectManagementService.ChangeState<LevelsScreenState>();
 
         private void StartMode<T>(string modeName) where T : IGameplayLevel
         {
             _gameplayLevelsFactory.Create<T>();
+            
             var levelData = _staticDataService.GetLevelData<LevelData>(modeName);
+            
             _projectManagementService.ChangeState<GameplayState, LevelData>(levelData);
         }
 
@@ -105,20 +78,7 @@ namespace Core.Project.MainMenu
 
         public void OnExit()
         {
-            CloseWindows();
-            UnloadLocation();
-        }
-
-        private void CloseWindows()
-        {
-            _windowService.Close(WindowID.MainMenu);
-            _windowService.Close(WindowID.Levels);
-        }
-
-        private void UnloadLocation()
-        {
-            var levelData = _staticDataService.GetLevelData<LevelData>("MainMenu");
-            _sceneLoaderService.UnloadSceneAsync(levelData.LocationScenePath);
+            _mainMenuUI.Hide();
         }
     }
 }

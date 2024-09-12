@@ -3,8 +3,6 @@
 using System.Threading.Tasks;
 using Data.Paths;
 using Infrastructure.Factories.GameObjects;
-using Infrastructure.Services.Camera;
-using JetBrains.Annotations;
 using UnityEngine;
 
 #endregion

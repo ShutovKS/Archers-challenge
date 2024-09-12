@@ -1,5 +1,6 @@
+using System.Threading.Tasks;
 using Infrastructure.Services.ProjectManagement;
-using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Core.Project
@@ -13,14 +14,21 @@ namespace Core.Project
             _projectManagementService = projectManagementService;
         }
 
-        public void OnEnter()
+        public async void OnEnter()
         {
+            await LoadBootstrapScene();
+
             MoveToInstantiateState();
         }
 
-        private void MoveToInstantiateState()
+        private async Task LoadBootstrapScene()
         {
-            _projectManagementService.ChangeState<PlayerInstantiateState>();
+            if (SceneManager.GetActiveScene().buildIndex != 0)
+            {
+                await SceneManager.LoadSceneAsync(0);
+            }
         }
+
+        private void MoveToInstantiateState() => _projectManagementService.ChangeState<PlayerInstantiateState>();
     }
 }

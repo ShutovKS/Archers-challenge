@@ -3,7 +3,6 @@
 using System.Threading.Tasks;
 using Data.Paths;
 using Infrastructure.Factories.UI;
-using JetBrains.Annotations;
 using UnityEngine;
 
 #endregion

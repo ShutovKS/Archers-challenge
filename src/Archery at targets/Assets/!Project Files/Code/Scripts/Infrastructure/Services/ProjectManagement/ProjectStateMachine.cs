@@ -1,7 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Infrastructure.Factories.ProjectStates;
-using JetBrains.Annotations;
 
 namespace Infrastructure.Services.ProjectManagement
 {

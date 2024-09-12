@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Services.Window;
-using JetBrains.Annotations;
 using UnityEngine;
 using Object = UnityEngine.Object;
 

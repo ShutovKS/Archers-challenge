@@ -11,7 +11,6 @@ using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.SceneLoader;
 using Infrastructure.Services.XRSetup;
-using JetBrains.Annotations;
 using Logics.GameplayLevels;
 using UI.InformationDesk;
 using UnityEngine;

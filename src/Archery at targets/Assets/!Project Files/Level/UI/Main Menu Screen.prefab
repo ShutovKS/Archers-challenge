@@ -985,7 +985,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8951376462921346361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,6 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff5599fe4f04610ac1b721d5d6026b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1090212006361088328}
   infiniteVR: {fileID: 908406794523769732}
   infiniteMR: {fileID: 8321223215622556324}
   levels: {fileID: 4233362941035824776}

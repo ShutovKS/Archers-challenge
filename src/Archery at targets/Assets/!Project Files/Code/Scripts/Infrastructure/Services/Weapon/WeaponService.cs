@@ -6,7 +6,6 @@ using System.Linq;
 using Data.Weapon;
 using Infrastructure.Services.Progress;
 using Infrastructure.Services.StaticData;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;

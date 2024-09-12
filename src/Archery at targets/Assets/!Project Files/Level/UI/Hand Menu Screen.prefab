@@ -419,7 +419,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6717758796320952669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef58e620ca4a6547a8c8e177aa78c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 4358336630355045061}
   exitButton: {fileID: 5772723817105347271}
 --- !u!1 &6258923832050579683
 GameObject:

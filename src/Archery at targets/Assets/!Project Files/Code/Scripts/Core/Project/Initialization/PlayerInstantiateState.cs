@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Core.Project.MainMenu;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.ProjectManagement;
-using JetBrains.Annotations;
 
 #endregion
 
@@ -31,6 +30,7 @@ namespace Core.Project
         }
 
         private async Task CreatePlayer() => await _playerService.InstantiatePlayerAsync();
+
         private void MoveToNextState() => _projectManagementService.ChangeState<MainMenuState>();
     }
 }

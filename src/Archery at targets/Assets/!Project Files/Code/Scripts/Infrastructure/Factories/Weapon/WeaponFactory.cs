@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Features.Weapon;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Services.Weapon;
-using JetBrains.Annotations;
 using UnityEngine;
 
 #endregion

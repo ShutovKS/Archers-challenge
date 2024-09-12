@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Infrastructure.Factories.Player;
 using Infrastructure.Services.ARPlanes;
 using Infrastructure.Services.Camera;
-using Infrastructure.Services.Player;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;

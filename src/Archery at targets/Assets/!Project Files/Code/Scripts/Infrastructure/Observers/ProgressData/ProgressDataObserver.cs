@@ -1,5 +1,3 @@
-using JetBrains.Annotations;
-
 namespace Infrastructure.Observers.ProgressData
 {
     public class ProgressDataObserver : IProgressDataObserver

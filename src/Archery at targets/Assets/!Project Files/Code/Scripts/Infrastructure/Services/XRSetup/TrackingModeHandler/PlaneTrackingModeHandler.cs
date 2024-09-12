@@ -5,7 +5,6 @@ using Infrastructure.Factories.ARComponents;
 using Infrastructure.Services.ARPlanes;
 using Infrastructure.Services.AssetsAddressables;
 using Infrastructure.Services.XRSetup.TrackingMode;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 

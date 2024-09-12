@@ -1,7 +1,6 @@
 #region
 
 using Data.SceneContext;
-using JetBrains.Annotations;
 
 #endregion
 

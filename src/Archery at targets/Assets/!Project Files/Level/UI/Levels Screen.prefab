@@ -152,7 +152,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7963172896708291950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fa64abc0e542aea0ab5eb4ceb757b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1473981767814253219}
   backButton: {fileID: 5684901188598640658}
   itemContainer: {fileID: 1430460658215479583}
   itemUIPrefab: {fileID: 7194970892192570980}

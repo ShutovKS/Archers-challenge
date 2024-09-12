@@ -1,8 +1,5 @@
 using System.Threading.Tasks;
 using Features.Player;
-using Infrastructure.Services.Camera;
-using Infrastructure.Services.InteractorSetup;
-using Infrastructure.Services.XRSetup;
 using UnityEngine;
 
 namespace Infrastructure.Services.Player

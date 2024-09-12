@@ -6,7 +6,6 @@ using Infrastructure.Factories.ARComponents;
 using Infrastructure.Services.Camera;
 using Infrastructure.Services.XRSetup.TrackingMode;
 using Infrastructure.Services.XRSetup.TrackingModeHandler;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using Zenject;

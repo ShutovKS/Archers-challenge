@@ -1,5 +1,4 @@
 using Infrastructure.Services.ProjectManagement;
-using JetBrains.Annotations;
 
 namespace Core.Project.MainMenu
 {
@@ -12,14 +11,8 @@ namespace Core.Project.MainMenu
             _projectManagementService = projectManagementService;
         }
 
-        public void OnEnter()
-        {
-            MoveToMainMenuState();
-        }
+        public void OnEnter() => MoveToMainMenuState();
 
-        private void MoveToMainMenuState()
-        {
-            _projectManagementService.ChangeState<MainMenuBootState>();
-        }
+        private void MoveToMainMenuState() => _projectManagementService.ChangeState<BootState>();
     }
 }

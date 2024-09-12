@@ -2,9 +2,6 @@ using System.Threading.Tasks;
 using Features.Player;
 using Infrastructure.Factories.Player;
 using Infrastructure.Services.Camera;
-using Infrastructure.Services.InteractorSetup;
-using Infrastructure.Services.XRSetup;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Infrastructure.Services.Player
