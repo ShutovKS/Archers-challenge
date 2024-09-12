@@ -5,32 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bc55d7b-3b5b-49ed-8bcf-0178280bad01" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/Initialization/PlayerInstantiateState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/DestroyingAllTargetsGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/DestroyingAllTargetsGameplayLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/DestroyingAllTargetsInTimeGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/DestroyingAllTargetsInTimeGameplayLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/IGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/IGameplayLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeMRGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeMRGameplayLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeVRGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeVRGameplayLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/BootstrapState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/GameplayState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/GameplayState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/InitializeState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/InitializeState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/Initialization/PlayerInstantiateState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/MainMenu/MainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/MainMenu/MainMenuLogicState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/MainMenu/MainMenuState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/MainMenu/MainMenuLogicState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/ARComponents/ARComponentsFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/ARComponents/ARComponentsFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/GameplayLevels/GameplayLevelsFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/GameplayLevels/GameplayLevelsFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/GameplayLevels/IGameplayLevelsFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/GameplayLevels/IGameplayLevelsFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/Player/PlayerFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/Player/PlayerFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/GamingBootloader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/GamingBootloader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Camera/CameraService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Camera/CameraService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Player/PlayerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Player/PlayerService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Window/IWindowService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Services/Window/IWindowService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/HandMenu/HandMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/HandMenu/HandMenuUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/InformationDesk/InformationDeskUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/InformationDesk/InformationDeskUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/Levels/LevelsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/Levels/LevelsUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/MainMenu/MainMenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/MainMenu/MainMenuUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Level/UI/Main Menu Screen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Level/UI/Main Menu Screen.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,13 +43,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "reference.settings.grazie.pro.style"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.15f1\Editor\Unity.exe" />

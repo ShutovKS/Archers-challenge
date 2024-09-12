@@ -1,6 +1,5 @@
 ﻿#region
 
-using Core.Gameplay;
 using Data.Level;
 using Infrastructure.Factories.GameplayLevels;
 using Infrastructure.Services.InteractorSetup;
@@ -12,6 +11,8 @@ using Infrastructure.Services.StaticData;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using JetBrains.Annotations;
+using Logics.GameplayLevels;
+using Logics.Project;
 using UI.Levels;
 using UI.MainMenu;
 
