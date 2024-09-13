@@ -15,6 +15,9 @@ namespace Core.Gameplay
 {
     public class InfiniteModeVRGameplayLevel : IGameplayLevel
     {
+        public event Action<GameResult> OnGameFinished;
+        public event Action<GameState> OnGameStateChanged;
+
         private ISceneContextProvider _sceneContextProvider;
         private WindowService _windowService;
         private IStopwatchService _stopwatchService;
@@ -23,6 +26,7 @@ namespace Core.Gameplay
         private PositionsContainer _positionsContainer;
         private InformationDeskUI _infoScreen;
         private int _targetCount;
+        private bool _isPaused;
 
         [Inject]
         public void Construct(
@@ -37,8 +41,6 @@ namespace Core.Gameplay
             _windowService = windowService;
         }
 
-        public event Action<GameResult> OnGameFinished;
-
         public async Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
             where TGameplayModeData : GameplayModeData
         {
@@ -46,22 +48,20 @@ namespace Core.Gameplay
             var sceneContextData = _sceneContextProvider.Get<InfiniteSceneContextData>();
             _positionsContainer = sceneContextData.PositionsContainer;
 
-            await InstantiateTarget();
+            OnGameStateChanged?.Invoke(GameState.Running);
 
-            _stopwatchService.Start();
-            _stopwatchService.OnTick += UpdateInfoScreen;
+            await InstantiateTarget();
+            StartStopwatch();
         }
+
+        #region StartGame
 
         private async Task InstantiateTarget()
         {
             var (position, rotation) = _positionsContainer.GetTargetPosition();
-
             await _targetFactory.Instantiate(position, rotation);
-
             _targetFactory.TargetHit += OnTargetHit;
         }
-
-        private void UpdateInfoScreen(float time) => _infoScreen.SetTimeText(time.ToString("0.00"));
 
         private async void OnTargetHit(GameObject gameObject)
         {
@@ -69,17 +69,63 @@ namespace Core.Gameplay
             _targetFactory.Destroy(gameObject);
 
             _targetCount++;
-
             _infoScreen.SetScoreText(_targetCount.ToString());
 
             await InstantiateTarget();
         }
 
-        public void Dispose()
+        private void StartStopwatch()
+        {
+            _stopwatchService.Start();
+            _stopwatchService.OnTick += UpdateInfoScreen;
+        }
+
+        private void UpdateInfoScreen(float time)
+        {
+            _infoScreen.SetTimeText(time.ToString("0.00"));
+        }
+
+        #endregion
+
+        public void PauseGame()
+        {
+            if (!_isPaused)
+            {
+                _stopwatchService.Pause();
+                _isPaused = true;
+                OnGameStateChanged?.Invoke(GameState.Paused);
+            }
+        }
+
+        public void ResumeGame()
+        {
+            if (_isPaused)
+            {
+                _stopwatchService.Resume();
+                _isPaused = false;
+                OnGameStateChanged?.Invoke(GameState.Running);
+            }
+        }
+
+        public async Task StopGame()
+        {
+            OnGameStateChanged?.Invoke(GameState.Finished);
+
+            StopStopwatch();
+            DestroyTargets();
+
+            OnGameFinished?.Invoke(GameResult.Win);
+
+            await Task.CompletedTask;
+        }
+
+        public void CleanUp()
         {
             StopStopwatch();
             DestroyTargets();
         }
+
+        #region CleanUp
 
         private void StopStopwatch()
         {
@@ -92,5 +138,7 @@ namespace Core.Gameplay
             _targetFactory.TargetHit -= OnTargetHit;
             _targetFactory.DestroyAll();
         }
+
+        #endregion
     }
 }

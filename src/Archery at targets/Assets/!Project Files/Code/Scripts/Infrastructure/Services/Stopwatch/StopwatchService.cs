@@ -19,14 +19,15 @@ namespace Infrastructure.Services.Stopwatch
         public void Start()
         {
             _isRunning = true;
-            
+
             CurrentTime = 0;
         }
 
-        public void Stop()
-        {
-            _isRunning = false;
-        }
+        public void Stop() => _isRunning = false;
+
+        public void Pause() => _isRunning = false;
+
+        public void Resume() => _isRunning = true;
 
         public void Tick()
         {

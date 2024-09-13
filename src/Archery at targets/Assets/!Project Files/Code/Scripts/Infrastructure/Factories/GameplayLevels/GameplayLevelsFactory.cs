@@ -20,7 +20,7 @@ namespace Infrastructure.Factories.GameplayLevels
 
         public IGameplayLevel Create(GameplayModeType gameplayModeType) => gameplayModeType switch
         {
-            InfiniteMR => Create<InfiniteModeMRGameplayLevel>(),
+            // InfiniteMR => Create<InfiniteModeMRGameplayLevel>(),
             InfiniteVR => Create<InfiniteModeVRGameplayLevel>(),
 
             None or _ => throw new System.NotImplementedException(
