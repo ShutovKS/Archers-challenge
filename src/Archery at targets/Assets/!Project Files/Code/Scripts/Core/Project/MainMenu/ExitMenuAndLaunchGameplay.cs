@@ -31,8 +31,10 @@ namespace Core.Project.MainMenu
         public async void OnEnter()
         {
             await UnloadLocation();
+
             ClosesScreens();
-            LaunchGameplay();
+
+            MoveToNextState();
         }
 
         private async Task UnloadLocation()
@@ -43,6 +45,6 @@ namespace Core.Project.MainMenu
 
         private void ClosesScreens() => _windowService.Close(WindowID.MainMenu);
 
-        private void LaunchGameplay() => _projectManagementService.ChangeState<GameplayState>();
+        private void MoveToNextState() => _projectManagementService.ChangeState<GameplayState>();
     }
 }

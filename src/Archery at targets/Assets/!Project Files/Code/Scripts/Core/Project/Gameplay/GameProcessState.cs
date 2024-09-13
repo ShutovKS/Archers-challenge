@@ -41,6 +41,7 @@ namespace Core.Project.Gameplay
             switch (gameResult)
             {
                 case GameResult.Win:
+                    
                 case GameResult.Lose:
                     ExitInMainMenu();
                     break;

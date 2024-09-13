@@ -1,11 +1,6 @@
 #region
 
-using Core.Gameplay;
-using Data.Configurations.Level;
-using Features.PositionsContainer;
-using Features.Weapon;
 using Infrastructure.Services.ProjectManagement;
-using UI.InformationDesk;
 
 #endregion
 
@@ -20,11 +15,8 @@ namespace Core.Project.Gameplay
             _projectManagementService = projectManagementService;
         }
 
-        public void OnEnter()
-        {
-            MoveToBootState();
-        }
+        public void OnEnter() => MoveToNextState();
 
-        private void MoveToBootState() => _projectManagementService.ChangeState<LocationBootState>();
+        private void MoveToNextState() => _projectManagementService.ChangeState<LocationBootState>();
     }
 }

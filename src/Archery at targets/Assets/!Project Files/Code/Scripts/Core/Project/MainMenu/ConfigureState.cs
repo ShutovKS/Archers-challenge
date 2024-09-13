@@ -42,9 +42,10 @@ namespace Core.Project.MainMenu
         public void OnEnter()
         {
             ConfigurePlayer();
+            
             ConfigureLevelsUI();
 
-            MoveToMainMenuState();
+            MoveToNextState();
         }
 
         private void ConfigurePlayer()
@@ -65,9 +66,6 @@ namespace Core.Project.MainMenu
             levelsUI.SetItems(gameplayLevelDatas);
         }
 
-        private void MoveToMainMenuState()
-        {
-            _projectManagementService.ChangeState<MenuScreenState>();
-        }
+        private void MoveToNextState() => _projectManagementService.ChangeState<MenuScreenState>();
     }
 }

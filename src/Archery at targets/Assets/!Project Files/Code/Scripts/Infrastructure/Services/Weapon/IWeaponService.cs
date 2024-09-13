@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Data.Configurations.Weapon;
 using Features.Weapon;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 #endregion
 

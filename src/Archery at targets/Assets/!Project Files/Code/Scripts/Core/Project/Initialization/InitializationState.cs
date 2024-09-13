@@ -11,10 +11,7 @@ namespace Core.Project.Initialization
             _projectManagementService = projectManagementService;
         }
 
-        public void OnEnter()
-        {
-            MoveToNextState();
-        }
+        public void OnEnter() => MoveToNextState();
 
         private void MoveToNextState() => _projectManagementService.ChangeState<BootstrapSceneLoadingState>();
     }

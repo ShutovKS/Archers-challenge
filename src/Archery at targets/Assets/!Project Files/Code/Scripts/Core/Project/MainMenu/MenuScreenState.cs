@@ -1,8 +1,6 @@
 ﻿#region
 
-using Core.Project.Gameplay;
 using Data.Configurations.Level;
-using Infrastructure.Factories.GameplayLevels;
 using Infrastructure.Providers.GlobalDataContainer;
 using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.ProjectManagement;
@@ -28,7 +26,6 @@ namespace Core.Project.MainMenu
             IProjectManagementService projectManagementService,
             IStaticDataProvider staticDataProvider,
             IWindowService windowService,
-            IGameplayLevelsFactory gameplayLevelsFactory,
             IGlobalContextProvider globalContextProvider)
         {
             _projectManagementService = projectManagementService;
@@ -62,8 +59,9 @@ namespace Core.Project.MainMenu
         private void StartMode(string modeName)
         {
             var levelData = _staticDataProvider.GetLevelData<LevelData>(modeName);
-            _globalContextProvider.GlobalContext.LevelData = levelData;
             
+            _globalContextProvider.GlobalContext.LevelData = levelData;
+
             _projectManagementService.ChangeState<ExitMenuAndLaunchGameplay>();
         }
 

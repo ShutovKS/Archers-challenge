@@ -18,7 +18,7 @@ namespace Core.Project.Initialization
         {
             await LoadBootstrapScene();
 
-            MoveToInstantiateState();
+            MoveToNextState();
         }
 
         private async Task LoadBootstrapScene()
@@ -29,6 +29,6 @@ namespace Core.Project.Initialization
             }
         }
 
-        private void MoveToInstantiateState() => _projectManagementService.ChangeState<PlayerInstantiateState>();
+        private void MoveToNextState() => _projectManagementService.ChangeState<PlayerInstantiateState>();
     }
 }

@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-using Features.Weapon;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.Weapon;
 
@@ -30,8 +28,10 @@ namespace Core.Project.Gameplay
             {
                 _weaponService.CurrentWeapon.OnSelected -= WeaponSelected;
 
-                _projectManagementService.ChangeState<GameProcessState>();
+                MoveToNextState();
             }
         }
+
+        private void MoveToNextState() => _projectManagementService.ChangeState<GameProcessState>();
     }
 }

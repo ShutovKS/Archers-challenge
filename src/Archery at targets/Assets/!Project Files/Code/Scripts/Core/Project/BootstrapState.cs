@@ -2,7 +2,6 @@
 
 using Core.Project.Initialization;
 using Infrastructure.Services.ProjectManagement;
-using UnityEngine.SceneManagement;
 
 #endregion
 
@@ -17,9 +16,8 @@ namespace Core.Project
             _projectManagementService = projectManagementService;
         }
 
-        public void OnEnter()
-        {
-            _projectManagementService.ChangeState<InitializationState>();
-        }
+        public void OnEnter() => MoveToNextState();
+
+        private void MoveToNextState() => _projectManagementService.ChangeState<InitializationState>();
     }
 }

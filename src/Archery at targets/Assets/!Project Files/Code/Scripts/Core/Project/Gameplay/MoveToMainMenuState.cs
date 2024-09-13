@@ -32,7 +32,7 @@ namespace Core.Project.Gameplay
 
             await DestroyLocation(levelData.LocationScenePath);
 
-            MoveToMainMenu();
+            MoveToNextState();
         }
 
         private async Task DestroyLocation(string levelDataLocationScenePath) =>
@@ -44,6 +44,6 @@ namespace Core.Project.Gameplay
             _windowService.Close(WindowID.InformationDesk);
         }
 
-        private void MoveToMainMenu() => _projectManagementService.ChangeState<MainMenuState>();
+        private void MoveToNextState() => _projectManagementService.ChangeState<MainMenuState>();
     }
 }

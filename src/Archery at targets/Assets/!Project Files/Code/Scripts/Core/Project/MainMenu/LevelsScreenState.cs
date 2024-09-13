@@ -1,4 +1,3 @@
-using Core.Project.Gameplay;
 using Data.Configurations.Level;
 using Infrastructure.Providers.GlobalDataContainer;
 using Infrastructure.Providers.StaticData;

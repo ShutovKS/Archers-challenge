@@ -26,12 +26,12 @@ namespace Core.Project.Gameplay
 
             await InstantiateLocation(levelData.LocationScenePath);
 
-            MoveToConfigureState();
+            MoveToNextState();
         }
 
         private async Task InstantiateLocation(string locationScenePath) =>
             await _sceneLoaderService.LoadSceneAsync(locationScenePath, LoadSceneMode.Additive);
 
-        private void MoveToConfigureState() => _projectManagementService.ChangeState<ConfigureState>();
+        private void MoveToNextState() => _projectManagementService.ChangeState<ObjectsBootState>();
     }
 }

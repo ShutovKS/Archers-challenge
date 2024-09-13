@@ -11,8 +11,8 @@ namespace Core.Project.MainMenu
             _projectManagementService = projectManagementService;
         }
 
-        public void OnEnter() => MoveToMainMenuState();
+        public void OnEnter() => MoveToNextState();
 
-        private void MoveToMainMenuState() => _projectManagementService.ChangeState<BootState>();
+        private void MoveToNextState() => _projectManagementService.ChangeState<LocationBootState>();
     }
 }
