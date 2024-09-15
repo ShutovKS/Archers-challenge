@@ -1,5 +1,6 @@
 #region
 
+using System;
 using Core.Gameplay;
 using Data.Configurations.Level;
 using Zenject;
@@ -23,8 +24,8 @@ namespace Infrastructure.Factories.GameplayLevels
             InfiniteMR => Create<InfiniteModeMRGameplayLevel>(),
             InfiniteVR => Create<InfiniteModeVRGameplayLevel>(),
 
-            None or _ => throw new System.NotImplementedException(
-                $"Gameplay mode {gameplayModeType} is not implemented."),
+            None => throw new NotImplementedException($"Gameplay mode {gameplayModeType} is not implemented."),
+            _ => throw new ArgumentOutOfRangeException(nameof(gameplayModeType), gameplayModeType, null)
         };
 
         private IGameplayLevel Create<T>() where T : IGameplayLevel
