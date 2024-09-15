@@ -31,7 +31,7 @@ namespace Core.Gameplay
         private ISceneContextProvider _sceneContextProvider;
         private IARComponentsFactory _arComponentsFactory;
 
-        private InfiniteSceneContextData _sceneContextData;
+        private GameplaySceneContextData _sceneContextData;
 
         private HandMenuUI _handMenuScreen;
         private InformationDeskUI _infoScreen;
@@ -71,18 +71,18 @@ namespace Core.Gameplay
             }
 
             _infoScreen = _windowService.Get<InformationDeskUI>(WindowID.InformationDesk);
-            var sceneContextData = _sceneContextProvider.Get<InfiniteSceneContextData>();
+            var sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
             _positionsContainer = sceneContextData.PositionsContainer;
 
             return Task.CompletedTask;
         }
 
-        public async Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
-            where TGameplayModeData : GameplayModeData
+        public async Task StartGame()
         {
             OnGameStateChanged?.Invoke(GameState.Running);
 
             await InstantiateTarget();
+
             StartStopwatch();
         }
 

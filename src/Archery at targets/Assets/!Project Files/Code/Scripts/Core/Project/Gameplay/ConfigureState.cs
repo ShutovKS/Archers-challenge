@@ -1,5 +1,7 @@
+using System.Threading.Tasks;
 using Data.Configurations.Level;
 using Data.Contexts.Scene;
+using Infrastructure.Factories.GameplayLevels;
 using Infrastructure.Providers.GlobalDataContainer;
 using Infrastructure.Providers.SceneContainer;
 using Infrastructure.Services.InteractorSetup;
@@ -17,6 +19,7 @@ namespace Core.Project.Gameplay
         private readonly IXRSetupService _xrSetupService;
         private readonly IInteractorService _interactorService;
         private readonly IPlayerService _playerService;
+        private readonly IGameplayLevelsFactory _gameplayLevelsFactory;
         private readonly IProjectManagementService _projectManagementService;
 
         public ConfigureState(
@@ -25,7 +28,8 @@ namespace Core.Project.Gameplay
             ISceneContextProvider sceneContextProvider,
             IXRSetupService xrSetupService,
             IInteractorService interactorService,
-            IPlayerService playerService
+            IPlayerService playerService,
+            IGameplayLevelsFactory gameplayLevelsFactory
         )
         {
             _globalContextProvider = globalContextProvider;
@@ -33,15 +37,18 @@ namespace Core.Project.Gameplay
             _xrSetupService = xrSetupService;
             _interactorService = interactorService;
             _playerService = playerService;
+            _gameplayLevelsFactory = gameplayLevelsFactory;
             _projectManagementService = projectManagementService;
         }
 
-        public void OnEnter()
+        public async void OnEnter()
         {
             var levelData = _globalContextProvider.GlobalContext.LevelData;
             var sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
 
             ConfigurePlayer(levelData, sceneContextData.PlayerSpawnPoint);
+
+            await CreateGameplayLevel(levelData);
 
             MoveToNextState();
         }
@@ -54,6 +61,15 @@ namespace Core.Project.Gameplay
             _interactorService.SetUpInteractor(HandType.Right, InteractorType.Direct | InteractorType.Poke);
 
             _playerService.SetPlayerPositionAndRotation(playerSpawnPoint.position, playerSpawnPoint.rotation);
+        }
+
+        private async Task CreateGameplayLevel(LevelData levelData)
+        {
+            var gameplayLevel = _gameplayLevelsFactory.Create(levelData.GameplayModeData.ModeType);
+            
+            _globalContextProvider.GlobalContext.GameplayLevel = gameplayLevel;
+            
+            await gameplayLevel.PrepareGame(levelData.GameplayModeData);
         }
 
         private void MoveToNextState() => _projectManagementService.ChangeState<WaitingToStartState>();
