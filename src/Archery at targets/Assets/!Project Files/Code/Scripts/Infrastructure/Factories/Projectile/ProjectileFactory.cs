@@ -1,14 +1,16 @@
+#region
+
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Features.Projectile;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Services.Projectile;
-using JetBrains.Annotations;
 using UnityEngine;
+
+#endregion
 
 namespace Infrastructure.Factories.Projectile
 {
-    [UsedImplicitly]
     public class ProjectileFactory : IProjectileFactory
     {
         private readonly IGameObjectFactory _gameObjectFactory;
@@ -25,7 +27,7 @@ namespace Infrastructure.Factories.Projectile
         {
             var path = _projectileProviderService.GetCurrentlySelectedProjectilePath();
 
-            var instantiate = await _gameObjectFactory.Instantiate(path, parent: parent);
+            var instantiate = await _gameObjectFactory.InstantiateAsync(path, parent: parent);
             instantiate.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             instantiate.transform.localScale = Vector3.one;
 

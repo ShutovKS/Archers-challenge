@@ -16,17 +16,17 @@ MonoBehaviour:
   m_GUID: cbf92ca7c4bb29b4dbad2e2bfa4144b3
   m_SerializeEntries:
   - m_GUID: 64bf3ad128950a942a6ecbf2a544ac92
-    m_Address: Prefabs/Screens/Main Menu Screen.prefab
+    m_Address: UI/Main Menu Screen.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: afa83661044c245448e43e38ddc77486
-    m_Address: Prefabs/Screens/Information desk Screen.prefab
+    m_Address: UI/Information desk Screen.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e8a4d04534bb1054c8e53d1d7749b84d
-    m_Address: Prefabs/Screens/Hand Menu Screen.prefab
+    m_Address: UI/Hand Menu Screen.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

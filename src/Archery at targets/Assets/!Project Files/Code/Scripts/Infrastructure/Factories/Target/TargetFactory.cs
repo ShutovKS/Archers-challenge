@@ -1,18 +1,18 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Extension;
+using Data.Constants.Paths;
 using Features.ColliderTools;
 using Infrastructure.Factories.GameObjects;
-using Infrastructure.Services.AssetsAddressables;
-using JetBrains.Annotations;
-using Tools;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
+#endregion
+
 namespace Infrastructure.Factories.Target
 {
-    [UsedImplicitly]
     public class TargetFactory : ITargetFactory
     {
         public event Action<GameObject> TargetHit;
@@ -20,7 +20,7 @@ namespace Infrastructure.Factories.Target
         private readonly IGameObjectFactory _gameObjectFactory;
         private readonly List<GameObject> _targets = new();
 
-        private const string TARGET_PREFAB_PATH = AssetsAddressableConstants.TARGET_PREFAB;
+        private const string TARGET_PREFAB_PATH = AddressablesPaths.TARGET_PREFAB;
 
         public TargetFactory(IGameObjectFactory gameObjectFactory)
         {
@@ -30,7 +30,7 @@ namespace Infrastructure.Factories.Target
         public async Task<GameObject> Instantiate(Vector3 position, Quaternion rotation, Transform parent = null)
         {
             var isHit = false;
-            var instance = await _gameObjectFactory.Instantiate(TARGET_PREFAB_PATH, position, rotation, parent);
+            var instance = await _gameObjectFactory.InstantiateAsync(TARGET_PREFAB_PATH, position, rotation, parent);
 
             var colliderInteractionEnterTrigger = instance.AddComponent<ColliderInteractionEnterTrigger>();
             colliderInteractionEnterTrigger.OnTriggered += OnHit;

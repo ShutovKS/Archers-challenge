@@ -1,13 +1,14 @@
-using System;
+#region
+
 using System.Threading.Tasks;
+using Data.Constants.Paths;
 using Infrastructure.Factories.UI;
-using Infrastructure.Services.AssetsAddressables;
-using JetBrains.Annotations;
 using UnityEngine;
+
+#endregion
 
 namespace Infrastructure.Services.Window
 {
-    [UsedImplicitly]
     public class WindowService : IWindowService
     {
         public WindowService(IUIFactory uiFactory)
@@ -17,51 +18,27 @@ namespace Infrastructure.Services.Window
 
         private readonly IUIFactory _uiFactory;
 
-        public async Task Open(WindowID windowID, Vector3? position = null, Quaternion? rotation = null,
-            Transform parent = null)
+        public async Task OpenInWorld(WindowID windowID, Vector3 position, Quaternion rotation, Transform transform) =>
+            await OpenWindow(windowID, position, rotation, transform);
+
+        public async Task<T> OpenInWorldAndGet<T>(WindowID windowID, Vector3 position, Quaternion rotation,
+            Transform transform) where T : Component
         {
-            await OpenWindow(windowID, position, rotation, parent);
+            await OpenWindow(windowID, position, rotation, transform);
+
+            return _uiFactory.GetScreenComponent<T>(windowID);
         }
 
-        public async Task<T> OpenAndGet<T>(WindowID windowID, Vector3? position = null, Quaternion? rotation = null,
-            Transform parent = null) where T : Component
-        {
-            await OpenWindow(windowID, position, rotation, parent);
+        public T Get<T>(WindowID windowID) where T : Component => _uiFactory.GetScreenComponent<T>(windowID);
 
-            return await _uiFactory.GetScreenComponent<T>(windowID);
-        }
-
-        public T Get<T>(WindowID windowID) where T : Component
-        {
-            return _uiFactory.GetScreenComponent<T>(windowID).Result;
-        }
-
-        private async Task OpenWindow(WindowID windowID, Vector3? position = null, Quaternion? rotation = null,
-            Transform parent = null)
+        private async Task OpenWindow(WindowID windowID, Vector3 position, Quaternion rotation, Transform transform)
         {
             var windowsPath = GetWindowsPath(windowID);
 
-            if (windowsPath == null)
-            {
-                throw new NullReferenceException($"No path for install windows: {windowID.ToString()}");
-            }
-
             var instance = await _uiFactory.CreateScreen(windowsPath, windowID);
 
-            if (position.HasValue)
-            {
-                instance.transform.position = position.Value;
-            }
-
-            if (rotation.HasValue)
-            {
-                instance.transform.rotation = rotation.Value;
-            }
-
-            if (parent)
-            {
-                instance.transform.SetParent(parent);
-            }
+            instance.transform.SetParent(transform);
+            instance.transform.SetPositionAndRotation(position, rotation);
         }
 
         public void Close(WindowID windowID)
@@ -69,21 +46,23 @@ namespace Infrastructure.Services.Window
             if (windowID == WindowID.Unknown)
             {
                 Debug.Log("Unknown window id + " + windowID);
+
                 return;
             }
 
             _uiFactory.DestroyScreen(windowID);
         }
 
-        private static string GetWindowsPath(WindowID windowID)
+        private static string GetWindowsPath(WindowID windowID) => windowID switch
         {
-            return windowID switch
-            {
-                WindowID.HandMenu => AssetsAddressableConstants.HAND_MENU_SCREEN_PREFAB,
-                WindowID.MainMenu => AssetsAddressableConstants.MAIN_MENU_SCREEN_PREFAB,
-                WindowID.InformationDesk => AssetsAddressableConstants.INFORMATION_DESK_SCREEN_PREFAB,
-                _ => null
-            };
-        }
+            WindowID.HandMenu => AddressablesPaths.HAND_MENU_SCREEN_PREFAB,
+
+            WindowID.MainMenu => AddressablesPaths.MAIN_MENU_SCREEN_PREFAB,
+            WindowID.Levels => AddressablesPaths.LEVELS_SCREEN_PREFAB,
+
+            WindowID.InformationDesk => AddressablesPaths.INFORMATION_DESK_SCREEN_PREFAB,
+
+            _ => null
+        };
     }
 }

@@ -1,11 +1,13 @@
+#region
+
 using System;
-using JetBrains.Annotations;
 using UnityEngine;
 using Zenject;
 
+#endregion
+
 namespace Infrastructure.Services.Stopwatch
 {
-    [UsedImplicitly]
     public class StopwatchService : IStopwatchService, ITickable
     {
         public float CurrentTime { get; private set; }
@@ -17,14 +19,15 @@ namespace Infrastructure.Services.Stopwatch
         public void Start()
         {
             _isRunning = true;
-            
+
             CurrentTime = 0;
         }
 
-        public void Stop()
-        {
-            _isRunning = false;
-        }
+        public void Stop() => _isRunning = false;
+
+        public void Pause() => _isRunning = false;
+
+        public void Resume() => _isRunning = true;
 
         public void Tick()
         {

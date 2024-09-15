@@ -1,22 +1,17 @@
+#region
+
 using System.Threading.Tasks;
-using Extension;
-using Features.Player;
+using Data.Constants.Paths;
 using Infrastructure.Factories.GameObjects;
-using Infrastructure.Services.AssetsAddressables;
-using Infrastructure.Services.InteractorSetup;
-using JetBrains.Annotations;
 using UnityEngine;
+
+#endregion
 
 namespace Infrastructure.Factories.Player
 {
-    [UsedImplicitly]
     public class PlayerFactory : IPlayerFactory
     {
-        public PlayerContainer PlayerContainer { get; private set; }
-
         private readonly IGameObjectFactory _gameObjectFactory;
-
-        private GameObject _instantiate;
 
         public PlayerFactory(IGameObjectFactory gameObjectFactory)
         {
@@ -26,17 +21,10 @@ namespace Infrastructure.Factories.Player
         public async Task<GameObject> Instantiate(Vector3? position = null, Quaternion? rotation = null,
             Transform parent = null)
         {
-            _instantiate = await _gameObjectFactory.Instantiate(AssetsAddressableConstants.XR_ORIGIN_MR_RIG,
+            var instantiate = await _gameObjectFactory.InstantiateAsync(AddressablesPaths.XR_ORIGIN_MR_RIG,
                 position, rotation, parent);
-
-            PlayerContainer = _instantiate.GetComponent<PlayerContainer>();
-
-            return _instantiate;
-        }
-
-        public void Destroy()
-        {
-            _gameObjectFactory.Destroy(_instantiate);
+            
+            return instantiate;
         }
     }
 }

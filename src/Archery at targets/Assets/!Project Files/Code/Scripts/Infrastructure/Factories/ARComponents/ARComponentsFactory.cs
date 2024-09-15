@@ -1,21 +1,26 @@
+#region
+
 using System;
 using System.Collections.Generic;
-using Infrastructure.Factories.Player;
-using JetBrains.Annotations;
+using Infrastructure.Services.Camera;
+using Infrastructure.Services.Player;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
+#endregion
+
 namespace Infrastructure.Factories.ARComponents
 {
-    [UsedImplicitly]
     public class ARComponentsFactory : IARComponentsFactory
     {
-        private readonly IPlayerFactory _playerFactory;
+        private readonly IPlayerService _playerFactory;
+        private readonly ICameraService _cameraService;
         private readonly Dictionary<Type, Behaviour> _arComponents = new();
 
-        public ARComponentsFactory(IPlayerFactory playerFactory)
+        public ARComponentsFactory(IPlayerService playerFactory, ICameraService cameraService)
         {
             _playerFactory = playerFactory;
+            _cameraService = cameraService;
         }
 
         public T Create<T>() where T : Behaviour
@@ -24,7 +29,7 @@ namespace Infrastructure.Factories.ARComponents
             {
                 _ when typeof(T) == typeof(ARCameraManager) ||
                        typeof(T) == typeof(ARCameraBackground)
-                    => _playerFactory.PlayerContainer.CameraGameObject,
+                    => _cameraService.Camera,
 
                 _ when typeof(T) == typeof(ARSession) ||
                        typeof(T) == typeof(ARInputManager) ||
@@ -32,10 +37,12 @@ namespace Infrastructure.Factories.ARComponents
                        typeof(T) == typeof(ARBoundingBoxManager) ||
                        typeof(T) == typeof(ARMeshManager) ||
                        typeof(T) == typeof(ARAnchorManager)
-                    => _playerFactory.PlayerContainer.Player,
+                    => _playerFactory.Player,
 
                 _ => throw new NotSupportedException($"AR component of type {typeof(T)} is not supported.")
             };
+            
+            Debug.Log($"Creating AR component of type {typeof(T)}.");
 
             return CreateComponent<T>(targetObject);
         }

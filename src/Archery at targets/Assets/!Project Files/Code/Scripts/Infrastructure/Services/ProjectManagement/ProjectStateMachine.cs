@@ -1,87 +1,57 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
-using Zenject;
+using Infrastructure.Factories.ProjectStates;
 
 namespace Infrastructure.Services.ProjectManagement
 {
-    [UsedImplicitly]
     public class ProjectStateMachine : IProjectManagementService
     {
+        private readonly IProjectStatesFactory _projectStatesFactory;
         private IState _currentState;
-        private readonly DiContainer _container;
         private CancellationTokenSource _tickCancellationTokenSource;
 
-        public ProjectStateMachine(DiContainer container)
+        public ProjectStateMachine(IProjectStatesFactory projectStatesFactory)
         {
-            _container = container;
+            _projectStatesFactory = projectStatesFactory;
         }
 
-        public void SwitchState<TState>() where TState : IState
+        public void ChangeState<TState>() where TState : IState
         {
-            TryExitPreviousState();
-
-            GetNewState<TState>();
-
-            TryEnterNewState();
-
-            TryTickNewState();
+            ExitCurrentState();
+            _currentState = _projectStatesFactory.CreateProjectState<TState>();
+            EnterCurrentState();
+            StartTicking();
         }
 
-        public void SwitchState<TState, T0>(T0 arg) where TState : IState
+        public void ChangeState<TState, T0>(T0 arg) where TState : IState
         {
-            TryExitPreviousState();
-
-            GetNewState<TState>();
-
-            TryEnterNewState(arg);
-
-            TryTickNewState();
+            ExitCurrentState();
+            _currentState = _projectStatesFactory.CreateProjectState<TState>();
+            EnterCurrentState(arg);
+            StartTicking();
         }
 
-        public IState GetCurrentState()
-        {
-            return _currentState;
-        }
-
-        public Type GetCurrentStateType()
-        {
-            return _currentState?.GetType();
-        }
-
-        private void TryExitPreviousState()
+        private void ExitCurrentState()
         {
             if (_currentState is IExitable exitable)
-            {
                 exitable.OnExit();
-            }
 
             _tickCancellationTokenSource?.Cancel();
         }
 
-        private void TryEnterNewState()
+        private void EnterCurrentState()
         {
             if (_currentState is IEnterable enterable)
-            {
                 enterable.OnEnter();
-            }
         }
 
-        private void TryEnterNewState<T0>(T0 arg)
+        private void EnterCurrentState<T0>(T0 arg)
         {
             if (_currentState is IEnterableWithArg<T0> enterable)
-            {
                 enterable.OnEnter(arg);
-            }
         }
 
-        private void GetNewState<TState>() where TState : IState
-        {
-            _currentState = _container.Instantiate<TState>();
-        }
-
-        private void TryTickNewState()
+        private void StartTicking()
         {
             if (_currentState is ITickable tickable)
             {

@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+    <list default="true" id="3bc55d7b-3b5b-49ed-8bcf-0178280bad01" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/IGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/IGameplayLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeMRGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeMRGameplayLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeVRGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeVRGameplayLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/GameplayLevels/GameplayLevelsFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/GameplayLevels/GameplayLevelsFactory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,20 +31,14 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3dc794ec2f4f4bffb3393937fe47a8572ac00/b1/c22a4da3/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/41/54895cbc/Void.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/92/a8eded2c/Void.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/0b/f145d1d6/UsedImplicitlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/1c/29818f21/Camera.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/1e/54e95b77/CameraClearFlags.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/35/3e0869d5/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/47/8f69bf25/SerializeReference.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/a5/c139c11a/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/bb/3c001fa2/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/c4/fa95b0e8/HideInInspector.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f5b293c74049457cabc28437c5a763925a00/e4/fd2aee9e/IInitializable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fe22fa1c9ce44af491c6d67e6c35b4a41dbc00/c9/f4324d9b/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/Gameplay/ConfigureState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/Gameplay/GameProcessState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/Gameplay/MoveToMainMenuState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/Gameplay/WaitingToStartState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/Initialization/BootstrapSceneLoadingState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/MainMenu/LevelsScreenState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/MainMenu/MenuScreenState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Features/PositionsContainer/RandomPositionsFromRegion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables/Runtime/Addressables.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables/Runtime/AssetReference.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables/Runtime/ResourceManager/ResourceProviders/ISceneProvider.cs" root0="SKIP_HIGHLIGHTING" />
@@ -60,15 +56,29 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit/Runtime/Inputs/Simulation/XRDeviceSimulatorSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/XRBaseInteractable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRInteractionGroup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3dc794ec2f4f4bffb3393937fe47a8572ac00/b1/c22a4da3/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/41/54895cbc/Void.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/92/a8eded2c/Void.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/0b/f145d1d6/UsedImplicitlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/1c/29818f21/Camera.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/1e/54e95b77/CameraClearFlags.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/35/3e0869d5/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/47/8f69bf25/SerializeReference.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/48/aff8c4c8/UsedImplicitlyAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/a5/c139c11a/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/bb/3c001fa2/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb019d4a63d44ca7a73547c38156dec21dd000/c4/fa95b0e8/HideInInspector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f5b293c74049457cabc28437c5a763925a00/e4/fd2aee9e/IInitializable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fe22fa1c9ce44af491c6d67e6c35b4a41dbc00/c9/f4324d9b/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2iZ8IC7Qi0a2I1edUCGIztrSJx7" />
+  <component name="ProjectId" id="2lcVz1a8G6Cl58illqwPcF3F5Yk" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -76,28 +86,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
-    "ignore.virus.scanning.warn.message": "true",
-    "settings.editor.selected.configurable": "RoslynSettingsId"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
-  <component name="RiderTodoViewSettings" groupByProject="false" />
+}</component>
+  <component name="QodanaCloudProjectLink">
+    <option name="lastReportId" value="KxgLR" />
+    <option name="linkedProjectId" value="3KLqy" />
+    <option name="linkedProjectName" value="Archers challenge" />
+    <option name="organizationId" value="A6R9W" />
+    <option name="userId" value="p0ZaQ" />
+  </component>
+  <component name="QodanaHighlightedReportService">
+    <option name="cloudReportPersistedInfo">
+      <CloudReportPersistedInfo>
+        <option name="projectId" value="3KLqy" />
+        <option name="reportId" value="KxgLR" />
+      </CloudReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaSettings">
+    <option name="autoLoadCloudReport" value="true" />
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.15f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\Projects\Archery-at-targets\src\Archery at targets&quot; -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="D:\Projects\Archery-at-targets\src\Archery at targets" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;C:\Projects\Archery-at-targets\src\Archery at targets&quot; -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Projects\Archery-at-targets\src\Archery at targets" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.15f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;D:\Projects\Archery-at-targets\src\Archery at targets&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="D:\Projects\Archery-at-targets\src\Archery at targets" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Projects\Archery-at-targets\src\Archery at targets&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Projects\Archery-at-targets\src\Archery at targets" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
@@ -126,75 +156,29 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7086e2a3-e82b-434c-9263-fd441e5445a5" name="Changes" comment="" />
-      <created>1719686660823</created>
+      <changelist id="3bc55d7b-3b5b-49ed-8bcf-0178280bad01" name="Changes" comment="" />
+      <created>1725479613418</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1719686660823</updated>
-      <workItem from="1719686664955" duration="65000" />
-      <workItem from="1719686764391" duration="1277000" />
-      <workItem from="1719736549675" duration="1718000" />
-      <workItem from="1719771115218" duration="5686000" />
-      <workItem from="1719778141425" duration="7357000" />
-      <workItem from="1719812513213" duration="14259000" />
-      <workItem from="1719833060590" duration="1099000" />
-      <workItem from="1719836660001" duration="1829000" />
-      <workItem from="1719861408373" duration="425000" />
-      <workItem from="1720155624360" duration="10000" />
-      <workItem from="1723050183334" duration="13012000" />
-      <workItem from="1723119236467" duration="277000" />
-      <workItem from="1723121789285" duration="432000" />
-      <workItem from="1723122268400" duration="204000" />
-      <workItem from="1723122485850" duration="207000" />
-      <workItem from="1723122792259" duration="794000" />
-      <workItem from="1723123613146" duration="138000" />
-      <workItem from="1723123773210" duration="99000" />
-      <workItem from="1723123883707" duration="3058000" />
-      <workItem from="1723380035593" duration="20000" />
-      <workItem from="1723380233235" duration="3054000" />
-      <workItem from="1723384130061" duration="18102000" />
-      <workItem from="1723457679315" duration="166000" />
-      <workItem from="1723458454379" duration="9000" />
-      <workItem from="1723458509670" duration="1678000" />
-      <workItem from="1723461421236" duration="5000" />
-      <workItem from="1723482866696" duration="5374000" />
-      <workItem from="1723488346613" duration="15000" />
-      <workItem from="1723488540812" duration="1546000" />
-      <workItem from="1723566224519" duration="45820000" />
-      <workItem from="1723785489207" duration="674000" />
-      <workItem from="1723790300016" duration="126000" />
-      <workItem from="1723790455787" duration="126000" />
-      <workItem from="1723790636289" duration="225000" />
-      <workItem from="1723793946636" duration="1463000" />
-      <workItem from="1723808925063" duration="1238000" />
-      <workItem from="1723821420706" duration="1452000" />
-      <workItem from="1723876067460" duration="9700000" />
-      <workItem from="1723965550023" duration="3652000" />
-      <workItem from="1723980849929" duration="4524000" />
-      <workItem from="1723992185466" duration="8658000" />
-      <workItem from="1724039601711" duration="1306000" />
-      <workItem from="1724156744791" duration="4443000" />
-      <workItem from="1724173926806" duration="2672000" />
-      <workItem from="1724177134283" duration="225000" />
-      <workItem from="1724177378690" duration="6068000" />
-      <workItem from="1724220818565" duration="16066000" />
-      <workItem from="1724247458071" duration="5889000" />
-      <workItem from="1724257592150" duration="2168000" />
-      <workItem from="1724266673993" duration="4453000" />
-      <workItem from="1724308084109" duration="16732000" />
-      <workItem from="1724399362633" duration="449000" />
-      <workItem from="1724399834345" duration="4408000" />
-      <workItem from="1724431720522" duration="1104000" />
-      <workItem from="1724437279048" duration="7923000" />
-      <workItem from="1724486736364" duration="10265000" />
-      <workItem from="1724526042168" duration="169000" />
-      <workItem from="1724526233805" duration="83000" />
-      <workItem from="1724526334973" duration="51000" />
-      <workItem from="1724526398484" duration="21988000" />
+      <updated>1725479613418</updated>
+      <workItem from="1725479615276" duration="664000" />
+      <workItem from="1725517243298" duration="290000" />
+      <workItem from="1725574637615" duration="14000" />
+      <workItem from="1725643111747" duration="1355000" />
+      <workItem from="1725653467184" duration="1397000" />
+      <workItem from="1725786850509" duration="1521000" />
+      <workItem from="1725791206804" duration="1086000" />
+      <workItem from="1725794605331" duration="290000" />
+      <workItem from="1725794920588" duration="6455000" />
+      <workItem from="1725807418406" duration="12514000" />
+      <workItem from="1726150931611" duration="5322000" />
+      <workItem from="1726156432220" duration="8624000" />
+      <workItem from="1726176647093" duration="4694000" />
+      <workItem from="1726252643320" duration="7350000" />
+      <workItem from="1726394217088" duration="2547000" />
     </task>
     <servers />
   </component>
-  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
@@ -212,10 +196,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WfRunsListSearchHistory">{
   &quot;history&quot;: [

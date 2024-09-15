@@ -1,63 +1,41 @@
 using System.Threading.Tasks;
-using Infrastructure.Services.AssetsAddressables;
-using JetBrains.Annotations;
+using Infrastructure.Providers.AssetsAddressables;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
 
 namespace Infrastructure.Factories.GameObjects
 {
-    [UsedImplicitly]
     public class GameObjectFactory : IGameObjectFactory
     {
         private readonly DiContainer _container;
-        private readonly IAssetsAddressablesProvider _assetsAddressablesProvider;
+        private readonly IAssetsAddressablesProvider _assetsProvider;
 
-        public GameObjectFactory(DiContainer container, IAssetsAddressablesProvider assetsAddressablesProvider)
+        public GameObjectFactory(DiContainer container, IAssetsAddressablesProvider assetsProvider)
         {
             _container = container;
-            _assetsAddressablesProvider = assetsAddressablesProvider;
+            _assetsProvider = assetsProvider;
         }
 
-        public async Task<GameObject> Instantiate(string path, Vector3? position = null, Quaternion? rotation = null,
-            Transform parent = null)
-        {
-            position ??= Vector3.zero;
-            rotation ??= Quaternion.identity;
+        public async Task<GameObject> InstantiateAsync(string path, Vector3? position = null,
+            Quaternion? rotation = null, Transform parent = null) =>
+            InstantiateAsync(await _assetsProvider.GetAsset<GameObject>(path), position, rotation, parent);
 
-            var prefab = await _assetsAddressablesProvider.GetAsset<GameObject>(path);
-            var instance = _container.InstantiatePrefab(prefab, position.Value, rotation.Value, parent);
-            return instance;
-        }
+        public async Task<GameObject> InstantiateAsync(AssetReference path, Vector3? position = null,
+            Quaternion? rotation = null, Transform parent = null) =>
+            InstantiateAsync(await _assetsProvider.GetAsset<GameObject>(path), position, rotation, parent);
 
-        public async Task<GameObject> Instantiate(AssetReference path, Vector3? position = null, Quaternion? rotation = null,
-            Transform parent = null)
-        {
-            position ??= Vector3.zero;
-            rotation ??= Quaternion.identity;
+        public async Task<T> InstantiateAndGetComponent<T>(string path, Vector3? position = null,
+            Quaternion? rotation = null, Transform parent = null) where T : class =>
+            (await InstantiateAsync(path, position, rotation, parent)).GetComponent<T>();
 
-            var prefab = await _assetsAddressablesProvider.GetAsset<GameObject>(path);
-            var instance = _container.InstantiatePrefab(prefab, position.Value, rotation.Value, parent);
-            return instance;
-        }
+        public async Task<T> InstantiateAndGetComponent<T>(AssetReference path, Vector3? position = null,
+            Quaternion? rotation = null, Transform parent = null) where T : class =>
+            (await InstantiateAsync(path, position, rotation, parent)).GetComponent<T>();
 
-        public async Task<T> InstantiateAndGetComponent<T>(string path, Vector3? position = null, Quaternion? rotation = null,
-            Transform parent = null) where T : Component
-        {
-            var instance = await Instantiate(path, position, rotation, parent);
-            return instance.GetComponent<T>();
-        }
+        public void Destroy(GameObject gameObject) => Object.Destroy(gameObject);
 
-        public async Task<T> InstantiateAndGetComponent<T>(AssetReference path, Vector3? position = null, Quaternion? rotation = null,
-            Transform parent = null) where T : Component
-        {
-            var instance = await Instantiate(path, position, rotation, parent);
-            return instance.GetComponent<T>();
-        }
-        
-        public void Destroy(GameObject gameObject)
-        {
-            Object.Destroy(gameObject);
-        }
+        private GameObject InstantiateAsync(GameObject prefab, Vector3? pos, Quaternion? rot, Transform parent) =>
+            _container.InstantiatePrefab(prefab, pos ?? Vector3.zero, rot ?? Quaternion.identity, parent);
     }
 }

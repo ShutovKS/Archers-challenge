@@ -1,11 +1,13 @@
+#region
+
 using System;
-using JetBrains.Annotations;
 using UnityEngine;
 using Zenject;
 
+#endregion
+
 namespace Infrastructure.Services.Timer
 {
-    [UsedImplicitly]
     public class TimerService : ITimerService, ITickable
     {
         public float RemainingTime { get; private set; }

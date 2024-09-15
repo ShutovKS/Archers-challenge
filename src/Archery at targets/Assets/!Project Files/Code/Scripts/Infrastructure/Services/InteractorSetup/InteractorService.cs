@@ -1,12 +1,14 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
-using UnityEngine;
+using Infrastructure.Providers.Interactor;
+
+#endregion
 
 namespace Infrastructure.Services.InteractorSetup
 {
-    [UsedImplicitly]
     public class InteractorService : IInteractorService, IInteractorProvider
     {
         public event Action<HandType, InteractorType, bool> OnInteractorSelect;
@@ -19,7 +21,7 @@ namespace Infrastructure.Services.InteractorSetup
 
         private IInteractor _gazeInteractor;
 
-        public void SetUpInteractorForHand(HandType hand, InteractorType interactorType)
+        public void SetUpInteractor(HandType hand, InteractorType interactorType)
         {
             SetUpGazeInteractor(hand, interactorType);
 

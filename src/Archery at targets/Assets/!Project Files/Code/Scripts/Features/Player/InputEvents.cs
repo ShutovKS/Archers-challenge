@@ -1,7 +1,11 @@
+#region
+
 using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+#endregion
 
 namespace Features.Player
 {

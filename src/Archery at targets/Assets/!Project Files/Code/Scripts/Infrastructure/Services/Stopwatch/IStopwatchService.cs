@@ -1,4 +1,8 @@
+#region
+
 using System;
+
+#endregion
 
 namespace Infrastructure.Services.Stopwatch
 {
@@ -10,5 +14,7 @@ namespace Infrastructure.Services.Stopwatch
 
         void Start();
         void Stop();
+        void Pause();
+        void Resume();
     }
 }

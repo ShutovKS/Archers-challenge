@@ -1,4 +1,8 @@
+#region
+
 using Zenject;
+
+#endregion
 
 namespace Infrastructure.Installers
 {

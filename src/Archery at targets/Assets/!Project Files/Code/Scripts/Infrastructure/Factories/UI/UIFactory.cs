@@ -1,3 +1,5 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -6,14 +8,14 @@ using Infrastructure.Services.Window;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
+#endregion
+
 namespace Infrastructure.Factories.UI
 {
     public class UIFactory : IUIFactory
     {
         private readonly IGameObjectFactory _gameObjectFactory;
-
-        private readonly Dictionary<WindowID, GameObject> _screenTypeToInstanceMap = new();
-        private readonly Dictionary<Type, Component> _screenTypeToComponentMap = new();
+        private readonly Dictionary<WindowID, GameObject> _screenInstances = new();
 
         public UIFactory(IGameObjectFactory gameObjectFactory)
         {
@@ -22,52 +24,41 @@ namespace Infrastructure.Factories.UI
 
         public async Task<GameObject> CreateScreen(string assetAddress, WindowID windowId)
         {
-            var instance = await _gameObjectFactory.Instantiate(assetAddress);
+            var instance = await _gameObjectFactory.InstantiateAsync(assetAddress);
 
-            if (_screenTypeToInstanceMap.TryAdd(windowId, instance))
+            if (!_screenInstances.TryAdd(windowId, instance))
             {
-                return instance;
+                Debug.LogWarning($"A screen with WindowID {windowId} already exists. " +
+                                 $"Replacing the existing display object.");
+                Object.Destroy(_screenInstances[windowId]);
+                _screenInstances[windowId] = instance;
             }
-
-            Debug.LogWarning(
-                $"A screen with WindowID {windowId} already exists. Replacing an existing display object.");
-
-            Object.Destroy(_screenTypeToInstanceMap[windowId]);
-
-            _screenTypeToInstanceMap[windowId] = instance;
 
             return instance;
         }
 
-        public Task<T> GetScreenComponent<T>(WindowID windowId) where T : Component
+        public T GetScreenComponent<T>(WindowID windowId) where T : Component
         {
-            if (_screenTypeToInstanceMap.TryGetValue(windowId, out var screenObject))
+            if (_screenInstances.TryGetValue(windowId, out var screenObject))
             {
                 var screenComponent = screenObject.GetComponent<T>();
-
-                if (screenComponent == null)
+                if (screenComponent != null)
                 {
-                    Debug.LogError($"Screen component of type {typeof(T)} not found");
-
-                    return Task.FromResult<T>(null);
+                    return screenComponent;
                 }
 
-                _screenTypeToComponentMap[typeof(T)] = screenComponent;
-
-                return Task.FromResult(screenComponent);
+                Debug.LogError($"Screen component of type {typeof(T)} not found");
+                return null;
             }
 
             Debug.LogError($"Screen with WindowID {windowId} not found");
-
-            return Task.FromResult<T>(null);
+            return null;
         }
 
         public void DestroyScreen(WindowID windowId)
         {
-            if (!_screenTypeToInstanceMap.Remove(windowId, out var screenObject))
-            {
+            if (!_screenInstances.Remove(windowId, out var screenObject))
                 throw new Exception($"Screen with WindowID {windowId} not found");
-            }
 
             Object.Destroy(screenObject);
         }

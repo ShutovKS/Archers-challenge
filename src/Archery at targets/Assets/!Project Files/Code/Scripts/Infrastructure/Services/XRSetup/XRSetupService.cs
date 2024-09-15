@@ -1,36 +1,40 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using Infrastructure.Factories.ARComponents;
+using Infrastructure.Services.Camera;
 using Infrastructure.Services.XRSetup.TrackingMode;
 using Infrastructure.Services.XRSetup.TrackingModeHandler;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using Zenject;
+
+#endregion
 
 namespace Infrastructure.Services.XRSetup
 {
-    [UsedImplicitly]
     public class XRSetupService : IXRSetupService
     {
         private readonly IARComponentsFactory _arComponentsFactory;
+        private readonly ICameraService _cameraService;
         private readonly Dictionary<Type, IXRTrackingModeHandler> _trackingModeHandlers;
 
         private XRMode _currentMode = XRMode.None;
         private IXRTrackingMode _currentTrackingMode = new NoneTrackingMode();
 
-        public XRSetupService(IARComponentsFactory arComponentsFactory)
+        public XRSetupService(DiContainer container, IARComponentsFactory arComponentsFactory,
+            ICameraService cameraService)
         {
             _arComponentsFactory = arComponentsFactory;
+            _cameraService = cameraService;
             _trackingModeHandlers = new Dictionary<Type, IXRTrackingModeHandler>
             {
-                { typeof(NoneTrackingMode), new NoneTrackingModeHandler() },
-                { typeof(PlaneTrackingMode), new PlaneTrackingModeHandler(_arComponentsFactory) },
-                { typeof(BoundingBoxTrackingMode), new BoundingBoxTrackingModeHandler(_arComponentsFactory) },
-                {
-                    typeof(PlaneAndBoundingBoxTrackingMode),
-                    new PlaneAndBoundingBoxTrackingModeHandler(_arComponentsFactory)
-                },
-                { typeof(MeshTrackingMode), new MeshTrackingModeHandler(_arComponentsFactory) },
+                { typeof(NoneTrackingMode), container.Instantiate<NoneTrackingModeHandler>() },
+                { typeof(PlaneTrackingMode), container.Instantiate<PlaneTrackingModeHandler>() },
+                { typeof(BoundingBoxTrackingMode), container.Instantiate<BoundingBoxTrackingModeHandler>() },
+                { typeof(PlaneAndBoundingBoxTrackingMode), container.Instantiate<PlaneAndBoundingBoxTrackingModeHandler>() },
+                { typeof(MeshTrackingMode), container.Instantiate<MeshTrackingModeHandler>() },
             };
         }
 
@@ -48,12 +52,19 @@ namespace Infrastructure.Services.XRSetup
                     SetComponentState<ARCameraManager>(false);
                     SetXRTrackingMode(new NoneTrackingMode());
                     SetAnchorManagerState(false);
+                    _cameraService.SetBackgroundType(CameraBackgroundType.Skybox);
                     break;
                 case XRMode.MR:
                     SetComponentState<ARSession>(true);
+                    var arSession = GetOrCreateComponent<ARSession>();
+                    arSession.Reset();
+
                     SetComponentState<ARCameraManager>(true);
+
                     SetXRTrackingMode(new PlaneAndBoundingBoxTrackingMode());
                     SetAnchorManagerState(true);
+
+                    _cameraService.SetBackgroundType(CameraBackgroundType.SolidColor, Color.clear);
                     break;
                 default: throw new ArgumentOutOfRangeException();
             }

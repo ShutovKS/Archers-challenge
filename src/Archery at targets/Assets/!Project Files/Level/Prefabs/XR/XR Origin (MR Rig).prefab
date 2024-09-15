@@ -393,11 +393,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6442362525361574109}
-  - component: {fileID: 6104616117174615167}
   - component: {fileID: 1754573967265925395}
   - component: {fileID: 4970963063153584427}
   - component: {fileID: 4732280888200210770}
   - component: {fileID: 3230173216528453839}
+  - component: {fileID: 3843232283476621273}
   m_Layer: 10
   m_Name: XR Origin (MR Rig)
   m_TagString: Untagged
@@ -423,21 +423,6 @@ Transform:
   - {fileID: 1839532190622054052}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6104616117174615167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390665139892746045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1463ca19964a488baef5c26d375c8715, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Player>k__BackingField: {fileID: 1390665139892746045}
-  <Camera>k__BackingField: {fileID: 6513309517433433124}
-  <HandMenuSpawnPoint>k__BackingField: {fileID: 3509384912900332252}
 --- !u!114 &1754573967265925395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +439,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 1390665139892746045}
   m_CameraFloorOffsetObject: {fileID: 9137985916125940212}
   m_RequestedTrackingOriginMode: 1
-  m_CameraYOffset: 0
+  m_CameraYOffset: 1.8
 --- !u!114 &4970963063153584427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,6 +510,19 @@ MonoBehaviour:
   m_AimAssistRequiredSpeed: 0.25
   m_AimAssistPercent: 0.8
   m_AimAssistMaxSpeedPercent: 10
+--- !u!114 &3843232283476621273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390665139892746045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688aad9bcedd43bfa385004288dfdc7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <HandMenuSpawnPoint>k__BackingField: {fileID: 3509384912900332252}
 --- !u!1 &1961247965764970465
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +622,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 20
+  far clip plane: 50
   field of view: 60
   orthographic: 0
   orthographic size: 5

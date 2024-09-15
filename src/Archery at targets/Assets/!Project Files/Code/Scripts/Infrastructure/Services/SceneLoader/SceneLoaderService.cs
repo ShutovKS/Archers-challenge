@@ -1,41 +1,22 @@
+#region
+
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
+#endregion
+
 namespace Infrastructure.Services.SceneLoader
 {
-    [UsedImplicitly]
     public class SceneLoaderService : ISceneLoaderService
     {
         private readonly Dictionary<string, AsyncOperationHandle<SceneInstance>> _sceneHandles = new();
-
-        public bool IsSceneLoaded(string scenePath)
-        {
-            return _sceneHandles.ContainsKey(scenePath);
-        }
-
-        public IEnumerable<string> GetLoadedScenes()
-        {
-            return _sceneHandles.Keys;
-        }
-
-        public async Task LoadScenesAsync(IEnumerable<string> scenePaths,
-            LoadSceneMode loadSceneMode = LoadSceneMode.Additive, CancellationToken cancellationToken = default)
-        {
-            var loadTasks = scenePaths
-                .Select(scenePath => LoadSceneAsync(scenePath, loadSceneMode, cancellationToken))
-                .ToList();
-
-            await Task.WhenAll(loadTasks);
-        }
 
         public async Task<SceneInstance> LoadSceneAsync(string scenePath,
             LoadSceneMode loadSceneMode = LoadSceneMode.Single, CancellationToken cancellationToken = default)
@@ -47,7 +28,7 @@ namespace Infrastructure.Services.SceneLoader
             {
                 if (handle.Status == AsyncOperationStatus.Succeeded)
                 {
-                    handle.Result.ActivateAsync();
+                    var activateAsync = handle.Result.ActivateAsync();
                     return handle.Result;
                 }
 
@@ -79,18 +60,6 @@ namespace Infrastructure.Services.SceneLoader
             }
         }
 
-        public async Task UnloadAllScenesAsync()
-        {
-            var unloadTasks = new List<Task>();
-
-            foreach (var scenePath in GetLoadedScenes())
-            {
-                unloadTasks.Add(UnloadSceneAsync(scenePath));
-            }
-
-            await Task.WhenAll(unloadTasks);
-        }
-
         public async Task UnloadSceneAsync(string scenePath)
         {
             if (string.IsNullOrEmpty(scenePath))
@@ -109,17 +78,6 @@ namespace Infrastructure.Services.SceneLoader
             {
                 Debug.LogWarning($"Scene {scenePath} is not loaded or already unloaded.");
             }
-        }
-
-        public async Task ReloadSceneAsync(string scenePath, LoadSceneMode loadSceneMode = LoadSceneMode.Single,
-            CancellationToken cancellationToken = default)
-        {
-            if (IsSceneLoaded(scenePath))
-            {
-                await UnloadSceneAsync(scenePath);
-            }
-
-            await LoadSceneAsync(scenePath, loadSceneMode, cancellationToken);
         }
     }
 }
