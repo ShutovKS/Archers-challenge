@@ -17,19 +17,21 @@ namespace Core.Project.Gameplay
         private readonly IPlayerService _playerService;
         private readonly IWeaponService _weaponService;
         private readonly ISceneContextProvider _sceneContextProvider;
-        private IProjectManagementService _projectManagementService;
+        private readonly IProjectManagementService _projectManagementService;
 
         public ObjectsBootState(
             IWindowService windowService,
             IPlayerService playerService,
             IWeaponService weaponService,
-            ISceneContextProvider sceneContextProvider
+            ISceneContextProvider sceneContextProvider,
+            IProjectManagementService projectManagementService
         )
         {
             _windowService = windowService;
             _playerService = playerService;
             _weaponService = weaponService;
             _sceneContextProvider = sceneContextProvider;
+            _projectManagementService = projectManagementService;
         }
 
         public async void OnEnter()

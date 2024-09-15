@@ -11,11 +11,11 @@ namespace Core.Project.Gameplay
     {
         private readonly IProjectManagementService _projectManagementService;
         private readonly ISceneLoaderService _sceneLoaderService;
-        private readonly GlobalContextProvider _globalContextProvider;
+        private readonly IGlobalContextProvider _globalContextProvider;
         private readonly IWindowService _windowService;
 
         public MoveToMainMenuState(IProjectManagementService projectManagementService,
-            ISceneLoaderService sceneLoaderService, GlobalContextProvider globalContextProvider,
+            ISceneLoaderService sceneLoaderService, IGlobalContextProvider globalContextProvider,
             IWindowService windowService)
         {
             _projectManagementService = projectManagementService;
