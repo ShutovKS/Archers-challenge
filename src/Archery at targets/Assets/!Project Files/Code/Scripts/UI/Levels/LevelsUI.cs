@@ -40,7 +40,13 @@ namespace UI.Levels
         {
             var itemUI = Instantiate(itemUIPrefab, itemContainer);
 
-            itemUI.Setup(itemData);
+            itemUI.Setup(
+                itemData?.Key,
+                itemData?.LevelName,
+                itemData?.GameplayModeData?.ModeType.ToString(),
+                itemData?.Icon,
+                0 // TODO: Get stars
+            );
 
             itemUI.OnItemClicked += OnItemClicked;
 

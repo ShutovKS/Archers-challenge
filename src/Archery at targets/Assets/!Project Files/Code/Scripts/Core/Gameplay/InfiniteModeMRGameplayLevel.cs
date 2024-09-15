@@ -7,8 +7,6 @@ using Features.Weapon;
 using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.Target;
 using Infrastructure.Providers.SceneContainer;
-using Infrastructure.Services.ARPlanes;
-using Infrastructure.Services.Player;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Window;
 using UI.HandMenu;

@@ -1,3 +1,4 @@
+using System.Linq;
 using Data.Configurations.Level;
 using Data.Contexts.Scene;
 using Infrastructure.Providers.SceneContainer;
@@ -42,7 +43,7 @@ namespace Core.Project.MainMenu
         public void OnEnter()
         {
             ConfigurePlayer();
-            
+
             ConfigureLevelsUI();
 
             MoveToNextState();
@@ -63,6 +64,8 @@ namespace Core.Project.MainMenu
             var levelsUI = _windowService.Get<LevelsUI>(WindowID.Levels);
 
             var gameplayLevelDatas = _staticDataProvider.GetLevelData<LevelData>();
+            gameplayLevelDatas = gameplayLevelDatas.Where(x => x.LevelIndex > 0).ToArray();
+            
             levelsUI.SetItems(gameplayLevelDatas);
         }
 

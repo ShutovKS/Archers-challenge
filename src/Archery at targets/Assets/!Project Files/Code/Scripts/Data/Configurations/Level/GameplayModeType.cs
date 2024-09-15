@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Data.Configurations.Level
 {
     public enum GameplayModeType
@@ -25,5 +27,12 @@ namespace Data.Configurations.Level
     public class InfiniteMRGameplay : GameplayModeData
     {
         public override GameplayModeType ModeType => GameplayModeType.InfiniteMR;
+    }
+
+    public class DestroyingNTargetsGameplay : GameplayModeData
+    {
+        public override GameplayModeType ModeType => GameplayModeType.DestroyingAllTargets;
+
+        [field: SerializeField] public int TargetCount { get; private set; }
     }
 }

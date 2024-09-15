@@ -15,22 +15,50 @@ namespace UI.Levels
         public event Action<string> OnItemClicked;
 
         [SerializeField] private Button itemButton;
+
         [SerializeField] private Image itemImage;
+
         [SerializeField] private TMP_Text itemName;
-        [SerializeField] private TMP_Text itemStars;
+        [SerializeField] private TMP_Text gameplayMode;
 
-        private string _key;
+        [SerializeField] private Transform itemStarsContainer;
+        [SerializeField] private Image itemStars;
 
-        public void Setup(LevelData itemData)
+        public void Setup(
+            string levelKey,
+            string levelName,
+            string levelGameplayMode,
+            Sprite levelIcon,
+            int stars
+        )
         {
             gameObject.SetActive(true);
 
-            _key = itemData.Key;
+            itemName.text = levelName;
 
-            itemName.text = itemData.LevelName;
-            itemImage.overrideSprite = itemData.Icon;
-            itemStars.text = $"??? Stars";
-            itemButton.onClick.AddListener(() => OnItemClicked?.Invoke(_key));
+            gameplayMode.text = levelGameplayMode;
+
+            itemImage.overrideSprite = levelIcon;
+
+            CreateStars(stars);
+
+            itemButton.onClick.AddListener(Clicked);
+
+            return;
+
+            void Clicked()
+            {
+                OnItemClicked?.Invoke(levelKey);
+            }
+        }
+
+        private void CreateStars(int stars)
+        {
+            for (var i = 0; i < stars; i++)
+            {
+                var star = Instantiate(itemStars, itemStarsContainer);
+                star.gameObject.SetActive(true);
+            }
         }
 
         private void OnDestroy()
