@@ -1,5 +1,6 @@
 #region
 
+using System;
 using Infrastructure.Services.XRSetup;
 using UnityEngine;
 
@@ -39,5 +40,10 @@ namespace Data.Configurations.Level
         private GameplayModeData gameplayModeData;
 
         public GameplayModeData GameplayModeData => gameplayModeData;
+
+        public void OnValidate()
+        {
+            LevelDatabase.Instance.OnValidate(this);
+        }
     }
 }

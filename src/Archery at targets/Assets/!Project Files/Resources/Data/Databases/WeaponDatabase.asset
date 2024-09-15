@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa9e0f16fb14728854c6c7a54875040, type: 3}
   m_Name: WeaponDatabase
   m_EditorClassIdentifier: 
-  <Items>k__BackingField:
-  - {fileID: 11400000, guid: 9168b0eeb4e2eab4589c891c8e1ac6bf, type: 2}
+  <Items>k__BackingField: []

@@ -23,11 +23,13 @@ namespace Data.Configurations.Weapon
         [Header("References")]
         [field: SerializeReference] public WeaponCustomization Customization { get; private set; } = new WeaponDefaultCustomization();
 
-        private void OnValidate()
+        protected void OnValidate()
         {
             ValidateKey();
             ValidateIcon();
             ValidateCustomization();
+            
+            WeaponDatabase.Instance.OnValidate(this);
         }
 
         private void ValidateKey()
