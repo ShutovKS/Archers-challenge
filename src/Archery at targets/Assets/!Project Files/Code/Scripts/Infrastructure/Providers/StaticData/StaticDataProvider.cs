@@ -24,7 +24,7 @@ namespace Infrastructure.Providers.StaticData
                 .Load<LevelDatabase>(ResourcesPaths.LEVEL_DATABASE)
                 .Items
                 .ToDictionary(x => x.Key, x => x);
-
+            
             _weapons = Resources
                 .Load<WeaponDatabase>(ResourcesPaths.WEAPON_DATABASE)
                 .Items
