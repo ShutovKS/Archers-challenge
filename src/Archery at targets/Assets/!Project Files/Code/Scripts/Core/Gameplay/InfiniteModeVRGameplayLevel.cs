@@ -19,7 +19,7 @@ namespace Core.Gameplay
         public event Action<GameState> OnGameStateChanged;
 
         private ISceneContextProvider _sceneContextProvider;
-        private WindowService _windowService;
+        private IWindowService _windowService;
         private IStopwatchService _stopwatchService;
         private ITargetFactory _targetFactory;
 
@@ -33,7 +33,7 @@ namespace Core.Gameplay
             IStopwatchService stopwatchService,
             ITargetFactory targetFactory,
             ISceneContextProvider sceneContextProvider,
-            WindowService windowService)
+            IWindowService windowService)
         {
             _stopwatchService = stopwatchService;
             _targetFactory = targetFactory;
@@ -41,13 +41,19 @@ namespace Core.Gameplay
             _windowService = windowService;
         }
 
-        public async Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
+        public Task PrepareGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
             where TGameplayModeData : GameplayModeData
         {
             _infoScreen = _windowService.Get<InformationDeskUI>(WindowID.InformationDesk);
             var sceneContextData = _sceneContextProvider.Get<InfiniteSceneContextData>();
             _positionsContainer = sceneContextData.PositionsContainer;
 
+            return Task.CompletedTask;
+        }
+
+        public async Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
+            where TGameplayModeData : GameplayModeData
+        {
             OnGameStateChanged?.Invoke(GameState.Running);
 
             await InstantiateTarget();

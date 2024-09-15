@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bc55d7b-3b5b-49ed-8bcf-0178280bad01" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/Gameplay/MoveToMainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/Gameplay/MoveToMainMenuState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/Gameplay/ObjectsBootState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/Gameplay/ObjectsBootState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/IGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/IGameplayLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeMRGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeMRGameplayLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeVRGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeVRGameplayLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/GameplayLevels/GameplayLevelsFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/GameplayLevels/GameplayLevelsFactory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +175,7 @@
       <workItem from="1726156432220" duration="8624000" />
       <workItem from="1726176647093" duration="4694000" />
       <workItem from="1726252643320" duration="7350000" />
-      <workItem from="1726394217088" duration="1509000" />
+      <workItem from="1726394217088" duration="2547000" />
     </task>
     <servers />
   </component>

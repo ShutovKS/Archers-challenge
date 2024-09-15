@@ -12,6 +12,8 @@ namespace Core.Gameplay
     {
         event Action<GameResult> OnGameFinished;
         event Action<GameState> OnGameStateChanged;
+        
+        Task PrepareGame<TGameplayModeData>(TGameplayModeData gameplayModeData) where TGameplayModeData : GameplayModeData;
 
         Task StartGame<TGameplayModeData>(TGameplayModeData gameplayModeData) where TGameplayModeData : GameplayModeData;
 
