@@ -6,6 +6,7 @@ using Infrastructure.Services.Camera;
 using Infrastructure.Services.Player;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using Object = UnityEngine.Object;
 
 #endregion
 
@@ -42,8 +43,6 @@ namespace Infrastructure.Factories.ARComponents
                 _ => throw new NotSupportedException($"AR component of type {typeof(T)} is not supported.")
             };
             
-            Debug.Log($"Creating AR component of type {typeof(T)}.");
-
             return CreateComponent<T>(targetObject);
         }
 
@@ -52,7 +51,7 @@ namespace Infrastructure.Factories.ARComponents
             if (_arComponents.TryGetValue(typeof(T), out var component))
             {
                 _arComponents.Remove(typeof(T));
-                UnityEngine.Object.Destroy(component);
+                Object.Destroy(component);
             }
         }
 
