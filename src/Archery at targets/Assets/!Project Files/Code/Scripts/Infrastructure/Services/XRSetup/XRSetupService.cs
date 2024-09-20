@@ -3,12 +3,10 @@
 using System;
 using System.Collections.Generic;
 using Infrastructure.Factories.ARComponents;
+using Infrastructure.Factories.ARTrackingMode;
 using Infrastructure.Services.Camera;
-using Infrastructure.Services.XRSetup.TrackingMode;
-using Infrastructure.Services.XRSetup.TrackingModeHandler;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using Zenject;
 
 #endregion
 
@@ -18,24 +16,17 @@ namespace Infrastructure.Services.XRSetup
     {
         private readonly IARComponentsFactory _arComponentsFactory;
         private readonly ICameraService _cameraService;
-        private readonly Dictionary<Type, IXRTrackingModeHandler> _trackingModeHandlers;
+        private readonly IARTrackingModeFactory _arTrackingModeFactory;
 
         private XRMode _currentMode = XRMode.None;
-        private IXRTrackingMode _currentTrackingMode = new NoneTrackingMode();
+        private IARTrackingMode _currentIarTrackingMode = new NoneIarTrackingMode();
 
-        public XRSetupService(DiContainer container, IARComponentsFactory arComponentsFactory,
-            ICameraService cameraService)
+        public XRSetupService(IARComponentsFactory arComponentsFactory, ICameraService cameraService,
+            IARTrackingModeFactory arTrackingModeFactory)
         {
             _arComponentsFactory = arComponentsFactory;
             _cameraService = cameraService;
-            _trackingModeHandlers = new Dictionary<Type, IXRTrackingModeHandler>
-            {
-                { typeof(NoneTrackingMode), container.Instantiate<NoneTrackingModeHandler>() },
-                { typeof(PlaneTrackingMode), container.Instantiate<PlaneTrackingModeHandler>() },
-                { typeof(BoundingBoxTrackingMode), container.Instantiate<BoundingBoxTrackingModeHandler>() },
-                { typeof(PlaneAndBoundingBoxTrackingMode), container.Instantiate<PlaneAndBoundingBoxTrackingModeHandler>() },
-                { typeof(MeshTrackingMode), container.Instantiate<MeshTrackingModeHandler>() },
-            };
+            _arTrackingModeFactory = arTrackingModeFactory;
         }
 
         public void SetXRMode(XRMode mode)
@@ -48,23 +39,30 @@ namespace Infrastructure.Services.XRSetup
             {
                 case XRMode.None:
                 case XRMode.VR:
+                {
                     SetComponentState<ARSession>(false);
                     SetComponentState<ARCameraManager>(false);
-                    SetXRTrackingMode(new NoneTrackingMode());
+
+                    var trackingMode = _arTrackingModeFactory.Create<NoneIarTrackingMode>();
+                    SetXRTrackingMode(trackingMode);
                     SetAnchorManagerState(false);
                     _cameraService.SetBackgroundType(CameraBackgroundType.Skybox);
+                }
                     break;
                 case XRMode.MR:
+                {
                     SetComponentState<ARSession>(true);
                     var arSession = GetOrCreateComponent<ARSession>();
                     arSession.Reset();
 
                     SetComponentState<ARCameraManager>(true);
 
-                    SetXRTrackingMode(new PlaneAndBoundingBoxTrackingMode());
+                    var trackingMode = _arTrackingModeFactory.Create<PlaneAndBoundingBoxIarTrackingMode>();
+                    SetXRTrackingMode(trackingMode);
                     SetAnchorManagerState(true);
 
                     _cameraService.SetBackgroundType(CameraBackgroundType.SolidColor, Color.clear);
+                }
                     break;
                 default: throw new ArgumentOutOfRangeException();
             }
@@ -72,36 +70,17 @@ namespace Infrastructure.Services.XRSetup
             SetComponentState<ARInputManager>(true);
         }
 
-        private void SetXRTrackingMode(IXRTrackingMode xrTrackingMode)
+        private void SetXRTrackingMode(IARTrackingMode iarTrackingMode)
         {
-            if (_currentTrackingMode.GetType() == xrTrackingMode.GetType()) return;
-
-            DisableCurrentTrackingMode();
-            EnableTrackingMode(xrTrackingMode);
-
-            _currentTrackingMode = xrTrackingMode;
+            _currentIarTrackingMode?.Disable();
+            _currentIarTrackingMode = iarTrackingMode;
+            _currentIarTrackingMode.Enable();
         }
 
         private void SetComponentState<T>(bool enabled) where T : Behaviour
         {
             var component = GetOrCreateComponent<T>();
             component.enabled = enabled;
-        }
-
-        private void DisableCurrentTrackingMode()
-        {
-            if (_trackingModeHandlers.TryGetValue(_currentTrackingMode.GetType(), out var handler))
-            {
-                handler.Disable();
-            }
-        }
-
-        private void EnableTrackingMode(IXRTrackingMode xrTrackingMode)
-        {
-            if (_trackingModeHandlers.TryGetValue(xrTrackingMode.GetType(), out var handler))
-            {
-                handler.Enable(xrTrackingMode);
-            }
         }
 
         private void SetAnchorManagerState(bool isAnchorManagerEnabled, GameObject anchorPrefab = null)
@@ -119,9 +98,7 @@ namespace Infrastructure.Services.XRSetup
             }
         }
 
-        private T GetOrCreateComponent<T>() where T : Behaviour
-        {
-            return _arComponentsFactory.Get<T>() ?? _arComponentsFactory.Create<T>();
-        }
+        private T GetOrCreateComponent<T>() where T : Behaviour =>
+            _arComponentsFactory.Get<T>() ?? _arComponentsFactory.Create<T>();
     }
 }

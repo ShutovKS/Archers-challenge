@@ -1,6 +1,7 @@
 #region
 
 using Infrastructure.Factories.ARComponents;
+using Infrastructure.Factories.ARTrackingMode;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.GameplayLevels;
 using Infrastructure.Factories.Player;
@@ -47,40 +48,41 @@ namespace Infrastructure.Installers
 
         private void BindServices()
         {
+            Container.Bind<IARPlanesService>().To<ARPlanesService>().AsSingle();
+            Container.Bind<ICameraService>().To<CameraService>().AsSingle();
+            Container.Bind<IDataStorageService>().To<DataStorageLocalService>().AsSingle();
+            Container.Bind(typeof(IInteractorService), typeof(IInteractorProvider)).To<InteractorService>().AsSingle();
+            Container.Bind<IPlayerService>().To<PlayerService>().AsSingle();
+            Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
+            Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();
             Container.Bind<IProjectManagementService>().To<ProjectStateMachine>().AsSingle();
             Container.Bind<ISceneLoaderService>().To<SceneLoaderService>().AsSingle();
             Container.Bind(typeof(IStopwatchService), typeof(ITickable)).To<StopwatchService>().AsSingle();
             Container.Bind(typeof(ITimerService), typeof(ITickable)).To<TimerService>().AsSingle();
+            Container.Bind(typeof(IInitializable), typeof(IWeaponService)).To<WeaponService>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
-            Container.Bind(typeof(IInitializable), typeof(IWeaponService)).To<WeaponService>().AsSingle();
-            Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();
-            Container.Bind<IDataStorageService>().To<DataStorageLocalService>().AsSingle();
-            Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
-            Container.Bind<IARPlanesService>().To<ARPlanesService>().AsSingle();
-            Container.Bind<IPlayerService>().To<PlayerService>().AsSingle();
-            Container.Bind<ICameraService>().To<CameraService>().AsSingle();
         }
         
         private void BindProviders()
         {
             Container.Bind(typeof(IInitializable), typeof(IAssetsAddressablesProvider)).To<AssetsAddressablesProvider>().AsSingle();
-            Container.Bind(typeof(IInitializable), typeof(IStaticDataProvider)).To<StaticDataProvider>().AsSingle();
-            Container.Bind(typeof(IInteractorService), typeof(IInteractorProvider)).To<InteractorService>().AsSingle();
-            Container.Bind<ISceneContextProvider>().To<SceneContextProvider>().AsSingle();
             Container.Bind<IGlobalContextProvider>().To<GlobalContextProvider>().AsSingle();
+            Container.Bind<ISceneContextProvider>().To<SceneContextProvider>().AsSingle();
+            Container.Bind(typeof(IInitializable), typeof(IStaticDataProvider)).To<StaticDataProvider>().AsSingle();
         }
 
         private void BindFactories()
         {
-            Container.Bind<IGameObjectFactory>().To<GameObjectFactory>().AsSingle();
-            Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
-            Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
             Container.Bind<IARComponentsFactory>().To<ARComponentsFactory>().AsSingle();
-            Container.Bind<ITargetFactory>().To<TargetFactory>().AsSingle();
+            Container.Bind<IARTrackingModeFactory>().To<ARTrackingModeFactory>().AsSingle();
+            Container.Bind<IGameObjectFactory>().To<GameObjectFactory>().AsSingle();
+            Container.Bind<IGameplayLevelsFactory>().To<GameplayLevelsFactory>().AsSingle();
+            Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
             Container.Bind<IProjectileFactory>().To<ProjectileFactory>().AsSingle();
             Container.Bind<IProjectStatesFactory>().To<ProjectStatesFactory>().AsSingle();
-            Container.Bind<IGameplayLevelsFactory>().To<GameplayLevelsFactory>().AsSingle();
+            Container.Bind<ITargetFactory>().To<TargetFactory>().AsSingle();
+            Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
         }
 
         private void BindObservers()

@@ -94,6 +94,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da8518ede10955343a7ddaa7c276cd87
+    m_Address: Assets/!Project Files/Level/Prefabs/XR/ARBoundingBoxColored.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de3a3256a67f1b544881122f62aacb54
     m_Address: Scenes/Locations/Location - Dungeon (Infinite VR).unity
     m_ReadOnly: 0
