@@ -18,6 +18,7 @@ using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.ARPlanes;
 using Infrastructure.Services.Camera;
 using Infrastructure.Services.DataStorage;
+using Infrastructure.Services.GameSetup;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.Progress;
@@ -52,6 +53,7 @@ namespace Infrastructure.Installers
             Container.Bind<ICameraService>().To<CameraService>().AsSingle();
             Container.Bind<IDataStorageService>().To<DataStorageLocalService>().AsSingle();
             Container.Bind(typeof(IInteractorService), typeof(IInteractorProvider)).To<InteractorService>().AsSingle();
+            Container.Bind<IGameplaySetupService>().To<GameplaySetupService>().AsSingle();
             Container.Bind<IPlayerService>().To<PlayerService>().AsSingle();
             Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
             Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();

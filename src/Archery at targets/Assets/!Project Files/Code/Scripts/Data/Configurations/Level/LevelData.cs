@@ -28,8 +28,9 @@ namespace Data.Configurations.Level
         [field: Header("References")]
         [field: SerializeField] public string LocationScenePath { get; private set; }
 
-        [field: Header("Player Configure")]
+        [field: Header("Game Configure")]
         [field: SerializeField] public XRMode XRMode { get; private set; } = XRMode.VR;
+        [field: SerializeField] public bool IsGravityEnabled { get; private set; } = true;
 
         [Header("Gameplay Mode")] 
         [SerializeReference] private GameplayModeData gameplayModeData;
