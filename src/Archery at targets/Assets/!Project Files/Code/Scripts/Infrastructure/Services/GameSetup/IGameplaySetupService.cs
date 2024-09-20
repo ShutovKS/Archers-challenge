@@ -54,15 +54,15 @@ namespace Infrastructure.Services.GameSetup
         public async Task SetupGameplayAsync(LevelData levelData)
         {
             _levelData = levelData;
+
             await LoadLocationAsync();
 
             _sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
-            await Task.WhenAll(
-                InstantiateWeapon(),
-                OpenScreens(),
-                ConfigurePlayer(),
-                CreateGameplayLevel()
-            );
+
+            await InstantiateWeapon();
+            await OpenScreens();
+            await ConfigurePlayer();
+            await CreateGameplayLevel();
         }
 
         #region Setup Gameplay
@@ -76,6 +76,8 @@ namespace Infrastructure.Services.GameSetup
                 _sceneContextData.BowSpawnPoint.position,
                 _sceneContextData.BowSpawnPoint.rotation
             );
+
+            _weaponService.SetActiveGravities(_levelData.IsGravityEnabled);
         }
 
         private async Task OpenScreens()

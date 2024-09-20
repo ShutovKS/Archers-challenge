@@ -15,6 +15,8 @@ namespace Infrastructure.Services.Weapon
         IWeapon CurrentWeapon { get; }
         Task InstantiateEquippedWeapon(Vector3 position, Quaternion rotation);
         void DestroyWeapon();
+        
+        void SetActiveGravities(bool active);
 
         WeaponData GetCurrentlyEquippedWeaponData();
         WeaponData GetWeaponData(string weaponId);

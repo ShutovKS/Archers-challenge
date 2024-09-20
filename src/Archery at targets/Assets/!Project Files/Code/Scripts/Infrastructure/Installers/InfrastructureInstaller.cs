@@ -54,6 +54,7 @@ namespace Infrastructure.Installers
             Container.Bind<IDataStorageService>().To<DataStorageLocalService>().AsSingle();
             Container.Bind(typeof(IInteractorService), typeof(IInteractorProvider)).To<InteractorService>().AsSingle();
             Container.Bind<IGameplaySetupService>().To<GameplaySetupService>().AsSingle();
+            Container.Bind<IMainMenuSetupService>().To<MainMenuSetupService>().AsSingle();
             Container.Bind<IPlayerService>().To<PlayerService>().AsSingle();
             Container.Bind<IProgressService>().To<ProgressService>().AsSingle();
             Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();

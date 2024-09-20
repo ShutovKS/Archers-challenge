@@ -1,11 +1,11 @@
 ﻿#region
 
+using Core.Project.Gameplay;
 using Data.Configurations.Level;
-using Infrastructure.Providers.GlobalDataContainer;
 using Infrastructure.Providers.StaticData;
+using Infrastructure.Services.GameSetup;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.Window;
-using UI.Levels;
 using UI.MainMenu;
 
 #endregion
@@ -17,21 +17,20 @@ namespace Core.Project.MainMenu
         private readonly IProjectManagementService _projectManagementService;
         private readonly IStaticDataProvider _staticDataProvider;
         private readonly IWindowService _windowService;
-        private readonly IGlobalContextProvider _globalContextProvider;
+        private readonly IMainMenuSetupService _mainMenuSetupService;
 
         private MainMenuUI _mainMenuUI;
-        private LevelsUI _levelsUI;
 
         public MenuScreenState(
             IProjectManagementService projectManagementService,
             IStaticDataProvider staticDataProvider,
             IWindowService windowService,
-            IGlobalContextProvider globalContextProvider)
+            IMainMenuSetupService mainMenuSetupService)
         {
             _projectManagementService = projectManagementService;
             _staticDataProvider = staticDataProvider;
             _windowService = windowService;
-            _globalContextProvider = globalContextProvider;
+            _mainMenuSetupService = mainMenuSetupService;
         }
 
         public void OnEnter()
@@ -45,24 +44,22 @@ namespace Core.Project.MainMenu
         {
             _mainMenuUI = _windowService.Get<MainMenuUI>(WindowID.MainMenu);
 
-            _mainMenuUI.OnInfiniteVRClicked += () => StartMode("InfiniteVR");
-
-            _mainMenuUI.OnInfiniteMRClicked += () => StartMode("InfiniteMR");
-
+            _mainMenuUI.OnInfiniteVRClicked += StartInfiniteVR;
+            _mainMenuUI.OnInfiniteMRClicked += StartInfiniteMR;
             _mainMenuUI.OnLevelsClicked += OpenLevelsScreen;
-
             _mainMenuUI.OnExitClicked += ExitGame;
         }
 
         private void OpenLevelsScreen() => _projectManagementService.ChangeState<LevelsScreenState>();
+        private void StartInfiniteVR() => StartMode("InfiniteVR");
+        private void StartInfiniteMR() => StartMode("InfiniteMR");
 
         private void StartMode(string modeName)
         {
-            var levelData = _staticDataProvider.GetLevelData<LevelData>(modeName);
-            
-            _globalContextProvider.GlobalContext.LevelData = levelData;
+            _mainMenuSetupService.CleanupMainMenuAsync();
 
-            _projectManagementService.ChangeState<ExitMenuAndLaunchGameplay>();
+            var levelData = _staticDataProvider.GetLevelData<LevelData>(modeName);
+            _projectManagementService.ChangeState<GameplayState, LevelData>(levelData);
         }
 
         private void ExitGame()
@@ -76,7 +73,17 @@ namespace Core.Project.MainMenu
 
         public void OnExit()
         {
+            CleanupMainMenuScreen();
+
             _mainMenuUI.Hide();
+        }
+
+        private void CleanupMainMenuScreen()
+        {
+            _mainMenuUI.OnInfiniteVRClicked -= StartInfiniteVR;
+            _mainMenuUI.OnInfiniteMRClicked -= StartInfiniteMR;
+            _mainMenuUI.OnLevelsClicked -= OpenLevelsScreen;
+            _mainMenuUI.OnExitClicked -= ExitGame;
         }
     }
 }
