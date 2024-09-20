@@ -55,8 +55,6 @@ namespace Infrastructure.Services.Weapon
                 : GetDefaultWeapon();
 
             _currentCustomizationId = progressData.currentCustomizationId;
-
-            _currentWeaponRigidbody = _currentWeaponInstance.GetComponent<Rigidbody>();
         }
 
         public async Task InstantiateEquippedWeapon(Vector3 position, Quaternion rotation)
@@ -69,6 +67,8 @@ namespace Infrastructure.Services.Weapon
 
             _currentWeaponInstance = instance;
             CurrentWeapon = instance.GetComponent<IWeapon>();
+            
+            _currentWeaponRigidbody = instance.GetComponent<Rigidbody>();
         }
 
         public void DestroyWeapon()
