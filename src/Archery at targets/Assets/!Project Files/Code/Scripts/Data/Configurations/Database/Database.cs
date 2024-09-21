@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Data.Constants.Paths;
 using UnityEngine;
 
 namespace Data.Configurations.Database
@@ -22,7 +23,7 @@ namespace Data.Configurations.Database
             if (Items.Contains(item)) return;
             Items.Add(item);
         }
-        
+
         private void RemovedNullItems()
         {
             Items = Items?.Where(item => item != null).ToList() ?? new List<T>();
@@ -30,7 +31,7 @@ namespace Data.Configurations.Database
 
         private static Database<T> LoadOrCreateInstance()
         {
-            var instance = Resources.Load<Database<T>>($"Data/Databases/{typeof(T).Name}base");
+            var instance = Resources.Load<Database<T>>($"{ResourcesPaths.DATABASES}{typeof(T).Name}base");
             return instance ? instance : CreateAndSaveInstance();
         }
 
@@ -39,8 +40,14 @@ namespace Data.Configurations.Database
 #if UNITY_EDITOR
             var instance = ScriptableObject.CreateInstance(typeof(T).Name + "base") as Database<T>;
             if (instance == null) throw new Exception($"Failed to create database for {typeof(T).Name}");
-            
-            UnityEditor.AssetDatabase.CreateAsset(instance, $"Assets/!Project Files/Resources/Data/Databases/{typeof(T).Name}base.asset");
+
+            if (!System.IO.Directory.Exists($"Assets/Resources/{ResourcesPaths.DATABASES}"))
+            {
+                System.IO.Directory.CreateDirectory($"Assets/Resources/{ResourcesPaths.DATABASES}");
+            }
+
+            UnityEditor.AssetDatabase.CreateAsset(instance,
+                $"Assets/Resources/{ResourcesPaths.DATABASES}{typeof(T).Name}base.asset");
             UnityEditor.AssetDatabase.SaveAssets();
             UnityEditor.AssetDatabase.Refresh();
             return instance;

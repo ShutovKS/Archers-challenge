@@ -13,5 +13,6 @@ namespace Data.Constants.Paths
 
         public const string AR_PLANE_PREFAB = "Assets/!Project Files/Level/Prefabs/XR/ARPlaneColored.prefab";
         public const string AR_BOUNDED_BOX_PREFAB = "Assets/!Project Files/Level/Prefabs/XR/ARBoundingBoxColored.prefab";
+        public const string AR_MESH_PREFAB = "NO PATH";
     }
 }

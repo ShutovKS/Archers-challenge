@@ -3,74 +3,58 @@ using System.Threading.Tasks;
 using Data.Configurations.Level;
 using Data.Contexts.Scene;
 using Features.PositionsContainer;
-using Features.Weapon;
-using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.Target;
 using Infrastructure.Providers.SceneContainer;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Window;
-using UI.HandMenu;
 using UI.InformationDesk;
 using UnityEngine;
-using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.OpenXR.Features.Meta;
 using Zenject;
 
 namespace Core.Gameplay
 {
-    public class InfiniteModeMRGameplayLevel : IGameplayLevel
+    public class DestroyingNTargetsGameplayLevel : IGameplayLevel
     {
         public event Action<GameResult> OnGameFinished;
         public event Action<GameState> OnGameStateChanged;
 
-        private IStopwatchService _stopwatchService;
-        private IWindowService _windowService;
-        private ITargetFactory _targetFactory;
         private ISceneContextProvider _sceneContextProvider;
-        private IARComponentsFactory _arComponentsFactory;
+        private IWindowService _windowService;
+        private IStopwatchService _stopwatchService;
+        private ITargetFactory _targetFactory;
 
-        private GameplaySceneContextData _sceneContextData;
 
-        private HandMenuUI _handMenuScreen;
-        private InformationDeskUI _infoScreen;
         private PositionsContainer _positionsContainer;
-        private IWeapon _weapon;
-
+        private InformationDeskUI _infoScreen;
         private int _targetCount;
         private bool _isPaused;
 
         [Inject]
         public void Construct(
             IStopwatchService stopwatchService,
-            IWindowService windowService,
             ITargetFactory targetFactory,
             ISceneContextProvider sceneContextProvider,
-            IARComponentsFactory arComponentsFactory
-        )
+            IWindowService windowService)
         {
             _stopwatchService = stopwatchService;
-            _windowService = windowService;
             _targetFactory = targetFactory;
             _sceneContextProvider = sceneContextProvider;
-            _arComponentsFactory = arComponentsFactory;
+            _windowService = windowService;
         }
-
 
         public Task PrepareGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
             where TGameplayModeData : GameplayModeData
         {
-            if (!TryRequestSceneCapture())
-            {
-                Debug.LogError("Failed to request scene capture");
-
-                OnGameFinished?.Invoke(GameResult.Error);
-
-                return Task.CompletedTask;
-            }
-
             _infoScreen = _windowService.Get<InformationDeskUI>(WindowID.InformationDesk);
             var sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
             _positionsContainer = sceneContextData.PositionsContainer;
+
+            if (gameplayModeData is not DestroyingNTargetsGameplay destroyingNTargetsGameplay)
+            {
+                throw new ArgumentException("Invalid gameplay mode data type");
+            }
+
+            _targetCount = destroyingNTargetsGameplay.TargetCount;
 
             return Task.CompletedTask;
         }
@@ -84,28 +68,8 @@ namespace Core.Gameplay
             StartStopwatch();
         }
 
+
         #region StartGame
-
-        private bool TryRequestSceneCapture()
-        {
-            var arSession = _arComponentsFactory.Get<ARSession>();
-
-            if (arSession == null)
-            {
-                Debug.LogError("ARSession is null");
-
-                return false;
-            }
-
-            if (arSession.subsystem is MetaOpenXRSessionSubsystem subsystem)
-            {
-                return subsystem.TryRequestSceneCapture();
-            }
-
-            Debug.LogError("ARSession subsystem is not MetaOpenXRSessionSubsystem");
-
-            return false;
-        }
 
         private async Task InstantiateTarget()
         {
@@ -119,8 +83,14 @@ namespace Core.Gameplay
             _targetFactory.TargetHit -= OnTargetHit;
             _targetFactory.Destroy(gameObject);
 
-            _targetCount++;
+            _targetCount--;
             _infoScreen.SetScoreText(_targetCount.ToString());
+
+            if (_targetCount == 0)
+            {
+                await StopGame();
+                return;
+            }
 
             await InstantiateTarget();
         }

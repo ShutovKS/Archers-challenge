@@ -28,6 +28,7 @@ namespace Infrastructure.Services.Weapon
         private WeaponData _currentWeaponData;
         private string _currentCustomizationId;
         private GameObject _currentWeaponInstance;
+        private Rigidbody _currentWeaponRigidbody;
 
         public IWeapon CurrentWeapon { get; private set; }
         public event Action<WeaponData> OnWeaponEquipped;
@@ -66,6 +67,8 @@ namespace Infrastructure.Services.Weapon
 
             _currentWeaponInstance = instance;
             CurrentWeapon = instance.GetComponent<IWeapon>();
+            
+            _currentWeaponRigidbody = instance.GetComponent<Rigidbody>();
         }
 
         public void DestroyWeapon()
@@ -73,13 +76,14 @@ namespace Infrastructure.Services.Weapon
             if (_currentWeaponInstance)
             {
                 _gameObjectFactory.Destroy(_currentWeaponInstance);
-             
+
                 _currentWeaponInstance = null;
-                
+
                 CurrentWeapon = null;
             }
         }
 
+        public void SetActiveGravities(bool active) => _currentWeaponRigidbody.useGravity = active;
 
         public WeaponData GetCurrentlyEquippedWeaponData() => _currentWeaponData;
 

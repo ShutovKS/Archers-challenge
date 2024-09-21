@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3483151881910534624}
   - component: {fileID: 6274652713036727471}
   - component: {fileID: 7245301668442258378}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,6 +210,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 150bec6bd6f420e47bb2ebabf800602c, type: 3}
       propertyPath: m_Name
       value: hedef
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 150bec6bd6f420e47bb2ebabf800602c, type: 3}
+      propertyPath: m_Layer
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

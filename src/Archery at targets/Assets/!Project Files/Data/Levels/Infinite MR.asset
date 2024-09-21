@@ -22,6 +22,7 @@ MonoBehaviour:
   <LocationScenePath>k__BackingField: Scenes/Locations/Location - Empty (Infinite
     MR).unity
   <XRMode>k__BackingField: 2
+  <IsGravityEnabled>k__BackingField: 0
   gameplayModeData:
     rid: 3229442957521715398
   references:
