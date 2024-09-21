@@ -54,7 +54,8 @@ namespace Infrastructure.Services.GameSetup
         public async Task SetupGameplayAsync(LevelData levelData)
         {
             _levelData = levelData;
-
+            
+            await ConfigurePlayerXRSettings();
             await LoadLocationAsync();
 
             _sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
@@ -106,13 +107,18 @@ namespace Infrastructure.Services.GameSetup
             await _windowService.OpenInWorld(WindowID.HandMenu, spawnPoint.position, spawnPoint.rotation, spawnPoint);
         }
 
-        private Task ConfigurePlayer()
+        private Task ConfigurePlayerXRSettings()
         {
             _xrSetupService.SetXRMode(_levelData.XRMode);
 
             _interactorService.SetUpInteractor(HandType.Left, InteractorType.NearFar);
             _interactorService.SetUpInteractor(HandType.Right, InteractorType.Direct | InteractorType.Poke);
-
+            
+            return Task.CompletedTask;
+        }
+        
+        private Task ConfigurePlayer()
+        {
             var playerSpawnPoint = _sceneContextData.PlayerSpawnPoint;
             _playerService.SetPlayerPositionAndRotation(playerSpawnPoint.position, playerSpawnPoint.rotation);
 
