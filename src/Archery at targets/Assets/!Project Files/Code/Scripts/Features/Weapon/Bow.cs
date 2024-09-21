@@ -69,24 +69,11 @@ namespace Features.Weapon
             _currentProjectile = null;
         }
 
-        public async void Charge()
-        {
-            _currentProjectile = await _projectileFactory.Instantiate(notchTransform);
-        }
+        public async void Charge() => _currentProjectile = await _projectileFactory.Instantiate(notchTransform);
 
-        public void Discharge()
-        {
-            if (_currentProjectile == null) return;
-            
-            _projectileFactory.Destroy(_currentProjectile);
+        public void Discharge() => _currentProjectile = null;
 
-            _currentProjectile = null;
-        }
-
-        private void OnBowTaken(SelectEnterEventArgs args)
-        {
-            IsSelected = true;
-        }
+        private void OnBowTaken(SelectEnterEventArgs args) => IsSelected = true;
 
         private void OnBowDropped(SelectExitEventArgs args)
         {

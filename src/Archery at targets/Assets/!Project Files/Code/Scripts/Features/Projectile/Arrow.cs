@@ -1,6 +1,7 @@
 #region
 
 using System;
+using System.Collections;
 using UnityEngine;
 
 #endregion
@@ -32,6 +33,8 @@ namespace Features.Projectile
             IsPhysics(true);
             IsEffect(true);
 
+            StartCoroutine(DestroyAfter(10f));
+
             rigidbody.AddForce(tip.forward * speed * pullAmount, ForceMode.Impulse);
         }
 
@@ -50,6 +53,8 @@ namespace Features.Projectile
                 IsFlight(false);
                 IsPhysics(false);
                 IsEffect(false);
+
+                StartCoroutine(DestroyAfter(1f));
             }
         }
 
@@ -59,7 +64,7 @@ namespace Features.Projectile
             {
                 OnStopped?.Invoke();
             }
-            
+
             _isInFlight = isFlight;
         }
 
@@ -73,6 +78,14 @@ namespace Features.Projectile
         private void IsEffect(bool isEffect)
         {
             tailVisualization.SetActive(isEffect);
+        }
+
+        private IEnumerator DestroyAfter(float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+
+            StopAllCoroutines();
+            Destroy(gameObject);
         }
     }
 }
