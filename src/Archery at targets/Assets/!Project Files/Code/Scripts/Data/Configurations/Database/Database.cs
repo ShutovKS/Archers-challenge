@@ -16,6 +16,7 @@ namespace Data.Configurations.Database
         public void OnValidate()
         {
             RemovedNullItems();
+            RemovedDuplicateItems();
         }
 
         public void OnValidate(T item)
@@ -24,10 +25,8 @@ namespace Data.Configurations.Database
             Items.Add(item);
         }
 
-        private void RemovedNullItems()
-        {
-            Items = Items?.Where(item => item != null).ToList() ?? new List<T>();
-        }
+        private void RemovedNullItems() => Items = Items?.Where(item => item != null).ToList() ?? new List<T>();
+        private void RemovedDuplicateItems() => Items = Items?.Distinct().ToList() ?? new List<T>();
 
         private static Database<T> LoadOrCreateInstance()
         {
