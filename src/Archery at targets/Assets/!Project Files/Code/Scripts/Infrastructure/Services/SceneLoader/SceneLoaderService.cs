@@ -16,48 +16,20 @@ namespace Infrastructure.Services.SceneLoader
 {
     public class SceneLoaderService : ISceneLoaderService
     {
-        private readonly Dictionary<string, AsyncOperationHandle<SceneInstance>> _sceneHandles = new();
+        private readonly Dictionary<string, SceneInstance> _sceneHandles = new();
 
         public async Task<SceneInstance> LoadSceneAsync(string scenePath,
-            LoadSceneMode loadSceneMode = LoadSceneMode.Single, CancellationToken cancellationToken = default)
+            LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
             if (string.IsNullOrEmpty(scenePath))
                 throw new ArgumentException("Scene path cannot be null or empty", nameof(scenePath));
 
-            if (_sceneHandles.TryGetValue(scenePath, out var handle))
+            if (_sceneHandles.Remove(scenePath, out var handle))
             {
-                if (handle.Status == AsyncOperationStatus.Succeeded)
-                {
-                    var activateAsync = handle.Result.ActivateAsync();
-                    return handle.Result;
-                }
-
-                _sceneHandles.Remove(scenePath);
+                await UnloadSceneAsync(scenePath);
             }
 
-            try
-            {
-                var sceneHandle = Addressables.LoadSceneAsync(scenePath, loadSceneMode);
-                _sceneHandles[scenePath] = sceneHandle;
-
-                var sceneInstance = await sceneHandle.Task;
-
-                if (!cancellationToken.IsCancellationRequested)
-                {
-                    return sceneInstance;
-                }
-
-                await UnloadSceneAsync(scenePath).ConfigureAwait(false);
-                cancellationToken.ThrowIfCancellationRequested();
-
-                return sceneInstance;
-            }
-            catch (Exception ex)
-            {
-                _sceneHandles.Remove(scenePath);
-                Debug.LogError($"Failed to load scene at {scenePath}: {ex.Message}");
-                throw;
-            }
+            return _sceneHandles[scenePath] = await Addressables.LoadSceneAsync(scenePath, loadSceneMode).Task;
         }
 
         public async Task UnloadSceneAsync(string scenePath)
@@ -65,14 +37,9 @@ namespace Infrastructure.Services.SceneLoader
             if (string.IsNullOrEmpty(scenePath))
                 throw new ArgumentException("Scene path cannot be null or empty", nameof(scenePath));
 
-            if (_sceneHandles.TryGetValue(scenePath, out var handle))
+            if (_sceneHandles.Remove(scenePath, out var sceneInstance))
             {
-                if (handle.Status == AsyncOperationStatus.Succeeded)
-                {
-                    await Addressables.UnloadSceneAsync(handle).Task.ConfigureAwait(false);
-                }
-
-                _sceneHandles.Remove(scenePath);
+                await Addressables.UnloadSceneAsync(sceneInstance).Task;
             }
             else
             {

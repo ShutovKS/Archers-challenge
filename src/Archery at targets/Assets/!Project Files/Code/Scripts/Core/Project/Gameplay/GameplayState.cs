@@ -20,6 +20,7 @@ namespace Core.Project.Gameplay
         private readonly IGameplaySetupService _gameplaySetupService;
         private readonly IWindowService _windowService;
         private readonly IWeaponService _weaponService;
+        private IGameplayLevel _gameplayLevel;
 
         public GameplayState(IProjectManagementService projectManagementService,
             IGameplaySetupService gameplaySetupService, IWindowService windowService, IWeaponService weaponService)
@@ -47,13 +48,14 @@ namespace Core.Project.Gameplay
             if (!isSelected) return;
 
             _weaponService.CurrentWeapon.OnSelected -= OnWeaponSelected;
+
             LaunchGameplay();
         }
 
         private async void LaunchGameplay()
         {
-            var gameplayLevel = await _gameplaySetupService.LaunchGameplayAsync();
-            gameplayLevel.OnGameFinished += GameFinished;
+            _gameplayLevel = await _gameplaySetupService.LaunchGameplayAsync();
+            _gameplayLevel.OnGameFinished += GameFinished;
         }
 
         private void GameFinished(GameResult gameResult)
@@ -75,7 +77,10 @@ namespace Core.Project.Gameplay
 
         private async void ExitInMainMenu()
         {
+            _gameplayLevel?.StopGame();
+
             await _gameplaySetupService.CleanupGameplayAsync();
+
             _projectManagementService.ChangeState<MainMenuState>();
         }
     }

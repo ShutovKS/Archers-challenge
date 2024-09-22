@@ -11,6 +11,7 @@ using Infrastructure.Services.Weapon;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using UI.InformationDesk;
+using UnityEngine;
 
 namespace Infrastructure.Services.GameSetup
 {
@@ -141,16 +142,21 @@ namespace Infrastructure.Services.GameSetup
 
         #endregion
 
-        public async Task CleanupGameplayAsync()
-        {
-            await Task.WhenAll(
-                DestroyLocation(),
-                CloseScreens(),
-                DestroyWeapon()
-            );
-        }
+        public async Task CleanupGameplayAsync() => await Task.WhenAll(
+            CleanupGameplayLevel(),
+            CloseScreens(),
+            DestroyLocation(),
+            DestroyWeapon()
+        );
 
         #region Cleanup Gameplay
+
+        private Task CleanupGameplayLevel()
+        {
+            _gameplayLevel.CleanUp();
+
+            return Task.CompletedTask;
+        }
 
         private async Task DestroyLocation() =>
             await _sceneLoaderService.UnloadSceneAsync(_levelData.LocationScenePath);

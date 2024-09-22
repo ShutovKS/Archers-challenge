@@ -70,8 +70,7 @@ namespace Infrastructure.Installers
 
         private void BindProviders()
         {
-            Container.Bind(typeof(IInitializable), typeof(IAssetsAddressablesProvider)).To<AssetsAddressablesProvider>()
-                .AsSingle();
+            Container.Bind(typeof(IInitializable), typeof(IAssetsAddressablesProvider)).To<AssetsAddressablesProvider>().AsSingle();
             Container.Bind<IGlobalContextProvider>().To<GlobalContextProvider>().AsSingle();
             Container.Bind<ISceneContextProvider>().To<SceneContextProvider>().AsSingle();
             Container.Bind(typeof(IInitializable), typeof(IStaticDataProvider)).To<StaticDataProvider>().AsSingle();

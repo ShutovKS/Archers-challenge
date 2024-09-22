@@ -12,8 +12,7 @@ namespace Infrastructure.Services.SceneLoader
     public interface ISceneLoaderService
     {
         Task<SceneInstance> LoadSceneAsync(string scenePath,
-            LoadSceneMode loadSceneMode = LoadSceneMode.Single,
-            CancellationToken cancellationToken = default);
+            LoadSceneMode loadSceneMode = LoadSceneMode.Single);
 
         Task UnloadSceneAsync(string scenePath);
     }
