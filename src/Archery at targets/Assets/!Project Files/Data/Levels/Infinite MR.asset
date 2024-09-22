@@ -19,8 +19,12 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 0}
   <Music>k__BackingField: {fileID: 0}
   <MusicVolume>k__BackingField: 0
-  <LocationScenePath>k__BackingField: Scenes/Locations/Location - Empty (Infinite
-    MR).unity
+  <LocationScenePath>k__BackingField:
+    m_AssetGUID: 2ddac2b6314c3074b9acc7e6eaf9bbc9
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   <XRMode>k__BackingField: 2
   <IsGravityEnabled>k__BackingField: 0
   gameplayModeData:

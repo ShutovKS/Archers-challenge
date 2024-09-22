@@ -11,7 +11,8 @@ using Infrastructure.Services.Weapon;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using UI.InformationDesk;
-using UnityEngine;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.GameSetup
 {
@@ -36,6 +37,7 @@ namespace Infrastructure.Services.GameSetup
         private GameplaySceneContextData _sceneContextData;
         private IGameplayLevel _gameplayLevel;
         private LevelData _levelData;
+        private SceneInstance _locationSceneInstance;
 
         public GameplaySetupService(ISceneLoaderService sceneLoaderService, ISceneContextProvider sceneContextProvider,
             IWeaponService weaponService, IWindowService windowService, IPlayerService playerService,
@@ -69,8 +71,8 @@ namespace Infrastructure.Services.GameSetup
 
         #region Setup Gameplay
 
-        private async Task LoadLocationAsync() =>
-            await _sceneLoaderService.LoadSceneAsync(_levelData.LocationScenePath);
+        private async Task LoadLocationAsync() => _locationSceneInstance =
+            await _sceneLoaderService.LoadSceneAsync(_levelData.LocationScenePath, LoadSceneMode.Additive);
 
         private async Task InstantiateWeapon() => await _weaponService.InstantiateEquippedWeapon(
             _sceneContextData.BowSpawnPoint.position,
@@ -81,10 +83,8 @@ namespace Infrastructure.Services.GameSetup
 
         private async Task OpenScreens()
         {
-            await Task.WhenAll(
-                InstantiateInfoScreen(),
-                InstantiateHandMenuScreen()
-            );
+            await InstantiateInfoScreen();
+            await InstantiateHandMenuScreen();
         }
 
         private async Task InstantiateInfoScreen()
@@ -142,12 +142,13 @@ namespace Infrastructure.Services.GameSetup
 
         #endregion
 
-        public async Task CleanupGameplayAsync() => await Task.WhenAll(
-            CleanupGameplayLevel(),
-            CloseScreens(),
-            DestroyLocation(),
-            DestroyWeapon()
-        );
+        public async Task CleanupGameplayAsync()
+        {
+            await CleanupGameplayLevel();
+            await CloseScreens();
+            await DestroyLocation();
+            await DestroyWeapon();
+        }
 
         #region Cleanup Gameplay
 
@@ -158,8 +159,7 @@ namespace Infrastructure.Services.GameSetup
             return Task.CompletedTask;
         }
 
-        private async Task DestroyLocation() =>
-            await _sceneLoaderService.UnloadSceneAsync(_levelData.LocationScenePath);
+        private async Task DestroyLocation() => await _sceneLoaderService.UnloadSceneAsync(_locationSceneInstance);
 
         private Task CloseScreens()
         {

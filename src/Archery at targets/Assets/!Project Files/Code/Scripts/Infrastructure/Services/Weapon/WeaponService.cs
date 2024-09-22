@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Data.Configurations.Weapon;
 using Features.Weapon;
-using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Weapon;
 using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.Progress;

@@ -1,6 +1,4 @@
 using System.Threading.Tasks;
-using Data.Configurations.Weapon;
-using Data.Contexts.Scene;
 using Features.Weapon;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Projectile;

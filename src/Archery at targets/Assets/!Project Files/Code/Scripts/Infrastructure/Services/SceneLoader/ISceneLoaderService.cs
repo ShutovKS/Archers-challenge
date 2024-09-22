@@ -1,7 +1,7 @@
 #region
 
-using System.Threading;
 using System.Threading.Tasks;
+using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +11,9 @@ namespace Infrastructure.Services.SceneLoader
 {
     public interface ISceneLoaderService
     {
-        Task<SceneInstance> LoadSceneAsync(string scenePath, LoadSceneMode loadSceneMode = LoadSceneMode.Single);
-        Task UnloadSceneAsync(string scenePath);
+        Task<SceneInstance> LoadSceneAsync(AssetReference scenePath,
+            LoadSceneMode loadSceneMode = LoadSceneMode.Single);
+
+        Task UnloadSceneAsync(SceneInstance sceneInstance);
     }
 }

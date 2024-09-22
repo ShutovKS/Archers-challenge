@@ -19,9 +19,14 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 0}
   <Music>k__BackingField: {fileID: 0}
   <MusicVolume>k__BackingField: 0
-  <LocationScenePath>k__BackingField: Scenes/Locations/Location - Dungeon (Infinite
-    VR).unity
+  <LocationScenePath>k__BackingField:
+    m_AssetGUID: de3a3256a67f1b544881122f62aacb54
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   <XRMode>k__BackingField: 1
+  <IsGravityEnabled>k__BackingField: 1
   gameplayModeData:
     rid: 3229442957521715399
   references:

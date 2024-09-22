@@ -11,6 +11,7 @@ using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using UI.Levels;
 using UI.MainMenu;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.GameSetup
@@ -31,8 +32,9 @@ namespace Infrastructure.Services.GameSetup
         private readonly IXRSetupService _xrSetupService;
         private readonly IInteractorService _interactorService;
 
-        private LevelData _levelData;
         private MainMenuSceneContextData _sceneContextData;
+        private LevelData _levelData;
+        private SceneInstance _sceneInstance;
 
         public MainMenuSetupService(ISceneLoaderService sceneLoaderService, IStaticDataProvider staticDataProvider,
             IWindowService windowService, ISceneContextProvider sceneContextProvider, IPlayerService playerService,
@@ -62,7 +64,7 @@ namespace Infrastructure.Services.GameSetup
 
         #region Setup MainMenu
 
-        private async Task LoadMainMenuScene() =>
+        private async Task LoadMainMenuScene() => _sceneInstance =
             await _sceneLoaderService.LoadSceneAsync(_levelData.LocationScenePath, LoadSceneMode.Additive);
 
         private async Task OpenScreens()
@@ -124,7 +126,7 @@ namespace Infrastructure.Services.GameSetup
 
         #region Cleanup MainMenu
 
-        private async Task UnloadLocation() => await _sceneLoaderService.UnloadSceneAsync(_levelData.LocationScenePath);
+        private async Task UnloadLocation() => await _sceneLoaderService.UnloadSceneAsync(_sceneInstance);
 
         private Task CloseScreens()
         {

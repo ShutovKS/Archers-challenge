@@ -1,8 +1,8 @@
 #region
 
-using System;
 using Infrastructure.Services.XRSetup;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 #endregion
 
@@ -30,7 +30,7 @@ namespace Data.Configurations.Level
 
         [field: Header("References")]
         [field: SerializeField]
-        public string LocationScenePath { get; private set; }
+        public AssetReference LocationScenePath { get; private set; }
 
         [field: Header("Game Configure")]
         [field: SerializeField]

@@ -1,7 +1,6 @@
 #region
 
 using System;
-using System.Collections.Generic;
 using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.ARTrackingMode;
 using Infrastructure.Services.Camera;

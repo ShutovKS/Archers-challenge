@@ -6,7 +6,6 @@ using Infrastructure.Factories.Projectile;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using Zenject;
 
 #endregion
 
