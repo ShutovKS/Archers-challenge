@@ -14,7 +14,7 @@ using UI.HandMenu;
 
 namespace Core.Project.Gameplay
 {
-    public class GameplayState : IState, IEnterableWithArg<LevelData>
+    public class GameplayState : IState, IEnterableWithArg<LevelData>, IExitable
     {
         private readonly IProjectManagementService _projectManagementService;
         private readonly IGameplaySetupService _gameplaySetupService;
@@ -75,13 +75,13 @@ namespace Core.Project.Gameplay
             }
         }
 
-        private async void ExitInMainMenu()
+        private void ExitInMainMenu() => _projectManagementService.ChangeState<MainMenuState>();
+
+        public async void OnExit()
         {
             _gameplayLevel?.StopGame();
 
             await _gameplaySetupService.CleanupGameplayAsync();
-
-            _projectManagementService.ChangeState<MainMenuState>();
         }
     }
 }

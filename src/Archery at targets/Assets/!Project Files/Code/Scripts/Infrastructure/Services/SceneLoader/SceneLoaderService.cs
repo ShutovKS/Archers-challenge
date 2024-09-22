@@ -18,8 +18,7 @@ namespace Infrastructure.Services.SceneLoader
     {
         private readonly Dictionary<string, SceneInstance> _sceneHandles = new();
 
-        public async Task<SceneInstance> LoadSceneAsync(string scenePath,
-            LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        public async Task<SceneInstance> LoadSceneAsync(string scenePath, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
             if (string.IsNullOrEmpty(scenePath))
                 throw new ArgumentException("Scene path cannot be null or empty", nameof(scenePath));
