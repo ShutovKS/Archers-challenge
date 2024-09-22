@@ -71,15 +71,12 @@ namespace Infrastructure.Services.GameSetup
         private async Task LoadLocationAsync() =>
             await _sceneLoaderService.LoadSceneAsync(_levelData.LocationScenePath);
 
-        private async Task InstantiateWeapon()
-        {
-            await _weaponService.InstantiateEquippedWeapon(
-                _sceneContextData.BowSpawnPoint.position,
-                _sceneContextData.BowSpawnPoint.rotation
-            );
-
-            _weaponService.SetActiveGravities(_levelData.IsGravityEnabled);
-        }
+        private async Task InstantiateWeapon() => await _weaponService.InstantiateEquippedWeapon(
+            _sceneContextData.BowSpawnPoint.position,
+            _sceneContextData.BowSpawnPoint.rotation,
+            _levelData.IsGravityEnabled,
+            _sceneContextData.BowForce
+        );
 
         private async Task OpenScreens()
         {

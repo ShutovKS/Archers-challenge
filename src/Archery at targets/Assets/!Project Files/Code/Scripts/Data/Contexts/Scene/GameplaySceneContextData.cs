@@ -19,5 +19,8 @@ namespace Data.Contexts.Scene
         [field: Header("Position Containers")]
         [field: SerializeField]
         public PositionsContainer PositionsContainer { get; private set; }
+        
+        [field: Header("Bow")]
+        [field: SerializeField] public float BowForce { get; private set; } = 15f;
     }
 }

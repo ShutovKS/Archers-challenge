@@ -10,6 +10,6 @@ namespace Features.Projectile
     {
         event Action OnStopped;
 
-        void Fire(float pullAmount);
+        void Fire(float force);
     }
 }

@@ -4,7 +4,6 @@ using Data.Contexts.Scene;
 using Features.Weapon;
 using Infrastructure.Factories.GameObjects;
 using Infrastructure.Factories.Projectile;
-using Infrastructure.Providers.SceneContainer;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -12,32 +11,42 @@ namespace Infrastructure.Factories.Weapon
 {
     public interface IWeaponFactory
     {
-        Task<IWeapon> CreateWeaponAsync(AssetReference weaponAssetReference, Vector3 position, Quaternion rotation);
+        Task<IWeapon> CreateWeaponAsync(AssetReference weaponReference, Vector3 position, Quaternion rotation,
+            bool useGravity, float bowForce);
+
+        void DestroyWeapon();
     }
 
     public class WeaponFactory : IWeaponFactory
     {
         private readonly IGameObjectFactory _gameObjectFactory;
         private readonly IProjectileFactory _projectileFactory;
-        private readonly ISceneContextProvider _sceneContextProvider;
+        private GameObject _currentWeaponInstance;
 
-        public WeaponFactory(IGameObjectFactory gameObjectFactory, IProjectileFactory projectileFactory,
-            ISceneContextProvider sceneContextProvider)
+        public WeaponFactory(IGameObjectFactory gameObjectFactory, IProjectileFactory projectileFactory)
         {
             _gameObjectFactory = gameObjectFactory;
             _projectileFactory = projectileFactory;
-            _sceneContextProvider = sceneContextProvider;
         }
 
-        public async Task<IWeapon> CreateWeaponAsync(AssetReference weaponAssetReference, Vector3 position,
-            Quaternion rotation)
+        public async Task<IWeapon> CreateWeaponAsync(AssetReference weaponReference, Vector3 position,
+            Quaternion rotation, bool useGravity, float bowForce)
         {
-            var weaponGameObject = await _gameObjectFactory.InstantiateAsync(weaponAssetReference, position, rotation);
-            var weapon = weaponGameObject.GetComponent<IWeapon>();
+            _currentWeaponInstance = await _gameObjectFactory.InstantiateAsync(weaponReference, position, rotation);
+            _currentWeaponInstance.GetComponent<Rigidbody>().useGravity = useGravity;
 
-            weapon.SetUp(_projectileFactory, _sceneContextProvider.Get<GameplaySceneContextData>().BowForce);
+            var weapon = _currentWeaponInstance.GetComponent<IWeapon>();
+            weapon.SetUp(_projectileFactory, bowForce);
 
             return weapon;
+        }
+
+        public void DestroyWeapon()
+        {
+            if (_currentWeaponInstance != null)
+            {
+                Object.Destroy(_currentWeaponInstance);
+            }
         }
     }
 }
