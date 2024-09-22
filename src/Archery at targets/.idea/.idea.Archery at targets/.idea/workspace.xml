@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3bc55d7b-3b5b-49ed-8bcf-0178280bad01" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Archery at targets/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeMRGameplayLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Gameplay/InfiniteModeMRGameplayLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/MainMenu/LevelsScreenState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Core/Project/MainMenu/LevelsScreenState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Configurations/Database/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Configurations/Database/Database.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Configurations/Level/GameplayModeType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Data/Configurations/Level/GameplayModeType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/GameplayLevels/GameplayLevelsFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/Infrastructure/Factories/GameplayLevels/GameplayLevelsFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/Levels/LevelItemUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/Levels/LevelItemUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/Levels/LevelsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/!Project Files/Code/Scripts/UI/Levels/LevelsUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +177,8 @@
       <workItem from="1726862813355" duration="1750000" />
       <workItem from="1726906323502" duration="27000" />
       <workItem from="1726906388659" duration="6193000" />
-      <workItem from="1727000506864" duration="634000" />
+      <workItem from="1727000506864" duration="1729000" />
+      <workItem from="1727005573319" duration="3102000" />
     </task>
     <servers />
   </component>

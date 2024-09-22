@@ -10,8 +10,8 @@ namespace Data.Configurations.Level
         InfiniteVR = 1,
         InfiniteMR = 2,
 
-        DestroyingAllTargets = 2,
-        DestroyingAllTargetsInTime = 3,
+        DestroyingAllTargets = 11,
+        DestroyingAllTargetsInTime = 12,
     }
 
     public abstract class GameplayModeData

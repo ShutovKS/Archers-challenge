@@ -61,8 +61,6 @@ namespace Core.Gameplay
         {
             if (!TryRequestSceneCapture())
             {
-                Debug.LogError("Failed to request scene capture");
-
                 OnGameFinished?.Invoke(GameResult.Error);
 
                 return Task.CompletedTask;
@@ -102,7 +100,7 @@ namespace Core.Gameplay
                 return subsystem.TryRequestSceneCapture();
             }
 
-            Debug.LogError("ARSession subsystem is not MetaOpenXRSessionSubsystem");
+            Debug.LogError("ARSession subsystem not MetaOpenXRSessionSubsystem");
 
             return false;
         }

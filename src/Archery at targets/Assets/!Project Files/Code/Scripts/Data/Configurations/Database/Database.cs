@@ -37,16 +37,18 @@ namespace Data.Configurations.Database
         private static Database<T> CreateAndSaveInstance()
         {
 #if UNITY_EDITOR
+            Debug.LogWarning($"Database {typeof(T).Name} not found in Resources/Data/Databases, creating new one");
+
             var instance = ScriptableObject.CreateInstance(typeof(T).Name + "base") as Database<T>;
             if (instance == null) throw new Exception($"Failed to create database for {typeof(T).Name}");
 
             if (!System.IO.Directory.Exists($"Assets/Resources/{ResourcesPaths.DATABASES}"))
             {
+                Debug.LogWarning($"Creating directory {ResourcesPaths.DATABASES}");
                 System.IO.Directory.CreateDirectory($"Assets/Resources/{ResourcesPaths.DATABASES}");
             }
 
-            UnityEditor.AssetDatabase.CreateAsset(instance,
-                $"Assets/Resources/{ResourcesPaths.DATABASES}{typeof(T).Name}base.asset");
+            UnityEditor.AssetDatabase.CreateAsset(instance, $"Assets/Resources/{ResourcesPaths.DATABASES}{typeof(T).Name}base.asset");
             UnityEditor.AssetDatabase.SaveAssets();
             UnityEditor.AssetDatabase.Refresh();
             return instance;
