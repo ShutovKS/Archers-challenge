@@ -48,22 +48,25 @@ namespace UI.Levels
                 0 // TODO: Get stars
             );
 
-            itemUI.OnItemClicked += OnItemClicked;
+            itemUI.OnItemClicked += ItemClicked;
 
             _items.Add(itemUI);
         }
+
 
         public void ClearItems()
         {
             foreach (var itemUI in _items)
             {
-                itemUI.OnItemClicked -= OnItemClicked;
+                itemUI.OnItemClicked -= ItemClicked;
 
                 Destroy(itemUI.gameObject);
             }
 
             _items.Clear();
         }
+
+        private void ItemClicked(string levelKey) => OnItemClicked?.Invoke(levelKey);
 
         private void OnDestroy()
         {

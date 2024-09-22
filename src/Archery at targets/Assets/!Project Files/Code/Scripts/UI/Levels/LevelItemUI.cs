@@ -61,9 +61,6 @@ namespace UI.Levels
             }
         }
 
-        private void OnDestroy()
-        {
-            itemButton.onClick.RemoveAllListeners();
-        }
+        private void OnDestroy() => itemButton.onClick.RemoveAllListeners();
     }
 }
