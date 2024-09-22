@@ -8,8 +8,6 @@ namespace Features.PositionsContainer
 {
     public class RandomPositionsFromRegion : PositionsContainer
     {
-        public override bool InfinitePositions => true;
-
         [SerializeField] private Transform minPositionTransform, maxPositionTransform;
         [SerializeField] private Quaternion rotation;
         private Vector3 _minPosition, _maxPosition;

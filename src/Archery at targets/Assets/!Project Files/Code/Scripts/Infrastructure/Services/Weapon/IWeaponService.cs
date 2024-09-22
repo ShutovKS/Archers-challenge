@@ -13,9 +13,9 @@ namespace Infrastructure.Services.Weapon
     public interface IWeaponService
     {
         IWeapon CurrentWeapon { get; }
-        Task InstantiateEquippedWeapon(Vector3 position, Quaternion rotation);
+        Task InstantiateEquippedWeapon(Vector3 position, Quaternion rotation, bool isPhysical, float bowForce);
         void DestroyWeapon();
-        
+
         void SetActiveGravities(bool active);
 
         WeaponData GetCurrentlyEquippedWeaponData();

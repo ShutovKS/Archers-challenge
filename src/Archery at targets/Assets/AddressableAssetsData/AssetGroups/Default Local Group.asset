@@ -22,7 +22,8 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ddac2b6314c3074b9acc7e6eaf9bbc9
-    m_Address: Scenes/Locations/Location - Empty (Infinite MR).unity
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/0. Location - Empty (Infinite
+      MR).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -77,6 +78,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 917f62c142e3e4a4b965a0009b80359b
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/-1. Location - Farm (Main
+      menu).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c6aafebc37dfb774ca49413a839a1f9a
     m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
       Forest.prefab
@@ -100,7 +107,8 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de3a3256a67f1b544881122f62aacb54
-    m_Address: Scenes/Locations/Location - Dungeon (Infinite VR).unity
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/0. Location - Dungeon
+      (Infinite VR).unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

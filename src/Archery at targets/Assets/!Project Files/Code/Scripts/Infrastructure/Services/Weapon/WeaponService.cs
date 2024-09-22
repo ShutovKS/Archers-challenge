@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Data.Configurations.Weapon;
 using Features.Weapon;
-using Infrastructure.Factories.GameObjects;
+using Infrastructure.Factories.Weapon;
 using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.Progress;
 using UnityEngine;
@@ -21,7 +21,7 @@ namespace Infrastructure.Services.Weapon
     {
         private readonly IStaticDataProvider _staticDataProvider;
         private readonly IProgressService _progressService;
-        private readonly IGameObjectFactory _gameObjectFactory;
+        private readonly IWeaponFactory _weaponFactory;
 
         private Dictionary<string, WeaponData> _allWeaponsCache;
         private Dictionary<string, WeaponData> _ownedWeaponsCache;
@@ -35,11 +35,11 @@ namespace Infrastructure.Services.Weapon
         public event Action<WeaponData> OnWeaponUnlocked;
 
         public WeaponService(IStaticDataProvider staticDataProvider, IProgressService progressService,
-            IGameObjectFactory gameObjectFactory)
+            IWeaponFactory weaponFactory)
         {
             _staticDataProvider = staticDataProvider;
             _progressService = progressService;
-            _gameObjectFactory = gameObjectFactory;
+            _weaponFactory = weaponFactory;
         }
 
         public void Initialize()
@@ -57,28 +57,20 @@ namespace Infrastructure.Services.Weapon
             _currentCustomizationId = progressData.currentCustomizationId;
         }
 
-        public async Task InstantiateEquippedWeapon(Vector3 position, Quaternion rotation)
-        {
-            var instance = await _gameObjectFactory.InstantiateAsync(
-                GetCurrentlyEquippedWeaponReference(),
-                position,
-                rotation
-            );
-
-            _currentWeaponInstance = instance;
-            CurrentWeapon = instance.GetComponent<IWeapon>();
-            
-            _currentWeaponRigidbody = instance.GetComponent<Rigidbody>();
-        }
+        public async Task InstantiateEquippedWeapon(Vector3 position, Quaternion rotation, bool isPhysical,
+            float bowForce) => CurrentWeapon = await _weaponFactory.CreateWeaponAsync(
+            GetCurrentlyEquippedWeaponReference(),
+            position,
+            rotation,
+            isPhysical,
+            bowForce
+        );
 
         public void DestroyWeapon()
         {
-            if (_currentWeaponInstance)
+            if (CurrentWeapon != null)
             {
-                _gameObjectFactory.Destroy(_currentWeaponInstance);
-
-                _currentWeaponInstance = null;
-
+                _weaponFactory.DestroyWeapon();
                 CurrentWeapon = null;
             }
         }

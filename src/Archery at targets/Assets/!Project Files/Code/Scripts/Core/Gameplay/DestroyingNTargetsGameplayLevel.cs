@@ -23,7 +23,6 @@ namespace Core.Gameplay
         private IStopwatchService _stopwatchService;
         private ITargetFactory _targetFactory;
 
-
         private PositionsContainer _positionsContainer;
         private InformationDeskUI _infoScreen;
         private int _targetCount;
@@ -61,11 +60,11 @@ namespace Core.Gameplay
 
         public async Task StartGame()
         {
-            OnGameStateChanged?.Invoke(GameState.Running);
-
             await InstantiateTarget();
 
             StartStopwatch();
+
+            OnGameStateChanged?.Invoke(GameState.Running);
         }
 
 
@@ -88,7 +87,9 @@ namespace Core.Gameplay
 
             if (_targetCount == 0)
             {
-                await StopGame();
+                OnGameStateChanged?.Invoke(GameState.Finished);
+                OnGameFinished?.Invoke(GameResult.Win);
+
                 return;
             }
 
@@ -128,16 +129,9 @@ namespace Core.Gameplay
             }
         }
 
-        public async Task StopGame()
+        public void StopGame()
         {
             OnGameStateChanged?.Invoke(GameState.Finished);
-
-            StopStopwatch();
-            DestroyTargets();
-
-            OnGameFinished?.Invoke(GameResult.Win);
-
-            await Task.CompletedTask;
         }
 
         public void CleanUp()

@@ -12,11 +12,12 @@ namespace Features.Projectile
     {
         public event Action OnStopped;
 
-        [SerializeField] private float speed = 10f;
         [SerializeField] private Transform tip;
         [SerializeField] private new Rigidbody rigidbody;
         [SerializeField] private Collider arrowCollider;
         [SerializeField] private GameObject tailVisualization;
+        [SerializeField] private float timeToDestroyOnHit = 0f;
+        [SerializeField] private float timeToDestroy = 10f;
 
         private bool _isInFlight;
 
@@ -27,15 +28,15 @@ namespace Features.Projectile
             IsEffect(false);
         }
 
-        public void Fire(float pullAmount)
+        public void Fire(float force)
         {
             IsFlight(true);
             IsPhysics(true);
             IsEffect(true);
 
-            StartCoroutine(DestroyAfter(10f));
+            StartCoroutine(DestroyAfter(timeToDestroy));
 
-            rigidbody.AddForce(tip.forward * speed * pullAmount, ForceMode.Impulse);
+            rigidbody.AddForce(tip.forward * force, ForceMode.Impulse);
         }
 
         private void FixedUpdate()
@@ -54,7 +55,7 @@ namespace Features.Projectile
                 IsPhysics(false);
                 IsEffect(false);
 
-                StartCoroutine(DestroyAfter(1f));
+                StartCoroutine(DestroyAfter(timeToDestroyOnHit));
             }
         }
 

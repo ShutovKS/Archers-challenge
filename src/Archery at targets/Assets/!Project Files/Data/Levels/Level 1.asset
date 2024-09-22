@@ -19,9 +19,14 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 0}
   <Music>k__BackingField: {fileID: 0}
   <MusicVolume>k__BackingField: 1
-  <LocationScenePath>k__BackingField: Assets/!Project Files/Level/Scenes/Locations/1.
-    Location - Autumn forest.unity
+  <LocationScenePath>k__BackingField:
+    m_AssetGUID: e76d8464145bb7b40b42def327174fe3
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   <XRMode>k__BackingField: 1
+  <IsGravityEnabled>k__BackingField: 1
   gameplayModeData:
     rid: 3229443025221714006
   references:
@@ -30,4 +35,4 @@ MonoBehaviour:
     - rid: 3229443025221714006
       type: {class: DestroyingNTargetsGameplay, ns: Data.Configurations.Level, asm: Assembly-CSharp}
       data:
-        <TargetCount>k__BackingField: 20
+        <TargetCount>k__BackingField: 3

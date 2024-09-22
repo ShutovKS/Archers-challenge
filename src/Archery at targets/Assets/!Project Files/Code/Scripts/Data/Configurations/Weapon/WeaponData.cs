@@ -13,22 +13,26 @@ namespace Data.Configurations.Weapon
         [field: SerializeField] public string Key { get; private set; }
 
         [Header("Information")]
-        [field: SerializeField] public string Name { get; private set; } = "New Weapon";
+        [field: SerializeField]
+        public string Name { get; private set; } = "New Weapon";
+
         [field: SerializeField] public string Description { get; private set; } = "New Weapon Description";
         [field: SerializeField] public Sprite Icon { get; private set; }
 
         [Header("Stats")]
-        [field: SerializeField] public bool IsUnlocked { get; private set; } = false;
+        [field: SerializeField]
+        public bool IsUnlocked { get; private set; } = false;
 
         [Header("References")]
-        [field: SerializeReference] public WeaponCustomization Customization { get; private set; } = new WeaponDefaultCustomization();
+        [field: SerializeReference]
+        public WeaponCustomization Customization { get; private set; } = new WeaponDefaultCustomization();
 
         protected void OnValidate()
         {
             ValidateKey();
             ValidateIcon();
             ValidateCustomization();
-            
+
             WeaponDatabase.Instance.OnValidate(this);
         }
 

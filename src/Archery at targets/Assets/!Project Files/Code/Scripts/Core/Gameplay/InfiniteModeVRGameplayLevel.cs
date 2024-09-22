@@ -53,11 +53,11 @@ namespace Core.Gameplay
 
         public async Task StartGame()
         {
-            OnGameStateChanged?.Invoke(GameState.Running);
-
             await InstantiateTarget();
-            
+
             StartStopwatch();
+
+            OnGameStateChanged?.Invoke(GameState.Running);
         }
 
         #region StartGame
@@ -113,16 +113,9 @@ namespace Core.Gameplay
             }
         }
 
-        public async Task StopGame()
+        public void StopGame()
         {
             OnGameStateChanged?.Invoke(GameState.Finished);
-
-            StopStopwatch();
-            DestroyTargets();
-
-            OnGameFinished?.Invoke(GameResult.Win);
-
-            await Task.CompletedTask;
         }
 
         public void CleanUp()

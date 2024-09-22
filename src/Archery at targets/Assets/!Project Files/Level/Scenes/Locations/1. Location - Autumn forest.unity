@@ -162,6 +162,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1637754261}
     - target: {fileID: 3308142051276666065, guid: 8e84f79e6714aa0459533bf8d0537994, type: 3}
+      propertyPath: <BowForce>k__BackingField
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308142051276666065, guid: 8e84f79e6714aa0459533bf8d0537994, type: 3}
       propertyPath: <PositionsContainer>k__BackingField
       value: 
       objectReference: {fileID: 1576036637}

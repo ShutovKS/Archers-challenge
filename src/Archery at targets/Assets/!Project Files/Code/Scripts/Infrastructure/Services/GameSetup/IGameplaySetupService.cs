@@ -11,6 +11,8 @@ using Infrastructure.Services.Weapon;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using UI.InformationDesk;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 namespace Infrastructure.Services.GameSetup
 {
@@ -35,6 +37,7 @@ namespace Infrastructure.Services.GameSetup
         private GameplaySceneContextData _sceneContextData;
         private IGameplayLevel _gameplayLevel;
         private LevelData _levelData;
+        private SceneInstance _locationSceneInstance;
 
         public GameplaySetupService(ISceneLoaderService sceneLoaderService, ISceneContextProvider sceneContextProvider,
             IWeaponService weaponService, IWindowService windowService, IPlayerService playerService,
@@ -55,6 +58,7 @@ namespace Infrastructure.Services.GameSetup
         {
             _levelData = levelData;
 
+            await ConfigurePlayerXRSettings();
             await LoadLocationAsync();
 
             _sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
@@ -67,25 +71,20 @@ namespace Infrastructure.Services.GameSetup
 
         #region Setup Gameplay
 
-        private async Task LoadLocationAsync() =>
-            await _sceneLoaderService.LoadSceneAsync(_levelData.LocationScenePath);
+        private async Task LoadLocationAsync() => _locationSceneInstance =
+            await _sceneLoaderService.LoadSceneAsync(_levelData.LocationScenePath, LoadSceneMode.Additive);
 
-        private async Task InstantiateWeapon()
-        {
-            await _weaponService.InstantiateEquippedWeapon(
-                _sceneContextData.BowSpawnPoint.position,
-                _sceneContextData.BowSpawnPoint.rotation
-            );
-
-            _weaponService.SetActiveGravities(_levelData.IsGravityEnabled);
-        }
+        private async Task InstantiateWeapon() => await _weaponService.InstantiateEquippedWeapon(
+            _sceneContextData.BowSpawnPoint.position,
+            _sceneContextData.BowSpawnPoint.rotation,
+            _levelData.IsGravityEnabled,
+            _sceneContextData.BowForce
+        );
 
         private async Task OpenScreens()
         {
-            await Task.WhenAll(
-                InstantiateInfoScreen(),
-                InstantiateHandMenuScreen()
-            );
+            await InstantiateInfoScreen();
+            await InstantiateHandMenuScreen();
         }
 
         private async Task InstantiateInfoScreen()
@@ -106,13 +105,18 @@ namespace Infrastructure.Services.GameSetup
             await _windowService.OpenInWorld(WindowID.HandMenu, spawnPoint.position, spawnPoint.rotation, spawnPoint);
         }
 
-        private Task ConfigurePlayer()
+        private Task ConfigurePlayerXRSettings()
         {
             _xrSetupService.SetXRMode(_levelData.XRMode);
 
             _interactorService.SetUpInteractor(HandType.Left, InteractorType.NearFar);
             _interactorService.SetUpInteractor(HandType.Right, InteractorType.Direct | InteractorType.Poke);
 
+            return Task.CompletedTask;
+        }
+
+        private Task ConfigurePlayer()
+        {
             var playerSpawnPoint = _sceneContextData.PlayerSpawnPoint;
             _playerService.SetPlayerPositionAndRotation(playerSpawnPoint.position, playerSpawnPoint.rotation);
 
@@ -140,17 +144,22 @@ namespace Infrastructure.Services.GameSetup
 
         public async Task CleanupGameplayAsync()
         {
-            await Task.WhenAll(
-                DestroyLocation(),
-                CloseScreens(),
-                DestroyWeapon()
-            );
+            await CleanupGameplayLevel();
+            await CloseScreens();
+            await DestroyLocation();
+            await DestroyWeapon();
         }
 
         #region Cleanup Gameplay
 
-        private async Task DestroyLocation() =>
-            await _sceneLoaderService.UnloadSceneAsync(_levelData.LocationScenePath);
+        private Task CleanupGameplayLevel()
+        {
+            _gameplayLevel.CleanUp();
+
+            return Task.CompletedTask;
+        }
+
+        private async Task DestroyLocation() => await _sceneLoaderService.UnloadSceneAsync(_locationSceneInstance);
 
         private Task CloseScreens()
         {

@@ -9,6 +9,7 @@ using Infrastructure.Factories.Projectile;
 using Infrastructure.Factories.ProjectStates;
 using Infrastructure.Factories.Target;
 using Infrastructure.Factories.UI;
+using Infrastructure.Factories.Weapon;
 using Infrastructure.Observers.ProgressData;
 using Infrastructure.Providers.AssetsAddressables;
 using Infrastructure.Providers.GlobalDataContainer;
@@ -66,7 +67,7 @@ namespace Infrastructure.Installers
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             Container.Bind<IXRSetupService>().To<XRSetupService>().AsSingle();
         }
-        
+
         private void BindProviders()
         {
             Container.Bind(typeof(IInitializable), typeof(IAssetsAddressablesProvider)).To<AssetsAddressablesProvider>().AsSingle();
@@ -86,6 +87,7 @@ namespace Infrastructure.Installers
             Container.Bind<IProjectStatesFactory>().To<ProjectStatesFactory>().AsSingle();
             Container.Bind<ITargetFactory>().To<TargetFactory>().AsSingle();
             Container.Bind<IUIFactory>().To<UIFactory>().AsSingle();
+            Container.Bind<IWeaponFactory>().To<WeaponFactory>().AsSingle();
         }
 
         private void BindObservers()

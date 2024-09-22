@@ -16,6 +16,7 @@ namespace Data.Configurations.Database
         public void OnValidate()
         {
             RemovedNullItems();
+            RemovedDuplicateItems();
         }
 
         public void OnValidate(T item)
@@ -24,10 +25,8 @@ namespace Data.Configurations.Database
             Items.Add(item);
         }
 
-        private void RemovedNullItems()
-        {
-            Items = Items?.Where(item => item != null).ToList() ?? new List<T>();
-        }
+        private void RemovedNullItems() => Items = Items?.Where(item => item != null).ToList() ?? new List<T>();
+        private void RemovedDuplicateItems() => Items = Items?.Distinct().ToList() ?? new List<T>();
 
         private static Database<T> LoadOrCreateInstance()
         {
@@ -38,11 +37,14 @@ namespace Data.Configurations.Database
         private static Database<T> CreateAndSaveInstance()
         {
 #if UNITY_EDITOR
+            Debug.LogWarning($"Database {typeof(T).Name} not found in Resources/Data/Databases, creating new one");
+
             var instance = ScriptableObject.CreateInstance(typeof(T).Name + "base") as Database<T>;
             if (instance == null) throw new Exception($"Failed to create database for {typeof(T).Name}");
 
             if (!System.IO.Directory.Exists($"Assets/Resources/{ResourcesPaths.DATABASES}"))
             {
+                Debug.LogWarning($"Creating directory {ResourcesPaths.DATABASES}");
                 System.IO.Directory.CreateDirectory($"Assets/Resources/{ResourcesPaths.DATABASES}");
             }
 
@@ -52,7 +54,7 @@ namespace Data.Configurations.Database
             UnityEditor.AssetDatabase.Refresh();
             return instance;
 #else
-        throw new Exception($"Database {typeof(T).Name} not found in Resources/Data/Databases");
+            throw new Exception($"Database {typeof(T).Name} not found in Resources/Data/Databases");
 #endif
         }
     }

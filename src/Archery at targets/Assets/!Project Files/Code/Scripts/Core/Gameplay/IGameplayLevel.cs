@@ -20,7 +20,7 @@ namespace Core.Gameplay
 
         void PauseGame();
         void ResumeGame();
-        Task StopGame();
+        void StopGame();
         void CleanUp();
     }
 

@@ -1,7 +1,6 @@
 #region
 
 using System;
-using System.Collections.Generic;
 using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.ARTrackingMode;
 using Infrastructure.Services.Camera;
@@ -46,18 +45,19 @@ namespace Infrastructure.Services.XRSetup
                     var trackingMode = _arTrackingModeFactory.Create<NoneIarTrackingMode>();
                     SetXRTrackingMode(trackingMode);
                     SetAnchorManagerState(false);
+
                     _cameraService.SetBackgroundType(CameraBackgroundType.Skybox);
                 }
                     break;
                 case XRMode.MR:
                 {
                     SetComponentState<ARSession>(true);
-                    var arSession = GetOrCreateComponent<ARSession>();
-                    arSession.Reset();
+                    // var arSession = GetOrCreateComponent<ARSession>();
+                    // arSession.Reset();
 
                     SetComponentState<ARCameraManager>(true);
 
-                    var trackingMode = _arTrackingModeFactory.Create<PlaneAndBoundingBoxIarTrackingMode>();
+                    var trackingMode = _arTrackingModeFactory.Create<PlaneIarTrackingMode>();
                     SetXRTrackingMode(trackingMode);
                     SetAnchorManagerState(true);
 

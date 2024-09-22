@@ -61,8 +61,6 @@ namespace Core.Gameplay
         {
             if (!TryRequestSceneCapture())
             {
-                Debug.LogError("Failed to request scene capture");
-
                 OnGameFinished?.Invoke(GameResult.Error);
 
                 return Task.CompletedTask;
@@ -77,11 +75,11 @@ namespace Core.Gameplay
 
         public async Task StartGame()
         {
-            OnGameStateChanged?.Invoke(GameState.Running);
-
             await InstantiateTarget();
 
             StartStopwatch();
+
+            OnGameStateChanged?.Invoke(GameState.Running);
         }
 
         #region StartGame
@@ -102,7 +100,7 @@ namespace Core.Gameplay
                 return subsystem.TryRequestSceneCapture();
             }
 
-            Debug.LogError("ARSession subsystem is not MetaOpenXRSessionSubsystem");
+            Debug.LogError("ARSession subsystem not MetaOpenXRSessionSubsystem");
 
             return false;
         }
@@ -158,16 +156,9 @@ namespace Core.Gameplay
             }
         }
 
-        public async Task StopGame()
+        public void StopGame()
         {
             OnGameStateChanged?.Invoke(GameState.Finished);
-
-            StopStopwatch();
-            DestroyTargets();
-
-            OnGameFinished?.Invoke(GameResult.Win);
-
-            await Task.CompletedTask;
         }
 
         public void CleanUp()

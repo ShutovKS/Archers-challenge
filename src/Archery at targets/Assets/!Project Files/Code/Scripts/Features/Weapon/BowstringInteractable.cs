@@ -142,7 +142,8 @@ namespace Features.Weapon
             notchPosition.z = zPosition + arrowOffset.z;
             notchTransform.localPosition = notchPosition;
 
-            lineRenderer.SetPosition(1, new Vector3(startTransform.localPosition.x, startTransform.localPosition.y, zPosition));
+            lineRenderer.SetPosition(1,
+                new Vector3(startTransform.localPosition.x, startTransform.localPosition.y, zPosition));
         }
 
         private void UpdateSound()

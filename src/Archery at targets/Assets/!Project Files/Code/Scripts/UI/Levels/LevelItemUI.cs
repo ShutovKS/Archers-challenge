@@ -1,7 +1,6 @@
 #region
 
 using System;
-using Data.Configurations.Level;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -61,9 +60,6 @@ namespace UI.Levels
             }
         }
 
-        private void OnDestroy()
-        {
-            itemButton.onClick.RemoveAllListeners();
-        }
+        private void OnDestroy() => itemButton.onClick.RemoveAllListeners();
     }
 }

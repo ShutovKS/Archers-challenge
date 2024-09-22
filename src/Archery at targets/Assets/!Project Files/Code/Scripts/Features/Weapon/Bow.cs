@@ -6,7 +6,6 @@ using Infrastructure.Factories.Projectile;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using Zenject;
 
 #endregion
 
@@ -34,11 +33,12 @@ namespace Features.Weapon
         private IXRSelectInteractable _xrSelectInteractable;
         private IProjectileFactory _projectileFactory;
         private IProjectile _currentProjectile;
+        private float _bowForce;
 
-        [Inject]
-        public void Construct(IProjectileFactory projectileFactory)
+        public void SetUp(IProjectileFactory projectileFactory, float bowForce)
         {
             _projectileFactory = projectileFactory;
+            _bowForce = bowForce;
         }
 
         private void Awake()
@@ -64,7 +64,7 @@ namespace Features.Weapon
 
             _projectileFactory.GetInstance(_currentProjectile).transform.SetParent(null);
 
-            _currentProjectile.Fire(pullAmount);
+            _currentProjectile.Fire(pullAmount * _bowForce);
 
             _currentProjectile = null;
         }
