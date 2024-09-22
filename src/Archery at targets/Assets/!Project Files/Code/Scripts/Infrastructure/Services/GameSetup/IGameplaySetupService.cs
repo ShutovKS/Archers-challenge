@@ -54,7 +54,7 @@ namespace Infrastructure.Services.GameSetup
         public async Task SetupGameplayAsync(LevelData levelData)
         {
             _levelData = levelData;
-            
+
             await ConfigurePlayerXRSettings();
             await LoadLocationAsync();
 
@@ -113,10 +113,10 @@ namespace Infrastructure.Services.GameSetup
 
             _interactorService.SetUpInteractor(HandType.Left, InteractorType.NearFar);
             _interactorService.SetUpInteractor(HandType.Right, InteractorType.Direct | InteractorType.Poke);
-            
+
             return Task.CompletedTask;
         }
-        
+
         private Task ConfigurePlayer()
         {
             var playerSpawnPoint = _sceneContextData.PlayerSpawnPoint;

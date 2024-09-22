@@ -4,8 +4,6 @@ namespace Features.PositionsContainer
 {
     public class RandomPositionsFromRegionAndLookingAtTarget : PositionsContainer
     {
-        public override bool InfinitePositions => true;
-
         [SerializeField] private Transform minPositionTransform, maxPositionTransform;
         [SerializeField] private Transform targetTransform;
         private Vector3 _minPosition, _maxPosition;

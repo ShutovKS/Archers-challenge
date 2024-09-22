@@ -67,7 +67,7 @@ namespace Infrastructure.Services.Weapon
 
             _currentWeaponInstance = instance;
             CurrentWeapon = instance.GetComponent<IWeapon>();
-            
+
             _currentWeaponRigidbody = instance.GetComponent<Rigidbody>();
         }
 

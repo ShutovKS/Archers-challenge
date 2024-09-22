@@ -48,12 +48,13 @@ namespace Data.Configurations.Database
                 System.IO.Directory.CreateDirectory($"Assets/Resources/{ResourcesPaths.DATABASES}");
             }
 
-            UnityEditor.AssetDatabase.CreateAsset(instance, $"Assets/Resources/{ResourcesPaths.DATABASES}{typeof(T).Name}base.asset");
+            UnityEditor.AssetDatabase.CreateAsset(instance,
+                $"Assets/Resources/{ResourcesPaths.DATABASES}{typeof(T).Name}base.asset");
             UnityEditor.AssetDatabase.SaveAssets();
             UnityEditor.AssetDatabase.Refresh();
             return instance;
 #else
-        throw new Exception($"Database {typeof(T).Name} not found in Resources/Data/Databases");
+            throw new Exception($"Database {typeof(T).Name} not found in Resources/Data/Databases");
 #endif
         }
     }

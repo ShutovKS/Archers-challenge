@@ -37,7 +37,7 @@ namespace Infrastructure.Factories.GameObjects
             Quaternion? rotation = null,
             Transform parent = null
         ) where T : class;
-        
+
         void Destroy(GameObject gameObject);
     }
 }

@@ -12,8 +12,6 @@ namespace Features.PositionsContainer
 {
     public class RandomPositionsOnARPlane : PositionsContainer
     {
-        public override bool InfinitePositions => true;
-
         private IARPlanesService _arPlanesService;
         private ICameraService _cameraService;
         private bool _planesAvailable;
@@ -88,7 +86,7 @@ namespace Features.PositionsContainer
 
             var randomPoint = GetRandomPointOnPlane(selectedPlane);
 
-            var rotation = GetRotation(randomPoint);
+            var rotation = GetRotationOnPlayer(randomPoint);
 
             return (randomPoint, rotation);
         }
@@ -123,11 +121,13 @@ namespace Features.PositionsContainer
         }
 
 
-        private Quaternion GetRotation(Vector3 position)
+        private Quaternion GetRotationOnPlayer(Vector3 position)
         {
             var cameraPosition = _cameraService.CameraPosition;
             var direction = position - cameraPosition;
-            return Quaternion.LookRotation(direction, Vector3.up);
+            var rotation = Quaternion.LookRotation(direction, Vector3.up);
+
+            return rotation;
         }
     }
 }

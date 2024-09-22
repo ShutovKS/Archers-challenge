@@ -56,7 +56,7 @@ namespace Core.Gameplay
             OnGameStateChanged?.Invoke(GameState.Running);
 
             await InstantiateTarget();
-            
+
             StartStopwatch();
         }
 

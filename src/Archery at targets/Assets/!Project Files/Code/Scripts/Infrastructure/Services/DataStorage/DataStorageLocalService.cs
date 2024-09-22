@@ -31,7 +31,7 @@ namespace Infrastructure.Services.DataStorage
         {
             return File.Exists(Application.persistentDataPath + "/" + key + ".json");
         }
-        
+
         public void Delete(string key)
         {
             var path = Application.persistentDataPath + "/" + key + ".json";

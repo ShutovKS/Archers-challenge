@@ -23,7 +23,7 @@ namespace Infrastructure.Factories.Player
         {
             var instantiate = await _gameObjectFactory.InstantiateAsync(AddressablesPaths.XR_ORIGIN_MR_RIG,
                 position, rotation, parent);
-            
+
             return instantiate;
         }
     }

@@ -23,7 +23,7 @@ namespace Infrastructure.Factories.GameplayLevels
         {
             InfiniteMR => Create<InfiniteModeMRGameplayLevel>(),
             InfiniteVR => Create<InfiniteModeVRGameplayLevel>(),
-            
+
             DestroyingAllTargets => Create<DestroyingNTargetsGameplayLevel>(),
 
             None => throw new NotImplementedException($"Gameplay mode {gameplayModeType} is not implemented."),
