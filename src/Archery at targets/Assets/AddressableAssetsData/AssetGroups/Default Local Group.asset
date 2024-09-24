@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 298a50b6db136a24e807b6d3a66e72fb
   m_SerializeEntries:
+  - m_GUID: 0e2167bf9cb68f64fa407701106932ca
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/2. Location - Camping
+      forest.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20bded57e1c6b5542aff7fd5af1ca2d9
     m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
       Crystallized 3.prefab
@@ -27,9 +33,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38e066d097665c942a9c3a991ad4ed6d
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/12. Location - Wild west
+      railway station.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ba363814f96a194cbb47d5356f60501
     m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
       Crystallized 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c2afee9b902dda40a175e82186a3132
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/4. Location - Desert
+      pyramids.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -50,8 +68,20 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e821e77bd19ed943905728fa517e461
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/11. Location - Treasure
+      Island.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 54ba44d4ecd83324991be29cf49b127d
     m_Address: Prefabs/Objects/Arrow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b64fdfdc70e5ec44843d957ffbdd6f6
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/3. Location - Christmas
+      village.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -63,6 +93,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 69c9b360efcb9124c9a53a2995aedfea
     m_Address: Prefabs/XR Origin (MR Rig).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79af46c7025591a449d9a25752e23194
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/8. Location - Nature.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -81,6 +116,23 @@ MonoBehaviour:
   - m_GUID: 917f62c142e3e4a4b965a0009b80359b
     m_Address: Assets/!Project Files/Level/Scenes/Locations/-1. Location - Farm (Main
       menu).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e48016bf37454948a11677566c195ed
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/9. Location - Soccer
+      field.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2034eb337faf114082bda4ffb10f455
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/6. Location - Japanes
+      island.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba41503a7641375408247e8f88b5cc18
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/5. Location - Downtown.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -112,8 +164,19 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0464d298368afe40a3c0fedf6273744
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/10. Location - Space
+      shuttle launch.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e0936319140d20b4891693f0ba60d11f
     m_Address: UI/Levels Screen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e38e15fe38dc45b4585bbae55fe2d76b
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/7. Location - Mini village.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

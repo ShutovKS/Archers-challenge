@@ -12,6 +12,7 @@ using Infrastructure.Factories.UI;
 using Infrastructure.Factories.Weapon;
 using Infrastructure.Observers.ProgressData;
 using Infrastructure.Providers.AssetsAddressables;
+using Infrastructure.Providers.Contexts.TargetsInLevelManage;
 using Infrastructure.Providers.GlobalDataContainer;
 using Infrastructure.Providers.Interactor;
 using Infrastructure.Providers.SceneContainer;
@@ -73,6 +74,7 @@ namespace Infrastructure.Installers
             Container.Bind(typeof(IInitializable), typeof(IAssetsAddressablesProvider)).To<AssetsAddressablesProvider>().AsSingle();
             Container.Bind<IGlobalContextProvider>().To<GlobalContextProvider>().AsSingle();
             Container.Bind<ISceneContextProvider>().To<SceneContextProvider>().AsSingle();
+            Container.Bind<ITargetsInLevelManagerContextProvider>().To<TargetsInLevelManagerContextProvider>().AsSingle();
             Container.Bind(typeof(IInitializable), typeof(IStaticDataProvider)).To<StaticDataProvider>().AsSingle();
         }
 

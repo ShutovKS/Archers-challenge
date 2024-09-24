@@ -2,13 +2,12 @@ using System;
 using System.Threading.Tasks;
 using Data.Configurations.Level;
 using Data.Contexts.Scene;
-using Features.PositionsContainer;
+using Features.TargetsInLevelManager;
 using Infrastructure.Factories.Target;
 using Infrastructure.Providers.SceneContainer;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Window;
 using UI.InformationDesk;
-using UnityEngine;
 using Zenject;
 
 namespace Core.Gameplay
@@ -21,10 +20,10 @@ namespace Core.Gameplay
         private ISceneContextProvider _sceneContextProvider;
         private IWindowService _windowService;
         private IStopwatchService _stopwatchService;
-        private ITargetFactory _targetFactory;
 
-        private PositionsContainer _positionsContainer;
+        private TargetsInLevelManager _targetsInLevelManager;
         private InformationDeskUI _infoScreen;
+
         private int _targetCount;
         private bool _isPaused;
 
@@ -36,7 +35,6 @@ namespace Core.Gameplay
             IWindowService windowService)
         {
             _stopwatchService = stopwatchService;
-            _targetFactory = targetFactory;
             _sceneContextProvider = sceneContextProvider;
             _windowService = windowService;
         }
@@ -46,7 +44,7 @@ namespace Core.Gameplay
         {
             _infoScreen = _windowService.Get<InformationDeskUI>(WindowID.InformationDesk);
             var sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
-            _positionsContainer = sceneContextData.PositionsContainer;
+            _targetsInLevelManager = sceneContextData.TargetsInLevelManager;
 
             if (gameplayModeData is not DestroyingNTargetsGameplay destroyingNTargetsGameplay)
             {
@@ -55,45 +53,36 @@ namespace Core.Gameplay
 
             _targetCount = destroyingNTargetsGameplay.TargetCount;
 
+            _targetsInLevelManager.PrepareTargets();
+
             return Task.CompletedTask;
         }
 
-        public async Task StartGame()
+        public Task StartGame()
         {
-            await InstantiateTarget();
+            _targetsInLevelManager.OnTargetHit += OnTargetHit;
+            _targetsInLevelManager.StartTargets();
 
             StartStopwatch();
 
             OnGameStateChanged?.Invoke(GameState.Running);
-        }
 
+            return Task.CompletedTask;
+        }
 
         #region StartGame
 
-        private async Task InstantiateTarget()
+        private void OnTargetHit()
         {
-            var (position, rotation) = _positionsContainer.GetTargetPosition();
-            await _targetFactory.Instantiate(position, rotation);
-            _targetFactory.TargetHit += OnTargetHit;
-        }
-
-        private async void OnTargetHit(GameObject gameObject)
-        {
-            _targetFactory.TargetHit -= OnTargetHit;
-            _targetFactory.Destroy(gameObject);
-
             _targetCount--;
+
             _infoScreen.SetScoreText(_targetCount.ToString());
 
             if (_targetCount == 0)
             {
                 OnGameStateChanged?.Invoke(GameState.Finished);
                 OnGameFinished?.Invoke(GameResult.Win);
-
-                return;
             }
-
-            await InstantiateTarget();
         }
 
         private void StartStopwatch()
@@ -131,13 +120,14 @@ namespace Core.Gameplay
 
         public void StopGame()
         {
+            _targetsInLevelManager.StopTargets();
+
             OnGameStateChanged?.Invoke(GameState.Finished);
         }
 
         public void CleanUp()
         {
             StopStopwatch();
-            DestroyTargets();
         }
 
         #region CleanUp
@@ -146,12 +136,6 @@ namespace Core.Gameplay
         {
             _stopwatchService.OnTick -= UpdateInfoScreen;
             _stopwatchService.Stop();
-        }
-
-        private void DestroyTargets()
-        {
-            _targetFactory.TargetHit -= OnTargetHit;
-            _targetFactory.DestroyAll();
         }
 
         #endregion

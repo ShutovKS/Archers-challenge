@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Infrastructure.Services.ARPlanes;
 using Infrastructure.Services.Camera;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using Zenject;
+using Random = UnityEngine.Random;
 
-namespace Features.PositionsContainer
+namespace Features.TargetsInLevelManager
 {
-    public class RandomPositionsOnARPlane : PositionsContainer
+    public class RandomTargetsAndLookingAtTargetOnARPlane : TargetsInLevelManager
     {
         private IARPlanesService _arPlanesService;
         private ICameraService _cameraService;
@@ -25,31 +27,56 @@ namespace Features.PositionsContainer
 
         private void Awake()
         {
-            if (_arPlanesService != null)
-            {
-                _arPlanesService.OnPlaneDetected += OnPlaneDetected;
-            }
+            if (_arPlanesService != null) _arPlanesService.OnPlaneDetected += OnPlaneDetected;
         }
 
-        private void OnDestroy()
+        public override void PrepareTargets()
         {
-            if (_arPlanesService != null)
-            {
-                _arPlanesService.OnPlaneDetected -= OnPlaneDetected;
-            }
         }
 
-        private void OnPlaneDetected()
+        public override async void StartTargets()
         {
-            _planesAvailable = _arPlanesService.IsPlaneDetected;
+            TargetFactory.TargetHit += OnOnTargetHit;
+
+            await InstantiateTarget();
         }
 
-        public override (Vector3 position, Quaternion rotation) GetTargetPosition()
+        public override void StopTargets()
         {
-            if (!_planesAvailable)
-            {
-                return (Vector3.zero, Quaternion.identity);
-            }
+            TargetFactory.TargetHit -= OnOnTargetHit;
+
+            TargetFactory.DestroyAll();
+        }
+
+        protected override async void OnOnTargetHit(GameObject targetInstance)
+        {
+            TargetFactory.Destroy(targetInstance);
+
+            await InstantiateTarget();
+
+            base.OnOnTargetHit(targetInstance);
+        }
+
+        private async Task InstantiateTarget()
+        {
+            var position = GetPosition();
+            var rotation = GetRotationOnPlayer(position);
+
+            await TargetFactory.Instantiate(position, rotation);
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            if (_arPlanesService != null) _arPlanesService.OnPlaneDetected -= OnPlaneDetected;
+        }
+
+        private void OnPlaneDetected() => _planesAvailable = _arPlanesService.IsPlaneDetected;
+
+        public Vector3 GetPosition()
+        {
+            if (!_planesAvailable) return Vector3.zero;
 
             ReadOnlyCollection<ARPlane> planes = null;
             var classifications = new List<PlaneClassifications>
@@ -67,7 +94,7 @@ namespace Features.PositionsContainer
             {
                 if (planes == null || planes.Count == 0)
                 {
-                    var classification = classifications[UnityEngine.Random.Range(0, classifications.Count)];
+                    var classification = classifications[Random.Range(0, classifications.Count)];
                     planes = _arPlanesService.GetPlanes(classification);
                     classifications.Remove(classification);
                 }
@@ -77,18 +104,13 @@ namespace Features.PositionsContainer
                 }
             }
 
-            if (planes == null || planes.Count == 0)
-            {
-                return (Vector3.zero, Quaternion.identity);
-            }
+            if (planes == null || planes.Count == 0) return Vector3.zero;
 
-            var selectedPlane = planes[UnityEngine.Random.Range(0, planes.Count)];
+            var selectedPlane = planes[Random.Range(0, planes.Count)];
 
             var randomPoint = GetRandomPointOnPlane(selectedPlane);
 
-            var rotation = GetRotationOnPlayer(randomPoint);
-
-            return (randomPoint, rotation);
+            return randomPoint;
         }
 
         private Vector3 GetRandomPointOnPlane(ARPlane plane)
@@ -103,7 +125,7 @@ namespace Features.PositionsContainer
             do
             {
                 var randomPoint =
-                    plane.transform.TransformPoint(boundary[UnityEngine.Random.Range(0, boundary.Length)]);
+                    plane.transform.TransformPoint(boundary[Random.Range(0, boundary.Length)]);
                 attempts++;
 
                 var cameraPosition = _cameraService.CameraPosition;

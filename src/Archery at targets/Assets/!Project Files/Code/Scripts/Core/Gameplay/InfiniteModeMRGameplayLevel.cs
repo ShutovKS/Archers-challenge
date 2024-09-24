@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Data.Configurations.Level;
 using Data.Contexts.Scene;
-using Features.PositionsContainer;
+using Features.TargetsInLevelManager;
 using Features.Weapon;
 using Infrastructure.Factories.ARComponents;
 using Infrastructure.Factories.Target;
@@ -33,7 +33,7 @@ namespace Core.Gameplay
 
         private HandMenuUI _handMenuScreen;
         private InformationDeskUI _infoScreen;
-        private PositionsContainer _positionsContainer;
+        private TargetsInLevelManager _targetsInLevelManager;
         private IWeapon _weapon;
 
         private int _targetCount;
@@ -68,18 +68,23 @@ namespace Core.Gameplay
 
             _infoScreen = _windowService.Get<InformationDeskUI>(WindowID.InformationDesk);
             var sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
-            _positionsContainer = sceneContextData.PositionsContainer;
+            _targetsInLevelManager = sceneContextData.TargetsInLevelManager;
+
+            _targetsInLevelManager.PrepareTargets();
 
             return Task.CompletedTask;
         }
 
-        public async Task StartGame()
+        public Task StartGame()
         {
-            await InstantiateTarget();
+            _targetsInLevelManager.OnTargetHit += OnTargetHit;
+            _targetsInLevelManager.StartTargets();
 
             StartStopwatch();
 
             OnGameStateChanged?.Invoke(GameState.Running);
+
+            return Task.CompletedTask;
         }
 
         #region StartGame
@@ -105,22 +110,10 @@ namespace Core.Gameplay
             return false;
         }
 
-        private async Task InstantiateTarget()
+        private void OnTargetHit()
         {
-            var (position, rotation) = _positionsContainer.GetTargetPosition();
-            await _targetFactory.Instantiate(position, rotation);
-            _targetFactory.TargetHit += OnTargetHit;
-        }
-
-        private async void OnTargetHit(GameObject gameObject)
-        {
-            _targetFactory.TargetHit -= OnTargetHit;
-            _targetFactory.Destroy(gameObject);
-
             _targetCount++;
             _infoScreen.SetScoreText(_targetCount.ToString());
-
-            await InstantiateTarget();
         }
 
         private void StartStopwatch()
@@ -158,13 +151,14 @@ namespace Core.Gameplay
 
         public void StopGame()
         {
+            _targetsInLevelManager.StopTargets();
+
             OnGameStateChanged?.Invoke(GameState.Finished);
         }
 
         public void CleanUp()
         {
             StopStopwatch();
-            DestroyTargets();
         }
 
         #region CleanUp
@@ -173,12 +167,6 @@ namespace Core.Gameplay
         {
             _stopwatchService.OnTick -= UpdateInfoScreen;
             _stopwatchService.Stop();
-        }
-
-        private void DestroyTargets()
-        {
-            _targetFactory.TargetHit -= OnTargetHit;
-            _targetFactory.DestroyAll();
         }
 
         #endregion
