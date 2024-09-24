@@ -35,4 +35,4 @@ MonoBehaviour:
     - rid: 3229443025221714006
       type: {class: DestroyingNTargetsGameplay, ns: Data.Configurations.Level, asm: Assembly-CSharp}
       data:
-        <TargetCount>k__BackingField: 3
+        <TargetCount>k__BackingField: 20
