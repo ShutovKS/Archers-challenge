@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117a8508193d4f38b6c6dc98fc201b20, type: 3}
+  m_Name: Infinite VR
+  m_EditorClassIdentifier: 
+  <Key>k__BackingField: InfiniteVR
+  <LevelIndex>k__BackingField: -1
+  <LevelName>k__BackingField: Pond
+  <ShortDescription>k__BackingField: 
+  <Icon>k__BackingField: {fileID: 0}
+  <Music>k__BackingField: {fileID: 0}
+  <MusicVolume>k__BackingField: 0
+  <LocationScenePath>k__BackingField:
+    m_AssetGUID: de3a3256a67f1b544881122f62aacb54
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  <XRMode>k__BackingField: 1
+  <IsGravityEnabled>k__BackingField: 1
+  gameplayModeData:
+    rid: 3229442957521715399
+  references:
+    version: 2
+    RefIds:
+    - rid: 3229442957521715399
+      type: {class: InfiniteVRGameplay, ns: Data.Configurations.Level, asm: Assembly-CSharp}
+      data: 

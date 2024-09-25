@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5bf2959ccf60dcd4293832a1e4025f88
+timeCreated: 1494962229
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 98323
+  packageName: Lowpoly weapon pack
+  packageVersion: 1.0
+  assetPath: Assets/LowpolyWeaponPack/Materials/weapon_material_green.mat
+  uploadId: 196721

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd6427fba8f48eabd2e4fdef3192757, type: 3}
+  m_Name: Weapon Winged
+  m_EditorClassIdentifier: 
+  <Key>k__BackingField: 58d8fa51-7e89-4c79-b3a7-bb3fc5773c1a
+  <Name>k__BackingField: Weapon Winged
+  <Description>k__BackingField: Weapon Winged
+  <Icon>k__BackingField: {fileID: 0}
+  <IsUnlocked>k__BackingField: 0
+  <Customization>k__BackingField:
+    rid: 3229442957521715396
+  references:
+    version: 2
+    RefIds:
+    - rid: 3229442957521715396
+      type: {class: WeaponDefaultCustomization, ns: Data.Configurations.Weapon, asm: Assembly-CSharp}
+      data:
+        <Reference>k__BackingField:
+          m_AssetGUID: 
+          m_SubObjectName: 
+          m_SubObjectGUID: 
+          m_SubObjectType: 
+          m_EditorAssetChanged: 0
