@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 27a109022a34ecd438feda666a0e99b5
+  m_SerializeEntries:
+  - m_GUID: de3a3256a67f1b544881122f62aacb54
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/0. Location - Dungeon
+      (Infinite VR).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba41503a7641375408247e8f88b5cc18
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/5. Location - Downtown.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e48016bf37454948a11677566c195ed
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/9. Location - Soccer
+      field.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e76d8464145bb7b40b42def327174fe3
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/1. Location - Autumn
+      forest.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e821e77bd19ed943905728fa517e461
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/11. Location - Treasure
+      Island.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0464d298368afe40a3c0fedf6273744
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/10. Location - Space
+      shuttle launch.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c2afee9b902dda40a175e82186a3132
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/4. Location - Desert
+      pyramids.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79af46c7025591a449d9a25752e23194
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/8. Location - Nature.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e38e15fe38dc45b4585bbae55fe2d76b
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/7. Location - Mini village.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2034eb337faf114082bda4ffb10f455
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/6. Location - Japanes
+      island.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b64fdfdc70e5ec44843d957ffbdd6f6
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/3. Location - Christmas
+      village.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38e066d097665c942a9c3a991ad4ed6d
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/12. Location - Wild west
+      railway station.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 917f62c142e3e4a4b965a0009b80359b
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/!Location - Farm (Main
+      menu).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ddac2b6314c3074b9acc7e6eaf9bbc9
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/0. Location - Empty (Infinite
+      MR).unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e2167bf9cb68f64fa407701106932ca
+    m_Address: Assets/!Project Files/Level/Scenes/Locations/2. Location - Camping
+      forest.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54ba44d4ecd83324991be29cf49b127d
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Projectiles/Arrow 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd8676903f2a1d14cb5b73ccf12b3258
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Targets/Target.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ecb7c10c931a2e4479ae4d31b01f3c4d
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Crystallized 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ba363814f96a194cbb47d5356f60501
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Crystallized 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64634c3875fcdf4459bfd203220109d4
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Color blue.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c37701ce2af1534cb7a7677a535b16a
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Color green.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20bded57e1c6b5542aff7fd5af1ca2d9
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Crystallized 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: faa671b99534fb9458e9612e6de7e292
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Crystallized 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6aafebc37dfb774ca49413a839a1f9a
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Forest.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86f8afcad42030a408a5e4eb9d4c205c
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Default.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da08c5e508cf36b49ab458a102dc42a0
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Crystallized 5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b051973b1857bf4c92ec6fe3364f748
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Blades.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4259bf2c9f6e55e4d9b6f8302c7b2b17
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Color red.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45437d0acbdfaff4d833e68a0edfadb3
+    m_Address: Assets/!Project Files/Level/Prefabs/Objects/Weapons/Bow Variant -
+      Winged.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69c9b360efcb9124c9a53a2995aedfea
+    m_Address: Assets/!Project Files/Level/Prefabs/XR/XR Origin (MR Rig).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0936319140d20b4891693f0ba60d11f
+    m_Address: Assets/!Project Files/Level/UI/Levels Screen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64bf3ad128950a942a6ecbf2a544ac92
+    m_Address: Assets/!Project Files/Level/UI/Main Menu Screen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afa83661044c245448e43e38ddc77486
+    m_Address: Assets/!Project Files/Level/UI/Information desk Screen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8a4d04534bb1054c8e53d1d7749b84d
+    m_Address: Assets/!Project Files/Level/UI/Hand Menu Screen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e74e4d80d2ec234ba15d09fdc3729d0
+    m_Address: Assets/!Project Files/Level/Prefabs/XR/ARPlaneColored.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1e01a01ec361a2e42acee6551134981e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 616ad62d7b11a7c4cbe1192eb833b4ed, type: 2}
+    - {fileID: 11400000, guid: 3d0a5d4c62978ca498649e5b6aae9608, type: 2}
