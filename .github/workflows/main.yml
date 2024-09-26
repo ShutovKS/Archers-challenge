@@ -1,0 +1,44 @@
+name: Build Project and Publish to itch.io
+on: [push]
+jobs:
+  build:
+    name: Build Project and Publish to itch.io ✨
+    runs-on: ubuntu-latest
+    # This stops builds that are in-progress once a new commit comes in
+    concurrency: 
+      group: unity-build
+      cancel-in-progress: true
+    steps:
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          lfs: false
+      # Cache
+      - uses: actions/cache@v3
+        with:
+            path: path/to/your/project/Library
+            key: Library-MyProjectName-TargetPlatform
+            restore-keys: |
+                Library-MyProjectName-
+                Library-
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v4
+        env:
+            UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+            UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+            UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+            targetPlatform: Android
+            unityVersion: auto
+            projectPath: src/Archers challenge
+       # Return License (Un-Comment if you're using a pro license)
+       #- name: Return license
+       #  uses: game-ci/unity-return-license@v1
+       #  if: always()
+       # Output
+      - uses: actions/upload-artifact@v3
+        with:
+           name: Build
+           path: build
