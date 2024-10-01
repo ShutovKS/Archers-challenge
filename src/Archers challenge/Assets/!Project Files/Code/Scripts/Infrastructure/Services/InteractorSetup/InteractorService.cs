@@ -19,36 +19,36 @@ namespace Infrastructure.Services.InteractorSetup
             { HandType.Right, new List<IInteractor>() }
         };
 
-        private IInteractor _gazeInteractor;
+        private readonly List<IInteractor> _gazeInteractors = new();
 
         public void SetUpInteractor(HandType hand, InteractorType interactorType)
         {
-            SetUpGazeInteractor(hand, interactorType);
+            SetUpGazeInteractor(interactorType);
 
-            if (!_handInteractors.TryGetValue(hand, out var interactor))
+            if (_handInteractors.TryGetValue(hand, out var interactors))
             {
-                throw new ArgumentOutOfRangeException(nameof(hand), hand, "Invalid side type");
+                SetUpInteractorForHand(interactors, hand, interactorType);
+                return;
             }
 
-            SetUpInteractorForHand(interactor, hand, interactorType);
+            throw new ArgumentOutOfRangeException(nameof(hand), hand, "Invalid hand type");
         }
 
         public bool IsInteractorActive(HandType hand, InteractorType interactorType)
         {
-            if (interactorType.HasFlag(InteractorType.Gaze) && _gazeInteractor != null)
+            if (interactorType.HasFlag(InteractorType.Gaze) && _gazeInteractors.Any(interactor => interactor.IsActive))
             {
-                return _gazeInteractor.IsActive;
+                return true;
             }
 
-            if (!_handInteractors.TryGetValue(hand, out var interactors))
+            if (_handInteractors.TryGetValue(hand, out var interactors))
             {
-                throw new ArgumentOutOfRangeException(nameof(hand), hand, "Invalid side type");
+                return interactors.Any(interactor =>
+                    interactor.IsActive && (interactor.InteractorType & interactorType) != 0
+                );
             }
 
-            return interactors.Any(interactor =>
-                interactor.IsActive &&
-                (interactor.InteractorType & interactorType) != 0
-            );
+            throw new ArgumentOutOfRangeException(nameof(hand), hand, "Invalid hand type");
         }
 
         private void SetUpInteractorForHand(List<IInteractor> interactors, HandType hand, InteractorType interactorType)
@@ -71,22 +71,25 @@ namespace Infrastructure.Services.InteractorSetup
             }
         }
 
-        private void SetUpGazeInteractor(HandType hand, InteractorType interactorType)
+        private void SetUpGazeInteractor(InteractorType interactorType)
         {
-            if (_gazeInteractor == null) return;
+            if (_gazeInteractors == null) return;
 
-            _gazeInteractor.OnSelect -= OnInteractorSelectHandler;
-            _gazeInteractor.Deactivate();
-
-            if (interactorType.HasFlag(InteractorType.Gaze))
+            foreach (var interactor in _gazeInteractors)
             {
-                _gazeInteractor.OnSelect += OnInteractorSelectHandler;
-                _gazeInteractor.Activate();
+                interactor.OnSelect -= OnInteractorSelectHandler;
+                interactor.Deactivate();
+
+                if (interactorType.HasFlag(InteractorType.Gaze))
+                {
+                    interactor.OnSelect += OnInteractorSelectHandler;
+                    interactor.Activate();
+                }
             }
 
             void OnInteractorSelectHandler(bool isSelected)
             {
-                OnInteractorSelect?.Invoke(hand, InteractorType.Gaze, isSelected);
+                OnInteractorSelect?.Invoke(HandType.None, InteractorType.Gaze, isSelected); // No specific hand for gaze
             }
         }
 
@@ -96,17 +99,17 @@ namespace Infrastructure.Services.InteractorSetup
 
             if (interactor.InteractorType.HasFlag(InteractorType.Gaze))
             {
-                _gazeInteractor = interactor;
-                return;
+                _gazeInteractors.Add(interactor);
             }
-
-            if (!_handInteractors.TryGetValue(interactor.HandType, out var handInteractor))
+            else if (_handInteractors.TryGetValue(interactor.HandType, out var handInteractor))
+            {
+                handInteractor.Add(interactor);
+            }
+            else
             {
                 throw new ArgumentOutOfRangeException(nameof(interactor.HandType), interactor.HandType,
-                    "Invalid side type");
+                    "Invalid hand type");
             }
-
-            handInteractor.Add(interactor);
         }
 
         public void Remove(IInteractor interactor)
@@ -115,21 +118,17 @@ namespace Infrastructure.Services.InteractorSetup
 
             if (interactor.InteractorType.HasFlag(InteractorType.Gaze))
             {
-                if (_gazeInteractor == interactor)
-                {
-                    _gazeInteractor = null;
-                }
-
-                return;
+                _gazeInteractors.Remove(interactor);
             }
-
-            if (!_handInteractors.TryGetValue(interactor.HandType, out var handInteractor))
+            else if (_handInteractors.TryGetValue(interactor.HandType, out var handInteractor))
+            {
+                handInteractor.Remove(interactor);
+            }
+            else
             {
                 throw new ArgumentOutOfRangeException(nameof(interactor.HandType), interactor.HandType,
-                    "Invalid side type");
+                    "Invalid hand type");
             }
-
-            handInteractor.Remove(interactor);
         }
     }
 }

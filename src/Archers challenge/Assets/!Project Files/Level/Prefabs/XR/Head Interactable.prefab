@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2728079150805266361}
   - component: {fileID: 5831994282610866514}
   - component: {fileID: 3447847801297684315}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: Head Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1024
+    m_Bits: 4294967295
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
