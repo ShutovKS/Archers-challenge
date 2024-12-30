@@ -13,7 +13,6 @@ using UI.HandMenu;
 using UI.InformationDesk;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.OpenXR.Features.Meta;
 using Zenject;
 
 namespace Core.Gameplay
@@ -100,10 +99,12 @@ namespace Core.Gameplay
                 return false;
             }
 
-            if (arSession.subsystem is MetaOpenXRSessionSubsystem subsystem)
+#if UNITY_ANDROID
+            if (arSession.subsystem is UnityEngine.XR.OpenXR.Features.Meta.MetaOpenXRSessionSubsystem subsystem)
             {
                 return subsystem.TryRequestSceneCapture();
             }
+#endif
 
             Debug.LogError("ARSession subsystem not MetaOpenXRSessionSubsystem");
 
