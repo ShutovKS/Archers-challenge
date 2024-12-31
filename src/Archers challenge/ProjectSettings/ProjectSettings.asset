@@ -22,7 +22,7 @@ PlayerSettings:
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
   m_SplashScreenLogoStyle: 1
-  m_SplashScreenDrawMode: 1
+  m_SplashScreenDrawMode: 0
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
   m_SplashScreenBackgroundLandscapeAspect: 1
@@ -40,8 +40,6 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: 10404, guid: 0000000000000000f000000000000000, type: 0}
-    duration: 2
   - logo: {fileID: 21300000, guid: 21d856f74c406564db1c533356218667, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 21d856f74c406564db1c533356218667,
@@ -89,6 +87,7 @@ PlayerSettings:
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
   Force IOS Speakers When Recording: 0
+  audioSpatialExperience: 0
   deferSystemGesturesMode: 0
   hideHomeButton: 0
   submitAnalytics: 1
@@ -144,8 +143,12 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 0.2.0
-  preloadedAssets: []
+  bundleVersion: 0.3.0
+  preloadedAssets:
+  - {fileID: 3691239325519086614, guid: f1941ada1128fe846b2bc47ca017aff0, type: 2}
+  - {fileID: 11400000, guid: 176a7e4af0254bd41bbed045423828eb, type: 2}
+  - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  - {fileID: -466268058512074262, guid: 8dda02203ed3a82418c08de4b2d117bb, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -167,7 +170,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.Forgeofgameworlds.Archerschallenge
-    Standalone: com.Unity-Technologies.com.unity.template.urp-blank
+    Standalone: com.Forge-of-game-worlds.Archers-challenge
     iPhone: com.Unity-Technologies.com.unity.template.urp-blank
   buildNumber:
     Standalone: 0
@@ -269,7 +272,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 2
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
-  androidSplashScreen: {fileID: 2800000, guid: fc8905145bc0ad34aabdf0b5fd791529, type: 3}
+  androidSplashScreen: {fileID: 2800000, guid: 8db2039e7d4bb1b42a108a2f560ebad3, type: 3}
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
   AndroidEnableArmv9SecurityFeatures: 0
@@ -294,7 +297,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: fc8905145bc0ad34aabdf0b5fd791529, type: 3}
+      m_Icon: {fileID: 2800000, guid: 5d6b420f0a056ee44981d19ba33ebac1, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
