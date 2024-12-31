@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Locations-Main
+  m_EditorClassIdentifier: 
+  m_GroupName: Locations-Main
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5cba3f18ea976d248b6f5a65f4960a10
+  m_SerializeEntries:
+  - m_GUID: 2ddac2b6314c3074b9acc7e6eaf9bbc9
+    m_Address: Locations/Infinite MR
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 917f62c142e3e4a4b965a0009b80359b
+    m_Address: Locations/Main menu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de3a3256a67f1b544881122f62aacb54
+    m_Address: Locations/Infinite VR
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1e01a01ec361a2e42acee6551134981e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a647299db749b2c4886406ecdb0a1814, type: 2}
+    - {fileID: 11400000, guid: 2a89bb1af85be4549867141c781b1b03, type: 2}

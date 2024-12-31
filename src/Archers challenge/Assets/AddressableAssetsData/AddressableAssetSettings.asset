@@ -44,8 +44,15 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
-  - {fileID: 11400000, guid: 03e8df3edf114b2408ae938cc3fb182a, type: 2}
+  - {fileID: 11400000, guid: 36f8b8217c7fe35418a07215481b1901, type: 2}
   - {fileID: 11400000, guid: 19b687ed84590494fa7d2ec829523eb1, type: 2}
+  - {fileID: 11400000, guid: 03e8df3edf114b2408ae938cc3fb182a, type: 2}
+  - {fileID: 11400000, guid: 337ecd5288392f7478297246e46f4eef, type: 2}
+  - {fileID: 11400000, guid: f7ae2a0d56097c6458ab833db0a8d075, type: 2}
+  - {fileID: 11400000, guid: d1ab819b557426b499d3961fbfc40bf2, type: 2}
+  - {fileID: 11400000, guid: 2bfa875e0b75a5f45b7abed4be53c2fe, type: 2}
+  - {fileID: 11400000, guid: 46de5b8244710154f8cc57f8380691fd, type: 2}
+  - {fileID: 11400000, guid: 65ea66875e46d4f40b7f1634a4f0ac53, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -57,17 +64,20 @@ MonoBehaviour:
       m_Id: 027e43709bc8d0f4880cc6e246edb3aa
       m_ProfileName: Default
       m_Values:
+      - m_Id: 66f4b12c3ef091341b5aab6b4b3256c1
+        m_Value: ServerData/[BuildTarget]
       - m_Id: 88b82f4973e7b084e8f6015da3cd8430
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
       - m_Id: 8ae3a32d5ea8f3549bd1a8209d05301f
         m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: a69a6d61e8275a8408cc600e4a022ec9
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
-      - m_Id: 66f4b12c3ef091341b5aab6b4b3256c1
-        m_Value: ServerData/[BuildTarget]
       - m_Id: d797306062dea5d48a5da18940b4002e
         m_Value: http://[PrivateIpAddress]:[HostingServicePort]
     m_ProfileEntryNames:
+    - m_Id: 66f4b12c3ef091341b5aab6b4b3256c1
+      m_Name: Remote.BuildPath
+      m_InlineUsage: 0
     - m_Id: 88b82f4973e7b084e8f6015da3cd8430
       m_Name: BuildTarget
       m_InlineUsage: 0
@@ -76,9 +86,6 @@ MonoBehaviour:
       m_InlineUsage: 0
     - m_Id: a69a6d61e8275a8408cc600e4a022ec9
       m_Name: Local.LoadPath
-      m_InlineUsage: 0
-    - m_Id: 66f4b12c3ef091341b5aab6b4b3256c1
-      m_Name: Remote.BuildPath
       m_InlineUsage: 0
     - m_Id: d797306062dea5d48a5da18940b4002e
       m_Name: Remote.LoadPath
