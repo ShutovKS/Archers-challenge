@@ -41,9 +41,9 @@ namespace Features.Projectile
 
         private void FixedUpdate()
         {
-            if (_isInFlight && rigidbody.velocity.sqrMagnitude > 0.1f)
+            if (_isInFlight && rigidbody.linearVelocity.sqrMagnitude > 0.1f)
             {
-                transform.forward = rigidbody.velocity.normalized;
+                transform.forward = rigidbody.linearVelocity.normalized;
             }
         }
 

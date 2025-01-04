@@ -17,7 +17,7 @@ namespace Infrastructure.Services.InteractorSetup
 
         public event Action<bool> OnSelect;
 
-        private IXRSelectInteractor _xrSelectInteractor;
+        private UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor _xrSelectInteractor;
         private IInteractorProvider _interactorProvider;
         private IInteractorService _interactorService;
 
@@ -30,7 +30,7 @@ namespace Infrastructure.Services.InteractorSetup
 
         private void Awake()
         {
-            _xrSelectInteractor = GetComponent<IXRSelectInteractor>();
+            _xrSelectInteractor = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor>();
 
             if (_xrSelectInteractor != null)
             {

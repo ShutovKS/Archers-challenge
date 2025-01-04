@@ -10,7 +10,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Features.Weapon
 {
-    [RequireComponent(typeof(IXRSelectInteractable))]
+    [RequireComponent(typeof(UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable))]
     public class Bow : MonoBehaviour, IWeapon
     {
         public event Action<bool> OnSelected;
@@ -29,7 +29,7 @@ namespace Features.Weapon
 
         [SerializeField] private Transform notchTransform;
 
-        private IXRSelectInteractable _xrSelectInteractable;
+        private UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable _xrSelectInteractable;
         private IProjectileFactory _projectileFactory;
         private IProjectile _currentProjectile;
         private float _bowForce;
@@ -42,7 +42,7 @@ namespace Features.Weapon
 
         private void Awake()
         {
-            _xrSelectInteractable = GetComponent<IXRSelectInteractable>();
+            _xrSelectInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable>();
         }
 
         private void OnEnable()

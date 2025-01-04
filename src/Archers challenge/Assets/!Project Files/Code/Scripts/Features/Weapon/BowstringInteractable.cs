@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Features.Weapon
 {
-    public class BowstringInteractable : XRBaseInteractable
+    public class BowstringInteractable : UnityEngine.XR.Interaction.Toolkit.Interactables.XRBaseInteractable
     {
         [SerializeField] private Transform startTransform, endTransform, notchTransform;
 
@@ -20,7 +20,7 @@ namespace Features.Weapon
         [Header("Settings")] [SerializeField] private Vector3 arrowOffset = new(0, 0, 0.1f);
 
         private float _pullAmount;
-        private IXRSelectInteractor _pullingInteractor;
+        private UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor _pullingInteractor;
         private InteractionLayerMask _interactionLayerMaskOnInitialized;
 
         protected override void Awake()
