@@ -79,15 +79,17 @@ namespace Features.TargetsInLevelManager
             if (!_planesAvailable) return Vector3.zero;
 
             ReadOnlyCollection<ARPlane> planes = null;
-            var classifications = new List<PlaneClassification>
+            var classifications = new List<PlaneClassifications>
             {
 #if UNITY_EDITOR
-                PlaneClassification.None,
-#else
-                PlaneClassification.Wall,
-                PlaneClassification.Floor,
-                PlaneClassification.Ceiling
+                PlaneClassifications.None,
 #endif
+                PlaneClassifications.Ceiling,
+                PlaneClassifications.DoorFrame,
+                PlaneClassifications.Floor,
+                PlaneClassifications.WallArt,
+                PlaneClassifications.WallFace,
+                PlaneClassifications.WindowFrame,
             };
 
             while (classifications.Count > 0)
@@ -124,9 +126,9 @@ namespace Features.TargetsInLevelManager
 
             do
             {
-                var randomPoint =
-                    plane.transform.TransformPoint(boundary[Random.Range(0, boundary.Length)]);
                 attempts++;
+
+                var randomPoint = plane.transform.TransformPoint(boundary[Random.Range(0, boundary.Length)]);
 
                 var cameraPosition = _cameraService.CameraPosition;
                 var direction = randomPoint - cameraPosition;

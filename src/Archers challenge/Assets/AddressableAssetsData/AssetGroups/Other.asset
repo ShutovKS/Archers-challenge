@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Other
   m_EditorClassIdentifier: 
   m_GroupName: Other
-  m_Data:
-    m_SerializedData: []
   m_GUID: 6d2188f70f95897449ad96dd6c7d8403
   m_SerializeEntries:
   - m_GUID: 3e74e4d80d2ec234ba15d09fdc3729d0
@@ -22,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a93808a653f87d40adcb6eb4682777e
+    m_Address: ARBoundingBoxColored
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1e01a01ec361a2e42acee6551134981e, type: 2}

@@ -58,12 +58,7 @@ namespace Core.Gameplay
         public Task PrepareGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
             where TGameplayModeData : GameplayModeData
         {
-            if (!TryRequestSceneCapture())
-            {
-                OnGameFinished?.Invoke(GameResult.Error);
-
-                return Task.CompletedTask;
-            }
+            TryRequestSceneCapture();
 
             _infoScreen = _windowService.Get<InformationDeskUI>(WindowID.InformationDesk);
             var sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();

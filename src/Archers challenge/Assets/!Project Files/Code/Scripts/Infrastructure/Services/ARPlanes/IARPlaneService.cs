@@ -13,6 +13,6 @@ namespace Infrastructure.Services.ARPlanes
 
         void SetArPlaneManager(ARPlaneManager planeManager);
 
-        ReadOnlyCollection<ARPlane> GetPlanes(PlaneClassification classification);
+        ReadOnlyCollection<ARPlane> GetPlanes(PlaneClassifications classification);
     }
 }

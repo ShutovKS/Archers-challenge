@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using Core.Project.MainMenu;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.ProjectManagement;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Core.Project.Initialization

@@ -12,7 +12,7 @@ namespace Data.Constants.Paths
         public const string MAIN_MENU_SCREEN_PREFAB = "UI/Main Menu Screen";
 
         public const string AR_PLANE_PREFAB = "ARPlaneColored";
-
-        public const string AR_MESH_PREFAB = "NO PATH";
+        public const string AR_BOUNDING_BOX_PREFAB = "ARBoundingBoxColored";
+        public const string AR_MESH_PREFAB = "ARMeshColored";
     }
 }

@@ -1,27 +1,27 @@
 using System.Threading.Tasks;
-using Data.Constants.Paths;
 using Infrastructure.Factories.ARComponents;
 using Infrastructure.Providers.AssetsAddressables;
 using Infrastructure.Services.ARPlanes;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using static Data.Constants.Paths.AddressablesPaths;
 
 
 namespace Infrastructure.Factories.ARTrackingMode
 {
-    public interface IARTrackingMode
+    public interface IArTrackingMode
     {
         Task Enable();
         void Disable();
     }
 
-    public abstract class BaseIarTrackingMode<TManager, TAsset> : IARTrackingMode where TManager : Behaviour
+    public abstract class BaseArTrackingMode<TManager, TAsset> : IArTrackingMode where TManager : Behaviour
     {
         protected readonly IARComponentsFactory _arComponentsFactory;
         protected readonly IAssetsAddressablesProvider _assetsAddressablesProvider;
 
-        protected BaseIarTrackingMode(IARComponentsFactory arComponentsFactory,
+        protected BaseArTrackingMode(IARComponentsFactory arComponentsFactory,
             IAssetsAddressablesProvider assetsAddressablesProvider)
         {
             _arComponentsFactory = arComponentsFactory;
@@ -42,26 +42,26 @@ namespace Infrastructure.Factories.ARTrackingMode
         protected abstract Task ConfigureManager(TManager manager);
     }
 
-    public class MeshIarTrackingMode : BaseIarTrackingMode<ARMeshManager, MeshFilter>
+    public class MeshArTrackingMode : BaseArTrackingMode<ARMeshManager, MeshFilter>
     {
-        public MeshIarTrackingMode(IARComponentsFactory arComponentsFactory,
+        public MeshArTrackingMode(IARComponentsFactory arComponentsFactory,
             IAssetsAddressablesProvider assetsAddressablesProvider)
             : base(arComponentsFactory, assetsAddressablesProvider)
         {
         }
 
         protected override async Task ConfigureManager(ARMeshManager manager) => manager.meshPrefab =
-            await _assetsAddressablesProvider.GetAsset<MeshFilter>(AddressablesPaths.AR_MESH_PREFAB);
+            await _assetsAddressablesProvider.GetAsset<MeshFilter>(AR_MESH_PREFAB);
     }
 
-    public class PlaneIarTrackingMode : BaseIarTrackingMode<ARPlaneManager, GameObject>
+    public class PlaneArTrackingMode : BaseArTrackingMode<ARPlaneManager, GameObject>
     {
-        private readonly PlaneDetectionMode _planeDetectionMode =
+        private const PlaneDetectionMode PLANE_DETECTION_MODE =
             PlaneDetectionMode.Horizontal | PlaneDetectionMode.Vertical;
 
         private readonly IARPlanesService _arPlanesService;
 
-        public PlaneIarTrackingMode(IARComponentsFactory arComponentsFactory, IARPlanesService arPlanesService,
+        public PlaneArTrackingMode(IARComponentsFactory arComponentsFactory, IARPlanesService arPlanesService,
             IAssetsAddressablesProvider assetsAddressablesProvider)
             : base(arComponentsFactory, assetsAddressablesProvider)
         {
@@ -71,9 +71,8 @@ namespace Infrastructure.Factories.ARTrackingMode
         protected override async Task ConfigureManager(ARPlaneManager manager)
         {
             _arPlanesService.SetArPlaneManager(manager);
-            manager.planePrefab =
-                await _assetsAddressablesProvider.GetAsset<GameObject>(AddressablesPaths.AR_PLANE_PREFAB);
-            manager.requestedDetectionMode = _planeDetectionMode;
+            manager.planePrefab = await _assetsAddressablesProvider.GetAsset<GameObject>(AR_PLANE_PREFAB);
+            manager.requestedDetectionMode = PLANE_DETECTION_MODE;
         }
 
         public override void Disable()
@@ -83,7 +82,19 @@ namespace Infrastructure.Factories.ARTrackingMode
         }
     }
 
-    public class NoneIarTrackingMode : IARTrackingMode
+    public class BoundingBoxArTrackingMode : BaseArTrackingMode<ARBoundingBoxManager, GameObject>
+    {
+        public BoundingBoxArTrackingMode(IARComponentsFactory arComponentsFactory,
+            IAssetsAddressablesProvider assetsAddressablesProvider)
+            : base(arComponentsFactory, assetsAddressablesProvider)
+        {
+        }
+
+        protected override async Task ConfigureManager(ARBoundingBoxManager manager) => manager.boundingBoxPrefab =
+            await _assetsAddressablesProvider.GetAsset<GameObject>(AR_BOUNDING_BOX_PREFAB);
+    }
+
+    public class NoneArTrackingMode : IArTrackingMode
     {
         public Task Enable() => Task.CompletedTask;
 

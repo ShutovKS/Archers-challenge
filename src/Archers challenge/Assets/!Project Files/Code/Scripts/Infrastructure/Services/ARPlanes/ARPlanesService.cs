@@ -21,14 +21,14 @@ namespace Infrastructure.Services.ARPlanes
         {
             if (_planeManager != null)
             {
-                _planeManager.planesChanged -= OnTrackablesChanged;
+                _planeManager.trackablesChanged.AddListener(OnTrackablesChanged);
             }
 
             _planeManager = planeManager;
 
             if (_planeManager != null)
             {
-                _planeManager.planesChanged += OnTrackablesChanged;
+                _planeManager.trackablesChanged.AddListener(OnTrackablesChanged);
             }
 
             _planes.Clear();
@@ -36,28 +36,28 @@ namespace Infrastructure.Services.ARPlanes
             CheckForPlanes();
         }
 
-        public ReadOnlyCollection<ARPlane> GetPlanes(PlaneClassification classification)
+        public ReadOnlyCollection<ARPlane> GetPlanes(PlaneClassifications classification)
         {
-            var planes = _planes.Where(plane => plane.classification == classification);
+            var planes = _planes.Where(plane => plane.classifications == classification);
 
             return planes.ToList().AsReadOnly();
         }
 
-        private void OnTrackablesChanged(ARPlanesChangedEventArgs args)
+        private void OnTrackablesChanged(ARTrackablesChangedEventArgs<ARPlane> eventArgs)
         {
             var planesChanged = false;
 
-            if (args.added != null)
+            if (eventArgs.added != null)
             {
-                _planes.AddRange(args.added);
+                _planes.AddRange(eventArgs.added);
                 planesChanged = true;
             }
 
-            if (args.removed != null)
+            if (eventArgs.removed != null)
             {
-                foreach (var plane in args.removed)
+                foreach (var plane in eventArgs.removed)
                 {
-                    _planes.Remove(plane);
+                    _planes.Remove(plane.Value);
                 }
 
                 planesChanged = true;
