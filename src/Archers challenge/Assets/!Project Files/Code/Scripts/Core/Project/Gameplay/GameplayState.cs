@@ -5,10 +5,11 @@ using Core.Gameplay;
 using Core.Project.MainMenu;
 using Data.Configurations.Level;
 using Infrastructure.Services.GameSetup;
+using Infrastructure.Services.Player;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.Weapon;
-using Infrastructure.Services.Window;
 using UI.HandMenu;
+using UnityEngine;
 
 #endregion
 
@@ -18,17 +19,21 @@ namespace Core.Project.Gameplay
     {
         private readonly IProjectManagementService _projectManagementService;
         private readonly IGameplaySetupService _gameplaySetupService;
-        private readonly IWindowService _windowService;
         private readonly IWeaponService _weaponService;
+        private readonly IPlayerService _playerService;
         private IGameplayLevel _gameplayLevel;
 
-        public GameplayState(IProjectManagementService projectManagementService,
-            IGameplaySetupService gameplaySetupService, IWindowService windowService, IWeaponService weaponService)
+        public GameplayState(
+            IProjectManagementService projectManagementService,
+            IGameplaySetupService gameplaySetupService,
+            IWeaponService weaponService,
+            IPlayerService playerService
+            )
         {
             _projectManagementService = projectManagementService;
             _gameplaySetupService = gameplaySetupService;
-            _windowService = windowService;
             _weaponService = weaponService;
+            _playerService = playerService;
         }
 
         public async void OnEnter(LevelData levelData)
@@ -39,14 +44,14 @@ namespace Core.Project.Gameplay
 
         private void SetupEventHandlers()
         {
-            _windowService.Get<HandMenuUI>(WindowID.HandMenu).OnExitButtonClicked += ExitInMainMenu;
+            _playerService.PlayerContainer.HandMenuUI.OnExitButtonClicked += ExitInMainMenu;
             _weaponService.CurrentWeapon.OnSelected += OnWeaponSelected;
         }
 
         private void OnWeaponSelected(bool isSelected)
         {
             if (!isSelected) return;
-
+            
             _weaponService.CurrentWeapon.OnSelected -= OnWeaponSelected;
 
             LaunchGameplay();
@@ -75,12 +80,15 @@ namespace Core.Project.Gameplay
             }
         }
 
-        private void ExitInMainMenu() => _projectManagementService.ChangeState<MainMenuState>();
+        private void ExitInMainMenu()
+        {
+            _projectManagementService.ChangeState<MainMenuState>();
+        }
 
         public async void OnExit()
         {
+            _playerService.PlayerContainer.HandMenuUI.OnExitButtonClicked -= ExitInMainMenu;
             _gameplayLevel?.StopGame();
-
             await _gameplaySetupService.CleanupGameplayAsync();
         }
     }

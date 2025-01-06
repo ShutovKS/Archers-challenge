@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Core.Gameplay;
 using Data.Configurations.Level;
 using Data.Contexts.Scene;
+using Extension;
 using Infrastructure.Factories.GameplayLevels;
 using Infrastructure.Providers.SceneContainer;
 using Infrastructure.Services.InteractorSetup;
@@ -11,6 +12,7 @@ using Infrastructure.Services.Weapon;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using UI.InformationDesk;
+using UnityEngine;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
@@ -84,7 +86,6 @@ namespace Infrastructure.Services.GameSetup
         private async Task OpenScreens()
         {
             await InstantiateInfoScreen();
-            await InstantiateHandMenuScreen();
         }
 
         private async Task InstantiateInfoScreen()
@@ -99,17 +100,11 @@ namespace Infrastructure.Services.GameSetup
             infoScreen.SetScoreText(string.Empty);
         }
 
-        private async Task InstantiateHandMenuScreen()
-        {
-            var spawnPoint = _playerService.PlayerContainer.HandMenuSpawnPoint;
-            await _windowService.OpenInWorld(WindowID.HandMenu, spawnPoint.position, spawnPoint.rotation, spawnPoint);
-        }
-
         private Task ConfigurePlayerXRSettings()
         {
             _xrSetupService.SetXRMode(_levelData.XRMode);
 
-            _interactorService.SetUpInteractor(HandType.Left, InteractorType.Ray);
+            _interactorService.SetUpInteractor(HandType.Left, InteractorType.NearFar);
             _interactorService.SetUpInteractor(HandType.Right, InteractorType.Direct | InteractorType.Poke);
 
             return Task.CompletedTask;
@@ -137,11 +132,7 @@ namespace Infrastructure.Services.GameSetup
             await _gameplayLevel.StartGame();
             return _gameplayLevel;
         }
-
-        #region Launch Gameplay
-
-        #endregion
-
+        
         public async Task CleanupGameplayAsync()
         {
             await CleanupGameplayLevel();
@@ -163,7 +154,6 @@ namespace Infrastructure.Services.GameSetup
 
         private Task CloseScreens()
         {
-            _windowService.Close(WindowID.HandMenu);
             _windowService.Close(WindowID.InformationDesk);
             return Task.CompletedTask;
         }

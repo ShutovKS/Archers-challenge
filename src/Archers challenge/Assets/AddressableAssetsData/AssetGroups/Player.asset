@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   m_GroupName: Player
-  m_Data:
-    m_SerializedData: []
   m_GUID: 9913d64c675d1d141802cd50eb1de868
   m_SerializeEntries:
-  - m_GUID: 69c9b360efcb9124c9a53a2995aedfea
+  - m_GUID: 7c74c922c35894e47b541904767e3e1e
     m_Address: Player
     m_ReadOnly: 0
     m_SerializedLabels:

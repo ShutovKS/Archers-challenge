@@ -94,8 +94,8 @@ namespace Infrastructure.Services.GameSetup
         private Task ConfigurePlayer()
         {
             _xrSetupService.SetXRMode(XRMode.VR);
-            _interactorService.SetUpInteractor(HandType.Left, InteractorType.Ray);
-            _interactorService.SetUpInteractor(HandType.Right, InteractorType.Ray);
+            _interactorService.SetUpInteractor(HandType.Left, InteractorType.NearFar);
+            _interactorService.SetUpInteractor(HandType.Right, InteractorType.NearFar);
 
             _playerService.SetPlayerPositionAndRotation(
                 _sceneContextData.PlayerSpawnPoint.position,
