@@ -13,16 +13,8 @@ MonoBehaviour:
   m_Name: UI
   m_EditorClassIdentifier: 
   m_GroupName: UI
-  m_Data:
-    m_SerializedData: []
   m_GUID: 21fb820cd56e1b642891e6aec67aa01c
   m_SerializeEntries:
-  - m_GUID: 64bf3ad128950a942a6ecbf2a544ac92
-    m_Address: UI/Main Menu Screen
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: afa83661044c245448e43e38ddc77486
     m_Address: UI/Information desk Screen
     m_ReadOnly: 0

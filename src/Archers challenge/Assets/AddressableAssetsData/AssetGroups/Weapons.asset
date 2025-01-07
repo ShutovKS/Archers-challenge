@@ -13,20 +13,8 @@ MonoBehaviour:
   m_Name: Weapons
   m_EditorClassIdentifier: 
   m_GroupName: Weapons
-  m_Data:
-    m_SerializedData: []
   m_GUID: 888efdac3396e0b4aa872493d27534bc
   m_SerializeEntries:
-  - m_GUID: 20bded57e1c6b5542aff7fd5af1ca2d9
-    m_Address: Weapons/Crystallized 3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3ba363814f96a194cbb47d5356f60501
-    m_Address: Weapons/Crystallized 2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4259bf2c9f6e55e4d9b6f8302c7b2b17
     m_Address: Weapons/Color red
     m_ReadOnly: 0
@@ -36,12 +24,6 @@ MonoBehaviour:
     m_Address: Weapons/Winged
     m_ReadOnly: 0
     m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 54ba44d4ecd83324991be29cf49b127d
-    m_Address: Projectiles/Arrow
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64634c3875fcdf4459bfd203220109d4
     m_Address: Weapons/Color blue
@@ -53,12 +35,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 86f8afcad42030a408a5e4eb9d4c205c
-    m_Address: Weapons/Default
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c37701ce2af1534cb7a7677a535b16a
     m_Address: Weapons/Color green
     m_ReadOnly: 0
@@ -66,27 +42,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c6aafebc37dfb774ca49413a839a1f9a
     m_Address: Weapons/Forest
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cd8676903f2a1d14cb5b73ccf12b3258
-    m_Address: Targets/Target
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: da08c5e508cf36b49ab458a102dc42a0
-    m_Address: Weapons/Crystallized 5
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ecb7c10c931a2e4479ae4d31b01f3c4d
-    m_Address: Weapons/Crystallized 1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: faa671b99534fb9458e9612e6de7e292
-    m_Address: Weapons/Crystallized 4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

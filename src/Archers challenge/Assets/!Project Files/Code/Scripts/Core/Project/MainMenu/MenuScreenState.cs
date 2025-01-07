@@ -19,7 +19,7 @@ namespace Core.Project.MainMenu
         private readonly IWindowService _windowService;
         private readonly IMainMenuSetupService _mainMenuSetupService;
 
-        private MainMenuUI _mainMenuUI;
+        private UI.MainMenu.MainMenuUI _mainMenuUI;
 
         public MenuScreenState(
             IProjectManagementService projectManagementService,
@@ -42,7 +42,7 @@ namespace Core.Project.MainMenu
 
         private void InitializeMainMenuScreen()
         {
-            _mainMenuUI = _windowService.Get<MainMenuUI>(WindowID.MainMenu);
+            _mainMenuUI = _windowService.Get<UI.MainMenu.MainMenuUI>(WindowID.MainMenu);
 
             _mainMenuUI.OnInfiniteVRClicked += StartInfiniteVR;
             _mainMenuUI.OnInfiniteMRClicked += StartInfiniteMR;

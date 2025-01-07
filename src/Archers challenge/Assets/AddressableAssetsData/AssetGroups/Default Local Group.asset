@@ -14,7 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
   m_GUID: 27a109022a34ecd438feda666a0e99b5
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 54ba44d4ecd83324991be29cf49b127d
+    m_Address: Projectiles/Arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86f8afcad42030a408a5e4eb9d4c205c
+    m_Address: Weapons/Default
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd8676903f2a1d14cb5b73ccf12b3258
+    m_Address: Targets/Target
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1e01a01ec361a2e42acee6551134981e, type: 2}
   m_SchemaSet:
