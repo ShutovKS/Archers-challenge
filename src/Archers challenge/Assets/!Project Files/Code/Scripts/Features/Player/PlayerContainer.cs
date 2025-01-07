@@ -1,9 +1,10 @@
+using UI.HandMenu;
 using UnityEngine;
 
 namespace Features.Player
 {
     public class PlayerContainer : MonoBehaviour
     {
-        [field: SerializeField] public Transform HandMenuSpawnPoint { get; private set; }
+        [field: SerializeField] public HandMenuUI HandMenuUI { get; private set; }
     }
 }

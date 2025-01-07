@@ -1,6 +1,5 @@
 #region
 
-using Tools;
 using UnityEngine;
 
 #endregion
@@ -32,8 +31,6 @@ namespace Data.Configurations.Weapon
             ValidateKey();
             ValidateIcon();
             ValidateCustomization();
-
-            WeaponDatabase.Instance.OnValidate(this);
         }
 
         private void ValidateKey()

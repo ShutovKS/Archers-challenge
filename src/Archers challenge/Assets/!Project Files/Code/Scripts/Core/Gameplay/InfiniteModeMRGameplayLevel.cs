@@ -13,7 +13,6 @@ using UI.HandMenu;
 using UI.InformationDesk;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.OpenXR.Features.Meta;
 using Zenject;
 
 namespace Core.Gameplay
@@ -25,7 +24,6 @@ namespace Core.Gameplay
 
         private IStopwatchService _stopwatchService;
         private IWindowService _windowService;
-        private ITargetFactory _targetFactory;
         private ISceneContextProvider _sceneContextProvider;
         private IARComponentsFactory _arComponentsFactory;
 
@@ -43,14 +41,12 @@ namespace Core.Gameplay
         public void Construct(
             IStopwatchService stopwatchService,
             IWindowService windowService,
-            ITargetFactory targetFactory,
             ISceneContextProvider sceneContextProvider,
             IARComponentsFactory arComponentsFactory
         )
         {
             _stopwatchService = stopwatchService;
             _windowService = windowService;
-            _targetFactory = targetFactory;
             _sceneContextProvider = sceneContextProvider;
             _arComponentsFactory = arComponentsFactory;
         }
@@ -59,12 +55,7 @@ namespace Core.Gameplay
         public Task PrepareGame<TGameplayModeData>(TGameplayModeData gameplayModeData)
             where TGameplayModeData : GameplayModeData
         {
-            if (!TryRequestSceneCapture())
-            {
-                OnGameFinished?.Invoke(GameResult.Error);
-
-                return Task.CompletedTask;
-            }
+            TryRequestSceneCapture();
 
             _infoScreen = _windowService.Get<InformationDeskUI>(WindowID.InformationDesk);
             var sceneContextData = _sceneContextProvider.Get<GameplaySceneContextData>();
@@ -100,10 +91,12 @@ namespace Core.Gameplay
                 return false;
             }
 
-            if (arSession.subsystem is MetaOpenXRSessionSubsystem subsystem)
+#if UNITY_ANDROID
+            if (arSession.subsystem is UnityEngine.XR.OpenXR.Features.Meta.MetaOpenXRSessionSubsystem subsystem)
             {
                 return subsystem.TryRequestSceneCapture();
             }
+#endif
 
             Debug.LogError("ARSession subsystem not MetaOpenXRSessionSubsystem");
 

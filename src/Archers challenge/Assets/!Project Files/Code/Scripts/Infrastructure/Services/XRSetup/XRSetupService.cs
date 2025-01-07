@@ -15,13 +15,13 @@ namespace Infrastructure.Services.XRSetup
     {
         private readonly IARComponentsFactory _arComponentsFactory;
         private readonly ICameraService _cameraService;
-        private readonly IARTrackingModeFactory _arTrackingModeFactory;
+        private readonly IArTrackingModeFactory _arTrackingModeFactory;
 
         private XRMode _currentMode = XRMode.None;
-        private IARTrackingMode _currentIarTrackingMode = new NoneIarTrackingMode();
+        private IArTrackingMode _currentIarTrackingMode = new NoneArTrackingMode();
 
         public XRSetupService(IARComponentsFactory arComponentsFactory, ICameraService cameraService,
-            IARTrackingModeFactory arTrackingModeFactory)
+            IArTrackingModeFactory arTrackingModeFactory)
         {
             _arComponentsFactory = arComponentsFactory;
             _cameraService = cameraService;
@@ -42,7 +42,7 @@ namespace Infrastructure.Services.XRSetup
                     SetComponentState<ARSession>(false);
                     SetComponentState<ARCameraManager>(false);
 
-                    var trackingMode = _arTrackingModeFactory.Create<NoneIarTrackingMode>();
+                    var trackingMode = _arTrackingModeFactory.Create<NoneArTrackingMode>();
                     SetXRTrackingMode(trackingMode);
                     SetAnchorManagerState(false);
 
@@ -57,7 +57,7 @@ namespace Infrastructure.Services.XRSetup
 
                     SetComponentState<ARCameraManager>(true);
 
-                    var trackingMode = _arTrackingModeFactory.Create<PlaneIarTrackingMode>();
+                    var trackingMode = _arTrackingModeFactory.Create<PlaneArTrackingMode>();
                     SetXRTrackingMode(trackingMode);
                     SetAnchorManagerState(true);
 
@@ -70,7 +70,7 @@ namespace Infrastructure.Services.XRSetup
             SetComponentState<ARInputManager>(true);
         }
 
-        private void SetXRTrackingMode(IARTrackingMode iarTrackingMode)
+        private void SetXRTrackingMode(IArTrackingMode iarTrackingMode)
         {
             _currentIarTrackingMode?.Disable();
             _currentIarTrackingMode = iarTrackingMode;

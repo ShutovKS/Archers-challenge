@@ -81,7 +81,7 @@ namespace Infrastructure.Installers
         private void BindFactories()
         {
             Container.Bind<IARComponentsFactory>().To<ARComponentsFactory>().AsSingle();
-            Container.Bind<IARTrackingModeFactory>().To<ARTrackingModeFactory>().AsSingle();
+            Container.Bind<IArTrackingModeFactory>().To<ArTrackingModeFactory>().AsSingle();
             Container.Bind<IGameObjectFactory>().To<GameObjectFactory>().AsSingle();
             Container.Bind<IGameplayLevelsFactory>().To<GameplayLevelsFactory>().AsSingle();
             Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();

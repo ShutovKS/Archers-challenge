@@ -2,21 +2,21 @@ using Zenject;
 
 namespace Infrastructure.Factories.ARTrackingMode
 {
-    public interface IARTrackingModeFactory
+    public interface IArTrackingModeFactory
     {
-        IARTrackingMode Create<T>() where T : IARTrackingMode;
+        IArTrackingMode Create<T>() where T : IArTrackingMode;
     }
 
-    public class ARTrackingModeFactory : IARTrackingModeFactory
+    public class ArTrackingModeFactory : IArTrackingModeFactory
     {
         private readonly DiContainer _container;
 
         [Inject]
-        public ARTrackingModeFactory(DiContainer container)
+        public ArTrackingModeFactory(DiContainer container)
         {
             _container = container;
         }
 
-        public IARTrackingMode Create<T>() where T : IARTrackingMode => _container.Instantiate<T>();
+        public IArTrackingMode Create<T>() where T : IArTrackingMode => _container.Instantiate<T>();
     }
 }

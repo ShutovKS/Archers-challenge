@@ -18,28 +18,38 @@ namespace Infrastructure.Services.Window
 
         private readonly IUIFactory _uiFactory;
 
-        public async Task OpenInWorld(WindowID windowID, Vector3 position, Quaternion rotation, Transform transform) =>
-            await OpenWindow(windowID, position, rotation, transform);
-
-        public async Task<T> OpenInWorldAndGet<T>(WindowID windowID, Vector3 position, Quaternion rotation,
-            Transform transform) where T : Component
-        {
-            await OpenWindow(windowID, position, rotation, transform);
-
-            return _uiFactory.GetScreenComponent<T>(windowID);
-        }
-
-        public T Get<T>(WindowID windowID) where T : Component => _uiFactory.GetScreenComponent<T>(windowID);
-
-        private async Task OpenWindow(WindowID windowID, Vector3 position, Quaternion rotation, Transform transform)
+        public async Task<GameObject> OpenInWorld(WindowID windowID, Vector3? position, Quaternion? rotation,
+            Transform transform)
         {
             var windowsPath = GetWindowsPath(windowID);
 
             var instance = await _uiFactory.CreateScreen(windowsPath, windowID);
 
             instance.transform.SetParent(transform);
-            instance.transform.SetPositionAndRotation(position, rotation);
+
+            if (position.HasValue) instance.transform.localPosition = position.Value;
+            if (rotation.HasValue) instance.transform.localRotation = rotation.Value;
+
+            return instance;
         }
+
+        public async Task<T> OpenInWorldAndGet<T>(WindowID windowID, Vector3? position, Quaternion? rotation,
+            Transform transform) where T : Component
+        {
+            var windowsPath = GetWindowsPath(windowID);
+
+            var instance = await _uiFactory.CreateScreen(windowsPath, windowID);
+
+            instance.transform.SetParent(transform);
+
+            if (position.HasValue) instance.transform.localPosition = position.Value;
+            if (rotation.HasValue) instance.transform.localRotation = rotation.Value;
+
+            return _uiFactory.GetScreenComponent<T>(windowID);
+        }
+
+        public T Get<T>(WindowID windowID) where T : Component =>
+            _uiFactory.GetScreenComponent<T>(windowID);
 
         public void Close(WindowID windowID)
         {

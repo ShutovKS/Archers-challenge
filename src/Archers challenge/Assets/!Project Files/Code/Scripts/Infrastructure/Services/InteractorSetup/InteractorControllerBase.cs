@@ -4,17 +4,19 @@ using System;
 using Infrastructure.Providers.Interactor;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using Zenject;
 
 #endregion
 
 namespace Infrastructure.Services.InteractorSetup
 {
+    [RequireComponent(typeof(IXRSelectInteractor))]
     public class InteractorControllerBase : MonoBehaviour, IInteractor
     {
         [field: SerializeField] public InteractorType InteractorType { get; private set; }
         [field: SerializeField] public HandType HandType { get; private set; }
-
+        
         public event Action<bool> OnSelect;
 
         private IXRSelectInteractor _xrSelectInteractor;
@@ -68,12 +70,18 @@ namespace Infrastructure.Services.InteractorSetup
 
         public void Activate()
         {
-            gameObject.SetActive(true);
+            if (_xrSelectInteractor is XRBaseInteractor xrBaseInteractor)
+            {
+                xrBaseInteractor.enabled = true;
+            }
         }
 
         public void Deactivate()
         {
-            gameObject.SetActive(false);
+            if (_xrSelectInteractor is XRBaseInteractor xrBaseInteractor)
+            {
+                xrBaseInteractor.enabled = false;
+            }
         }
 
         private void OnDestroy()

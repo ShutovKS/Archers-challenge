@@ -78,40 +78,50 @@ namespace Features.TargetsInLevelManager
         {
             if (!_planesAvailable) return Vector3.zero;
 
-            ReadOnlyCollection<ARPlane> planes = null;
-            var classifications = new List<PlaneClassification>
-            {
-#if UNITY_EDITOR
-                PlaneClassification.None,
-#else
-                PlaneClassification.Wall,
-                PlaneClassification.Floor,
-                PlaneClassification.Ceiling
-#endif
-            };
+            var cameraPosition = _cameraService.CameraPosition;
+            var cameraForward = _cameraService.Camera.transform.forward;
 
-            while (classifications.Count > 0)
+            const int MAX_ATTEMPTS = 15;
+            const float MIN_DISTANCE = 0.5f;
+
+            var planeLayerMask = LayerMask.GetMask("Default");
+
+            for (var i = 0; i < MAX_ATTEMPTS; i++)
             {
-                if (planes == null || planes.Count == 0)
-                {
-                    var classification = classifications[Random.Range(0, classifications.Count)];
-                    planes = _arPlanesService.GetPlanes(classification);
-                    classifications.Remove(classification);
-                }
-                else
-                {
-                    break;
-                }
+                var randomDirection = Random.insideUnitSphere.normalized;
+
+                if (Vector3.Dot(randomDirection, cameraForward) < 0f)
+                    randomDirection = -randomDirection;
+
+                if (!Physics.Raycast(cameraPosition, randomDirection, out var hit, 30f, planeLayerMask))
+                    continue;
+
+                if (!hit.collider.TryGetComponent<ARPlane>(out var plane))
+                    continue;
+
+                if (!IsPlaneClassificationValid(plane))
+                    continue;
+
+                if (!(Vector3.Distance(cameraPosition, hit.point) >= MIN_DISTANCE))
+                    continue;
+                
+                return hit.point;
             }
 
-            if (planes == null || planes.Count == 0) return Vector3.zero;
-
-            var selectedPlane = planes[Random.Range(0, planes.Count)];
-
-            var randomPoint = GetRandomPointOnPlane(selectedPlane);
-
-            return randomPoint;
+            return Vector3.zero;
         }
+
+        private bool IsPlaneClassificationValid(ARPlane plane) => plane.classifications is
+#if UNITY_EDITOR
+            PlaneClassifications.None or
+#endif
+            PlaneClassifications.Ceiling or
+            PlaneClassifications.DoorFrame or
+            PlaneClassifications.Floor or
+            PlaneClassifications.WallArt or
+            PlaneClassifications.WallFace or
+            PlaneClassifications.WindowFrame;
+
 
         private Vector3 GetRandomPointOnPlane(ARPlane plane)
         {
@@ -124,9 +134,9 @@ namespace Features.TargetsInLevelManager
 
             do
             {
-                var randomPoint =
-                    plane.transform.TransformPoint(boundary[Random.Range(0, boundary.Length)]);
                 attempts++;
+
+                var randomPoint = plane.transform.TransformPoint(boundary[Random.Range(0, boundary.Length)]);
 
                 var cameraPosition = _cameraService.CameraPosition;
                 var direction = randomPoint - cameraPosition;

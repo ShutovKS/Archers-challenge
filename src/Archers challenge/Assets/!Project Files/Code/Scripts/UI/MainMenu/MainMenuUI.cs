@@ -22,6 +22,21 @@ namespace UI.MainMenu
             exit.onClick.AddListener(() => OnExitClicked?.Invoke());
         }
 
+        private void Start()
+        {
+#if LEVEL_DISABLE
+            levels.gameObject.SetActive(false);
+#endif
+
+#if MR_DISABLE
+            infiniteMR.gameObject.SetActive(false);
+#endif
+
+#if VR_DISABLE
+            infiniteVR.gameObject.SetActive(false);
+#endif
+        }
+
         private void OnDestroy()
         {
             infiniteVR.onClick.RemoveAllListeners();

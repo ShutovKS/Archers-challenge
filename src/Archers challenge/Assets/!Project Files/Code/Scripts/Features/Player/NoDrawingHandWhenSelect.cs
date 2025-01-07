@@ -7,16 +7,16 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Features.Player
 {
-    [RequireComponent(typeof(XRBaseInteractor))]
+    [RequireComponent(typeof(UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor))]
     public class NoDrawingHandWhenSelect : MonoBehaviour
     {
         [SerializeField] private GameObject drawingHand;
 
-        private XRBaseInteractor _interactor;
+        private UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor _interactor;
 
         private void Awake()
         {
-            _interactor = GetComponent<XRBaseInteractor>();
+            _interactor = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactors.XRBaseInteractor>();
         }
 
         private void OnEnable()
