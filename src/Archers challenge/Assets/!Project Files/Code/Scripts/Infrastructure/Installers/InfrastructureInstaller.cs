@@ -27,6 +27,7 @@ using Infrastructure.Services.Progress;
 using Infrastructure.Services.Projectile;
 using Infrastructure.Services.ProjectManagement;
 using Infrastructure.Services.SceneLoader;
+using Infrastructure.Services.Sound;
 using Infrastructure.Services.Stopwatch;
 using Infrastructure.Services.Timer;
 using Infrastructure.Services.Weapon;
@@ -62,6 +63,7 @@ namespace Infrastructure.Installers
             Container.Bind<IProjectileService>().To<ProjectileService>().AsSingle();
             Container.Bind<IProjectManagementService>().To<ProjectStateMachine>().AsSingle();
             Container.Bind<ISceneLoaderService>().To<SceneLoaderService>().AsSingle();
+            Container.Bind<ISoundService>().To<SoundBackgroundService>().AsSingle();
             Container.Bind(typeof(IStopwatchService), typeof(ITickable)).To<StopwatchService>().AsSingle();
             Container.Bind(typeof(ITimerService), typeof(ITickable)).To<TimerService>().AsSingle();
             Container.Bind(typeof(IInitializable), typeof(IWeaponService)).To<WeaponService>().AsSingle();
