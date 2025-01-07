@@ -7,6 +7,7 @@ using Infrastructure.Providers.StaticData;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.SceneLoader;
+using Infrastructure.Services.Sound;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
 using UI.Levels;
@@ -31,14 +32,22 @@ namespace Infrastructure.Services.GameSetup
         private readonly IPlayerService _playerService;
         private readonly IXRSetupService _xrSetupService;
         private readonly IInteractorService _interactorService;
+        private readonly ISoundService _soundService;
 
         private MainMenuSceneContextData _sceneContextData;
         private LevelData _levelData;
         private SceneInstance _sceneInstance;
 
-        public MainMenuSetupService(ISceneLoaderService sceneLoaderService, IStaticDataProvider staticDataProvider,
-            IWindowService windowService, ISceneContextProvider sceneContextProvider, IPlayerService playerService,
-            IXRSetupService xrSetupService, IInteractorService interactorService)
+        public MainMenuSetupService(
+            ISceneLoaderService sceneLoaderService,
+            IStaticDataProvider staticDataProvider,
+            IWindowService windowService,
+            ISceneContextProvider sceneContextProvider,
+            IPlayerService playerService,
+            IXRSetupService xrSetupService,
+            IInteractorService interactorService,
+            ISoundService soundService
+        )
         {
             _sceneLoaderService = sceneLoaderService;
             _staticDataProvider = staticDataProvider;
@@ -47,6 +56,7 @@ namespace Infrastructure.Services.GameSetup
             _playerService = playerService;
             _xrSetupService = xrSetupService;
             _interactorService = interactorService;
+            _soundService = soundService;
         }
 
         public async Task SetupMainMenuAsync()
@@ -60,6 +70,7 @@ namespace Infrastructure.Services.GameSetup
             await OpenScreens();
             await ConfigurePlayer();
             await ConfigureLevelsUI();
+            PlayBackgroundMusic();
         }
 
         #region Setup MainMenu
@@ -116,17 +127,25 @@ namespace Infrastructure.Services.GameSetup
             return Task.CompletedTask;
         }
 
+        private void PlayBackgroundMusic() =>
+            _soundService.PlaySound(_levelData.Music);
+
         #endregion
 
         public async Task CleanupMainMenuAsync()
         {
+            StopBackgroundMusic();
             await UnloadLocation();
             await CloseScreens();
         }
 
         #region Cleanup MainMenu
 
-        private async Task UnloadLocation() => await _sceneLoaderService.UnloadSceneAsync(_sceneInstance);
+        private void StopBackgroundMusic() =>
+            _soundService.Stop();
+
+        private async Task UnloadLocation() =>
+            await _sceneLoaderService.UnloadSceneAsync(_sceneInstance);
 
         private Task CloseScreens()
         {

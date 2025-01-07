@@ -16,8 +16,10 @@ namespace Core.Project
             _projectManagementService = projectManagementService;
         }
 
-        public void OnEnter() => MoveToNextState();
+        public void OnEnter() => 
+            MoveToNextState();
 
-        private void MoveToNextState() => _projectManagementService.ChangeState<InitializationState>();
+        private void MoveToNextState() => 
+            _projectManagementService.ChangeState<InitializationState>();
     }
 }

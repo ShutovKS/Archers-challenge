@@ -7,6 +7,7 @@ using Infrastructure.Providers.SceneContainer;
 using Infrastructure.Services.InteractorSetup;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.SceneLoader;
+using Infrastructure.Services.Sound;
 using Infrastructure.Services.Weapon;
 using Infrastructure.Services.Window;
 using Infrastructure.Services.XRSetup;
@@ -34,16 +35,24 @@ namespace Infrastructure.Services.GameSetup
         private readonly IXRSetupService _xrSetupService;
         private readonly IInteractorService _interactorService;
         private readonly IGameplayLevelsFactory _gameplayLevelsFactory;
+        private readonly ISoundService _soundService;
 
         private GameplaySceneContextData _sceneContextData;
         private IGameplayLevel _gameplayLevel;
         private LevelData _levelData;
         private SceneInstance _locationSceneInstance;
 
-        public GameplaySetupService(ISceneLoaderService sceneLoaderService, ISceneContextProvider sceneContextProvider,
-            IWeaponService weaponService, IWindowService windowService, IPlayerService playerService,
+        public GameplaySetupService(
+            ISceneLoaderService sceneLoaderService,
+            ISceneContextProvider sceneContextProvider,
+            IWeaponService weaponService,
+            IWindowService windowService,
+            IPlayerService playerService,
             IXRSetupService xrSetupService,
-            IInteractorService interactorService, IGameplayLevelsFactory gameplayLevelsFactory)
+            IInteractorService interactorService,
+            IGameplayLevelsFactory gameplayLevelsFactory,
+            ISoundService soundService
+        )
         {
             _sceneLoaderService = sceneLoaderService;
             _sceneContextProvider = sceneContextProvider;
@@ -53,6 +62,7 @@ namespace Infrastructure.Services.GameSetup
             _xrSetupService = xrSetupService;
             _interactorService = interactorService;
             _gameplayLevelsFactory = gameplayLevelsFactory;
+            _soundService = soundService;
         }
 
         public async Task SetupGameplayAsync(LevelData levelData)
@@ -68,6 +78,7 @@ namespace Infrastructure.Services.GameSetup
             await OpenScreens();
             await ConfigurePlayer();
             await CreateGameplayLevel();
+            PlayBackgroundMusic();
         }
 
         #region Setup Gameplay
@@ -124,6 +135,9 @@ namespace Infrastructure.Services.GameSetup
             await _gameplayLevel.PrepareGame(_levelData.GameplayModeData);
         }
 
+        private void PlayBackgroundMusic() =>
+            _soundService.PlaySound(_levelData.Music);
+
         #endregion
 
         public async Task<IGameplayLevel> LaunchGameplayAsync()
@@ -131,9 +145,10 @@ namespace Infrastructure.Services.GameSetup
             await _gameplayLevel.StartGame();
             return _gameplayLevel;
         }
-        
+
         public async Task CleanupGameplayAsync()
         {
+            StopBackgroundMusic();
             await CleanupGameplayLevel();
             await CloseScreens();
             await DestroyLocation();
@@ -141,6 +156,9 @@ namespace Infrastructure.Services.GameSetup
         }
 
         #region Cleanup Gameplay
+
+        private void StopBackgroundMusic() =>
+            _soundService.Stop();
 
         private Task CleanupGameplayLevel()
         {
