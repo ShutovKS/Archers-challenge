@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Core.Project.MainMenu;
 using Infrastructure.Services.Player;
 using Infrastructure.Services.ProjectManagement;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Core.Project.Initialization
@@ -19,25 +20,20 @@ namespace Core.Project.Initialization
 
         public async void OnEnter()
         {
-            await LoadBootstrapScene();
+            await LoadEmptyScene();
 
             await CreatePlayer();
 
             MoveToNextState();
         }
 
-        private Task LoadBootstrapScene()
-        {
-            if (SceneManager.GetActiveScene().buildIndex != 0)
-            {
-                SceneManager.LoadSceneAsync(0);
-            }
-            
-            return Task.CompletedTask;
-        }
+        private async Task LoadEmptyScene() =>
+            await SceneManager.LoadSceneAsync(1);
 
-        private async Task CreatePlayer() => await _playerService.InstantiatePlayerAsync();
+        private async Task CreatePlayer() =>
+            await _playerService.InstantiatePlayerAsync();
 
-        private void MoveToNextState() => _projectManagementService.ChangeState<MainMenuState>();
+        private void MoveToNextState() =>
+            _projectManagementService.ChangeState<MainMenuState>();
     }
 }
