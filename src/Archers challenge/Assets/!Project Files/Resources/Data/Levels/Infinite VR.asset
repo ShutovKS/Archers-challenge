@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Key>k__BackingField: InfiniteVR
   <LevelIndex>k__BackingField: -1
-  <LevelName>k__BackingField: Pond
+  <LevelName>k__BackingField: 
   <ShortDescription>k__BackingField: 
   <Icon>k__BackingField: {fileID: 0}
-  <Music>k__BackingField: {fileID: 0}
-  <MusicVolume>k__BackingField: 0
+  <Music>k__BackingField: {fileID: 8300000, guid: 47658696bb705b5488a8968d4166be15,
+    type: 3}
+  <MusicVolume>k__BackingField: 0.5
   <LocationScenePath>k__BackingField:
     m_AssetGUID: de3a3256a67f1b544881122f62aacb54
     m_SubObjectName: 
-    m_SubObjectGUID: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   <XRMode>k__BackingField: 1
   <IsGravityEnabled>k__BackingField: 1

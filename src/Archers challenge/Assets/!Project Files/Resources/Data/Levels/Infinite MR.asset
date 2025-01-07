@@ -17,13 +17,14 @@ MonoBehaviour:
   <LevelName>k__BackingField: 
   <ShortDescription>k__BackingField: 
   <Icon>k__BackingField: {fileID: 0}
-  <Music>k__BackingField: {fileID: 0}
-  <MusicVolume>k__BackingField: 0
+  <Music>k__BackingField: {fileID: 8300000, guid: 47658696bb705b5488a8968d4166be15,
+    type: 3}
+  <MusicVolume>k__BackingField: 0.5
   <LocationScenePath>k__BackingField:
     m_AssetGUID: 2ddac2b6314c3074b9acc7e6eaf9bbc9
     m_SubObjectName: 
-    m_SubObjectGUID: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   <XRMode>k__BackingField: 2
   <IsGravityEnabled>k__BackingField: 0
