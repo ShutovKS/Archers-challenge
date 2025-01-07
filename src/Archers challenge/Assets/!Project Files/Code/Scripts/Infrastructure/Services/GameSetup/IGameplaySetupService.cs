@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using Core.Gameplay;
 using Data.Configurations.Level;
 using Data.Contexts.Scene;
-using Extension;
 using Infrastructure.Factories.GameplayLevels;
 using Infrastructure.Providers.SceneContainer;
 using Infrastructure.Services.InteractorSetup;

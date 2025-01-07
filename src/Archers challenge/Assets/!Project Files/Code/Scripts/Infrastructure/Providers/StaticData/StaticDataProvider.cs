@@ -21,13 +21,11 @@ namespace Infrastructure.Providers.StaticData
         public void Initialize()
         {
             _levels = Resources
-                .Load<LevelDatabase>(ResourcesPaths.LEVEL_DATABASE)
-                .Items
+                .LoadAll<LevelData>(ResourcesPaths.LEVEL_DATABASE)
                 .ToDictionary(x => x.Key, x => x);
 
             _weapons = Resources
-                .Load<WeaponDatabase>(ResourcesPaths.WEAPON_DATABASE)
-                .Items
+                .LoadAll<WeaponData>(ResourcesPaths.WEAPON_DATABASE)
                 .ToDictionary(x => x.Key, x => x);
         }
 

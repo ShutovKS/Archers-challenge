@@ -24,7 +24,6 @@ namespace Core.Gameplay
 
         private IStopwatchService _stopwatchService;
         private IWindowService _windowService;
-        private ITargetFactory _targetFactory;
         private ISceneContextProvider _sceneContextProvider;
         private IARComponentsFactory _arComponentsFactory;
 
@@ -42,14 +41,12 @@ namespace Core.Gameplay
         public void Construct(
             IStopwatchService stopwatchService,
             IWindowService windowService,
-            ITargetFactory targetFactory,
             ISceneContextProvider sceneContextProvider,
             IARComponentsFactory arComponentsFactory
         )
         {
             _stopwatchService = stopwatchService;
             _windowService = windowService;
-            _targetFactory = targetFactory;
             _sceneContextProvider = sceneContextProvider;
             _arComponentsFactory = arComponentsFactory;
         }

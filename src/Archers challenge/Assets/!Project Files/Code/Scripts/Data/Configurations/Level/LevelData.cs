@@ -42,10 +42,29 @@ namespace Data.Configurations.Level
         private GameplayModeData gameplayModeData;
 
         public GameplayModeData GameplayModeData => gameplayModeData;
-
-        public void OnValidate()
+        
+        protected void OnValidate()
         {
-            LevelDatabase.Instance.OnValidate(this);
+            ValidateKey();
+            ValidateIcon();
+        }
+        
+        private void ValidateKey()
+        {
+            if (string.IsNullOrEmpty(Key))
+            {
+                Key = KeyGenerator.GenerateKey();
+
+                Debug.LogWarning($"WeaponData: Key was empty, generated a new one: {Key}");
+            }
+        }
+
+        private void ValidateIcon()
+        {
+            if (Icon == null)
+            {
+                Debug.LogWarning($"WeaponData: Icon is not assigned.");
+            }
         }
     }
 }
