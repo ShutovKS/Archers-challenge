@@ -15,6 +15,18 @@ MonoBehaviour:
   m_GroupName: UI
   m_GUID: 21fb820cd56e1b642891e6aec67aa01c
   m_SerializeEntries:
+  - m_GUID: 34d47c66bb870a8469835c93f65fc867
+    m_Address: Sprites/LargeBackground
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a5fc976316475a46ba16b4b5a92c1f2
+    m_Address: Sprites/OrangeBtn
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: afa83661044c245448e43e38ddc77486
     m_Address: UI/Information desk Screen
     m_ReadOnly: 0
